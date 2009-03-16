@@ -7,6 +7,8 @@
 
 from numpy import array, pi, sin, cos, tan, arctan2, sqrt, hypot
 import numpy as np
+import matplotlib as matp
+import matplotlib.pyplot as plt
 
 class xxCG():
     def __init__(self):
@@ -47,5 +49,34 @@ class xxCG():
         self.head_loc = (self.Gs * cos(self.Cs),
                          self.Gs * sin(self.Cs))
     
-# Begin the script that will produce the matrix of stored energies
+def contour(x,y,z):
+    """Take 1-d x and y arrays, and a 2-d z array and plot out a contour"""
+    # Set something?
+    matp.rcParams['xtick.direction'] = 'out'
+    matp.rcParams['ytick.direction'] = 'out'
+    # Produce the coordinate matrices from two coordinate vectors
+    X, Y = np.meshgrid(x, y)
+    # Plot the contours with default labeling
+    plt.figure()
+    CS = plt.contour(X, Y, z)
+    plt.clabel(CS, inline=1, fontsize=10)
+    plt.title('Simplest default with labels')
+    # Display our contour
+    plt.show()
+    
+
+## Begin the script that will produce the matrix of stored energies
+x_locs = np.arange(3, 8, .1) 
+y_locs = np.arange(7, 11, .1)
+energs = np.zeros((y_locs.size, x_locs.size))
+# Instantiate the xb
 xb = xxCG()
+# Cycle through and collect all the energies
+n = [0,0]
+for y in y_locs:
+    for x in x_locs:
+        xb.head_loc = (x,y)
+        energs[n[0], n[1]] = xb.energy()
+        n[1] = n[1] + 1
+    n[0] = n[0] + 1
+    n[1] = 0
