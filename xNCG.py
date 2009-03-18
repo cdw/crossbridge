@@ -46,6 +46,7 @@ class xNCG():
         self.Fv = 10.0 # variance of forces exerted on myosin heads
         self.Bd = 0.55 # dist at which binding becomes likely
         # Current state and identity of XB
+        self.rest_conv_loc() # Sets conv_loc to rest location
         self.rest_head_loc() # Sets head_loc to rest location
         self.bound = False
         self.state = 0 # 0 is unbound, 1 is loosely, 2 is strongly
@@ -53,8 +54,26 @@ class xNCG():
     def energy(self):
         pass
         
+    def glob_len(self):
+        """Return the globular length at the current head_loc"""
+        x = self.head_loc[0] - self.conv_loc[0]
+        y = self.head_loc[1] - self.conv_loc[1]
+        return hypot(x, y)
+    
+    def conv_ang(self):
+        """Return the converter angle at the current head_loc"""
+        x = self.head_loc[0] - self.conv_loc[0]
+        y = self.head_loc[1] - self.conv_loc[1]
+        return arctan2(y, x) + pi - self.Ts
+
+    def rest_conv_loc(self):
+        """Set the converter loc to its rest location"""
+        self.conv_loc = (self.Ns * cos(self.Ts),
+                         self.Ns * sin(self.Ts))
+    
     def rest_head_loc(self):
         """Set the head loc to its rest location"""
-        self.head_loc = (self.Gs * cos(self.Cs),
-                         self.Gs * sin(self.Cs))
+        x = self.conv_loc[0] + self.Gs * cos(self.Cs + self.Ts - pi)
+        y = self.conv_loc[1] + self.Gs * sin(self.Cs + self.Ts - pi)
+        self.head_loc = (x, y)
     
