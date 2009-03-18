@@ -13,7 +13,7 @@ class xxCG():
     def __init__(self):
         """Create the values we'll be referencing for the XB"""
         self.Cs = pi/3 # rest angle of converter domain
-        self.Ck = 200  # torsional spring const of converter domain
+        self.Ck = 100  # torsional spring const of converter domain
         self.Cv = (pi/3, pi/3, 1.2*pi/3) # normal and rigor values of Cs
         self.Gs = 10.5 # rest length of globular domain
         self.Gk = 5    # spring constant of globular domain
@@ -33,7 +33,7 @@ class xxCG():
         G = self.glob_len()
         C = self.conv_ang()
         return (0.5 * self.Gk * (G-self.Gs)**2 + 
-        1/(2*G) * self.Ck * (C-self.Cs)**2)
+        0.5 * self.Ck * (C-self.Cs)**2)
 
     def glob_len(self):
         """Return the globular length at the current head_loc"""
