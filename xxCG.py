@@ -50,8 +50,8 @@ class xxCG():
     
 
 ## Begin the script that will produce the matrix of stored energies
-x_locs = np.arange(-3, 11, .1) 
-y_locs = np.arange(0, 14, .1)
+x_locs = np.arange(-3, 13, .1) 
+y_locs = np.arange(0, 16, .1)
 energs = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb
 xb = xxCG()
@@ -64,4 +64,8 @@ for y in y_locs:
         n[1] = n[1] + 1
     n[0] = n[0] + 1
     n[1] = 0
+contour.title = "Energy level of an xxCG crossbridge at different head locations"
+contour.xlabel = "Location of XB head (nm)"
+contour.ylabel = "Location of XB head (nm)"
+contour.levels = [1, 4, 7, 10, 13]
 contour.contour(x_locs, y_locs, energs)
