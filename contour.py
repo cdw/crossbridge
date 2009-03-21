@@ -17,11 +17,11 @@ def contour(x,y,z):
     X, Y = np.meshgrid(x, y)
     # Plot the contours with default labeling
     plt.figure()
-    im = plt.imshow(z, interpolation='bilinear', origin='lower',
-                cmap=cm, extent=(x.min(),x.max(),y.min(),y.max()), norm=matp.colors.Normalize(vmin=0, vmax=30))
-    CS = plt.contour(X, Y, z, levels, colors='k',origin='lower',
-                 linewidths=2)
-    plt.clabel(CS, inline=1, fontsize=9, fmt='%1.1f')
+    im = plt.imshow(z, interpolation='bilinear', origin='upper',
+                cmap=cm, extent=(x.min(),x.max(),y.min(),y.max()), 
+                norm=matp.colors.Normalize(vmin=0, vmax=30))
+    CS = plt.contour(X, np.flipud(Y), z, levels, colors='k', linewidths=2)
+    plt.clabel(CS, inline=1, fontsize=10, fmt='%1.1f')
     plt.title(title)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)

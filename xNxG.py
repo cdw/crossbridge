@@ -32,7 +32,7 @@ class xNxG():
         self.Ck = 100  # torsional spring const of converter domain
         self.Cv = (pi/3, pi/3, 1.2*pi/3) # normal and rigor values of Cs
         self.Gs = 3    # rest length of globular domain
-        self.Gk = 5    # spring constant of globular domain
+        self.Gk = 0    # spring constant of globular domain
         self.Gv = (5, 5, 5) # normal and rigor values of Gs
         self.Fm = 0    # mean of forces exerted on myosin heads
         self.Fv = 10.0 # variance of forces exerted on myosin heads
