@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 ## This file defines the system for the TNCG crossbridge. This 
 ## crossbridge type has linear springs representing the neck and
 ## globular regions, and torsional springs representing the 

@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 ## This file defines the system for the xNCG crossbridge. This 
 ## crossbridge type has linear springs representing the neck and
 ## globular regions, and a torsional spring representing the 

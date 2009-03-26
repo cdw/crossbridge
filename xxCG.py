@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 ## 
 # Dave Williams, 20090315
 # This script executes to produce a large matrix of the xxCG model's
