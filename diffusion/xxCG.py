@@ -1,7 +1,7 @@
 ## 
 # Dave Williams, 20090315
 # This script executes to produce a large matrix of the xxCG model's
-# potential energies and transition rates
+# probabilities of diffusing to a given location
 # 
 ##
 
@@ -66,7 +66,7 @@ class xxCG():
                          self.Gs * sin(self.Cs))
     
 
-## Begin the script that will produce the matrix of stored energies
+## Begin the script that will produce the matrix of stored probabilities
 x_locs = np.arange(-3, 13, .2) 
 y_locs = np.arange(0, 16, .2)
 probs = np.zeros((y_locs.size, x_locs.size))
