@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 ## This file defines the system for the xNxG crossbridge. This 
 ## crossbridge type has linear springs representing the neck and
 ## globular regions. These springs are angled such that they replicate
@@ -28,7 +29,6 @@ import numpy as np
 from scipy.optimize import fmin_powell as fmin
 import time
 import contour
-import graphXB
 
 
 class xNxG():
@@ -42,7 +42,7 @@ class xNxG():
         self.Ck = 100  # torsional spring const of converter domain
         self.Cv = (pi/3, pi/3, 1.2*pi/3) # normal and rigor values of Cs
         self.Gs = 3    # rest length of globular domain
-        self.Gk = 0    # spring constant of globular domain
+        self.Gk = .001 # spring constant of globular domain
         self.Gv = (5, 5, 5) # normal and rigor values of Gs
         self.Bd = 0.55 # dist at which binding becomes likely
         # Current state and identity of XB
@@ -164,24 +164,27 @@ class xNxG():
 ##     window.update_XB(b)
 ##     time.sleep(.01)
 
-# Begin the script that will produce the matrix of stored energies
-print("This might take a while")
+# Begin the script that will produce the matrix of stored probabilities
 x_locs = np.arange(-3, 13, .1) 
 y_locs = np.arange(0, 16, .1)
-energs = np.zeros((y_locs.size, x_locs.size))
+probs = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb
 xb = xNxG()
-# Cycle through and collect all the energies
+# Cycle through and collect all the probabilities
 n = [0,0]
 for y in y_locs:
     for x in x_locs:
         xb.head_loc = (x,y)
-        energs[n[0], n[1]] = xb.minimize()
+        probs[n[0], n[1]] = xb.probability()
         n[1] = n[1] + 1
     n[0] = n[0] + 1
     n[1] = 0
-contour.title = "Energy level of an xNxG crossbridge at different head locations"
+# Normalize the probabilities
+min = np.min(probs)
+max = np.max(probs)
+probs = (probs - min)/(max-min)
+contour.title = "Probability of an xBxG crossbridge being\n found at a given head locations"
 contour.xlabel = "Location of XB head (nm)"
 contour.ylabel = "Location of XB head (nm)"
-contour.levels = [1, 4, 7, 10, 13]
-contour.contour(x_locs, y_locs, energs)
+contour.levels = [.9, .95, .98, .99, .999] 
+contour.contour(x_locs, y_locs, probs)
