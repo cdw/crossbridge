@@ -74,21 +74,41 @@ class TNCG():
                 "Tot energy  = %02.3f" %Total)
         
     def bop(self):
-        """Bop the xb to a new location, based on an exponential
-        distruibution of energies for each independent segment of
-        the crossbridge as determined by Boltzmann's law
+        """Bop the xb to a new location, based on an exponential distribution 
+        of energies for each independent segment of the crossbridge as 
+        determined by Boltzmann's law. Return the new head location.
         
         This makes use of numpy's exponential distribution:
-        numpy.random.xponential(scale=1.0, size=None)
-        Where scale is B such that the probability density function
-        of the resulting distribution is 
+            numpy.random.exponential(scale=1.0, size=None)
+        Where scale is B such that the probability density function of the 
+        resulting distribution is: 
             f(x, B) = 1/B exp(-x/B)
-        So because we are looking for our distributions to have 
-        probability density functions of:
-            f(U) = 1/Z exp(-U/kT) and 
-        This means that we need to 
+        If we feed numpy's exponential distribution B=kT, and take x as 
+        energy U, we have a distribution of 
+            f(U) = 1/kT exp(-U/kT)
+        Now, we will have to scale this output as we need our distributions 
+        to have probability density functions of:
+            f(U) = 1/Z exp(-U/kT) 
+                Where Z is in the format of:
+                Zc = sqrt(2 pi kT / Kc) or
+                Zg = sqrt(pi kT / (2 Kg))
+        This means we need to multiply the numpy output by kT/Z, which, in 
+        these cases would work out to:
+            kT/Zc = sqrt(Kc kT/ (2 pi)) or
+            kT/Zg = sqrt(2 Kg kT / pi)
+        This gives us the energy distributions we want, from which we can 
+        backtrack to get the length or angle values for each component.
         """
-        
+        Tu = self.kT / self.Tz * np.random.exponential(scale=self.kT)
+        T  = sqrt(2 * Tu / self.Tk) + self.Ts
+        Nu = self.kT / self.Nz * np.random.exponential(scale=self.kT)
+        N  = sqrt(2 * Nu / self.Nk) + self.Ns
+        Cu = self.kT / self.Cz * np.random.exponential(scale=self.kT)
+        C  = sqrt(2 * Cu / self.Ck) + self.Cs
+        Gu = self.kT / self.Gz * np.random.exponential(scale=self.kT)
+        G  = sqrt(2 * Gu / self.Gk) + self.Gs
+        self.set_conv_and_head_from_segments(T, N, C, G)
+        return self.head_loc
         
     def probability(self):
         """Given the location of the XB head,
@@ -157,6 +177,14 @@ class TNCG():
                          self.Ns * sin(self.Ts))
         x = self.conv_loc[0] + self.Gs * cos(self.Cs + self.Ts - pi)
         y = self.conv_loc[1] + self.Gs * sin(self.Cs + self.Ts - pi)
+        self.head_loc = (x, y)
+        
+    def set_conv_and_head_from_segments(self, T, N, C, G):
+        """Set the converter and head loc from passed segment values"""
+        self.conv_loc = (N * cos(T),
+                         N * sin(T))
+        x = self.conv_loc[0] + G * cos(C + T - pi)
+        y = self.conv_loc[1] + G * sin(C + T - pi)
         self.head_loc = (x, y)
 
 ## b = TNCG()
