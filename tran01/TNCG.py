@@ -45,7 +45,7 @@ class TNCG():
         # Diffusion related values
         self.T = 288             #the temperature (in K) that this runs at
         self.K = 1.381 * 10**-23 #Boltzman const (in J/K)
-        self.kT = self.K * self.T * 10**23 # kT with pN/nM conversion
+        self.kT = self.K * self.T * 10**21  # kT without pN/nM conversion
         self.Tz = sqrt((2 * pi * self.kT) / self.Tk)
         self.Nz = sqrt((pi * self.kT) / (2 * self.Nk))
         self.Cz = sqrt((2 * pi * self.kT) / self.Ck)
@@ -210,24 +210,24 @@ class TNCG():
 ##     time.sleep(.01)
 
 ## Begin the script that will produce the matrix of stored probabilities
-trials = 2000
-x_locs = np.arange(-3, 13, .2) 
-y_locs = np.arange(0, 16, .2)
+trials = 200000
+x_locs = np.arange(-10, 10, .2) 
+y_locs = np.arange(0, 20, .2)
 probs = np.zeros((y_locs.size, x_locs.size))
 hits = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb
 xb = TNCG()
 # Cycle through all iterations and collect the head locations
-for i in range(10):
+for i in range(trials):
     loc = xb.bop()
     x_ind = np.searchsorted(x_locs, loc[0]) - 1 #FIXME Check that there is not  
     y_ind = np.searchsorted(y_locs, loc[1]) - 1 #    an off by one error here
     hits[x_ind, y_ind] = hits[x_ind, y_ind] + 1
 
 # Normalize the hit likelihood
-#min = np.min(hits)
-#max = np.max(hits)
-#hits = (hits - min)/(max-min)
+min = np.min(hits)
+max = np.max(hits)
+hits = (hits - min)/(max-min)
 contour.title = "Probability of an TNCG crossbridge being\n found at a given head location"
 contour.xlabel = "Location of XB head (nm)"
 contour.ylabel = "Location of XB head (nm)"
