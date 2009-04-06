@@ -210,26 +210,26 @@ class TNCG():
 ##     time.sleep(.01)
 
 ## Begin the script that will produce the matrix of stored probabilities
+trials = 2000
 x_locs = np.arange(-3, 13, .2) 
 y_locs = np.arange(0, 16, .2)
 probs = np.zeros((y_locs.size, x_locs.size))
+hits = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb
 xb = TNCG()
-# Cycle through and collect all the probabilities
-n = [0,0]
-for y in y_locs:
-    for x in x_locs:
-        xb.head_loc = (x,y)
-        probs[n[0], n[1]] = xb.probability()
-        n[1] = n[1] + 1
-    n[0] = n[0] + 1
-    n[1] = 0
-# Normalize the probabilities
-min = np.min(probs)
-max = np.max(probs)
-probs = (probs - min)/(max-min)
-contour.title = "Probability of an TNCG crossbridge being\n found at a given head locations"
+# Cycle through all iterations and collect the head locations
+for i in range(10):
+    loc = xb.bop()
+    x_ind = np.searchsorted(x_locs, loc[0]) - 1 #FIXME Check that there is not  
+    y_ind = np.searchsorted(y_locs, loc[1]) - 1 #    an off by one error here
+    hits[x_ind, y_ind] = hits[x_ind, y_ind] + 1
+
+# Normalize the hit likelihood
+#min = np.min(hits)
+#max = np.max(hits)
+#hits = (hits - min)/(max-min)
+contour.title = "Probability of an TNCG crossbridge being\n found at a given head location"
 contour.xlabel = "Location of XB head (nm)"
 contour.ylabel = "Location of XB head (nm)"
 contour.levels = [.9, .95, .98, .99, .999] 
-contour.contour(x_locs, y_locs, probs)
+contour.contour(x_locs, y_locs, hits)
