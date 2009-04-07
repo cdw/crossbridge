@@ -210,9 +210,9 @@ class TNCG():
 ##     time.sleep(.01)
 
 ## Begin the script that will produce the matrix of stored probabilities
-trials = 200000
-x_locs = np.arange(-10, 10, .2) 
-y_locs = np.arange(0, 20, .2)
+trials = 60000
+x_locs = np.arange(-15, 15, .2) 
+y_locs = np.arange(-5, 25, .2)
 probs = np.zeros((y_locs.size, x_locs.size))
 hits = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb
@@ -231,5 +231,5 @@ hits = (hits - min)/(max-min)
 contour.title = "Probability of an TNCG crossbridge being\n found at a given head location"
 contour.xlabel = "Location of XB head (nm)"
 contour.ylabel = "Location of XB head (nm)"
-contour.levels = [.9, .95, .98, .99, .999] 
+contour.levels = [.1, .3, .5, .7, .9] 
 contour.contour(x_locs, y_locs, hits)
