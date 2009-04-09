@@ -106,7 +106,7 @@ class xxCG():
     
 
 ## Begin the script that will produce the matrix of stored probabilities
-trials = 96000
+trials = 2000000
 x_locs = np.arange(-15, 15, .2) 
 y_locs = np.arange(-5, 25, .2)
 probs = np.zeros((y_locs.size, x_locs.size))

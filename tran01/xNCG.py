@@ -187,9 +187,9 @@ class xNCG():
 
 ## Begin the script that will produce the matrix of stored probabilities
 print("This might take a while")
-trials = 24000
-x_locs = np.arange(-5, 15, .4) 
-y_locs = np.arange(-5, 15, .4)
+trials = 2000000
+x_locs = np.arange(-5, 15, .2) 
+y_locs = np.arange(-5, 15, .2)
 probs = np.zeros((y_locs.size, x_locs.size))
 hits = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb

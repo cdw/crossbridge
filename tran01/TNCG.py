@@ -13,7 +13,8 @@
 ##   /     
 ##==T====== - Thick filament, torsional spring
 
-# FIXME: Find correct scaling factor for kT to be used with our pN forces and nM scales
+# FIXME: Find correct scaling factor for kT to be used with our pN forces and 
+#        nM scales
 # FIXME: Make sure that contour binning isn't off-by-one
 
 from numpy import array, pi, sin, cos, tan, arctan2, sqrt, hypot
@@ -188,7 +189,7 @@ class TNCG():
         self.head_loc = (x, y)
 
 ## Begin the script that will produce the matrix of stored probabilities
-trials = 60000
+trials = 2560000
 x_locs = np.arange(-15, 15, .2) 
 y_locs = np.arange(-5, 25, .2)
 probs = np.zeros((y_locs.size, x_locs.size))
