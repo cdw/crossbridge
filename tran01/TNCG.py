@@ -1,4 +1,4 @@
-#!/usr/bin/env pythoncd 
+#!/usr/bin/env python
 ## This file defines the system for the TNCG crossbridge. This 
 ## crossbridge type has linear springs representing the neck and
 ## globular regions, and torsional springs representing the 
@@ -73,6 +73,21 @@ class TNCG():
                 "C = %02.3fpi : %02.3f \n" %(C/pi, Cu) + 
                 "G = %02.3f   : %02.3f \n" %(G, Gu) +
                 "Tot energy  = %02.3f" %Total)
+    
+    def tran01(self, bSite):
+        """Given an (x,y) location of an open binding site, bind or not after
+        bopping the cross-bridge head to a new location. Return a boolean, True
+        for a binding event and False for no binding event.
+        """
+        # Bop
+        hLoc = self.bop()
+        # Dist
+        dist = hypot(bSite[0]-hLoc[0], bSite[1]-hLoc[1])
+        # Bind?
+        bProb = np.exp(-dist) # Binding prob is dependent on the exp of dist
+        binds = bProb > np.random.rand()
+        # Return
+        return binds
         
     def bop(self):
         """Bop the xb to a new location, based on an exponential distribution 
@@ -188,27 +203,48 @@ class TNCG():
         y = self.conv_loc[1] + G * sin(C + T - pi)
         self.head_loc = (x, y)
 
+### Begin the script that will produce the matrix of stored probabilities
+#trials = 25600
+#x_locs = np.arange(-15, 15, .2) 
+#y_locs = np.arange(-5, 25, .2)
+#probs = np.zeros((y_locs.size, x_locs.size))
+#hits = np.zeros((y_locs.size, x_locs.size))
+## Instantiate the xb
+#xb = TNCG()
+## Cycle through all iterations and collect the head locations
+#for i in range(trials):
+#    loc = xb.bop()
+#    x_ind = np.searchsorted(x_locs, loc[0]) - 1 #FIXME Check that there is not  
+#    y_ind = np.searchsorted(y_locs, loc[1]) - 1 #    an off by one error here
+#    hits[x_ind, y_ind] = hits[x_ind, y_ind] + 1
+#
+## Normalize the hit likelihood
+#min = np.min(hits)
+#max = np.max(hits)
+#hits = (hits - min)/(max-min)
+
 ## Begin the script that will produce the matrix of stored probabilities
-trials = 2560000
-x_locs = np.arange(-15, 15, .2) 
-y_locs = np.arange(-5, 25, .2)
-probs = np.zeros((y_locs.size, x_locs.size))
-hits = np.zeros((y_locs.size, x_locs.size))
+trials = 100
+x_locs = np.arange(-5, 15, 1) 
+y_locs = np.arange(0, 25, 1)
+rates = np.zeros((np.size(x_locs), np.size(y_locs)))
 # Instantiate the xb
 xb = TNCG()
 # Cycle through all iterations and collect the head locations
-for i in range(trials):
-    loc = xb.bop()
-    x_ind = np.searchsorted(x_locs, loc[0]) - 1 #FIXME Check that there is not  
-    y_ind = np.searchsorted(y_locs, loc[1]) - 1 #    an off by one error here
-    hits[x_ind, y_ind] = hits[x_ind, y_ind] + 1
-
-# Normalize the hit likelihood
-min = np.min(hits)
-max = np.max(hits)
-hits = (hits - min)/(max-min)
-contour.title = "Probability of an TNCG crossbridge being\n found at a given head location"
-contour.xlabel = "Location of XB head (nm)"
-contour.ylabel = "Location of XB head (nm)"
-contour.levels = [.1, .3, .5, .7, .9] 
-contour.contour(x_locs, y_locs, hits)
+n = [0,0]
+for x in x_locs:
+    for y in y_locs:
+        for i in np.arange(trials):
+            rates[n[0], n[1]] += xb.tran01((x, y))
+        n[1] += 1
+    n[0] += 1
+    n[1] = 0
+# Scale for display, b/c we want our rates to be out of 1000 tries
+scale = trials/1000.0
+sRates = scale*rates
+contour.title = ("Probability of an TNCG crossbridge binding\n", 
+                 "to an open actin site at the given locations")
+contour.xlabel = "Binding site X loc (nm)"
+contour.ylabel = "Binding site Y loc (nm)"
+contour.levels = [5, 10, 20, 40, 80, 160, 320] 
+contour.contour(x_locs, y_locs, sRates)
