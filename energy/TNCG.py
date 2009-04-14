@@ -143,8 +143,8 @@ class TNCG():
 
 # Begin the script that will produce the matrix of stored energies
 print("This might take a while")
-x_locs = np.arange(-3, 13, .1) 
-y_locs = np.arange(0, 16, .1)
+x_locs = np.arange(-3, 13, 1) 
+y_locs = np.arange(0, 16, 1)
 energs = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb
 xb = TNCG()

@@ -21,6 +21,7 @@ from numpy import array, pi, sin, cos, tan, arctan2, sqrt, hypot
 import numpy as np
 from scipy.optimize import fmin_powell as fmin
 import time
+import cPickle as pkl
 import contour
 #import graphXB
 
@@ -203,48 +204,33 @@ class TNCG():
         y = self.conv_loc[1] + G * sin(C + T - pi)
         self.head_loc = (x, y)
 
-### Begin the script that will produce the matrix of stored probabilities
-#trials = 25600
-#x_locs = np.arange(-15, 15, .2) 
-#y_locs = np.arange(-5, 25, .2)
-#probs = np.zeros((y_locs.size, x_locs.size))
-#hits = np.zeros((y_locs.size, x_locs.size))
-## Instantiate the xb
-#xb = TNCG()
-## Cycle through all iterations and collect the head locations
-#for i in range(trials):
-#    loc = xb.bop()
-#    x_ind = np.searchsorted(x_locs, loc[0]) - 1 #FIXME Check that there is not  
-#    y_ind = np.searchsorted(y_locs, loc[1]) - 1 #    an off by one error here
-#    hits[x_ind, y_ind] = hits[x_ind, y_ind] + 1
-#
-## Normalize the hit likelihood
-#min = np.min(hits)
-#max = np.max(hits)
-#hits = (hits - min)/(max-min)
-
-## Begin the script that will produce the matrix of stored probabilities
-trials = 100
-x_locs = np.arange(-5, 15, 1) 
-y_locs = np.arange(0, 25, 1)
-rates = np.zeros((np.size(x_locs), np.size(y_locs)))
-# Instantiate the xb
+## Begin the script that will produce the matrix of stored rates
+# Instantiate the xb and run specific variables
 xb = TNCG()
+trials = 200 #per (x,y) location
+x_locs = np.arange(-10, 30, 1)
+y_locs = np.arange(-10, 25, 1)
+rates = np.zeros((y_locs.size, x_locs.size))
+
 # Cycle through all iterations and collect the head locations
-n = [0,0]
-for x in x_locs:
-    for y in y_locs:
-        for i in np.arange(trials):
-            rates[n[0], n[1]] += xb.tran01((x, y))
-        n[1] += 1
-    n[0] += 1
-    n[1] = 0
-# Scale for display, b/c we want our rates to be out of 1000 tries
-scale = trials/1000.0
-sRates = scale*rates
-contour.title = ("Probability of an TNCG crossbridge binding\n", 
-                 "to an open actin site at the given locations")
-contour.xlabel = "Binding site X loc (nm)"
-contour.ylabel = "Binding site Y loc (nm)"
-contour.levels = [5, 10, 20, 40, 80, 160, 320] 
-contour.contour(x_locs, y_locs, sRates)
+for n,x in enumerate(x_locs):
+    print('On row %(c)04d of %(t)04d' %{'c':n, 't':x_locs.size})
+    for m,y in enumerate(y_locs):
+        for i in range(trials):
+            rates[-m, -n] += xb.tran01((x, y))
+
+# Save the output
+dataout = open('TNCG.pkl', 'wb')
+pkl.dump(trials, dataout, 2)
+pkl.dump(x_locs, dataout, 2)
+pkl.dump(y_locs, dataout, 2)
+pkl.dump(xb, dataout, 2)
+pkl.dump(rates, dataout, 2)
+dataout.close()
+
+# Directly Plot the output
+contour.title = "0->1 transition rate of an TNCG crossbridge at different head locations"
+contour.xlabel = "Location of XB head (nm)"
+contour.ylabel = "Location of XB head (nm)"
+contour.levels = [1, 4, 7, 10, 13]
+contour.contour(x_locs, y_locs, rates)
