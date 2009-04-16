@@ -26,4 +26,20 @@ def contour(x,y,z):
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     # Display our contour
+
+def hexbin(x,y, extremes=None):
+    """Feed me an x and a y vector, each of the same length such that 
+    (x[i], y[i]) is a point that we would want to count as a 'hit'
+    """
+    if extremes is None:
+        extremes = [x.min(), x.max(), y.min(), y.max()]    
+    
+    plt.hexbin(x,y, cmap=cm)
+    plt.axis(extremes)
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    cb = plt.colorbar()
+    
+def show():
     plt.show()
