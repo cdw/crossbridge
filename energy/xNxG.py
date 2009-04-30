@@ -28,7 +28,7 @@ class xNxG():
         self.Ts = 0 # angle (rad) of the connection to the thick fil
         self.Tk = 100  # spring constant of connection to the thick fil
         self.Ns = 5    # rest length of neck region
-        self.Nk = 10    # spring constant of neck region
+        self.Nk = 5 # was 10    # spring constant of neck region
         self.Cs = pi/2+(pi-self.Ts) #rest angle (rad) of the converter domain
         self.Ck = 100  # torsional spring const of converter domain
         self.Cv = (pi/3, pi/3, 1.2*pi/3) # normal and rigor values of Cs
@@ -143,15 +143,19 @@ y_locs = np.arange(0, 16, .1)
 energs = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb
 xb = xNxG()
-# Cycle through and collect all the energies
-n = [0,0]
-for y in y_locs:
-    for x in x_locs:
+pT = time.time()
+cT = time.time()
+# Cycle through and collect all the probabilities
+for n,x in enumerate(x_locs):
+    for m,y in enumerate(y_locs):
         xb.head_loc = (x,y)
-        energs[n[0], n[1]] = xb.minimize()
-        n[1] = n[1] + 1
-    n[0] = n[0] + 1
-    n[1] = 0
+        energs[m, n] = xb.minimize()
+    # Tell me how much time is left, about
+    cT = time.time()
+    rT = (cT-pT)*(x_locs.size - (n+1))
+    print('On col %(c)04d of %(t)04d, about %(m)02d:%(s)02d left' \
+          %{'c':n, 't':x_locs.size, 'm':rT//60, 's':rT%60})
+    pT = cT
 contour.title = "Energy level of an xNxG crossbridge at different head locations"
 contour.xlabel = "Location of XB head (nm)"
 contour.ylabel = "Location of XB head (nm)"

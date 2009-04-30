@@ -9,13 +9,14 @@
 
 from numpy import array, pi, sin, cos, tan, arctan2, sqrt, hypot
 import numpy as np
+import time
 import contour
 
 class xxCG():
     def __init__(self):
         """Create the values we'll be referencing for the XB"""
         self.Cs = pi/3 # rest angle of converter domain
-        self.Ck = 100  # torsional spring const of converter domain
+        self.Ck = 200  # torsional spring const of converter domain
         self.Cv = (pi/3, pi/3, 1.2*pi/3) # normal and rigor values of Cs
         self.Gs = 10.5 # rest length of globular domain
         self.Gk = 5    # spring constant of globular domain
@@ -67,20 +68,24 @@ class xxCG():
     
 
 ## Begin the script that will produce the matrix of stored probabilities
-x_locs = np.arange(-3, 13, .2) 
-y_locs = np.arange(0, 16, .2)
+x_locs = np.arange(-3, 13, .1) 
+y_locs = np.arange(0, 16, .1)
 probs = np.zeros((y_locs.size, x_locs.size))
 # Instantiate the xb
 xb = xxCG()
+pT = time.time()
+cT = time.time()
 # Cycle through and collect all the probabilities
-n = [0,0]
-for y in y_locs:
-    for x in x_locs:
+for n,x in enumerate(x_locs):
+    for m,y in enumerate(y_locs):
         xb.head_loc = (x,y)
-        probs[n[0], n[1]] = xb.probability()
-        n[1] = n[1] + 1
-    n[0] = n[0] + 1
-    n[1] = 0
+        probs[m, n] = xb.probability()
+    # Tell me how much time is left, about
+    cT = time.time()
+    rT = (cT-pT)*(x_locs.size - (n+1))
+    print('On col %(c)04d of %(t)04d, about %(m)02d:%(s)02d left' \
+          %{'c':n, 't':x_locs.size, 'm':rT//60, 's':rT%60})
+    pT = cT
 # Normalize the probabilities
 min = np.min(probs)
 max = np.max(probs)
@@ -88,6 +93,6 @@ probs = (probs - min)/(max-min)
 contour.title = "Probability of an xxCG crossbridge being\n found at a given head locations"
 contour.xlabel = "Location of XB head (nm)"
 contour.ylabel = "Location of XB head (nm)"
-contour.levels = [.9, .95, .98, .99, .999] 
+contour.levels = [.9, .95, .98, .99] 
 contour.contour(x_locs, y_locs, probs)
 print(probs)

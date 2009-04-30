@@ -16,12 +16,14 @@ def contour(x,y,z):
     # Produce the coordinate matrices from two coordinate vectors
     X, Y = np.meshgrid(x, y)
     # Plot the contours with default labeling
-    plt.figure()
+    fig = plt.figure()
     im = plt.imshow(z, interpolation='bilinear', origin='upper',
-                cmap=cm, extent=(x.min(),x.max(),y.min(),y.max()), 
-                norm=matp.colors.Normalize(vmin=min(levels), vmax=max(levels)))
-    CS = plt.contour(X, np.flipud(Y), z, levels, colors='k', linewidths=2)
+                cmap=cm, extent=(x.min(),x.max(),y.max(),y.min()), 
+                norm=matp.colors.Normalize(vmin=min(levels),
+                                           vmax=max(levels)))
+    CS = plt.contour(X, Y, z, levels, colors='k', linewidths=2)
     plt.clabel(CS, inline=1, fontsize=10, fmt='%1.3f')
+    fig.axes[0].invert_yaxis()
     plt.title(title)
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
@@ -32,7 +34,7 @@ def hexbin(x,y, extremes=None):
     (x[i], y[i]) is a point that we would want to count as a 'hit'
     """
     if extremes is None:
-        extremes = [x.min(), x.max(), y.min(), y.max()]    
+        extremes = [x.min(), x.max(), y.max(), y.min()]    
     
     plt.hexbin(x,y, cmap=cm)
     plt.axis(extremes)

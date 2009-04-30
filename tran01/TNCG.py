@@ -15,7 +15,6 @@
 
 # FIXME: Find correct scaling factor for kT to be used with our pN forces and 
 #        nM scales
-# FIXME: Make sure that contour binning isn't off-by-one
 
 from numpy import array, pi, sin, cos, tan, arctan2, sqrt, hypot
 import numpy as np
@@ -105,11 +104,12 @@ class TNCG:
         dependence on the displacement of the spring thusly:
             U(x) = 1/2 k x^2
         Where k is the spring constant of that spring and x is really x-xs,
-        where xs is the rest length of the spring. If we are looking for the 
-        probability that the particle or myosin head on the end of the spring 
-        will be in a given location at a given time, we can fall back onto 
-        Boltzmann's law which tells us that:
-            p(x)/p(xs) = exp(-U(x)/kT)
+        where xs is the rest length of the spring. At x=xs the spring sees no 
+        strain and U(x)=0. If we are looking for the probability that the 
+        particle or myosin head on the end of the spring will be in a given 
+        location at a given time, we can fall back onto Boltzmann's law which 
+        tells us that:
+            p(x)/p(xs) = exp(-U(x)/kT)/exp(-U(xs)/kT)
         Where p in this instance is the relative probability of finding the 
         particle at x (as opposed to xs), k is Boltzmann's constant, and T is 
         the system's temperature. This could also be represented as 
@@ -120,42 +120,37 @@ class TNCG:
             \int_{-\inf}^\inf 1/Z exp(-U(x)/(kT)) dx = 1
         This is calculated in Mathematica by taking the inverse of the  
         integral
-            \int_{-\inf}^\inf 1/Z exp(-.5 k x^2 /(kT)) dx
+            \int_{-\inf}^\inf 1/Z \exp(-.5 k x^2 /(kT)) dx
         This evaluates to 
             Z = \sqrt{2 pi kT / k}
         Meaning we are presented with a probability density function of
-            P(x) = \sqrt{k / (2 pi kT)} exp(-(k x^2)/(2 kT))
+            P(x) = \sqrt{k / (2 pi kT)} \exp(-(k x^2)/(2 kT))
+        This looks very similar to the PDF of a normal distribution, 
+        typically written as:
+            NormDis(x) = 1/sqrt(2 pi sig^2) exp(-(x-mu)^2/(2 sig^2))
+        Where sig is the standard deviation of the distribution and mu is its
+        mean. This means that we can interpert our desired PDF as that of a 
+        normal distribution having:
+            mu = xs
+            sig = sqrt(kT / k)
+            
         Details of implementation
         -------------------------
-        This makes use of numpy's exponential distribution:
-            numpy.random.exponential(scale=1.0, size=None)
-        Where scale is B such that the probability density function of the 
-        resulting distribution is: 
-            f(x, B) = 1/B exp(-x/B)
-        If we feed numpy's exponential distribution B=kT, and take x as 
-        energy U, we have a distribution of 
-            f(U) = 1/kT exp(-U/kT)
-        Now, we will have to scale this output as we need our distributions 
-        to have probability density functions of:
-            f(U) = 1/Z exp(-U/kT) 
-                Where Z is in the format of:
-                Zc = sqrt(2 pi kT / Kc) or
-                Zg = sqrt(pi kT / (2 Kg))
-        This means we need to multiply the numpy output by kT/Z, which, in 
-        these cases would work out to:
-            kT/Zc = sqrt(Kc kT/ (2 pi)) or
-            kT/Zg = sqrt(2 Kg kT / pi)
-        This gives us the energy distributions we want, from which we can 
-        backtrack to get the length or angle values for each component.
+        This makes use of numpy's normal distribution:
+            numpy.random.normal(loc=0.0, scale=1.0, size=None)
+        Where loc is the mean is mu and scale is the standard deviation is sig 
+        such that the probability density function of the resulting 
+        distribution is: 
+            f(x) = 1/sqrt(2 pi sig^2) exp(-(x-mu)^2/(2 sig^2))
+        If we feed numpy's exponential distribution mu=xs and sig=sqrt(kT/k), 
+        we have a distribution of: 
+            f(x) = 1/sqrt(s pi kT / k) exp(-(x-xs)^2/(2 sqrt(kT/k)^2))
+        Or, simplifiying:
+            f(x) = sqrt(k / (2 pi kT)) exp(-k (x-xs)^2/(2 kT))
+        The PDF that we derived above (with an explicit xs term this time).
+        We can customize this for each spring with which we deal with by 
+        plugging in their own means and spring constants.
         """
-        #Tu = self.kT / self.Tz * np.random.exponential(scale=self.kT)
-        #T  = sqrt(2 * Tu / self.Tk) + self.Ts
-        #Nu = self.kT / self.Nz * np.random.exponential(scale=self.kT)
-        #N  = sqrt(2 * Nu / self.Nk) + self.Ns
-        #Cu = self.kT / self.Cz * np.random.exponential(scale=self.kT)
-        #C  = sqrt(2 * Cu / self.Ck) + self.Cs
-        #Gu = self.kT / self.Gz * np.random.exponential(scale=self.kT)
-        #G  = sqrt(2 * Gu / self.Gk) + self.Gs
         T = np.random.normal(self.Ts, self.Tsig)
         N = np.random.normal(self.Ns, self.Nsig)
         C = np.random.normal(self.Cs, self.Csig)
@@ -259,7 +254,7 @@ dataout = open('bop_TNCG.pkl', 'wb')
 pkl.dump([xb, trials, x, y], dataout, 2)
 dataout.close()
 # Plot it all pretty like
-contour.title = "Location histogram of a diffusing TNCG crossbridge head"
+contour.title = "Location histogram of a diffusing \n TNCG crossbridge head"
 contour.xlabel = "X loc of head (nm)"
 contour.ylabel = "Y loc of head (nm)"
 contour.hexbin(x, y, [-2, 15, -2, 15])
@@ -269,22 +264,30 @@ trials = 2000 #per (x,y) location
 x_locs = np.arange(-2, 15, .1)
 y_locs = np.arange(-2, 15, .1)
 rates = np.zeros((y_locs.size, x_locs.size))
+pT = time.time()
+cT = time.time()
 # Cycle through head locations, collecting trans rates
 for n,x in enumerate(x_locs):
-    print('On col %(c)04d of %(t)04d' %{'c':n, 't':x_locs.size})
     for m,y in enumerate(y_locs):
         for i in range(trials):
             rates[m, n] += xb.tran01((x, y))
+    # Tell me how much time is left, about
+    cT = time.time()
+    rT = (cT-pT)*(x_locs.size - (n+1))
+    print('On col %(c)04d of %(t)04d, about %(m)02d:%(s)02d left' \
+          %{'c':n, 't':x_locs.size, 'm':rT//60, 's':rT%60})
+    pT = cT
 # Save it
 dataout = open('trans01_TNCG.pkl', 'wb')
 pkl.dump([xb, trials, x_locs, y_locs, rates], dataout, 2)
 dataout.close()
 # Plot the output
-contour.title = ("0->1 transition rate of an TNCG crossbridge as a /n" \
+contour.title = ("0->1 transition rate of an TNCG crossbridge as a \n" \
                 "function of head location")
 contour.xlabel = "Location of XB head (nm)"
 contour.ylabel = "Location of XB head (nm)"
 contour.levels = np.array([.2, .4, .6, .8, .9])*rates.max()
 contour.contour(x_locs, y_locs, rates)
+
 # Display all the graphs produced in this script
 contour.show()
