@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # encoding: utf-8
 #
-## Trying to replicate the transition rate figure from Bert's 2007 PLoS paper
+# Replicate the transition rate figure from Bert's 2007 PLoS paper
+# CDW 20090504
 
 
 import matplotlib
@@ -30,7 +31,6 @@ N = 40
 P = 20
 
 ## Calculate crossbridge spring values
-
 k_xb = 5 / 3.976 # From Mathematica
 # 3.976 is provided by entereing the following into Mathematica:
 #   << PhysicalConstants`
@@ -39,10 +39,6 @@ k_xb = 5 / 3.976 # From Mathematica
 #       /(Nano Meter)^2, (Pico Newton)/(Nano Meter)]
 xb_0 = sqrt(eta * DeltaG / k_xb)
 
-print("Kxb = ")
-print(k_xb)
-print("xb_0 = ")
-print(xb_0)
 
 ## Create functions to provide free energy in a given location and state:
 g_1 = lambda x: 0 * x
@@ -60,6 +56,7 @@ r_21 = lambda x: r_12(x) / exp(g_1(x) - g_2(x))
 r_32 = lambda x: r_23(x) / exp(g_2(x) - g_3(x))
 r_13 = lambda x: 0 * x # See Tanner, 2007 Pg 1209 for justification
 
+## Create the data for plotting
 locs = np.arange(-5, 15, .1)
 energy_1 = g_1(locs)  # Free energy state 1
 energy_2 = g_2(locs)  # Free energy state 2
@@ -72,8 +69,14 @@ rates_31 = r_31(locs) # Forward rate 31
 rates_13 = r_13(locs) # Reverse rate 13
 
 
+## Produce the actual figure
+# Make the figure and subplots
 fig = figure()
 ax0 = fig.add_subplot(221)
+ax1 = fig.add_subplot(222)
+ax2 = fig.add_subplot(223)
+ax3 = fig.add_subplot(224)
+# Plot/annotate the free energies
 ax0.plot(locs, energy_1, 'k-', label='$G_1(x)$')
 ax0.plot(locs, energy_2, 'k--')
 ax0.plot(locs, energy_3, 'k:')
@@ -83,7 +86,7 @@ ax0.annotate('$G_2(x)$', [5.5,-8])
 ax0.annotate('$G_3(x)$', [1.5,-18])
 ax0.set_title('Energy states')
 ax0.set_ylabel('Free Energy (RT)')
-ax1 = fig.add_subplot(222)
+# Plot/annotate the r_12 and r_21 transitions
 ax1.plot(locs, rates_12, 'k-')
 ax1.plot(locs, rates_21, 'k--')
 ax1.axis([-5,15,-20,1000])
@@ -91,7 +94,7 @@ ax1.annotate('$r_{x,12}(x)$', [5,600], alpha=1.0, backgroundcolor='w')
 ax1.annotate('$r_{x,21}(x)$', [7,200])
 ax1.set_title('Binding rates')
 ax1.set_ylabel('Transition Rate (s$^{-1}$)')
-ax2 = fig.add_subplot(223)
+# Plot/annotate the r_23 and r_32 transitions
 ax2.plot(locs, rates_23, 'k-')
 ax2.plot(locs, rates_32, 'k--')
 ax2.axis([-5,15,-20,1000])
@@ -100,7 +103,7 @@ ax2.annotate('$r_{x,32}(x)$', [3.5,700])
 ax2.set_title('Strong binding rates')
 ax2.set_xlabel('x (nm)')
 ax2.set_ylabel('Transition Rate (s$^{-1}$)')
-ax3 = fig.add_subplot(224)
+# Plot/annotate the r_31 and r_13 transitions
 ax3.plot(locs, rates_31, 'k-')
 ax3.plot(locs, rates_13, 'k--')
 ax3.axis([-5,15,-20,1000])
@@ -109,5 +112,6 @@ ax3.annotate('$r_{x,13}(x)$', [9,10])
 ax3.set_title('Detachment rates')
 ax3.set_xlabel('x (nm)')
 ax3.set_ylabel('Transition Rate (s$^{-1}$)')
+# Draw what we've written and show it on the screen
 fig.canvas.draw()
 show()
