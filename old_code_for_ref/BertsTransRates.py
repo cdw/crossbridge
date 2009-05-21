@@ -16,18 +16,18 @@ T = 288
 Gatp = 13 # In units of RT
 atp = 5  * 10**-3
 adp = 30 * 10**-6
-pi  = 3  * 10**-3
-DeltaG = abs(-Gatp - log(atp / (adp * pi)))
+phos  = 3  * 10**-3
+DeltaG = abs(-Gatp - log(atp / (adp * phos)))
 alpha = 0.28
 eta = 0.68
 
 ## Define parameters
-A = 60  # Bert used 2000, but this gives too high of a r12
-B = 100 # From Tanner, 2008 Pg 1209
-C = 1   # Ditto for C through P
+A = 2000  # From Tanner, 2008 Pg 1209
+B = 100   # Ditto for C through P
+C = 1
 D = 1
-M = 3600 
-N = 40 
+M = 3600
+N = 40
 P = 20
 
 ## Calculate crossbridge spring values
@@ -68,6 +68,14 @@ rates_32 = r_32(locs) # Reverse rate 32
 rates_31 = r_31(locs) # Forward rate 31
 rates_13 = r_13(locs) # Reverse rate 13
 
+print("A")
+print(A)
+print("k_xb")
+print(k_xb)
+print("pi")
+print(pi)
+print("xb_0")
+print(xb_0)
 
 ## Produce the actual figure
 # Make the figure and subplots
