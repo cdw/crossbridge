@@ -309,14 +309,26 @@ class xxCG(XB):
     ===T====== - Thick filament,    fixed angle
     """
     def __init__(self):
-        """Modify values as needed for diff geom, then trigger the att calc"""
+        """Modify values for this spring system, trigger the attribute calc"""
         XB.__init__(self)
         self.Ns = 1    # rest length of neck region
         self.Gs = 10.5 # rest length of globular domain
         self.calc_attributes()
     
     def tran12(self):
+        """Cautiously working on this fellow to get rate of strong binding"""
         print("You haven't written tran12 yet")
+        # Bop again
+        # FIXME : Talk to Tom about this, I am just concerned as we are bopping from a point that already has some energy stored in it. Should I be using the random normal blah blah or some sort of assymetrical distribution?
+        #hLoc = self.bop()
+        C = np.random.normal(self.Cs, self.Csig)
+        G = np.random.normal(self.Gs, self.Gsig)
+        # Calculate energy difference
+        EnergyDiff = (self.free_energy(2, self.Ts, self.Ns, C, G) -
+            self.free_energy(1, self.Ts, self.Ns, C, G))
+        # Transition if energy at new position is less
+        if EnergyDiff <= 0:
+            self.state = 2
         pass
     
     def bop(self):
