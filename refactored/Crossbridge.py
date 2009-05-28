@@ -29,7 +29,7 @@ class XB:
         """Create the values we'll be referencing for the XB"""
         self.Ts = pi/4 # angle (rad) of the connection to the thick fil
         self.Tk = 100  # spring constant of connection to the thick fil
-        self.Ns = 5    # rest length of neck region
+        self.Ns = 7    # rest length of neck region
         self.Nr = 5    # rigor length of neck region
         self.Nk = 10    # spring constant of neck region
         self.Cs = pi/3+(pi-self.Ts) #rest angle (rad) of the converter domain
@@ -156,7 +156,7 @@ class XB:
          y = self.conv_loc[1] + G * sin(C + T - pi)
          self.head_loc = (x, y)
     
-    def free_energy(self, state, T, N, C, G):
+    def free_energy(self, state, h_loc=None):
         """What's the free energy in a given state at the specified values?
             
         Note that eta and alpha are the fractions of energy liberted from ATP 
@@ -165,10 +165,10 @@ class XB:
         if state is 0:
             return 0
         elif state is 1:
-            return self.alpha * self.G_lib + self.energy()
+            return self.alpha * self.G_lib + self.minimize_energy(h_loc)
         elif state is 2:
-            return self.eta * self.G_lib + self.energy()
-
+            return self.eta * self.G_lib + self.minimize_energy(h_loc)
+    
 
 
 class TNCG(XB):
@@ -287,6 +287,17 @@ class TNCG(XB):
         self.conv_loc = (conv[0], conv[1])
         return self.energy()
     
+    def set_state(self, state):
+        """Set the state of the XB"""
+        if state is 0:
+            self.state = 0
+            self.Cs = pi/3+(pi-self.Ts)
+        elif state is 1:
+            self.state = 1
+            self.Cs = pi/3+(pi-self.Ts)
+        elif state is 2:
+            self.state = 2
+            self.Cs = pi/2+(pi-self.Ts)
 
 
 
@@ -331,6 +342,10 @@ class xxCG(XB):
             self.state = 2
         pass
     
+    def tran20(self):
+        """Cautiously working on unbinding rates"""
+        
+    
     def bop(self):
         """Bop the xb to a new location, return the new head location.
             
@@ -363,6 +378,21 @@ class xxCG(XB):
             self.head_loc = h_loc
         # Nothing more is needed as the xxCG XB's converter domain is fixed
         return self.energy()
+    
+    def set_state(self, state):
+        """Set the state of the XB"""
+        if state is 0:
+            self.state = 0
+            self.Cs = pi/3+(pi-self.Ts)
+        elif state is 1:
+            self.state = 1
+            self.Cs = pi/3+(pi-self.Ts)
+        elif state is 2:
+            self.state = 2
+            self.Cs = pi/2+(pi-self.Ts)
+        else:
+            print("Invalid XB state, must be 0, 1, or 2")
+            return
     
 
 
@@ -423,6 +453,18 @@ class xNxx(XB):
         self.set_conv_and_head_from_segments(self.Ts, self.head_loc[0], 
                                              self.Cs, self.Gs)
         return self.energy()
+    
+        def set_state(self, state):
+            """Set the state of the XB"""
+            if state is 0:
+                self.state = 0
+                self.Ns = 5
+            elif state is 1:
+                self.state = 1
+                self.Ns = 5
+            elif state is 2:
+                self.state = 2
+                self.Ns = 0
     
 
 
