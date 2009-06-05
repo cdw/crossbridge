@@ -4,3 +4,5 @@ syntax: glob
 *~
 *.py.orig
 *.pkl
+*.mat
+*.tmproj
