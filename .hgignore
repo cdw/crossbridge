@@ -3,6 +3,10 @@ syntax: glob
 *.pyc
 *~
 *.py.orig
-*.pkl
-*.mat
-*.tmproj
+*.pkl      #Serialized python data
+*.mat      #Matlab data storage
+*.tmproj   #Specific to TextMate
+# \begin{latex-detritus}
+*.aux
+*.log
+*.synctex.gz
