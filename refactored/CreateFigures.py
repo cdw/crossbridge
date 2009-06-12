@@ -21,7 +21,7 @@ matplotlib.rc('text', usetex=True)
 MakexxCGfig = True
 MakeTNCGfig = False
 UseStoredDiffusion = True
-Cuts = False
+Cuts = True
 SeriesOfCuts = False
 
 Range = (-5, .2, 15, 5, .2, 15)
@@ -107,7 +107,7 @@ def cutPlot(figure, loc, X, Y, Z, CutLoc=10,
             xlab=None, ylab=None, title=None):
     '''Take care of cut plotting'''
     axis = figure.add_subplot(loc)
-    CutInd = np.flatnonzero(Y==CutLoc)[0]
+    CutInd = np.flatnonzero(np.logical_and(Y>CutLoc-0.001, Y<CutLoc+0.001))[0]
     axis.plot(X, Z[CutInd, :],'k')
     axis.set_ylim([-0.1,1.1])
     if title is not None:
@@ -132,72 +132,73 @@ Extent = (Range[0], Range[2], Range[3], Range[5])
 Cmap = matplotlib.cm.gray
 # Make the figure
 fig0 = figure()
-fig0.subplots_adjust(wspace=0.25, hspace=0.45,
+fig0.subplots_adjust(wspace=0.25, hspace=0.50,
                     left=0.10, right=0.95,
-                    top=0.95, bottom=0.05)
+                    top=0.94, bottom=0.08)
 # Plot and annotate
 if Cuts is False and SeriesOfCuts is False:
     twoContour(fig0, 422, X, Y, fe1 , EnergyLevels, 
-                    title='Energy Profile', 
-                    ylab='Lattice Spacing (nm)', 
+                    title='Loosely bound energy', 
+                    ylab='Lattice Dist (nm)', 
                     xlab=None)
     twoContour(fig0, 423, X, Y, r01 , TransLevels, 
-                    title='$r_{01}$: unbound to loosely bound', 
-                    ylab='Lattice Spacing (nm)', 
+                    title='r$_{01}$: unbound to loosely bound', 
+                    ylab='Lattice Dist (nm)', 
                     xlab=None)
     twoContour(fig0, 425, X, Y, r12 , TransLevels, 
-                    title='r$_{12}$ Transition rates', 
-                    ylab='Lattice Spacing (nm)', 
+                    title='r$_{12}$: loosely to strongly bound', 
+                    ylab='Lattice Dist (nm)', 
                     xlab=None)
     twoContour(fig0, 427, X, Y, r20 , TransLevels, 
-                    title='r$_{20}$ Transition rates', 
-                    ylab='Lattice Spacing (nm)', 
+                    title='r$_{20}$: strongly bound to unbound', 
+                    ylab='Lattice Dist (nm)', 
                     xlab='Binding site offset (nm)')
     twoContour(fig0, 424, X, Y, r10 , TransLevels, 
-                    title='r$_{10}$ Transition rates', 
+                    title='r$_{10}$: loosely bound to unbound', 
                     ylab=None, 
                     xlab=None)
     twoContour(fig0, 426, X, Y, r21 , TransLevels, 
-                    title='r$_{21}$ Transition rates', 
+                    title='r$_{21}$: strongly to loosely bound', 
                     ylab=None, 
                     xlab=None)
     twoContour(fig0, 428, X, Y, r02 , TransLevels, 
-                    title='r$_{02}$ Transition rates', 
+                    title='r$_{02}$: unbound to strongly bound', 
                     ylab=None, 
                     xlab='Binding site offset (nm)')
 elif SeriesOfCuts is False:
+    CutHere = 10.0
     cutPlot(fig0, 422, X, Y, fe1, 
-                CutLoc=10,
+                CutLoc=CutHere,
                 title='Energy Profile at 10 nm',
                 ylab='Energy (RT)',
                 xlab=None)
     cutPlot(fig0, 423, X, Y, r01, 
-                CutLoc=10,
+                CutLoc=CutHere,
                 title='r$_{01}$ Transition rates at 10 nm', 
                 ylab='Transition probability', 
                 xlab=None)        
     cutPlot(fig0, 425, X, Y, r12, 
-                CutLoc=10,
+                CutLoc=CutHere,
                 title='r$_{12}$ Transition rates at 10 nm', 
                 ylab='Transition probability', 
                 xlab=None)
     cutPlot(fig0, 427, X, Y, r20, 
-                CutLoc=10,
+                CutLoc=CutHere,
                 title='r$_{20}$ Transition rates at 10 nm', 
                 ylab='Transition probability', 
                 xlab='Binding site offset (nm)')
     cutPlot(fig0, 424, X, Y, r10, 
-                CutLoc=10,
+                CutLoc=CutHere,
                 title='r$_{10}$ Transition rates at 10 nm', 
                 ylab=None, 
                 xlab=None)
     cutPlot(fig0, 426, X, Y, r21, 
-                CutLoc=10,
+                CutLoc=CutHere,
                 title='r$_{21}$ Transition rates at 10 nm', 
                 ylab=None, 
                 xlab=None)
     cutPlot(fig0, 428, X, Y, r02, 
-                CutLoc=10,
+                CutLoc=CutHere,
                 title='r$_{02}$ Transition rates at 10 nm', 
                 ylab=None, 
                 xlab='Binding site offset (nm)')
