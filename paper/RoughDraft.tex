@@ -1,5 +1,4 @@
-\documentclass[
-	11pt]{article}
+\documentclass[11pt]{article}
 
 \usepackage{
 	setspace,
@@ -43,7 +42,7 @@
 {\fontfamily{phv}\selectfont
 
 \LARGE
-\noindent \textbf{Crossbridges are hard, or rather, stiff }\\
+\noindent \textbf{Multidimensional Crossbridges: Not a rope of sand }\\
 
 	\large
 	\noindent C.~Dave,$^{\dagger \ast}$~
@@ -88,6 +87,12 @@ Sarcomere-scale modeling of muscle contraction has largely changed since the int
 U(r)=\frac{1}{2}k_r (r-r_0)^2
 \end{equation}
 
+\begin{eqnarray}  
+	r_{12}(r, \theta) & = & 0.001 + 0.5 * (1 + \tanh( \nonumber \\
+				&   & 0.6 (U_1(r, \theta) - U_2(r, \theta)))) \\
+	r_{20}(r, \theta) & = & e^{-1 / U_2(r, \theta)}
+\end{eqnarray} 
+ 
 \paragraph*{Kinetics: Equations and Figures}
 
 \subsection*{A 2-D 2-Spring Crossbridge}
