@@ -4,9 +4,12 @@
 	setspace,
 	fullpage,
 	multicol,
+	float,
 	amsmath,
 	graphicx} 
 %\doublespacing
+
+\floatplacement{figure}{H}
 
 % Citation style in the text: numbers in parenthesis, sorted by their
 % order in the list of references. Uses ranges: (1-3), not (1,2,3)
@@ -57,9 +60,9 @@
 
 
 \noindent \emph{Abstract:} 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id quam et odio viverra fermentum. Donec tincidunt faucibus justo id ultricies. Pellentesque quis quam risus, nec sollicitudin nibh. Suspendisse varius, dui id tristique convallis, tellus ligula eleifend leo, eu facilisis dolor mi nec erat. Proin interdum auctor nisi malesuada accumsan.  \\[.5em]
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id quam et odio viverra fermentum. Donec tincidunt faucibus justo id ultricies. Pellentesque quis quam risus, nec sollicitudin nibh.   \\[.5em]
 {\footnotesize \emph{
-Keywords: myosin; spatially-explicit model; crossbridge kinetics; keyword 4; keyword 5; keyword 6}} \\[.5em]
+Keywords: myosin; spatially-explicit model; crossbridge kinetics}} \\[.5em]
  {\footnotesize \textbf{
  Author Summary: Models of muscle contraction have long treated the molecular motor myosin as a simple spring oriented parallel to its direction of movement. This does not allow for the investigation of phenomena such as the perpendicular force observed during shortening, or the dependence of the maximum force produced on spacing between the contractile filaments that comprise muscle. We demonstrate an alternative model, computationally simple enough to use in large networked models, that incorporate both linear and torsional or angular springs. These models capture much of the behavior missing from pervious efforts.}}} \\
 
@@ -76,9 +79,18 @@ Sarcomere-scale modeling of muscle contraction has largely changed since the int
 
 \paragraph*{Increasing knowledge of myosin}
 
+\begin{figure}[H]
+\begin{center}
+\includegraphics{XBCycle.pdf}
+\label{xbtypes}
+\caption{{\small Kinetic scheme and crossbridge types under investigation. A) Three state kinetics used in most models and extended here. B) Single spring crossbridge model used in models since \cite{Huxley57}. C) Two spring system, consisting of a torsional/angular spring and a linear spring. D) Four spring system using two torsional and two linear springs.}}
+\end{center}
+\end{figure}
 
 
 \section*{Materials and Methods}
+
+
 
 \subsection*{Historical 1-D Crossbridge}
 \paragraph*{Geometry and Force/Displacement Equations}
