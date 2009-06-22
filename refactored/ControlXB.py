@@ -11,6 +11,34 @@ import time
 import Crossbridge
 import Graph
 
+def create_forces(xb_type, xb_state=0, limits=(3,.5,15,3,.5,15)):
+    x_locs = np.arange(limits[0], limits[2], limits[1]) 
+    y_locs = np.arange(limits[3], limits[5], limits[4])
+    forces = np.zeros((y_locs.size, x_locs.size, 2))
+    # Instantiate the xb, dict provides a switch between XB types
+    try:
+        xb = {'TNCG':Crossbridge.TNCG(), 'xxCG':Crossbridge.xxCG(),
+              'xNxx':Crossbridge.xNxx()}[xb_type]
+    except KeyError:
+        print("Invalid XB type, available types are TNCG, xxCG and xNxx")
+        return
+    #xb = Crossbridge.xNCx()
+    xb.set_state(xb_state)
+    print(xb)
+    pT = time.time()
+    cT = time.time()
+    # Cycle through and collect all the probabilities
+    for n,x in enumerate(x_locs):
+        for m,y in enumerate(y_locs):
+            forces[m, n] = xb.force((x,y),xb_state)
+        # Tell me how much time is left, about
+        cT = time.time()
+        rT = (cT-pT)*(x_locs.size - (n+1))
+        print('On col %(c)04d of %(t)04d, about %(m)02d:%(s)02d left' \
+              %{'c':n, 't':x_locs.size, 'm':rT//60, 's':rT%60})
+        pT = cT
+    return forces
+
 def create_energies(xb_type, xb_state=0, limits=(-2,.5,15,-2,.5,15)):
     x_locs = np.arange(limits[0], limits[2], limits[1]) 
     y_locs = np.arange(limits[3], limits[5], limits[4])
@@ -98,6 +126,15 @@ def tran01(xb_type, limits=(-2,.5,15,-2,.5,15), trials=1000):
     # Normalize and return
     trans01 = trans01/trials
     return trans01
+
+def graph_forces(forces, limits=(3,.5,15,3,.5,15)):
+    x_locs = np.arange(limits[0], limits[2], limits[1]) 
+    y_locs = np.arange(limits[3], limits[5], limits[4])
+    Graph.title = "Forces"
+    Graph.xlabel = "Offset (nm)"
+    Graph.ylabel = "LS (nm)"
+    Graph.quiver(x_locs, y_locs, forces)
+    Graph.show()
 
 def graph_energies(energs, limits=(-2,.5,15,-2,.5,15)):
     x_locs = np.arange(limits[0], limits[2], limits[1]) 

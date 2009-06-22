@@ -42,6 +42,14 @@ def hexbin(x,y, extremes=None):
     plt.xlabel(xlabel)
     plt.ylabel(ylabel)
     cb = plt.colorbar()
+
+
+def quiver(x,y,Vec):
+    plt.quiver(x, y, Vec[:,:,0], Vec[:,:,1])
+    plt.title(title)
+    plt.xlabel(xlabel)
+    plt.ylabel(ylabel)
+    
     
 def show():
     plt.show()

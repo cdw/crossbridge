@@ -36,6 +36,7 @@ class XB:
         self.Cr = self.Cs + pi/6 #rest angle (rad) in rigor state
         self.Ck = 100  # torsional spring const of converter domain
         self.Gs = 3    # rest length of globular domain
+        self.Gr = 3    # rest length of globular domain in rigor state
         self.Gk = 5    # spring constant of globular domain
     
     def calc_attributes(self):
@@ -169,6 +170,23 @@ class XB:
         elif state is 2:
             return self.eta * self.G_lib + self.minimize_energy(h_loc)
     
+    def force(self, h_loc, state=1):
+        """From the head loc, get the for vector being exerted by the XB"""
+        self.minimize_energy(h_loc, state)
+        C = self.conv_ang()
+        G = self.glob_len()
+        Ck = self.Ck
+        Gk = self.Gk
+        if state is 2:
+            Cs = self.Cr
+            Gs = self.Gr
+        else:
+            Cs = self.Cs
+            Gs = self.Gs
+        Fx = -Gk * (G - Gs) * cos(C) + 1/G * Ck * (C - Cs) * sin(C)
+        Fy = -Gk * (G - Gs) * sin(C) + 1/G * Ck * (C - Cs) * cos(C)
+        return (Fx, Fy)
+    
 
 
 class TNCG(XB):
@@ -272,14 +290,25 @@ class TNCG(XB):
         pG = 1/self.Gz * np.exp(-U / self.kT)
         return pT * pN * pC * pG
     
-    def minimize_energy(self, h_loc=None):
+    def minimize_energy(self, h_loc=None, state=1):
         """Set the conv_loc to minimize the XB's energy 
         and return the newly located minimum energy
         """
+        if state is 2:
+            Nstore = self.Ns
+            Cstore = self.Cs
+            Gstore = self.Gs
+            self.Ns = self.Nr
+            self.Cs = self.Cr
+            self.Gs = self.Gr
         if h_loc is not None: 
             self.head_loc = h_loc
         e = lambda (l): self.e_dep_conv(l)
         min_n_len = fmin(e, self.conv_loc, disp=0)
+        if state is 2:
+            self.Ns = Nstore
+            self.Cs = Cstore
+            self.Gs = Gstore
         return self.energy()
     
     def e_dep_conv(self, conv):
@@ -370,7 +399,7 @@ class xxCG(XB):
         pC = 1/self.Cz * np.exp(-U / self.kT)
         return pG * pC
     
-    def minimize_energy(self, h_loc=None):
+    def minimize_energy(self, h_loc=None, state=1):
         """Set the conv_loc to minimize the XB's energy 
         and return the newly located minimum energy
         """
