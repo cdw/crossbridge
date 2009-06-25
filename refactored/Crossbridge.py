@@ -327,7 +327,7 @@ class TNCG(XB):
         elif state is 2:
             self.state = 2
             self.Cs = pi/2+(pi-self.Ts)
-
+    
 
 
 class TNCx(XB):

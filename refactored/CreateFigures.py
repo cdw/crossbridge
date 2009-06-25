@@ -12,6 +12,7 @@ import numpy as np
 import scipy.io
 import ControlXB
 import Crossbridge
+import matplotlib.pyplot as plt
 
 ## Configure matplotlib
 # Use Helvetica as default font
@@ -22,16 +23,21 @@ MakexxCGfig = True
 MakeTNCGfig = False
 UseStoredDiffusion = True
 ## Choose which graphs to make
-Hybrid = True
+Hybrid = False
 Beans = False
 Cuts = False
 SeriesOfCuts = False
+ForceQuiver = True
 
-Range = (-5, .2, 15, 5, .2, 15)
+#Range = (-5, .2, 15, 5, .2, 15)
+Range = (-5, 1, 15, 5, .5, 15)
 T01Trials = 600
 
 
-if MakexxCGfig is True:
+if ForceQuiver is True:
+    sforces = ControlXB.create_forces('xxCG', xb_state=1, limits=Range)
+    rforces = ControlXB.create_forces('xxCG', xb_state=2, limits=Range)
+elif MakexxCGfig is True:
     ## Calculations
     # Energies
     e0 = ControlXB.create_energies("xxCG", xb_state=0, limits=Range)
@@ -127,6 +133,22 @@ def cutPlot(figure, loc, X, Y, Z, CutLoc=10,
         axis.set_ylabel(ylab)
     if xlab is not None:
         axis.set_xlabel(xlab)
+
+def quiver(figure, loc, x, y, Vec,
+           xlab=None, ylab=None, title=None):
+    axis = figure.add_subplot(loc)
+    print("x dims "+str(x.shape))
+    print("y dims "+str(y.shape))
+    print("Vec dims "+str(Vec.shape))
+    print("Vec[:,:,0] dims "+str(Vec[:,:,0].shape))
+    plt.quiver(x, y, Vec[:,:,0], Vec[:,:,1])
+    if title is not None:
+        axis.set_title(title)
+    if ylab is not None:
+        axis.set_ylabel(ylab)
+    if xlab is not None:
+        axis.set_xlabel(xlab)
+
     
 ## Plotting
 # For levels, axes, etc
@@ -284,6 +306,12 @@ elif SeriesOfCuts is True:
     ax03.set_title('r$_{20}$ Transition rates at 8, 9, and 10 nm')
     ax03.set_ylabel('Transition probability')
     ax03.set_xlabel('Binding site offset (nm)')
+elif ForceQuiver is True:
+    quiver(fig0, 111, X, Y, -sforces, 
+        xlab=None, ylab=None, title="States 1 and 2")
+    #quiver(fig0, 212, X, Y, -rforces, 
+    #    xlab=None, ylab=None, title="Rigor state")
+    
     
 
 
