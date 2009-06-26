@@ -1,24 +1,20 @@
-%
-%  SingleXB
-%
+%  SingleXBs
 %  Created by Dave Williams on 2009-06-25.
 %  Copyright (c) 2009. All rights reserved.
-%
+
 \documentclass[]{article}
 
+\usepackage{setspace, float, fancyhdr}
 \usepackage[pdftex]{graphicx}
 \usepackage[utf8]{inputenc}
-\usepackage{fancyhdr}
-
+\usepackage[round,numbers,sort&compress]{natbib} 
+\addtolength{\parskip}{\baselineskip}
+\setlength{\parindent}{0in}
 
 % Multipart figures
 %\usepackage{subfigure}
-% Surround parts of graphics with box
-%\usepackage{boxedminipage}
 % Package for including code in the document
 %\usepackage{listings}
-
-
 
 \title{Multidimensional Crossbridges: Not a rope of sand}
 \author{C Dave, Mikey R, Tommy D}
@@ -28,18 +24,143 @@
 
 \maketitle
 
-
+ 
 \begin{abstract}
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce id quam et odio viverra fermentum. Donec tincidunt faucibus justo id ultricies. Pellentesque quis quam risus, nec sollicitudin nibh. 
+\end{abstract}
 
-Keywords: myosin; spatially-explicit model; crossbridge kinetics}} \\[.5em]
+Keywords: myosin; spatially-explicit model; crossbridge kinetics
 
 Author Summary: 
 	Models of muscle contraction have long treated the molecular motor myosin as a simple spring oriented parallel to its direction of movement. This does not allow for the investigation of phenomena such as the perpendicular force observed during shortening, or the dependence of the maximum force produced on spacing between the contractile filaments that comprise muscle. We demonstrate an alternative model, computationally simple enough to use in large networked models, that incorporate both linear and torsional or angular springs. These models capture much of the behavior missing from pervious efforts.
-\end{abstract}
 
 \section{Introduction}
+	Sarcomere-scale modeling of muscle contraction has largely changed since the introduction of the sliding crossbridge model in the 1950s, but the geometry of the individual crossbridges used has remained largely unaltered. While thermodynamic account had been introduced to the crossbridge kinetics, compliance has been introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional single spring nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
 
-\bibliographystyle{plain}
-\bibliography{}
+	\paragraph*{History of Models}
+
+
+\paragraph*{Increasing knowledge of myosin}
+
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics{../imgs/XBCycle.pdf}
+    \label{fig:xbtypes}
+    \caption{{\small 
+        Kinetic scheme and crossbridge types under investigation. 
+        A) Three state kinetics used in most models and extended here. 
+        B) Single spring crossbridge model used in models since \cite{Huxley1957e}. 
+        C) Two spring system, consisting of a torsional/angular spring and a linear spring. 
+        D) Four spring system using two torsional and two linear springs.}}
+    \end{center}
+\end{figure}
+
+
+\section*{Materials and Methods}
+
+
+\subsection*{Historical 1-D Crossbridge}
+
+
+
+\paragraph*{Geometry and Force/Displacement Equations}
+
+
+\begin{eqnarray}
+\label{1sEnergy}
+    U_1(r) & = & 0 \nonumber \\
+    U_2(r) & = & \frac{1}{2}k_r (r-r_0)^2 \nonumber \\
+    U_3(r) & = & \frac{1}{2}k_r (r)^2 \\
+\end{eqnarray}
+
+\begin{eqnarray}  
+\label{1sTransRates}
+	r_{12}(r)   & = & \text{Dependent on diffusion} \nonumber \\
+    r_{23}(r)   & = & 0.001 + 0.5 * (1 + \tanh( \nonumber \\
+                        &   & 0.6 (U_1(r, \theta) - U_2(r, \theta)))) \\
+	r_{31}(r)   & = & e^{-1 / U_2(r, \theta)}
+\end{eqnarray} 
+ 
+\paragraph*{Kinetics: Equations and Figures}
+
+
+
+
+\subsection*{A 2-D 2-Spring Crossbridge}
+
+
+\begin{figure}[H]
+    \begin{center}
+    \includegraphics[width=3.2in]{../imgs/xxCG_hybrid.pdf}
+    \label{fig:xxCG}
+    \caption{{\small 
+        Energy and kinetics of the two-spring crossbridge at varying horizontal offsets from a resting location and varying lattice spacings.}}
+    \end{center}
+\end{figure}
+
+\paragraph*{Geometry and Force/Displacement Equations}
+
+
+\begin{eqnarray}
+\label{2sEnergy}
+	U_1(r,\theta) & = & 0 \nonumber \\
+    U_2(r,\theta) & = & \frac{1}{2}k_r (r - r_0)^2 + 
+                        \frac{1}{2}k_\theta (\theta - \theta_0)^2 \nonumber \\
+    U_3(r,\theta) & = & \frac{1}{2}k_r (r - r_1)^2 + 
+                        \frac{1}{2}k_\theta (\theta - \theta_1)^2 \\
+\end{eqnarray}
+
+\begin{eqnarray}  
+\label{2sTransRates}
+	r_{12}(r, \theta)   & = & \text{Dependent on diffusion} \nonumber \\
+    r_{23}(r, \theta)   & = & 0.001 + 0.5 * (1 + \tanh( \nonumber \\
+                        &   & 0.6 (U_1(r, \theta) - U_2(r, \theta)))) \\
+	r_{31}(r, \theta)   & = & e^{-1 / U_2(r, \theta)}
+\end{eqnarray} 
+
+\paragraph*{Kinetics: Equations and Figures}
+
+
+\paragraph*{Cutting out cross-sections}
+
+
+
+\subsection*{A 2-D 4-Spring Crossbridge}
+
+
+\paragraph*{Geometry and Force/Displacement Equations}
+
+
+\begin{eqnarray}
+	\lefteqn{U(\phi,\ell,r,\theta) = }  \nonumber \\
+ 	& & \frac{1}{2}k_\phi (\phi-\phi_0)^2 + \frac{1}{2}k_\ell (\ell-\ell_0)^2 + \nonumber \\
+	& & \frac{1}{2}k_r (r-r_0)^2 + \frac{1}{2}k_\theta (\theta-\theta_0)^2
+\end{eqnarray}
+
+\paragraph*{Kinetics: Equations and Figures}
+\paragraph*{Cutting out cross-sections}
+
+
+
+\section*{Results}
+
+
+
+
+\section*{Discussion}
+
+
+
+\subsection*{Lattice Spacing Dependence of Binding Rates}
+
+
+
+
+\subsection*{Forward Biased Binding}
+
+% Bib style requires biophysj.bst be in the document directory
+\bibliographystyle{biophysj}
+\bibliography{SingleXB}
+
 \end{document}
