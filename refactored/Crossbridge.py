@@ -18,8 +18,6 @@
 from numpy import pi, sin, cos, arctan2, sqrt, hypot
 import numpy as np
 from scipy.optimize import fmin_powell as fmin
-import time
-import cPickle as pkl
 
 
 class XB:
@@ -359,7 +357,6 @@ class xxCG(XB):
         """Cautiously working on this fellow to get rate of strong binding"""
         print("You haven't written tran12 yet")
         # Bop again
-        # FIXME : Talk to Tom about this, I am just concerned as we are bopping from a point that already has some energy stored in it. Should I be using the random normal blah blah or some sort of assymetrical distribution?
         #hLoc = self.bop()
         C = np.random.normal(self.Cs, self.Csig)
         G = np.random.normal(self.Gs, self.Gsig)

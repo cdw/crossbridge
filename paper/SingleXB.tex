@@ -32,29 +32,21 @@
 Keywords: myosin; spatially-explicit model; crossbridge kinetics
 
 Author Summary: 
-	Models of muscle contraction have long treated the molecular motor myosin as a simple spring oriented parallel to its direction of movement. This does not allow for the investigation of phenomena such as the perpendicular force observed during shortening, or the dependence of the maximum force produced on spacing between the contractile filaments that comprise muscle. We demonstrate an alternative model, computationally simple enough to use in large networked models, that incorporate both linear and torsional or angular springs. These models capture much of the behavior missing from pervious efforts.
+Models of muscle contraction have long treated the molecular motor myosin as a simple spring oriented parallel to its direction of movement. 
+This does not allow for the investigation of phenomena such as the perpendicular force observed during shortening, or the dependence of the maximum force produced on spacing between the contractile filaments that comprise muscle.
+We demonstrate an alternative model, computationally simple enough to use in large networked models, that incorporate both linear and torsional or angular springs. These models capture much of the behavior missing from pervious efforts.
 
 \section{Introduction}
-	Sarcomere-scale modeling of muscle contraction has largely changed since the introduction of the sliding crossbridge model in the 1950s, but the geometry of the individual crossbridges used has remained largely unaltered. While thermodynamic account had been introduced to the crossbridge kinetics, compliance has been introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional single spring nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
+Sarcomere-scale modeling of muscle contraction has largely changed since the introduction of the sliding crossbridge model in the 1950s, but the geometry of the individual crossbridges used has remained largely unaltered. 
+While thermodynamic account had been introduced to the crossbridge kinetics, compliance has been introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional single spring nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
 
-	\paragraph*{History of Models}
+\paragraph*{History of Models}
 
 
 \paragraph*{Increasing knowledge of myosin}
 
 
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics{../imgs/XBCycle.pdf}
-    \label{fig:xbtypes}
-    \caption{{\small 
-        Kinetic scheme and crossbridge types under investigation. 
-        A) Three state kinetics used in most models and extended here. 
-        B) Single spring crossbridge model used in models since \cite{Huxley1957e}. 
-        C) Two spring system, consisting of a torsional/angular spring and a linear spring. 
-        D) Four spring system using two torsional and two linear springs.}}
-    \end{center}
-\end{figure}
+
 
 
 \section*{Materials and Methods}
@@ -62,7 +54,8 @@ Author Summary:
 
 \subsection*{Historical 1-D Crossbridge}
 
-
+The one dimensional crossbridge has retained the basic strucuture imparted to it by \citet{Huxley1957e}, although some values attributed to it have been altered by subsequent work. \citep{Daniel1998a,Chase2004a,Tanner2007a}
+Figures describing the free energy and transition rates of the single spring crossbridge, which are suitable for comparison to Figures TK, are available from \citet{Tanner2007a}.
 
 \paragraph*{Geometry and Force/Displacement Equations}
 
@@ -70,17 +63,26 @@ Author Summary:
 \begin{eqnarray}
 \label{1sEnergy}
     U_1(r) & = & 0 \nonumber \\
-    U_2(r) & = & \frac{1}{2}k_r (r-r_0)^2 \nonumber \\
+    U_2(r) & = & \frac{1}{2}k_r (r-r_s)^2 \nonumber \\
     U_3(r) & = & \frac{1}{2}k_r (r)^2 \\
 \end{eqnarray}
 
+
 \begin{eqnarray}  
 \label{1sTransRates}
+	r_{12}(r)   & = & A \sqrt{\frac{k_r}{2 \pi}} e^{-\frac{1}{2} k_r (r-r_s)^2} \nonumber \\
+	            & = & A \sqrt{\frac{k_r}{2 \pi}} e^{-U_2(r)} \nonumber \\
+    r_{23}(r)   & = & \frac{B}{\sqrt{k_r}} (1 - \tanh(C \sqrt{k_r} (r-r_s))) + D \\
+                & = & \frac{B}{\sqrt{k_r}} (1 - \tanh(C \sqrt{2 U_2(r)})) + D \\
+	r_{31}(r)   & = & \sqrt{k_r} (\sqrt{M r^2} - N r) + P
+
 	r_{12}(r)   & = & \text{Dependent on diffusion} \nonumber \\
     r_{23}(r)   & = & 0.001 + 0.5 * (1 + \tanh( \nonumber \\
                         &   & 0.6 (U_1(r, \theta) - U_2(r, \theta)))) \\
 	r_{31}(r)   & = & e^{-1 / U_2(r, \theta)}
 \end{eqnarray} 
+ 
+Where: $A = 2000$, $B = 100$, $C = 1$, $D = 1$, $M = 3600$, $N = 40$, $P = 20$, and $k_r = 5$ pN/nm
  
 \paragraph*{Kinetics: Equations and Figures}
 
@@ -89,15 +91,6 @@ Author Summary:
 
 \subsection*{A 2-D 2-Spring Crossbridge}
 
-
-\begin{figure}[H]
-    \begin{center}
-    \includegraphics[width=3.2in]{../imgs/xxCG_hybrid.pdf}
-    \label{fig:xxCG}
-    \caption{{\small 
-        Energy and kinetics of the two-spring crossbridge at varying horizontal offsets from a resting location and varying lattice spacings.}}
-    \end{center}
-\end{figure}
 
 \paragraph*{Geometry and Force/Displacement Equations}
 
@@ -158,6 +151,51 @@ Author Summary:
 
 
 \subsection*{Forward Biased Binding}
+
+
+\section*{Figures}
+
+\begin{figure}[p]
+    \begin{center}
+    \includegraphics[width=3.2in]{../imgs/xb_types_and_cycle.pdf}
+    \label{fig:types}
+    \caption{
+        Kinetic scheme and crossbridge types under investigation. 
+        A) Three state kinetics used in most models and extended here. 
+        B) Single spring crossbridge model used in models since \cite{Huxley1957e}. 
+        C) Two spring system, consisting of a torsional/angular spring and a linear spring. 
+        D) Four spring system using two torsional and two linear springs.}
+    \end{center}
+\end{figure}
+
+\begin{figure}[p]
+    \begin{center}
+    \includegraphics[width=3.2in]{../imgs/2s_contours_and_cuts.pdf}
+    \label{fig:2s}
+    \caption{
+        Energy and kinetics of the two spring crossbridge at varying horizontal offsets from a resting location and varying lattice spacings.}
+    \end{center}
+\end{figure}
+
+\begin{figure}[p]
+    \begin{center}
+    \includegraphics[width=3.2in]{../imgs/4s_contours_and_cuts.pdf}
+    \label{fig:4s}
+    \caption{
+        Energy and kinetics of the four spring crossbridge at varying horizontal offsets from a resting location and varying lattice spacings.}
+    \end{center}
+\end{figure}
+
+\begin{figure}[p]
+    \begin{center}
+    \includegraphics[width=3.2in]{../imgs/force_vectors.pdf}
+    \label{fig:force}
+    \caption{
+        Force vectors of the two and four spring crossbridges, and the differences between.}
+    \end{center}
+\end{figure}
+
+
 
 % Bib style requires biophysj.bst be in the document directory
 \bibliographystyle{biophysj}

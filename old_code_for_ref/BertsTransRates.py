@@ -5,7 +5,6 @@
 # CDW 20090504
 
 
-import matplotlib
 from pylab import figure, show
 import numpy as np
 from numpy import sqrt, exp, pi, tanh, log
@@ -75,8 +74,8 @@ rates_13 = r_13(locs) # Reverse rate 13
 
 
 ## Truncate some values for proper vector file generation
-energy_axes = [-5,15,-30,5]
-rate_axes = [-5,15,-20,1000]
+energy_axes = [-5, 15, -30, 5]
+rate_axes = [-5, 15, -20, 1000]
 eamax = energy_axes[3]*2
 ramax = rate_axes[3]*2
 energy_2 = [v*(v<=eamax)+eamax*(v>eamax) for v in energy_2]
@@ -97,25 +96,25 @@ ax0.plot(locs, energy_1, 'k-', label='$G_1(x)$')
 ax0.plot(locs, energy_2, 'k--')
 ax0.plot(locs, energy_3, 'k:')
 ax0.axis(energy_axes)
-ax0.annotate('$G_1(x)$', [10,-4])
-ax0.annotate('$G_2(x)$', [5.5,-8])
-ax0.annotate('$G_3(x)$', [1.5,-18])
+ax0.annotate('$G_1(x)$', [10, -4])
+ax0.annotate('$G_2(x)$', [5.5, -8])
+ax0.annotate('$G_3(x)$', [1.5, -18])
 ax0.set_title('Energy states')
 ax0.set_ylabel('Free Energy (RT)')
 # Plot/annotate the r_12 and r_21 transitions
 ax1.plot(locs, rates_12, 'k-')
 ax1.plot(locs, rates_21, 'k--')
 ax1.axis(rate_axes)
-ax1.annotate('$r_{x,12}(x)$', [5,600], alpha=1.0, backgroundcolor='w')
-ax1.annotate('$r_{x,21}(x)$', [7,200])
+ax1.annotate('$r_{x,12}(x)$', [5, 600], alpha=1.0, backgroundcolor='w')
+ax1.annotate('$r_{x,21}(x)$', [7, 200])
 ax1.set_title('Binding rates')
 ax1.set_ylabel('Transition Rate (s$^{-1}$)')
 # Plot/annotate the r_23 and r_32 transitions
 ax2.plot(locs, rates_23, 'k-')
 ax2.plot(locs, rates_32, 'k--')
 ax2.axis(rate_axes)
-ax2.annotate('$r_{x,23}(x)$', [5,50])
-ax2.annotate('$r_{x,32}(x)$', [3.5,700])
+ax2.annotate('$r_{x,23}(x)$', [5, 50])
+ax2.annotate('$r_{x,32}(x)$', [3.5, 700])
 ax2.set_title('Strong binding rates')
 ax2.set_xlabel('x (nm)')
 ax2.set_ylabel('Transition Rate (s$^{-1}$)')
@@ -123,8 +122,8 @@ ax2.set_ylabel('Transition Rate (s$^{-1}$)')
 ax3.plot(locs, rates_31, 'k-')
 ax3.plot(locs, rates_13, 'k--')
 ax3.axis(rate_axes)
-ax3.annotate('$r_{x,31}(x)$', [-2.5,300])
-ax3.annotate('$r_{x,13}(x)$', [9,10])
+ax3.annotate('$r_{x,31}(x)$', [-2.5, 300])
+ax3.annotate('$r_{x,13}(x)$', [9, 10])
 ax3.set_title('Detachment rates')
 ax3.set_xlabel('x (nm)')
 ax3.set_ylabel('Transition Rate (s$^{-1}$)')
