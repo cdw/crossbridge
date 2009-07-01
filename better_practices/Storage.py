@@ -20,6 +20,7 @@ class Storage():
         self.config = config
         self.x_range = x_range
         self.y_range = y_range
+        self.base_types = set(['xbtype', 'config', 'x_range', 'y_range'])
         self.data_file_name = str(self.xbtype)+"spring.yaml"
         stream = open(self.data_file_name, 'r')
         self.data = yaml.load(stream)
@@ -58,8 +59,7 @@ class Storage():
     
     def write(self, xb_property, new_value):
         """Write a property to the current data; doesn't save to disk."""
-        if (xb_property != 'xbtype' and xb_property != 'config' and
-            xb_property != 'x_range' and xb_property != 'y_range'):
+        if xb_property not in self.base_types:
             self.data[xb_property] = new_value
         else:
             warnings.warn("Don't set base attributes, must be instantiated")
