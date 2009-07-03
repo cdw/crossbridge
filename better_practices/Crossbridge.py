@@ -222,6 +222,12 @@ class Crossbridge:
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
+    def r12(self, b_site, trials):
+        """Give the prob of binding, given a b_site and number of trials """
+        # Binds gives us the number of times binding occurs out of all trials
+        binds = sum(self.bind_or_not(b_site) for t in range(trials))
+        return (float(binds)/float(trials))
+    
     def r23(self, b_site):
         """Given a binding site, b_site, to which a myosin head is loosely
         bound, return a probability of transition to a tightly bound state

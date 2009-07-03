@@ -10,11 +10,12 @@ import warnings
 
 class Storage():
     """Interface with a stored set of crossbridge data.
-    
+        
     Use list() to see what properties are currently stored
         get(xb_property) to access properties
         write(xb_property, new_value) change properties
         save() to save to disk"""
+    
     def __init__(self, xbtype, config, x_range, y_range):
         self.xbtype = xbtype
         self.config = config
@@ -22,29 +23,36 @@ class Storage():
         self.y_range = y_range
         self.base_types = set(['xbtype', 'config', 'x_range', 'y_range'])
         self.data_file_name = str(self.xbtype)+"spring.yaml"
-        stream = open(self.data_file_name, 'r')
-        self.data = yaml.load(stream)
-        stream.close()
+        try:
+            stream = open(self.data_file_name, 'r')
+            self.data = yaml.load(stream)
+            stream.close()
+        except IOError:
+            warnings.warn("File "+self.data_file_name+" not found, creating")
+            stream = open(self.data_file_name,"w")
+            self.data = yaml.load("""config: None""")
+            stream.close()
+            return
         ## Check stored data, make sure we aren't changing too much
-        if self.data.get('config') != self.config:
-            warnings.warn("Using a different XB config than before.\
+        if self.get('config') != self.config:
+            warnings.warn("Using a different XB config than before.\n \
             Gonna trash the old data and only use what is added next.")
-            trash()
-        if (self.data.get('x_range') != self.x_range or 
-            self.data.get('y_range') != self.y_range):
-            warnings.warn("Using a different range than before.\
+            self.__trash__()
+        if (self.get('x_range') != self.x_range or 
+            self.get('y_range') != self.y_range):
+            warnings.warn("Using a different range than before.\n \
             Gonna trash the old data and only use what is added next.")
-            trash()
-        def trash(self):
-            """Trash the stored data"""
-            for key in self.data.keys():
-                del self.data[key]
-            self.data['config'] = self.config
-            self.data['xbtype'] = self.xbtype
-            self.data['x_range'] = self.x_range
-            self.data['y_range'] = self.y_range
-            self.data['modified'] = datetime.datetime.today()
-            
+            self.__trash__()
+    
+    def __trash__(self):
+        """Trash the stored data"""
+        for key in self.data.keys():
+            del self.data[key]
+        self.data['config'] = self.config
+        self.data['xbtype'] = self.xbtype
+        self.data['x_range'] = self.x_range
+        self.data['y_range'] = self.y_range
+        self.data['modified'] = datetime.datetime.today()
     
     def list(self):
         """List the current xb_properties"""
