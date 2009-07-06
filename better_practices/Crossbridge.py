@@ -169,7 +169,7 @@ class Crossbridge:
     def energy(self, conv_loc, h_loc, state):
         """Return the energy in the xb with the given parameters"""
         (t_ang, n_len, c_ang, g_len) = self.seg_values(conv_loc, h_loc)
-        return (
+        return float(
             self.t.energy(t_ang, state) + 
             self.n.energy(n_len, state) + 
             self.c.energy(c_ang, state) + 
@@ -189,7 +189,7 @@ class Crossbridge:
                 1/g_len * c_k * (c_ang - c_s) * sin(c_ang))
         f_y = (-g_k * (g_len - g_s) * sin(c_ang) + 
                 1/g_len * c_k * (c_ang - c_s) * cos(c_ang))
-        return (f_x, f_y)
+        return [float(f_x), float(f_y)]
     
     def seg_values(self, conv_loc, h_loc):
         """Calculate the values of the segments of the XB"""
@@ -232,18 +232,18 @@ class Crossbridge:
         """Given a binding site, b_site, to which a myosin head is loosely
         bound, return a probability of transition to a tightly bound state
         """
-        (state1_energy, s1_conv_loc) = self.minimize_energy(b_site, 1)
-        (state2_energy, s2_conv_loc) = self.minimize_energy(b_site, 2)
-        del(s1_conv_loc, s2_conv_loc)
-        return (.5 * (1 + tanh(.6 * (state1_energy - state2_energy)))+.001)
+        state1_energy = self.minimize_energy(b_site, 1)[0]
+        state2_energy = self.minimize_energy(b_site, 2)[0]
+        rate = .5 * (1 + tanh(.6 * (state1_energy - state2_energy)))+.001
+        return float(rate)
     
     def r31(self, b_site):
         """Given a binding site, b_site, to which a myosin head is tightly
         bound, return a probability of transition to an unbound state
         """
-        (state2_energy, s2_conv_loc) = self.minimize_energy(b_site, 2)
-        del(s2_conv_loc)
-        return exp(-1 / state2_energy)
+        state2_energy = self.minimize_energy(b_site, 2)[0]
+        rate = exp(-1 / state2_energy)
+        return float(rate)
     
 
 
