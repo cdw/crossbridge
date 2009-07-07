@@ -232,9 +232,9 @@ class Crossbridge:
         """Given a binding site, b_site, to which a myosin head is loosely
         bound, return a probability of transition to a tightly bound state
         """
-        state1_energy = self.minimize_energy(b_site, 1)[0]
         state2_energy = self.minimize_energy(b_site, 2)[0]
-        rate = .5 * (1 + tanh(.6 * (state1_energy - state2_energy)))+.001
+        state3_energy = self.minimize_energy(b_site, 3)[0]
+        rate = .5 * (1 + tanh(.6 * (state2_energy - state3_energy)))+.001
         return float(rate)
     
     def r31(self, b_site):

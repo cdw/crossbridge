@@ -70,8 +70,8 @@ def main(argv=None):
             else:
                 raise Usage("Unhandled option")
         # Set ranges used
-        x_range = (-5, 15, 1) 
-        y_range = (5, 15, .5)
+        x_range = [-5, 15, 1] 
+        y_range = [5, 15, .5]
         # Choose config based on xbtype
         if xbtype == 4:
             config = {
