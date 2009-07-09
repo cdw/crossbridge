@@ -21,7 +21,7 @@ linear or torsional springs. A schematic follows.
 import warnings
 import numpy.random as random
 from scipy.optimize import fmin_powell as fmin
-from numpy import pi, sin, cos, arctan2, sqrt, hypot, exp, tanh
+from numpy import pi, sin, cos, arctan2, sqrt, hypot, exp, tanh, log
 
 
 class Spring:
@@ -176,6 +176,23 @@ class Crossbridge:
             self.g.energy(g_len, state) 
         )
     
+    def free_energy(self, h_loc, state):
+        """Return the free energy in the xb with the given parameters"""
+        g_0 = 13 #in RT 
+        atp_conc = 0.005 # or 5 mM
+        adp_conc = 0.00003 # or 30 uM
+        phos_conc  = 0.003 # or 3 mM
+        g_lib = - g_0 - log(atp_conc / (adp_conc * phos_conc))
+        alpha = 0.28 #G_lib freed in 0->1 trans, from Bert/Tom/Pate/Cooke
+        eta = 0.68 #ditto, for 1->2 trans
+        if state is 1:
+            return 0
+        elif state is 2:
+            return (alpha * g_lib + self.minimize_energy(h_loc, state)[0])
+        elif state is 3:
+            return (eta * g_lib + self.minimize_energy(h_loc, state)[0])
+        
+    
     def force(self, h_loc, state):
         """From the head loc, get the for vector being exerted by the XB"""
         (energy, conv_loc) = self.minimize_energy(h_loc, state)
@@ -241,8 +258,8 @@ class Crossbridge:
         """Given a binding site, b_site, to which a myosin head is tightly
         bound, return a probability of transition to an unbound state
         """
-        state2_energy = self.minimize_energy(b_site, 2)[0]
-        rate = exp(-1 / state2_energy)
+        state3_energy = self.minimize_energy(b_site, 3)[0]
+        rate = exp(-1 / (state3_energy + 1e-9)) #1e-9 avoids 1/0 at rest site
         return float(rate)
     
 

@@ -126,6 +126,7 @@ def main(argv=None):
         # Generate some properties, or all of them
         if prop_to_gen is None:
             energy = calc_values(xb, x_range, y_range, 'energy', state=1)
+            free_e = calc_values(xb, x_range, y_range, 'free_energy', state=2)
             r12 = calc_values(xb, x_range, y_range, 'r12', trials = trials)
             r23 = calc_values(xb, x_range, y_range, 'r23')
             r31 = calc_values(xb, x_range, y_range, 'r31')
@@ -133,6 +134,7 @@ def main(argv=None):
             force2 = calc_values(xb, x_range, y_range, 'force', state=2)
             force3 = calc_values(xb, x_range, y_range, 'force', state=3)
             store.write('energy', energy)
+            store.write('free_energy', free_e)
             store.write('r12', r12)
             store.write('r23', r23)
             store.write('r31', r31)
@@ -143,6 +145,8 @@ def main(argv=None):
             prop_gen_func = {
                 'energy': lambda:
                 calc_values(xb, x_range, y_range, 'energy', state=1), 
+                'free_energy': lambda:
+                calc_values(xb, x_range, y_range, 'free_energy', state=2), 
                 'r12': lambda:
                 calc_values(xb, x_range, y_range, 'r12', trials = trials),
                 'r23': lambda:
@@ -175,6 +179,7 @@ def calc_values(xb_inst, x_r, y_r, val_type, state =1, trials =1):
     try:
         value_gen_func = {
             'energy': lambda x, y: xb_inst.minimize_energy((x,y), state)[0], 
+            'free_energy': lambda x, y: xb_inst.free_energy((x,y), state), 
             'r12': lambda x, y: xb_inst.r12((x,y), trials),
             'r23': lambda x, y: xb_inst.r23((x,y)),
             'r31': lambda x, y: xb_inst.r31((x,y)),
