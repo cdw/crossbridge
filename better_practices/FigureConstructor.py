@@ -9,10 +9,11 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 #from pylab import figure, show, colorbar
+import pdb
 
 class FigureConstructor:
     """docstring for FigureConstructor"""
-    def __init__(self, rowcol):
+    def __init__(self, rowcol, fig_size=(8, 8)):
         # Use Helvetica as default font
         matplotlib.rcParams['font.family'] = 'sans-serif'
         matplotlib.rcParams['font.sans-serif'] = ['Helvetica']
@@ -22,6 +23,7 @@ class FigureConstructor:
         matplotlib.rcParams['contour.negative_linestyle'] = 'solid'
         # Institate figure and subplots
         self.fig = plt.figure(1)
+        self.fig.set_size_inches(fig_size, forward=True)
         self.axe = ([self.fig.add_subplot(
                         rowcol[0], 
                         rowcol[1],
@@ -50,6 +52,14 @@ class FigureConstructor:
         # Plot the highlighting white lines
         self.axe[sub].contour(x_grid, y_grid, z_grid, levels, 
             colors = self.colors["white"])
+        # Deal with any passed cuts
+        if labels.has_key("cuts"):
+            curr_cut = 0
+            for cut in labels["cuts"]["cut_locs"]:
+                self.axe[sub].plot([x_y_values[0][0], x_y_values[0][-1]], 
+                    [cut, cut], ls = labels["cuts"]["cut_styles"][curr_cut], 
+                    color='0.1', linewidth=1.5)
+                curr_cut += 1
         # Fix the limits
         self.axe[sub].set_xlim([x_y_values[0][0], x_y_values[0][-1]])
         self.axe[sub].set_ylim([x_y_values[1][0], x_y_values[1][-1]])
@@ -65,9 +75,14 @@ class FigureConstructor:
         """Plot a single, or series of, cuts"""
         # Find the indices at which to take the cuts
         cut_indices = np.searchsorted(x_y_values[1], cut_locs)
+        # Create line differentiations
+        line_style = ["--", "-.", ":", "."]
+        curr_line = 0
         # Plot the cuts
         for cut in cut_indices:
-            self.axe[sub].plot(x_y_values[0], z_grid[cut], color='0.7')
+            self.axe[sub].plot(x_y_values[0], z_grid[cut], 
+                color='0.4', ls = line_style[curr_line], lw=2.0)
+            curr_line += 1
         # Fix the limits
         #self.axe[sub].set_yticks([x_y_values[1][0],
         #    .5*(x_y_values[1][-1]-x_y_values[1][0])
@@ -86,8 +101,14 @@ class FigureConstructor:
     
     def quiver_plot(self, sub, x_y_values, j_k_grid, labels_n_limits={}):
         """Plot an arrows graphy"""
-        self.axe[sub].quiver(x_y_values[0], x_y_values[1], 
-                             j_k_grid[:,:,0], j_k_grid[:,:,1])
+        # Get arrow scale if it is passed
+        if labels_n_limits.has_key("scale"):
+            k_words = {"scale": labels_n_limits["scale"]}
+        # Manually mesh x and y into grid, see http://tinyurl.com/km8ut4
+        x_mesh, y_mesh = np.meshgrid(x_y_values[0], x_y_values[1])
+        # Plot the passed quivers
+        quiv = self.axe[sub].quiver(x_mesh, y_mesh, 
+            j_k_grid[:,:,0], j_k_grid[:,:,1], **k_words)
         if labels_n_limits.has_key("title"):
             self.axe[sub].set_title(labels_n_limits["title"])
         if labels_n_limits.has_key("x_lab"):
@@ -98,6 +119,15 @@ class FigureConstructor:
             self.axe[sub].set_ylim(labels_n_limits["y_limits"])
         if labels_n_limits.has_key("y_ticks"):
             self.axe[sub].set_yticks(labels_n_limits["y_ticks"])
+        if labels_n_limits.has_key("quiv_key"):
+                self.axe[sub].quiverkey(quiv, 
+                    labels_n_limits["quiv_key"]["x"], 
+                    labels_n_limits["quiv_key"]["y"],  
+                    labels_n_limits["quiv_key"]["scale"], 
+                    labels_n_limits["quiv_key"]["label"],
+                        labelpos='E',
+                        coordinates='figure',
+                        fontproperties={'weight': 'bold'})
     
     def save_plot(self, location="./image.pdf", trans=True):
         """Save the plot to the specified location and type"""

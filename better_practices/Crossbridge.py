@@ -183,14 +183,14 @@ class Crossbridge:
         adp_conc = 0.00003 # or 30 uM
         phos_conc  = 0.003 # or 3 mM
         g_lib = - g_0 - log(atp_conc / (adp_conc * phos_conc))
-        alpha = 0.28 #G_lib freed in 0->1 trans, from Bert/Tom/Pate/Cooke
+        alph = 0.28 #G_lib freed in 0->1 trans, from Bert/Tom/Pate/Cooke
         eta = 0.68 #ditto, for 1->2 trans
         if state is 1:
-            return 0
+            return float(0)
         elif state is 2:
-            return (alpha * g_lib + self.minimize_energy(h_loc, state)[0])
+            return float(alph * g_lib + self.minimize_energy(h_loc, state)[0])
         elif state is 3:
-            return (eta * g_lib + self.minimize_energy(h_loc, state)[0])
+            return float(eta * g_lib + self.minimize_energy(h_loc, state)[0])
         
     
     def force(self, h_loc, state):

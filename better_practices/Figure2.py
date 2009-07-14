@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Figure1.py
+Figure2.py
 Created by Dave Williams on 2009-07-06.
 """
 
@@ -15,7 +15,7 @@ import numpy as np
 def main():
     """Generate the second figure of the SingleXB paper"""
     # Load properties that will be needed
-    store = Storage.Storage(2)
+    store = Storage.Storage(4)
     free_energy = store.get("free_energy")
     r12 = store.get("r12")
     r23 = store.get("r23")
@@ -32,11 +32,15 @@ def main():
     RT = 3.97
     energy_levels = (-1e1000*RT, -1*RT, 0*RT, 3*RT, 6*RT, 1e1000*RT)
     trans_prob_levels = (-1, .05, .1, .5, .9, .999, 2)
-    cuts = (8, 10, 12)
+    cuts = (36, 37, 38)
+    cut_style = ["--", "-.", ":", "."]
     # Plot energy two contour
     f_c.two_contour(0, (x_locs, y_locs), free_energy, energy_levels, {
         "title": "Energy of the loosely bound state",
-        "y_lab": "Spacing"
+        "y_lab": "d$_{1,0}$ (nm)",
+        "y_ticks": (34, 36, 38, 40, 42),
+        "y_limits": (34,42),
+        "cuts": {"cut_locs":cuts, "cut_styles": cut_style}
     })
     # Plot energy cuts
     f_c.cut_plot(1, (x_locs, y_locs), free_energy, cuts, {
@@ -47,7 +51,10 @@ def main():
     # Plot r12 contour
     f_c.two_contour(2, (x_locs, y_locs), r12, trans_prob_levels, {
         "title": "r$_{12}$: unbound to loosely bound",
-        "y_lab": "Spacing"
+        "y_lab": "d$_{1,0}$ (nm)",
+        "y_ticks": (34, 36, 38, 40, 42),
+        "y_limits": (34,42),
+        "cuts": {"cut_locs":cuts, "cut_styles": cut_style}
     })
     # Plot r12 cuts
     f_c.cut_plot(3, (x_locs, y_locs), r12, cuts, {
@@ -58,7 +65,10 @@ def main():
     # Plot r23 contour
     f_c.two_contour(4, (x_locs, y_locs), r23, trans_prob_levels, {
         "title": "r$_{23}$: loosely to strongly bound",
-        "y_lab": "Spacing"
+        "y_lab": "d$_{1,0}$ (nm)",
+        "y_ticks": (34, 36, 38, 40, 42),
+        "y_limits": (34,42),
+        "cuts": {"cut_locs":cuts, "cut_styles": cut_style}
     })
     # Plot r23 cuts
     f_c.cut_plot(5, (x_locs, y_locs), r23, cuts, {
@@ -70,7 +80,10 @@ def main():
     f_c.two_contour(6, (x_locs, y_locs), r31, trans_prob_levels, {
         "title": "r$_{31}$: strongly to unbound",
         "x_lab": "Binding site offset (nm)",
-        "y_lab": "Spacing"
+        "y_lab": "d$_{1,0}$ (nm)",
+        "y_ticks": (34, 36, 38, 40, 42),
+        "y_limits": (34,42),
+        "cuts": {"cut_locs":cuts, "cut_styles": cut_style}
     })
     # Plot r31 cuts
     f_c.cut_plot(7, (x_locs, y_locs), r31, cuts, {

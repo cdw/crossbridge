@@ -70,8 +70,25 @@ def main(argv=None):
             else:
                 raise Usage("Unhandled option")
         # Set ranges used
-        x_range = [-5, 15, 1] 
-        y_range = [5, 15, .5]
+        x_range = [-5, 15, 0.25] 
+        y_range = [3, 11, 0.25]
+        d10_range = [fil_sep_to_d10(y_range[0]), 
+                    fil_sep_to_d10(y_range[1]), 1.5 * y_range[2]]
+            # The y range is chosen based on values of SL length range for 
+            # vertabrate cardiac muscle, actin thickness, myosin thickness, 
+            # and an assumption of constant volume over those ranges the basic 
+            # equation goes like this:
+            #   filcenter_dist = face_dist + .5 * dia_actin + .5 * dia_myosin
+            #   d10 = 1.5 * filcenter_dist
+            #   vol = (2/np.sqrt(3)) * s_l * d10**2
+            #   d10 = np.sqrt(np.sqrt(3)/2) * (vol/sl)
+            # Millman 1998, pg375 says cardiac d10 at 2.2um is 37nm, and that 
+            # cardiac SL range is 1.9-2.5um
+            # So, plugging this in (and using the initial d10 at 2.2um to get 
+            # the volume which remains constant thereafter) we get extreme 
+            # values for the filcenter_dist of 8.8 nm and 5.4 nm. (These are 
+            # extreme values of ~40nm and ~34.7nm if given in d10). Hence the 
+            # choice of 5 and 10 for the limits of the y_range
         # Choose config based on xbtype
         if xbtype == 4:
             config = {
@@ -81,13 +98,13 @@ def main(argv=None):
                     'spring_konstant': 100
                 },
                 'N': {
-                    'weak': 7,
+                    'weak': 5,
                     'strong': 5,
                     'spring_konstant': 10
                 },
                 'C': {
-                    'weak': pi/3 + (pi - pi/4), #pi/4 from T weak
-                    'strong': pi/2 + (pi - pi/4),
+                    'weak': pi/3 + (pi - pi/6), #pi/4 from T weak
+                    'strong': pi/2 + (pi - pi/6),
                     'spring_konstant': 100
                 },
                 'G': {
@@ -115,14 +132,14 @@ def main(argv=None):
                      'spring_konstant': 100
                  },
                  'G': {
-                     'weak': 11,
-                     'strong': 11,
+                     'weak': 8,
+                     'strong': 8,
                      'spring_konstant': 5
                  }
             }
             xb = Crossbridge.TwoSpring(config)
         # Make or load a place to store results
-        store = Storage.Storage(xbtype, config, x_range, y_range)
+        store = Storage.Storage(xbtype, config, x_range, d10_range)
         # Generate some properties, or all of them
         if prop_to_gen is None:
             energy = calc_values(xb, x_range, y_range, 'energy', state=1)
@@ -191,6 +208,24 @@ def calc_values(xb_inst, x_r, y_r, val_type, state =1, trials =1):
     # Create the new values in format [[row1], [row2], ...]
     new_vals = [[value_gen_func(x, y) for x in x_locs] for y in y_locs]
     return new_vals
+
+def fil_sep_to_d10(face_to_face):
+    """Convert filament seperation values from filament-face-to-filament face
+    to d10 values that folks are used to seeing in x-ray diffraction studies
+    """
+    # Filament paramter setup
+    thick_dia = 26 # in nm, from Millman, 1998, pg378 
+    # Note that 31 nm value is in Kensler & Harris, 2008, PMCID: PMC2242758
+    thin_dia = 9.5 # in nm, from Millman, 1998 on pg378
+    # The dist from fil center to fil center must consider these diameters
+    cent_to_cent = face_to_face + 0.5 * thick_dia + 0.5 * thin_dia
+    # From Millman 1998, pg362, we derive
+    # d10 = 2*(np.cos(30*(np.pi/180)) * cent_to_cent) * np.cos(30*(np.pi/180))
+    # or, since np.cos(30*(np.pi/180)) = np.sqrt(3/4)
+    # d10 = 2*(np.sqrt(3/4) * cent_to_cent) * np.sqrt(3/4) or
+    # d10 = 2* np.sqrt(3/4) * np.sqrt(3/4) * cent_to_cent  or
+    # d10 = 3/2 * cent_to_cent
+    return (1.5 * cent_to_cent)
 
 if __name__ == "__main__":
     sys.exit(main())
