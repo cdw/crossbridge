@@ -103,8 +103,8 @@ def main(argv=None):
                     'spring_konstant': 10
                 },
                 'C': {
-                    'weak': pi/3 + (pi - pi/6), #pi/4 from T weak
-                    'strong': pi/2 + (pi - pi/6),
+                    'weak': pi/3 + (pi - pi/4), #pi/4 from T weak
+                    'strong': pi/2 + (pi - pi/4),
                     'spring_konstant': 100
                 },
                 'G': {

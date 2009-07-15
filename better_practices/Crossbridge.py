@@ -329,4 +329,8 @@ class TwoSpring(Crossbridge):
         return (b_prob > random.rand())
     
 
-
+class OneSpring(Crossbridge):
+    """An instance of the one-spring crossbridge"""
+    def __init__(self, config = None):
+        Crossbridge.__init__(self, config)
+        warnings.warn("Single Spring not implemented yet")
