@@ -333,4 +333,23 @@ class OneSpring(Crossbridge):
     """An instance of the one-spring crossbridge"""
     def __init__(self, config = None):
         Crossbridge.__init__(self, config)
-        warnings.warn("Single Spring not implemented yet")
+    
+    def minimize_energy(self, h_loc, state):
+        """Return the min energy of the XB at h_loc, ignore y dimension"""
+        h_c_loc = (h_loc[0], 0) #Head and conv loc are same and ignore y dim
+        return (self.energy(h_c_loc, h_c_loc, state), h_c_loc)
+    
+    def bind_or_not(self, b_site):
+        """Given an (x,y) location of an open binding site, bind or not after
+        bopping the cross-bridge head to a new location. Return a boolean,
+        True for a binding event and False for no binding event.
+        """
+        ## Bop the spring to get a new value
+        n_len = self.n.bop()
+        ## Find the distance to the binding site
+        distance = b_site[0]-n_len #Ignore y dim
+        ## The binding prob is dept on the exp of a dist
+        b_prob = exp(-distance)
+        ## Throw a random number to check binding
+        return (b_prob > random.rand())
+

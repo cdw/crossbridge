@@ -15,14 +15,14 @@ from numpy import pi
 
 
 __help_message__ = '''
-Don't eat crumbs in bed, also here are some options:
+Don't eat crumbs in bed, also here are some options, pass some along:
 Option                Values         Results
 -h, --help                           You see this message
--x, --crossbridge     2,4            Picks number of springs to emulate
+-x, --crossbridge     1,2,4          Picks number of springs to emulate
 -t, --trials          Interger       How many trials for each r12 point
 -p, --property        Some strs      No value chooses all props, some value
                                        selects a given property
--d, --defaults        Exists or no   Chooses all default values       
+-d, --defaults        Exists or not  Chooses all default values       
 '''
 
 
@@ -38,8 +38,8 @@ def main(argv=None):
         argv = sys.argv
     try:
         try:
-            short_opts = "ho:vx:t:p:d"
-            long_opts = ["help" , "output=", "crossbridge=", 
+            short_opts = "hx:t:p:d"
+            long_opts = ["help" , "crossbridge=", 
                          "trials=", "property=", "defaults"]
             opts, args = getopt.getopt(argv[1:], short_opts, long_opts)
         except getopt.error, msg:
@@ -49,18 +49,16 @@ def main(argv=None):
         trials = 10
         prop_to_gen = None # Triggers generation of all properties
         # option processing
+        if len(opts) == 0:
+            raise Usage(__help_message__)
         for option, value in opts:
-            if option == "-v":
-                verbose = True
-            elif option in ("-h", "--help"):
+            if option in ("-h", "--help"):
                 raise Usage(__help_message__)
-            elif option in ("-o", "--output"):
-                output = value
             elif option in ("-x", "--crossbridge"):
-                if value in ("2", "4"):
+                if value in ("1", "2", "4"):
                     xbtype = int(value)
                 else:
-                    raise Usage("Allowed xb types are 2 and 4 (spring)")
+                    raise Usage("Allowed xb types are 1, 2 and 4 (spring)")
             elif option in ("-t", "--trials"):
                 trials = int(value)
             elif option in ("-p", "--property"):
@@ -138,6 +136,30 @@ def main(argv=None):
                  }
             }
             xb = Crossbridge.TwoSpring(config)
+        elif xbtype == 1:
+            config = {
+                 'T': {
+                     'weak': 0,
+                     'strong': 0,
+                     'spring_konstant': 1
+                 },
+                 'N': {
+                     'weak': 5,
+                     'strong': 0,
+                     'spring_konstant': 5
+                 },
+                 'C': {
+                     'weak': pi,
+                     'strong': pi,
+                     'spring_konstant': 1
+                 },
+                 'G': {
+                     'weak': 0,
+                     'strong': 0,
+                     'spring_konstant': 1
+                 }
+            }
+            xb = Crossbridge.OneSpring(config)
         # Make or load a place to store results
         store = Storage.Storage(xbtype, config, x_range, d10_range)
         # Generate some properties, or all of them

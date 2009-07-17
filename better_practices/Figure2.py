@@ -15,7 +15,7 @@ import numpy as np
 def main():
     """Generate the second figure of the SingleXB paper"""
     # Load properties that will be needed
-    store = Storage.Storage(4)
+    store = Storage.Storage(1)
     free_energy = store.get("free_energy")
     r12 = store.get("r12")
     r23 = store.get("r23")

@@ -143,7 +143,7 @@ class FigureConstructor:
                             top=0.94, bottom=0.08)
         plt.show()
 
-
+## Example Useage
 # setup_figure(rows, columns)
 # two_contour(subplotloc, vals=[x,y,z], levels, cut_loc, labels)
 # cut_plot(subplotloc, vals=[x,y,z], cut_loc, labels)
