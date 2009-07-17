@@ -336,8 +336,8 @@ class OneSpring(Crossbridge):
     
     def minimize_energy(self, h_loc, state):
         """Return the min energy of the XB at h_loc, ignore y dimension"""
-        h_c_loc = (h_loc[0], 0) #Head and conv loc are same and ignore y dim
-        return (self.energy(h_c_loc, h_c_loc, state), h_c_loc)
+        # Ignore y dim and only use energy in neck
+        return (self.n.energy(h_loc[0], state), (h_loc[0], 0))
     
     def bind_or_not(self, b_site):
         """Given an (x,y) location of an open binding site, bind or not after
@@ -347,7 +347,7 @@ class OneSpring(Crossbridge):
         ## Bop the spring to get a new value
         n_len = self.n.bop()
         ## Find the distance to the binding site
-        distance = b_site[0]-n_len #Ignore y dim
+        distance = abs(b_site[0]-n_len) #Ignore y dim
         ## The binding prob is dept on the exp of a dist
         b_prob = exp(-distance)
         ## Throw a random number to check binding
