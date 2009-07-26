@@ -9,7 +9,7 @@ import numpy as np
 import matplotlib
 import matplotlib.pyplot as plt
 #from pylab import figure, show, colorbar
-import pdb
+#import pdb
 
 class FigureConstructor:
     """docstring for FigureConstructor"""
@@ -33,8 +33,12 @@ class FigureConstructor:
         # Configure colors
         self.colors = {
             "grey_steps": ('.2', '.3', '.4', '.5', '.6', '.7', '.8'),
-            "white": ('white')
+            "white": ('white'),
+            "cuts": ('b', 'g', 'r', 'c', 'y', 'm')
             }
+        # self.line_styles = ["--", "-.", ":", "."]
+        self.line_styles = ["solid", "solid", "solid", "solid", "solid", 
+                            "solid", "solid", "solid"] #try out solids
         
     
     def two_contour(self, sub, x_y_values, z_grid, levels, labels={}):
@@ -57,8 +61,8 @@ class FigureConstructor:
             curr_cut = 0
             for cut in labels["cuts"]["cut_locs"]:
                 self.axe[sub].plot([x_y_values[0][0], x_y_values[0][-1]], 
-                    [cut, cut], ls = labels["cuts"]["cut_styles"][curr_cut], 
-                    color='0.1', linewidth=1.5)
+                    [cut, cut], ls = self.line_styles[curr_cut], 
+                    color=self.colors["cuts"][curr_cut], linewidth=1.5)
                 curr_cut += 1
         # Fix the limits
         self.axe[sub].set_xlim([x_y_values[0][0], x_y_values[0][-1]])
@@ -76,12 +80,12 @@ class FigureConstructor:
         # Find the indices at which to take the cuts
         cut_indices = np.searchsorted(x_y_values[1], cut_locs)
         # Create line differentiations
-        line_style = ["--", "-.", ":", "."]
         curr_line = 0
         # Plot the cuts
         for cut in cut_indices:
             self.axe[sub].plot(x_y_values[0], z_grid[cut], 
-                color='0.4', ls = line_style[curr_line], lw=2.0)
+                color=self.colors["cuts"][curr_line], 
+                ls = self.line_styles[curr_line], lw=2.0)
             curr_line += 1
         # Fix the limits
         #self.axe[sub].set_yticks([x_y_values[1][0],

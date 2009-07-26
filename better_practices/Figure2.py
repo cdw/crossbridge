@@ -39,11 +39,9 @@ def main(argv=None):
             opts, args = getopt.getopt(argv[1:], short_opts, long_opts)
         except getopt.error, msg:
             raise Usage(msg)
-        # option processing
-        save = False
-        xbtype = 2
-        #if len(opts) == 0:
-        #    raise Usage(__help_message__)
+        ## Option processing
+        save = False # Save to default file name
+        xbtype = 2   # Read data for xb type 2
         for option, value in opts:
             if option in ("-h", "--help"):
                 raise Usage(__help_message__)
@@ -77,14 +75,13 @@ def main(argv=None):
         energy_levels = (-1e1000*RT, -1*RT, 0*RT, 3*RT, 6*RT, 1e1000*RT)
         trans_prob_levels = (-1, .05, .1, .5, .9, .999, 2)
         cuts = (36, 37, 38)
-        cut_style = ["--", "-.", ":", "."]
         # Plot energy two contour
         f_c.two_contour(0, (x_locs, y_locs), free_energy, energy_levels, {
             "title": "Energy of the loosely bound state",
             "y_lab": "d$_{1,0}$ (nm)",
             "y_ticks": (34, 36, 38, 40, 42),
             "y_limits": (34,42),
-            "cuts": {"cut_locs":cuts, "cut_styles": cut_style}
+            "cuts": {"cut_locs":cuts}
         })
         # Plot energy cuts
         f_c.cut_plot(1, (x_locs, y_locs), free_energy, cuts, {
@@ -98,7 +95,7 @@ def main(argv=None):
             "y_lab": "d$_{1,0}$ (nm)",
             "y_ticks": (34, 36, 38, 40, 42),
             "y_limits": (34,42),
-            "cuts": {"cut_locs":cuts, "cut_styles": cut_style}
+            "cuts": {"cut_locs":cuts}
         })
         # Plot r12 cuts
         f_c.cut_plot(3, (x_locs, y_locs), r12, cuts, {
@@ -112,7 +109,7 @@ def main(argv=None):
             "y_lab": "d$_{1,0}$ (nm)",
             "y_ticks": (34, 36, 38, 40, 42),
             "y_limits": (34,42),
-            "cuts": {"cut_locs":cuts, "cut_styles": cut_style}
+            "cuts": {"cut_locs":cuts}
         })
         # Plot r23 cuts
         f_c.cut_plot(5, (x_locs, y_locs), r23, cuts, {
@@ -127,7 +124,7 @@ def main(argv=None):
             "y_lab": "d$_{1,0}$ (nm)",
             "y_ticks": (34, 36, 38, 40, 42),
             "y_limits": (34,42),
-            "cuts": {"cut_locs":cuts, "cut_styles": cut_style}
+            "cuts": {"cut_locs":cuts}
         })
         # Plot r31 cuts
         f_c.cut_plot(7, (x_locs, y_locs), r31, cuts, {
