@@ -7,6 +7,8 @@ Created by Dave Williams on 2009-07-06.
 
 import numpy as np
 import matplotlib
+# Choose backend
+matplotlib.use('GTKAgg')
 import matplotlib.pyplot as plt
 #from pylab import figure, show, colorbar
 #import pdb
@@ -23,7 +25,7 @@ class FigureConstructor:
         matplotlib.rcParams['contour.negative_linestyle'] = 'solid'
         # Institate figure and subplots
         self.fig = plt.figure(1)
-        self.fig.set_size_inches(fig_size, forward=True)
+        self.fig.set_size_inches(fig_size) #, forward=True) only on mac?
         self.axe = ([self.fig.add_subplot(
                         rowcol[0], 
                         rowcol[1],
@@ -34,7 +36,8 @@ class FigureConstructor:
         self.colors = {
             "grey_steps": ('.2', '.3', '.4', '.5', '.6', '.7', '.8'),
             "white": ('white'),
-            "cuts": ('b', 'g', 'r', 'c', 'y', 'm')
+            "cuts": ('#1E90FF', '#22FF22', '#FF4444', 
+                     '#13E0E0', '#FFFF66', '#DB73FF')
             }
         # self.line_styles = ["--", "-.", ":", "."]
         self.line_styles = ["solid", "solid", "solid", "solid", "solid", 
@@ -133,6 +136,16 @@ class FigureConstructor:
                         coordinates='figure',
                         fontproperties={'weight': 'bold'})
     
+    def quiver_cut(self, sub, x_y_values, j_k_grid, cut_component, cut_locs, labels_n_limits={}):
+        '''Hack out the component of the j_k grid that you want to have 
+        a cut of (0 for j, 1 for k) and then pass on the remainder to 
+        cut_plot
+        '''
+        # j_k_grid -> z_grid
+        # can this work by just indexing as done two lines below?
+        # Pass that buck
+        cut_plot(sub, x_y_values, j_k_grid[:, :, cut_component], cut_locs, labels_n_limits)
+    
     def save_plot(self, location="./image.pdf", trans=True):
         """Save the plot to the specified location and type"""
         self.fig.subplots_adjust(wspace=0.25, hspace=0.50,
@@ -153,3 +166,4 @@ class FigureConstructor:
 # cut_plot(subplotloc, vals=[x,y,z], cut_loc, labels)
 # quiver_plot(subplotloc, vals=[x,y,[fx,fy]], labels)
 # finish(outputtype, outputfile)
+    
