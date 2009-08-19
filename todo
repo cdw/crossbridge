@@ -2,9 +2,7 @@
 ToDo
 ====
 
-TODO - Generate conversion factor for pN/nm to RT/nm^2
-TODO - Double check conversion factor
-TODO - Remake Bert's transition rates
-TODO - Create more transition rates
 TODO - Read McMahon's thing on Huxley's model
-TODO - Get a presentation ready for Tuesday
+TODO - Check that component selection in FigureConstructor.quiver_cut works
+TODO - Investigate distrubing reports of odd forces for the four spring xb at smaller lattice spacings
+TODO - Start to throw in a), b), etc in the generated figures
