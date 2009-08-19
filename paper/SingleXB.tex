@@ -39,7 +39,7 @@ Keywords: myosin; spatially-explicit model; crossbridge kinetics
 Author Summary: 
 Models of muscle contraction have long treated the molecular motor myosin as a simple spring oriented parallel to its direction of movement. 
 This does not allow for the investigation of phenomena such as the perpendicular force observed during shortening, or the dependence of the maximum force produced on spacing between the contractile filaments that comprise muscle.
-We demonstrate an alternative model, computationally simple enough to use in large networked models, that incorporate both linear and torsional or angular springs. These models capture much of the behavior missing from pervious efforts.
+We demonstrate an alternative model, computationally simple enough to use in large networked models, that incorporate both linear and torsional or angular springs. These models capture much of the behavior missing from previous efforts.
 
 \section*{Introduction} %(fold)
 
@@ -247,11 +247,10 @@ This probability is tested against a random number from a uniform distribution t
     \includegraphics[width=3.2in]{../imgs/Figure1.pdf}
     \label{fig:types}
     \caption{
-        Kinetic scheme and crossbridge types under investigation. 
-        A) Three state kinetics used in most models and extended here. 
-        B) Single spring crossbridge model used in models since \cite{Huxley1957e}. 
-        C) Two spring system, consisting of a torsional/angular spring and a linear spring. 
-        D) Four spring system using two torsional and two linear springs.}
+        \textbf{Kinetic scheme and crossbridge types under investigation.} 
+        The three state kinetic system used both here and in prior models is shown in subfigure a). The three states represented are an unbound state (1), a loosely bound state (2), and a strongly bound state (3). The binding rate ($r_{1,2}$), strong transition rate ($r_{2,3}$), and unbinding rate ($r_{3,1}$) at a given location are functions of the energy stored in the springs representing the crossbridge, if the crossbridge head is moved to that location. The reverse rates ($r_{2,1}$, $r_{3,2}$, and $r_{1,3}$) are all functions of the forward transition rates.
+        Subfigures b), c), and d) show the various spring based representations of the crossbridge. Subfigure b) shows the single spring crossbridge representation used in models since \cite{Huxley1957e}. Subfigure c) shows the two spring system, consisting of a torsional/angular spring and a linear spring, that we propose to allow the modeling of radial forces. Finally, subfigure d) shows the four spring system using two torsional and two linear springs which we also compare to the single and dual spring crossbridges.
+    }
     \end{center}
 \end{figure}
 
@@ -260,7 +259,13 @@ This probability is tested against a random number from a uniform distribution t
     \includegraphics[width=3.2in]{../imgs/Figure2.pdf}
     \label{fig:2s}
     \caption{
-        Energy and kinetics of the two spring crossbridge at varying horizontal offsets from a resting location and varying lattice spacings.}
+        \textbf{Energy and kinetics of the two spring crossbridge with varying axial offsets and lattice spacings.} 
+        The free energy of the two spring crossbridge at various lattice spacings (represented along the y-axis), with the head stretched to an axial offset from the point where it attaches to the thick filament (zero on the x-axis) is depicted in a). Colored horizontal lines through a) indicate the lattice spacings (36, 37, and 38 nm d$_{1,0}$) which are depicted as traces of free energy in b).
+        The subfigures c) and d) show $r_{1,2}$, the probability that the two spring crossbridge will transition from an unbound state to a bound state, and the dependence of this transition on both the axial offset of the open binding site from the myosin thick filament attachment site and the lattice spacing $d_{1,0}$ which is a function of the distance between the binding site and the thick filament attachment point of the myosin head. Subfigure c) depicts this probabiity as a two dimensional contour with the same axes as a). Subfigure d) shows the probabilities of binding at the same series of lattice spacings as does b).
+        Subfigures e) and f) show $r_{2,3}$, the probability of transition from a weakly bound state to a strongly bound state, with the same axes and scales as c) and d) show $r_{1,2}$.
+        Subfigures g) and h) show $r_{3,1}$, the probability of unbinding from a strongly bound state, with the same axes and scales as c) and d) show $r_{1,2}$.
+        The reverse rates, $r_{2,1}$, $r_{3,2}$, and $r_{1,3}$ may be back-calculated from the forward rates via the method described in \cite{Tanner2007a}.
+    }
     \end{center}
 \end{figure}
 
@@ -269,7 +274,9 @@ This probability is tested against a random number from a uniform distribution t
     \includegraphics[width=3.2in]{../imgs/Figure3.pdf}
     \label{fig:4s}
     \caption{
-        Energy and kinetics of the four spring crossbridge at varying horizontal offsets from a resting location and varying lattice spacings.}
+        \textbf{Energy and kinetics of the four spring crossbridge at varying horizontal offsets from a resting location and varying lattice spacings.}
+        Analog of Fig \ref{fig:2s}; please see the caption of Fig \ref{fig:2s} for explanation of the figure.
+    }
     \end{center}
 \end{figure}
 
@@ -278,9 +285,29 @@ This probability is tested against a random number from a uniform distribution t
     \includegraphics[width=3.2in]{../imgs/Figure4.pdf}
     \label{fig:force}
     \caption{
-        Force vectors of the two and four spring crossbridges, and the differences between.}
+        \textbf{Force vectors of the two and four spring crossbridges, and the differences between.}        
+    }
     \end{center}
 \end{figure}
+
+\begin{figure}[p]
+    \begin{center}
+    %\includegraphics[width=3.2in]{../imgs/FigureS1.pdf}
+    \label{fig:1s}
+    \caption{
+        Comparison of traditional single spring crossbridge properties to those of the two spring crossbridge at resting lattice spacing.}
+    \end{center}
+\end{figure}
+
+\begin{figure}[p]
+    \begin{center}
+    %\includegraphics[width=3.2in]{../imgs/FigureS2.pdf}
+    \label{fig:force_components}
+    \caption{
+        Separated axial and radial components of force exerted by the two spring crossbridge at several lattice spacings.}
+    \end{center}
+\end{figure}
+
 
 % section figures (end)
 
