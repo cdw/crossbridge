@@ -144,7 +144,7 @@ class FigureConstructor:
         # j_k_grid -> z_grid
         # can this work by just indexing as done two lines below?
         # Pass that buck
-        cut_plot(sub, x_y_values, j_k_grid[:, :, cut_component], cut_locs, labels_n_limits)
+        self.cut_plot(sub, x_y_values, j_k_grid[:, :, cut_component], cut_locs, labels_n_limits)
     
     def save_plot(self, location="./image.pdf", trans=True):
         """Save the plot to the specified location and type"""
