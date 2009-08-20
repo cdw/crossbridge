@@ -195,6 +195,9 @@ As in other recent works, such as \citet{Tanner:2007:pe115}, we choose to use a 
 This simplified system allows for the most direct linking of the crossbridge's kinetics and chemo-mechanics; the three kinetic states being directly comparable to the myosin configurations described in \citet{Houdusse:2000:p11238}.
 A secondary benefit of a three state kinetics system is that it allows multiple-motor models which use our many-spring crossbridges to more easily compare their results to those from the aforementioned previous models.
 
+The three states represented in our kinetics are an unbound state, a loosely-bound state, and a tightly-bound force-generating state.
+As depicted in figure \ref{fig:types}A, these states correspond to a Myosin-ADP-Pi state, an Actin-Myosin-ADP-Pi state, and an Actin-Myosin-ADP state.
+
 The kinetics of both the two spring and the four spring models are strain dependent and are essentially transforms of the free energy landscapes experienced by the crossbridges in their different states.
 These free energies are a function of the distortion necessary to move the point representing the crossbridge's head to the point where we presume a binding site to be.
 Examples of these free energy landscapes are visible in figures \ref{fig:2s}A and \ref{fig:4s}A, with cuts through them at multiple lattice spacings visible in figures \ref{fig:2s}B and \ref{fig:4s}B.
@@ -224,6 +227,10 @@ This probability is tested against a random number from a uniform distribution t
 \section*{Results} % (fold)
 \label{sec:results}
 
+The obvious and intended consequence of the two and four spring crossbridges is the inclusion of a sensitivity to lattice spacing in the kinetics and force goerning and generted by the crossbridge head. 
+In addition to scaling the probability of crossbridge interaction with an available binding site, altering the lacttice spacing in the two and four spring crossbridges also shifts the offsets of the binding sites that yield optimum probabilities of crossbridge interaction, effectively forward biasing the binding locations at larger lattice spacings.
+
+
 \subsection*{Lattice Spacing Dependence of Binding Rates}
 
 
@@ -235,6 +242,8 @@ This probability is tested against a random number from a uniform distribution t
 
 \section*{Discussion} % (fold)
 \label{sec:discussion}
+
+
 
 % section discussion (end)
 
@@ -275,7 +284,7 @@ This probability is tested against a random number from a uniform distribution t
     \label{fig:4s}
     \caption{
         \textbf{Energy and kinetics of the four spring crossbridge at varying horizontal offsets from a resting location and varying lattice spacings.}
-        Analog of Fig \ref{fig:2s}; please see the caption of Fig \ref{fig:2s} for explanation of the figure.
+        Four spring crossbridge analog of Fig \ref{fig:2s}; see Fig \ref{fig:2s} for explanation.
     }
     \end{center}
 \end{figure}
@@ -293,7 +302,7 @@ This probability is tested against a random number from a uniform distribution t
 \begin{figure}[p]
     \begin{center}
     %\includegraphics[width=3.2in]{../imgs/FigureS1.pdf}
-    \label{fig:1s}
+    \label{fig:one_spring_comparison}
     \caption{
         Comparison of traditional single spring crossbridge properties to those of the two spring crossbridge at resting lattice spacing.}
     \end{center}
