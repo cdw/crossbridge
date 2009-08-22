@@ -149,38 +149,38 @@ def main(argv=None):
         energy_levels = (-1e1000*RT, -1*RT, 0*RT, 3*RT, 6*RT, 1e1000*RT)
         cuts = (36, 37, 38)
         # Plot energy
+        f_c.quick_plot(0, (x_locs, bert_data("energy_2", x_locs)))
         f_c.cut_plot(0, (x_locs, y_locs), free_energy, cuts, {
             "title": "Energy of the loosely bound state",
-            "y_lab": "d$_{1,0}$ (nm)",
-            "y_ticks": (-30, -25, -20, -15, -10, -5, 0, 5),
-            "y_limits": (-30,5)
+            "y_lab": "Free Energy (RT)",
+            "y_ticks": (-10, -5, 0, 5, 10, 15),
+            "y_limits": (-10,15)
         })
-        f_c.quick_plot(0, (x_locs, bert_data("energy_2", x_locs)))
         # Plot r12 contour
-        f_c.cut_plot(1, (x_locs, y_locs), r12, cuts, {
+        f_c.quick_plot(1, (x_locs, bert_data("rates_12", x_locs)))
+        f_c.cut_plot(1, (x_locs, y_locs), np.multiply(r12, 1000), cuts, {
             "title": "Binding Rates",
-            "y_lab": "d$_{1,0}$ (nm)",
+            "y_lab": "Transition Rate (s$^{-1}$)",
             "y_ticks": (0, 200, 400, 600, 800, 1000),
-            "y_limits": (-1, 1000)
+            "y_limits": (-.1, 1000.1)
         })
-        f_c.quick_plot(1, (x_locs, bert_data("rates_12", x_locs)/1000))
         # Plot r23 contour
-        f_c.cut_plot(2, (x_locs, y_locs), r23, cuts, {
+        f_c.quick_plot(2, (x_locs, bert_data("rates_23", x_locs)))
+        f_c.cut_plot(2, (x_locs, y_locs), np.multiply(r23, 1000), cuts, {
             "title": "Strong binding rates",
-            "y_lab": "d$_{1,0}$ (nm)",
+            "y_lab": "Transition Rate (s$^{-1}$)",
             "y_ticks": (0, 200, 400, 600, 800, 1000),
-            "y_limits": (-1, 1000)
+            "y_limits": (-.1, 1000.1)
         })
-        f_c.quick_plot(2, (x_locs, bert_data("rates_23", x_locs)/1000))
         # Plot r31 contour
-        f_c.cut_plot(3, (x_locs, y_locs), r31, cuts, {
+        f_c.quick_plot(3, (x_locs, bert_data("rates_31", x_locs)))
+        f_c.cut_plot(3, (x_locs, y_locs), np.multiply(r31, 1000), cuts, {
             "title": "Detachment Rates",
             "x_lab": "Binding site offset (nm)",
-            "y_lab": "d$_{1,0}$ (nm)",
+            "y_lab": "Transition Rate (s$^{-1}$)",
             "y_ticks": (0, 200, 400, 600, 800, 1000),
-            "y_limits": (-1, 1000)
+            "y_limits": (-.1, 1000.1)
         })
-        f_c.quick_plot(3, (x_locs, bert_data("rates_31", x_locs)/1000))
         if save is False:
             # Show plot
             f_c.show_plot()
