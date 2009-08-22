@@ -8,7 +8,7 @@ Created by Dave Williams on 2009-07-06.
 import numpy as np
 import matplotlib
 # Choose backend
-matplotlib.use('GTKAgg')
+matplotlib.use('WXAgg')
 import matplotlib.pyplot as plt
 #from pylab import figure, show, colorbar
 #import pdb
@@ -106,6 +106,10 @@ class FigureConstructor:
         if labels_n_limits.has_key("y_ticks"):
             self.axe[sub].set_yticks(labels_n_limits["y_ticks"])
     
+    def quick_plot(self, sub, x_y_values):
+        """Add a simple plot to the specified subfigure"""
+        self.axe[sub].plot(x_y_values[0], x_y_values[1], color='0.0', lw=2.0)
+    
     def quiver_plot(self, sub, x_y_values, j_k_grid, labels_n_limits={}):
         """Plot an arrows graphy"""
         # Get arrow scale if it is passed
@@ -144,7 +148,8 @@ class FigureConstructor:
         # j_k_grid -> z_grid
         # can this work by just indexing as done two lines below?
         # Pass that buck
-        self.cut_plot(sub, x_y_values, j_k_grid[:, :, cut_component], cut_locs, labels_n_limits)
+        self.cut_plot(sub, x_y_values, j_k_grid[:, :, cut_component],
+            cut_locs, labels_n_limits)
     
     def save_plot(self, location="./image.pdf", trans=True):
         """Save the plot to the specified location and type"""
