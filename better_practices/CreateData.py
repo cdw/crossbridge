@@ -175,6 +175,7 @@ def main(argv=None):
             store.write('energy', energy)
             store.write('free_energy', free_e)
             store.write('r12', r12)
+            store.write('trials', trials)
             store.write('r23', r23)
             store.write('r31', r31)
             store.write('force1', force1)
