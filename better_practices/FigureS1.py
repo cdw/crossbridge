@@ -152,6 +152,7 @@ def main(argv=None):
         f_c.quick_plot(0, (x_locs, bert_data("energy_2", x_locs)))
         f_c.cut_plot(0, (x_locs, y_locs), free_energy, cuts, {
             "title": "Energy of the loosely bound state",
+            "x_lab": "Binding site offset (nm)",
             "y_lab": "Free Energy (RT)",
             "y_ticks": (-10, -5, 0, 5, 10, 15),
             "y_limits": (-10,15)
@@ -160,6 +161,7 @@ def main(argv=None):
         f_c.quick_plot(1, (x_locs, bert_data("rates_12", x_locs)))
         f_c.cut_plot(1, (x_locs, y_locs), np.multiply(r12, 1000), cuts, {
             "title": "Binding Rates",
+            "x_lab": "Binding site offset (nm)",
             "y_lab": "Transition Rate (s$^{-1}$)",
             "y_ticks": (0, 200, 400, 600, 800, 1000),
             "y_limits": (-.1, 1000.1)
@@ -168,6 +170,7 @@ def main(argv=None):
         f_c.quick_plot(2, (x_locs, bert_data("rates_23", x_locs)))
         f_c.cut_plot(2, (x_locs, y_locs), np.multiply(r23, 1000), cuts, {
             "title": "Strong binding rates",
+            "x_lab": "Binding site offset (nm)",
             "y_lab": "Transition Rate (s$^{-1}$)",
             "y_ticks": (0, 200, 400, 600, 800, 1000),
             "y_limits": (-.1, 1000.1)
