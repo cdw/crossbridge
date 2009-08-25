@@ -71,7 +71,7 @@ ENTRY
     series
     title
     type
-    url
+    %url
     volume
     year
   }
