@@ -138,6 +138,18 @@ The angle of the proximal torsional spring is given as $\phi(c_x, c_y)=\arctan(c
 % subsection geometry (end)
 
 \subsection*{Kinetics} % (fold)
+% * Kinetics
+%  - Three states
+%  - Distorsion sensitive
+%  - Free energy in each state
+%   = Liberation of energy by Pi hydrolysis
+%  - Calculation of binding rate
+%   = Perturbation of crossbridge head
+%   = Probability of binding based on distance to binding site
+%  - Powerstroke rate
+%   = Distortion dependence
+%  - Unbinding rate
+%  - Calculation of reverse rates
 As in other recent works, such as \citet{Tanner:2007:pe115}, we choose to use a simplified three state model of the crossbridge cycle with energies based on the work of Pate and Cooke in \citet{Pate:1989:p181}. 
 This simplified system allows for the most direct linking of the crossbridge's kinetics and chemo-mechanics; the three kinetic states being directly comparable to the myosin configurations described in \citet{Houdusse:2000:p11238}.
 A secondary benefit of a three state kinetics system is that it allows multiple-motor models which use our many-spring crossbridges to more easily compare their results to those from the aforementioned previous models.
@@ -154,32 +166,42 @@ After a new head location is found, a binding probability is calculated that dec
 This probability is tested against a random number from a uniform distribution to determine if binding occurs.
 
 \paragraph{Free energy in each state} % (fold)
+Similar to previous work, we define the energy available to the system from that liberated by the hydrolysis of a $P_i$ as: 
+$$\Delta G = -\Delta G_{0,ATP} - \ln \frac{[ATP]}{[ADP] [P_i]}$$
+The free energy of a crossbridge in each state it a function of both the energy available as described above and the strain that the crossbridge is currently experiencing as a result of post-binding distortion.
+
 
 %Energy of the four spring crossbridge
 \begin{eqnarray}
-	\lefteqn{U(\phi,\ell,r,\theta) = }  \nonumber \\
- 	& & \frac{1}{2}k_\phi (\phi-\phi_0)^2 + \frac{1}{2}k_\ell (\ell-\ell_0)^2 + \nonumber \\
-	& & \frac{1}{2}k_r (r-r_0)^2 + \frac{1}{2}k_\theta (\theta-\theta_0)^2
+\label{4sEnergy}
+U_1(\phi,\ell,\theta,r) & = & 0 \nonumber \\
+U_2(\phi,\ell,\theta,r) & = & \alpha \Delta G + \frac{k_\phi (\phi-\phi_0)^2 + k_\ell (\ell-\ell_0)^2 + k_\theta (\theta-\theta_0)^2 + k_r (r-r_0)^2}{2} \nonumber \\
+U_3(\phi,\ell,\theta,r) & = & \eta \Delta G + \frac{k_\phi (\phi-\phi_0)^2 + k_\ell (\ell-\ell_0)^2 + k_\theta (\theta-\theta_1)^2 + k_r (r-r_0)^2}{2}
 \end{eqnarray}
 
 % Energy of the two spring crossbridge
 \begin{eqnarray}
 \label{2sEnergy}
 	U_1(r,\theta) & = & 0 \nonumber \\
-    U_2(r,\theta) & = & \frac{1}{2}k_r (r - r_0)^2 + 
-                        \frac{1}{2}k_\theta (\theta - \theta_0)^2 \nonumber \\
-    U_3(r,\theta) & = & \frac{1}{2}k_r (r - r_1)^2 + 
-                        \frac{1}{2}k_\theta (\theta - \theta_1)^2 \\
+    U_2(r,\theta) & = & \alpha \Delta G + \frac{k_r (r - r_0)^2 + 
+                        k_\theta (\theta - \theta_0)^2}{2} \nonumber \\
+    U_3(r,\theta) & = & \eta \Delta G   + \frac{k_r (r - r_1)^2 + 
+                        k_\theta (\theta - \theta_1)^2}{2} 
 \end{eqnarray}
 
 % paragraph free_energy_in_each_state(end)
 
 \paragraph{Calculation of binding rate} % (fold)
-%   = Perturbation of crossbridge head
-%   = Probability of binding based on distance to binding site
-$r_{12}(r, \theta) = \frac{\sum_{b=1}^n (1\; \textrm{if}\; e^{-\textrm{distance}}>\textrm{rand} ,\; else\; 0)}{n} $
-
-
+% Perturbation of crossbridge head
+Our binding rates are a determined by thermally forcing unattached heads to a diffused location and then applying a probability of attachment that is an exponential function of the distance from the diffused location to the nearest available actin site.
+The thermal forcing of the unattached heads take the form of choosing an offset from a Boltzman distribution for each of the head's constituent springs, finding their resulting lengths and angles, and then using those values to determine the new head location.
+The PDF of the an offset location is given by  $P(x) = \sqrt{k / (2 \pi kT)} \exp^{-(k x^2)/(2 kT)}$ where $x$ is the offset, $k$ is the spring constant of the spring in question, and $T$ is the system's temperature.
+% Probability of binding based on distance to binding site
+Once the offset of each spring is determined, the new head location can be determined from the spring system's geometry and the distance to the binding site found.
+Myosin binding is determined to be a exponential function of the distance ($dist$) from the myosin head to the available binding site, such that the probability of the binding is given by $r_{12}(dist) = \gamma \exp ^{dist}$, where $\gamma$ is a scaling factor.
+Such a system is very computationally efficient in use, but binding rates as a function of myosin head starting location (as opposed to head to binding stie distance) must be computed by approximation as a fraction of $n$ binding opportunities, using a newly diffused head location and checking against a random number $rand$, ranging from zero to one, which is generated for each trial thus: 
+$r_{12} = ( \sum^n ( 1\; \textrm{if}\; \gamma \exp^{-(\textrm{post diffusion distance)}}>rand ,\; \textrm{else}\; 0) )/n$.
+This is applied uniformly to the 4sXB and the 2sXB, with the only difference being the number of springs subject to thermal forcing in each instance.
 % paragraph calculation_of_binding rate (end)
 
 \paragraph{Powerstroke rate} % (fold)
