@@ -166,19 +166,20 @@ After a new head location is found, a binding probability is calculated that dec
 This probability is tested against a random number from a uniform distribution to determine if binding occurs.
 
 \paragraph{Free energy in each state} % (fold)
-Similar to previous work, we define the energy available to the system from that liberated by the hydrolysis of a $P_i$ as: 
-$$\Delta G = -\Delta G_{0,ATP} - \ln \frac{[ATP]}{[ADP] [P_i]}$$
+The total energy, liberated by the hydrolysis of a $P_i$, available to a crossbridge is dependent on the concentrations of $ATP$, $ADP$ and $P_i$ in the system and is given by $\Delta G = -\Delta G_{0,ATP} - \ln \frac{[ATP]}{[ADP] [P_i]}$. 
+In the weakly bound and strongly bound states a portion of that energy has been made available to the crossbridge, allowing the crossbridge in the latter two states to convert at most 28\% or 68\% of $\Delta G$ into useable work respectively. \citep{Pate:1989:p181, Tanner:2007:pe115}
+These efficiency factors are used as $\alpha=0.28$ and $\eta=0.68$ below.
 The free energy of a crossbridge in each state it a function of both the energy available as described above and the strain that the crossbridge is currently experiencing as a result of post-binding distortion.
-
-
+Combining the distortion dependence and liberated energy terms gives us the total free energy of the crossbridge in each state.
+The free energy of the 4sXB system in each state is: 
 %Energy of the four spring crossbridge
 \begin{eqnarray}
 \label{4sEnergy}
 U_1(\phi,\ell,\theta,r) & = & 0 \nonumber \\
 U_2(\phi,\ell,\theta,r) & = & \alpha \Delta G + \frac{k_\phi (\phi-\phi_0)^2 + k_\ell (\ell-\ell_0)^2 + k_\theta (\theta-\theta_0)^2 + k_r (r-r_0)^2}{2} \nonumber \\
-U_3(\phi,\ell,\theta,r) & = & \eta \Delta G + \frac{k_\phi (\phi-\phi_0)^2 + k_\ell (\ell-\ell_0)^2 + k_\theta (\theta-\theta_1)^2 + k_r (r-r_0)^2}{2}
+U_3(\phi,\ell,\theta,r) & = & \eta \Delta G + \frac{k_\phi (\phi-\phi_0)^2 + k_\ell (\ell-\ell_0)^2 + k_\theta (\theta-\theta_1)^2 + k_r (r-r_0)^2}{2} \nonumber
 \end{eqnarray}
-
+The free energy of the 2sXB system in each state is: 
 % Energy of the two spring crossbridge
 \begin{eqnarray}
 \label{2sEnergy}
@@ -186,7 +187,7 @@ U_3(\phi,\ell,\theta,r) & = & \eta \Delta G + \frac{k_\phi (\phi-\phi_0)^2 + k_\
     U_2(r,\theta) & = & \alpha \Delta G + \frac{k_r (r - r_0)^2 + 
                         k_\theta (\theta - \theta_0)^2}{2} \nonumber \\
     U_3(r,\theta) & = & \eta \Delta G   + \frac{k_r (r - r_1)^2 + 
-                        k_\theta (\theta - \theta_1)^2}{2} 
+                        k_\theta (\theta - \theta_1)^2}{2} \nonumber
 \end{eqnarray}
 
 % paragraph free_energy_in_each_state(end)
@@ -206,7 +207,7 @@ This is applied uniformly to the 4sXB and the 2sXB, with the only difference bei
 
 \paragraph{Powerstroke and detachment rates} % (fold)
 % Distortion dependence
-The rate of transition from a weakly bound state to a strongly bound one and the rate of detachment from a strongly bound state are distortion dependent and based on the earlier work of \citet{Pate:1989:p181} and \citet{Tanner:2007:pe115}. % Recheck Pate&Cooke's work
+The rate of transition from a weakly bound state to a strongly bound one and the rate of detachment from a strongly bound state are distortion dependent and based on the earlier work of \citet{Pate:1989:p181} and \citet{Tanner:2007:pe115}, but generalized to be useable by the 4sXB and 2xB in two-dimensional space. % Recheck Pate&Cooke's work
 Distortion dependence is introduced into the $r_{23}$ and $r_{31}$ rates as a term based on the differences in free energy between the current state and the one being considered for transition. 
 This means that transitions are more likely when they are energetically favorable and less likely in other circumstances, a natural scheme based in the geometry of the crossbridges.
 The particular rates are as follows for both the 4sXB and the 2sXB:
@@ -214,8 +215,10 @@ $$r_{23}(U_2, U_3) = 0.001 + 0.5 * (1 + \tanh(0.6 (U_2 - U_3))) $$
 $$r_{31}(U_3, U_1) = e^{-1 / (U_3 - U_1)}$$
 % paragraph unbinding_rate (end)
 
-%\paragraph{Calculation of reverse rates} % (fold)
+\paragraph{Calculation of reverse rates} % (fold)
 % Technique of reverse rate calculation
+The rates of transitions in the direction opposite from those described above, e.g.\ from strongly to weakly bound or from a weakly bound state to an unbound state, are given by the thermodynamically balancing formula $r_{ij}/r_{ji}=\exp^{U_i-U_j}$ where $r_{ij}$ is the reverse rate and $r_{ji}$ is the forward rate.
+For the transition from a weakly bound state to an unbound state this requires that the reverse transition is again treated as a fraction of a sum of $n$ transition opportunities.
 % paragraph calculation_of_reverse rates (end)
 % subsection kinetics (end)
 
