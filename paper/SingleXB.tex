@@ -204,18 +204,18 @@ $r_{12} = ( \sum^n ( 1\; \textrm{if}\; \gamma \exp^{-(\textrm{post diffusion dis
 This is applied uniformly to the 4sXB and the 2sXB, with the only difference being the number of springs subject to thermal forcing in each instance.
 % paragraph calculation_of_binding rate (end)
 
-\paragraph{Powerstroke rate} % (fold)
-
-$r_{23}(r, \theta) = 0.001 + 0.5 * (1 + \tanh(0.6 (U_1(r, \theta) - U_2(r, \theta)))) $
-
-% paragraph powerstroke-rate (end)
-
-\paragraph{Unbinding rate} % (fold)
-
-$r_{31}(r, \theta) = e^{-1 / U_2(r, \theta)}$
+\paragraph{Powerstroke and detachment rates} % (fold)
+% Distortion dependence
+The rate of transition from a weakly bound state to a strongly bound one and the rate of detachment from a strongly bound state are distortion dependent and based on the earlier work of \citet{Pate:1989:p181} and \citet{Tanner:2007:pe115}. % Recheck Pate&Cooke's work
+Distortion dependence is introduced into the $r_{23}$ and $r_{31}$ rates as a term based on the differences in free energy between the current state and the one being considered for transition. 
+This means that transitions are more likely when they are energetically favorable and less likely in other circumstances, a natural scheme based in the geometry of the crossbridges.
+The particular rates are as follows for both the 4sXB and the 2sXB:
+$$r_{23}(U_2, U_3) = 0.001 + 0.5 * (1 + \tanh(0.6 (U_2 - U_3))) $$
+$$r_{31}(U_3, U_1) = e^{-1 / (U_3 - U_1)}$$
 % paragraph unbinding_rate (end)
 
-\paragraph{Calculation of reverse rates} % (fold)
+%\paragraph{Calculation of reverse rates} % (fold)
+% Technique of reverse rate calculation
 % paragraph calculation_of_reverse rates (end)
 % subsection kinetics (end)
 
