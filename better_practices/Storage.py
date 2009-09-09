@@ -5,6 +5,7 @@ Created by Dave Williams on 2009-06-28.
 """
 
 import yaml
+import cPickle as pickle
 import datetime
 import warnings
 
@@ -16,9 +17,10 @@ class Storage():
         write(xb_property, new_value) change properties
         save() to save to disk"""
     
-    def __init__(self, xbtype, config=None, x_range=None, y_range=None):
+    def __init__(self, xbtype, config=None, x_range=None, y_range=None, protocol="pickle"):
         """ Parse the variables and deal with the four cases in which 
         Storage will be used, here is an outline of the process:
+         - construct the file name from the number of springs and protocol
          - try to read in the file
          - if that fails (because the file doesn't exist)
             - and params were passed (so we will be wanting to write data 
@@ -28,11 +30,18 @@ class Storage():
          - if params were passed and any of them don't match our file, trash
            the old ones from the file and use the new ones
         """
-        self.data_file_name = str(xbtype)+"spring.yaml"
+        self.protocol = protocol
+        self.file_name = str(xbtype)+"spring."
         ## Read in file, or create if needed
         try:
-            stream = open(self.data_file_name, 'r')
-            self.data = yaml.load(stream)
+            stream = open(self.file_name+protocol, 'r')
+            if self.protocol == "pickle":
+                self.data = pickle.load(stream)
+            elif self.protocol == "yaml":
+                self.data = yaml.load(stream)
+            else:
+                warnings.warn("Unrecognized file protocol, aborting")
+                return
             stream.close()
         except IOError: # File doesn't exist
             if config is not None: # Passed params, in write mode
@@ -92,11 +101,18 @@ class Storage():
         else:
             warnings.warn("Don't set base attributes, should be instantiated")
     
-    def save(self):
-        """Save the current data to a YAML file on disk."""
+    def save(self, protocol=None):
+        """Save the current data to a file on disk."""
+        if protocol is None:
+            protocol = self.protocol # Dance with the one who brought ya
         self.data['timestamp'] = datetime.datetime.today()
-        stream = open(self.data_file_name, 'w')
-        stream.write(yaml.dump(self.data, indent=4))
+        stream = open(self.file_name+protocol, 'w')
+        if protocol == "pickle":
+            pickle.dump(self.data, stream)
+        elif protocol == "yaml":
+            stream.write(yaml.dump(self.data, indent=4))
+        else:
+            warnings.warn("Unrecognized save format, data not saved")
         stream.close()
     
 
