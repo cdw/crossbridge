@@ -34,10 +34,11 @@ class Storage():
         self.file_name = str(xbtype)+"spring."
         ## Read in file, or create if needed
         try:
-            stream = open(self.file_name+protocol, 'r')
             if self.protocol == "pickle":
+                stream = open(self.file_name+"pkl", 'r')
                 self.data = pickle.load(stream)
             elif self.protocol == "yaml":
+                stream = open(self.file_name+"yml", 'r')
                 self.data = yaml.load(stream)
             else:
                 warnings.warn("Unrecognized file protocol, aborting")
@@ -45,7 +46,7 @@ class Storage():
             stream.close()
         except IOError: # File doesn't exist
             if config is not None: # Passed params, in write mode
-                msg = ("\n Storage file " + self.data_file_name + 
+                msg = ("\n Storage file " + self.file_name + 
                 " not found, creating one with passed parameters")
                 warnings.warn(msg)
                 self.data = {
@@ -56,7 +57,7 @@ class Storage():
                 }
                 self.save()
             else: # No passed params, in read mode
-                msg = ("\n Storage file " + self.data_file_name + 
+                msg = ("\n Storage file " + self.file_name + 
                 " not found, can't read in data to continue")
                 raise Exception(msg)
         # In case some key parameter has changed, trash the old file
@@ -106,14 +107,14 @@ class Storage():
         if protocol is None:
             protocol = self.protocol # Dance with the one who brought ya
         self.data['timestamp'] = datetime.datetime.today()
-        stream = open(self.file_name+protocol, 'w')
         if protocol == "pickle":
+            stream = open(self.file_name+"pkl", 'w')
             pickle.dump(self.data, stream)
         elif protocol == "yaml":
+            stream = open(self.file_name+"yml", 'w')
             stream.write(yaml.dump(self.data, indent=4))
         else:
             warnings.warn("Unrecognized save format, data not saved")
         stream.close()
     
 
-        
