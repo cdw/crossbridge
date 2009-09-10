@@ -5,9 +5,12 @@ syntax: glob
 *.pdfo
 *.py.orig
 *.pkl      #Serialized python data
+*.yml      #Human readable storage format
 *.mat      #Matlab data storage
 *.tmproj   #Specific to TextMate
 # \begin{latex-detritus}
 *.aux
 *.log
+*.bbl
+*.blg
 *.synctex.gz
