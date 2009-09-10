@@ -29,9 +29,8 @@ class FigureConstructor:
         self.axe = ([self.fig.add_subplot(
                         rowcol[0], 
                         rowcol[1],
-                        row * rowcol[1] + col + 1) 
-                    for row in range(rowcol[0])
-                    for col in range(rowcol[1])])
+                        subgraph + 1) 
+                    for subgraph in range(rowcol[0]*rowcol[1])])
         # Configure colors
         self.colors = {
             "grey_steps": ('.2', '.3', '.4', '.5', '.6', '.7', '.8'),
