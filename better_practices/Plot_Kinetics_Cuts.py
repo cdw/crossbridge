@@ -127,28 +127,22 @@ def main():
     axe[1].plot(x_locs, r12[1][cut_locs[1]], color=colors[2])
     axe[1].set_title("b)", x=-0.18, y=0.95, weight="demi")
     axe[1].legend(("1sXB", "2sXB", "4sXB"))
-    axe[1].set_xlabel("Binding site offset (nm)")
-    axe[1].set_ylabel("Transition Rate (s$^{-1}$)")
-    axe[1].set_ylim((-.1, 1000.1))
-    axe[1].set_yticks((0, 200, 400, 600, 800, 1000))
     # Powerstroke rates
     axe[2].plot(x_locs, bert_data("rates_23", x_locs), color=colors[0])
     axe[2].plot(x_locs, r23[0][cut_locs[1]], color=colors[1])
     axe[2].plot(x_locs, r23[1][cut_locs[1]], color=colors[2])
     axe[2].set_title("c)", x=-0.18, y=0.95, weight="demi")
-    axe[2].set_xlabel("Binding site offset (nm)")
-    axe[2].set_ylabel("Transition Rate (s$^{-1}$)")
-    axe[2].set_ylim((-.1, 1000.1))
-    axe[2].set_yticks((0, 200, 400, 600, 800, 1000))
     # Detachment rates
     axe[3].plot(x_locs, bert_data("rates_31", x_locs), color=colors[0])
     axe[3].plot(x_locs, r31[0][cut_locs[1]], color=colors[1])
     axe[3].plot(x_locs, r31[1][cut_locs[1]], color=colors[2])
     axe[3].set_title("d)", x=-0.18, y=0.95, weight="demi")
-    axe[3].set_xlabel("Binding site offset (nm)")
-    axe[3].set_ylabel("Transition Rate (s$^{-1}$)", x=0.4)
-    axe[3].set_ylim((-.1, 1000.1))
-    axe[3].set_yticks((0, 200, 400, 600, 800, 1000))
+    # Add lables and limits
+    for a in axe[1:]:
+        a.set_xlabel("Binding site offset (nm)")
+        a.set_ylabel("Transition Rate (s$^{-1}$)")
+        a.set_ylim((-.1, 1000.1))
+        a.set_yticks((0, 200, 400, 600, 800, 1000))
     ## Display
     fig.subplots_adjust(wspace=0.30, hspace=0.40,
                         left=0.10, right=0.95,
