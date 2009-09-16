@@ -4,5 +4,17 @@ ToDo
 
 TODO - Read McMahon's thing on Huxley's model
 TODO - Check that component selection in FigureConstructor.quiver_cut works
-TODO - Investigate distrubing reports of odd forces for the four spring xb at smaller lattice spacings
+TODO - Investigate disturbing reports of odd forces for the four spring xb at smaller lattice spacings
 TODO - Start to throw in a), b), etc in the generated figures
+
+Rearrange Figure 2
+Rearrange Figure 3
+Rearrange Figure 4
+Read through Reedy's work
+
+
+TODO During Review
+ - Check out Powell's method use on 4sXB
+ - Read http://www.cs.cmu.edu/~jrs/jrspapers.html is conj grad method better?
+ - Pull parameters out of literature, more justification
+ - 
