@@ -30,13 +30,13 @@ def main():
     y_locs = np.arange(y_range[0], y_range[1], y_range[2])
     x_grid, y_grid = np.meshgrid(x_locs, y_locs)
     # Set up to the plot
-    fig = plt.figure(1, figsize=(7, 7))
+    fig = plt.figure(1, figsize=(7, 8))
     axe = ([fig.add_subplot(4, 2, g+1) for g in range(4*2)])
     colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
     grey_steps = ('.2', '.3', '.4', '.5', '.6', '.7', '.8')
     RT = 3.97
     ener_lvls = (-1e1000*RT, -1*RT, 0*RT, 3*RT, 6*RT, 1e1000*RT)
-    prob_lvls = (-1, .05, .1, .5, .9, .999, 2)
+    prob_lvls = (0, .05, .1, .5, .9, 1.1)
     # Plot the contours
     # Energy of the 4sXB
     contour = axe[0].contourf(x_grid, y_grid, free_energy[1], 
@@ -54,8 +54,10 @@ def main():
     axe[2].contour(x_grid, y_grid, r12[1], 
         prob_lvls, colors = 'white')
     # Binding rate of the 2sXB
-    axe[3].contourf(x_grid, y_grid, r12[0], 
+    contour = axe[3].contourf(x_grid, y_grid, r12[0], 
         prob_lvls, colors = grey_steps)
+    colorbar = plt.colorbar(contour, ax=axe[3])
+    colorbar.ax.set_position([.86, .58, .1, .1])
     axe[3].contour(x_grid, y_grid, r12[0], 
         prob_lvls, colors = 'white')
     # Power stroke rate of the 4sXB
@@ -88,7 +90,7 @@ def main():
         a.set_ylabel("$d_{1,0}$ (nm)")
         a.set_title(titles.pop(0), x=-0.18, y=0.95, weight="demi")
     # Display the results
-    fig.subplots_adjust(wspace=0.30, hspace=0.40,
+    fig.subplots_adjust(wspace=0.30, hspace=0.60,
                         left=0.10, right=0.95,
                         top=0.94, bottom=0.08)
     plt.show()
