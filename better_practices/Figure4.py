@@ -16,6 +16,8 @@ def main():
     # Load properties that will be needed
     store = [Storage.Storage(2), Storage.Storage(4)]
     force3 = np.array([s.get("force2") for s in store])
+    mag = np.array([[[np.hypot(entry[0], entry[1]) for entry in row] 
+        for row in xb] for xb in force3])
     # Load and process x/y related values
     x_range = [s.get("x_range") for s in store]
     x_locs = np.array([np.arange(x[0], x[1], x[2]) for x in x_range])
