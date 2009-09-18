@@ -62,7 +62,7 @@ ENTRY
     journal
     key
     month
-    note
+    %note
     number
     organization
     pages
