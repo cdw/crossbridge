@@ -53,17 +53,22 @@ We demonstrate an alternative model, computationally simple enough to use in lar
 %  - Considerations in modeling (computational complexity) 
 % Needs more, come back to this
 
-\textbf{Needs a purpose. Get results done and rewrite}
+\textbf{Needs a purpose and a rewrite.}
 
-Sarcomere-scale modeling of muscle contraction has largely changed since the introduction of the sliding crossbridge model in the 1950s, but the geometry of the individual crossbridges used has remained largely unaltered. 
-While thermodynamic account had been introduced to the crossbridge kinetics, compliance has been introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional single spring nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
+Sarcomere-scale modeling of muscle contraction has changed since the introduction of the sliding crossbridge model in the 1950s, but the geometry of the individual crossbridges used has remained largely unaltered. 
+While individual crossbridges have been treated independently with spatial modeling, thermodynamic accounting has been introduced to the crossbridge kinetics, compliance introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
+We propose that with a shift to crossbridges that use two or four four springs, new insight into the effects of lattice spacing and radial forces generated during axial shortening may be gained.
 
 The now-traditional single spring crossbridge introduced by \citet{Huxley:1957:p255} has been the dominant model used in modeling studies since its introduction. 
 The geometry of the single spring crossbridge has remained largely unchanged while the kinetics underlying transitions between force generating states have been increased in complexity throughout subsequent work. \citep{Pate:1989:p181, Daniel:1998:p1611, Chase:2004:p204, Tanner:2007:pe115}
+Meanwhile, \citet{Houdusse:2001:p182} and others have proposed that the region of the lever arm directly adjacent to the converter region is a flexible area that acts as a spring. 
+This model of force generation by myosin suggests that inclusion of torsional spring might create a system that better reflects the underling mechanisms of the powerstroke. 
 
-\citet{Houdusse:2001:p182} and others have proposed that the region of the lever arm directly adjacent to the converter region is a flexible area that acts as a spring. This pliant region is the most likely candidate for the job of torsional spring. 
+We propose and compare two torsional spring based crossbridge models that are targeted for use in spatially explicit models of the half sarcomere. 
+The first is a four spring crossbridge (4sXB) that is directly inspired by the structure of the S1 and S2 regions of myosin II. 
+Following this, we consider a two spring crossbridge (2sXB) that replicates many of the behaviors of the 4sXB while requiring fewer computational resources.
 
-\paragraph{Comparison to previous systems} % (fold)
+% \paragraph{Comparison to previous systems} % (fold)
 This discussion owes a debt to \citet{Schoenberg:1980:p1802} and \citet{Schoenberg:1980:p1627} which contain a proposal and analysis of several different types of crossbridges, primarily two spring crossbridges where the S2 arm is represented as a linear spring and the S2-S1 junction area is represented as a torsional spring. 
 This system requires iterative solution methods, as our four spring crossbridge does, but restrains the crossbridge to an area within one S1 length of the line in which the S2 segment is set.
 % paragraph comparison_to_previous_systems (end)
@@ -343,7 +348,7 @@ As the kinetics and force of the 2sXB system resemble those of the 4sXB system i
 \paragraph{Increased fidelity to known structure and mechanisms} % (fold)
 The multiple spring crossbridges both have a far greater ability than single spring crossbridges to replicate the defining characteristics of muscle myosin structure and the lever arm mechanism of force generation. 
 The 2sXB and the 4sXB both generate force through the changing of the rest angle of a torsional spring attached to a lever arm.
-This is closely analogous to the lever arm mechanism as it is understood and stands in contrast to the mechanism by which a single spring crossbridge replicates the powerstroke\ref{Houdusse:2001:p182}.
+This is closely analogous to the lever arm mechanism as it is understood and stands in contrast to the mechanism by which a single spring crossbridge replicates the powerstroke \citep{Houdusse:2001:p182}.
 The single spring crossbridge generates its force with an offset of the myosin head can also be thought of as the spring representing the crossbridge having a different rest length in the unbound state and the loosely bound state than it does in the tightly bound state. 
 This offset or altered rest length is what determines the stroke distance of the single spring crossbridge and estimates of it have varied from as little as 1 nm to as large as 10 nm (needs citation). 
 By treating the crossbridge as several components instead of a single spring we are able to base input parameters on values that can be referenced to existing crystallography structures.
