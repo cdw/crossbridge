@@ -105,8 +105,11 @@ class FigureConstructor:
         if labels_n_limits.has_key("y_ticks"):
             self.axe[sub].set_yticks(labels_n_limits["y_ticks"])
     
-    def quick_plot(self, sub, x_y_values):
+    def quick_plot(self, sub, x_y_values, labels_n_limits={}):
         """Add a simple plot to the specified subfigure"""
+        color='0.0'
+        if labels_n_limits.has_key("color"):
+            color= labels_n_limits["color"]
         self.axe[sub].plot(x_y_values[0], x_y_values[1], color='0.0', lw=2.0)
     
     def quiver_plot(self, sub, x_y_values, j_k_grid, labels_n_limits={}):
