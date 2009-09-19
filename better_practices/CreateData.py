@@ -68,8 +68,8 @@ def main(argv=None):
             else:
                 raise Usage("Unhandled option")
         # Set ranges used
-        x_range = [-5, 15, 0.25] 
-        y_range = [3, 11, 0.25]
+        x_range = [-5, 15, 0.1] 
+        y_range = [3, 11, 0.1]
         d10_range = [fil_sep_to_d10(y_range[0]), 
                     fil_sep_to_d10(y_range[1]), 1.5 * y_range[2]]
             # The y range is chosen based on values of SL length range for 
