@@ -35,19 +35,22 @@ def main():
     colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
     grey_steps = ('.2', '.3', '.4', '.5', '.6', '.7', '.8')
     RT = 3.97
-    ener_lvls = (-1e1000*RT, -1*RT, 0*RT, 3*RT, 6*RT, 1e1000*RT)
-    prob_lvls = (0, .05, .1, .5, .9, 1.1)
+    ener_lvls = (-100*RT, -1*RT, 1*RT, 3*RT, 5*RT, 100*RT)
+    prob_lvls = (0, .05, .1, .5, .9, 1.001)
     # Plot the contours
     # Energy of the 4sXB
-    contour = axe[0].contourf(x_grid, y_grid, free_energy[1], 
+    axe[0].contourf(x_grid, y_grid, free_energy[1], 
         ener_lvls, colors = grey_steps)
     axe[0].contour(x_grid, y_grid, free_energy[1], 
         ener_lvls, colors = 'white')
     # Energy of the 2sXB
-    axe[1].contourf(x_grid, y_grid, free_energy[0], 
+    contour = axe[1].contourf(x_grid, y_grid, free_energy[0], 
         ener_lvls, colors = grey_steps)
     axe[1].contour(x_grid, y_grid, free_energy[0], 
         ener_lvls, colors = 'white')
+    colorbar = plt.colorbar(contour, ax=axe[1], ticks = ener_lvls[1:-1], 
+                            format='% 4.1f')
+    colorbar.ax.set_position([.86, .82, .1, .1])    
     # Binding rate of the 4sXB
     axe[2].contourf(x_grid, y_grid, r12[1], 
         prob_lvls, colors = grey_steps)
@@ -56,7 +59,7 @@ def main():
     # Binding rate of the 2sXB
     contour = axe[3].contourf(x_grid, y_grid, r12[0], 
         prob_lvls, colors = grey_steps)
-    colorbar = plt.colorbar(contour, ax=axe[3])
+    colorbar = plt.colorbar(contour, ax=axe[3], format='%.2f')
     colorbar.ax.set_position([.86, .58, .1, .1])
     axe[3].contour(x_grid, y_grid, r12[0], 
         prob_lvls, colors = 'white')
