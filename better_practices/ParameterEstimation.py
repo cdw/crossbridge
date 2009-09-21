@@ -26,6 +26,14 @@ def main():
     four[2]['conv_angle'] = np.radians(125)
     four[3]['conv_angle'] = np.radians(70)
     
+    # From Morel:1997
+    # Rest lattice spacing with respect to radial force is 34nm d10
+    # From Millman:1998
+    # Rest lattice spacing with respect to compression is 37nm d10
+    
+    
+    
+    
     # Needed
     # four[1]['thic_angle']
     # four[1]['neck_length']
