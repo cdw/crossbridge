@@ -2,7 +2,8 @@ import cPickle as pickle
 import numpy as np
 
 # Load data
-file_name = "head_and_conv_loc.pkl"
+#file_name = "head_and_conv_loc.pkl"
+file_name = "NodeBoxData.pkl"
 stream = open(file_name, 'r')
 data = pickle.load(stream)
 x_range = data.get('x_range')
@@ -11,6 +12,7 @@ x_locs = np.arange(x_range[0], x_range[1], x_range[2])
 y_locs = np.arange(y_range[0], y_range[1], y_range[2])
 h_locs = data.get('h_locs')
 c_locs = data.get('c_locs')
+energy = data.get('energy')
 
 # Set canvas size and whatnot
 scale_factor = 10
@@ -20,9 +22,10 @@ speed(30)
 
 # Calculate offsets, account for
 ra = 1*scale_factor # Circle radius
-assert(x_range[0]<0) # or the next line gets wonky
-os = (-x_range[0]*scale_factor,ra) # Offset
-
+if x_range[0]<0: # or the next line gets wonky
+    os = (-x_range[0]*scale_factor,ra) # Offset
+else: 
+    os = (x_range[0]*scale_factor,ra)
 
 # Function to draw an xb head
 def draw_xb(conv, head):
@@ -63,7 +66,7 @@ def draw():
     x_ind = x_locs.searchsorted(x)-1
     y_ind = y_locs.searchsorted(y)-1
 
-    draw_xb(c_locs[y_ind, x_ind], h_locs[y_ind, x_ind])
+    draw_xb(c_locs[0, y_ind, x_ind], h_locs[0, y_ind, x_ind])
 
 
     
