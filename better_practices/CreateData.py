@@ -101,8 +101,8 @@ def main(argv=None):
                     'spring_konstant': 10
                 },
                 'C': {
-                    'weak': radians(165) #pi/3 + (pi - radians(40)), #40deg from T weak
-                    'strong': radians(110) # pi/2 + (pi - pi/4),
+                    'weak': radians(165), #pi/3 + (pi - radians(40)), #40deg from T weak
+                    'strong': radians(110), # pi/2 + (pi - pi/4),
                     'spring_konstant': 100
                 },
                 'G': {
