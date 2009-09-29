@@ -11,7 +11,7 @@ import warnings
 import sys
 import getopt
 import numpy as np
-from numpy import pi
+from numpy import pi, radians
 
 
 __help_message__ = '''
@@ -68,8 +68,8 @@ def main(argv=None):
             else:
                 raise Usage("Unhandled option")
         # Set ranges used
-        x_range = [-5, 15, 0.1] 
-        y_range = [3, 11, 0.1]
+        x_range = [0, 20, 0.1] 
+        y_range = [10, 20, 0.1]
         d10_range = [fil_sep_to_d10(y_range[0]), 
                     fil_sep_to_d10(y_range[1]), 1.5 * y_range[2]]
             # The y range is chosen based on values of SL length range for 
@@ -91,23 +91,23 @@ def main(argv=None):
         if xbtype == 4:
             config = {
                 'T': {
-                    'weak': pi/4,
-                    'strong': pi/4,
+                    'weak': radians(40),
+                    'strong': radians(40),
                     'spring_konstant': 100
                 },
                 'N': {
-                    'weak': 5,
-                    'strong': 5,
+                    'weak': 10.5,
+                    'strong': 10.5,
                     'spring_konstant': 10
                 },
                 'C': {
-                    'weak': pi/3 + (pi - pi/4), #pi/4 from T weak
-                    'strong': pi/2 + (pi - pi/4),
+                    'weak': radians(165) #pi/3 + (pi - radians(40)), #40deg from T weak
+                    'strong': radians(110) # pi/2 + (pi - pi/4),
                     'spring_konstant': 100
                 },
                 'G': {
-                    'weak': 3,
-                    'strong': 3,
+                    'weak': 9.6,
+                    'strong': 9.6,
                     'spring_konstant': 5
                 }
             }
@@ -125,13 +125,13 @@ def main(argv=None):
                      'spring_konstant': 1
                  },
                  'C': {
-                     'weak': pi/3 + pi,
-                     'strong': pi/2 + pi,
+                     'weak': radians(47.16) + pi,
+                     'strong': radians(73.20) + pi,
                      'spring_konstant': 100
                  },
                  'G': {
-                     'weak': 8,
-                     'strong': 8,
+                     'weak': 19.93,
+                     'strong': 16.47,
                      'spring_konstant': 5
                  }
             }
