@@ -68,8 +68,8 @@ def main(argv=None):
             else:
                 raise Usage("Unhandled option")
         # Set ranges used
-        x_range = [0, 20, 0.1] 
-        y_range = [10, 20, 0.1]
+        x_range = [0, 20, 0.5] 
+        y_range = [10, 20, 0.5]
         d10_range = [fil_sep_to_d10(y_range[0]), 
                     fil_sep_to_d10(y_range[1]), 1.5 * y_range[2]]
             # The y range is chosen based on values of SL length range for 
@@ -101,8 +101,8 @@ def main(argv=None):
                     'spring_konstant': 10
                 },
                 'C': {
-                    'weak': radians(165), #pi/3 + (pi - radians(40)), #40deg from T weak
-                    'strong': radians(110), # pi/2 + (pi - pi/4),
+                    'weak': 2*pi - radians(165), #pi/3 + (pi - radians(40)), #40deg from T weak
+                    'strong': 2*pi - radians(110), # pi/2 + (pi - pi/4),
                     'spring_konstant': 100
                 },
                 'G': {

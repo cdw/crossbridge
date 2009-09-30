@@ -9,7 +9,7 @@ Copyright (c) 2009 Dave Williams. All rights reserved.
 
 import cPickle as pickle
 import numpy as np
-from numpy import radians
+from numpy import pi, radians
 import Crossbridge
 
 def main():
@@ -25,8 +25,8 @@ def main():
             'spring_konstant': 10
         },
         'C': {
-            'weak': radians(165), # 40deg from T weak
-            'strong': radians(110),
+            'weak': 2*pi - radians(165), # 40deg from T weak
+            'strong':2*pi - radians(110),
             'spring_konstant': 100
         },
         'G': {
@@ -35,9 +35,31 @@ def main():
             'spring_konstant': 5
         }
     }
-    xb = Crossbridge.TwoSpring(config)
-    x_range = [0, 40, 1] 
-    y_range = [0, 40, 1]
+    # config = {
+    #     'T': {
+    #         'weak': pi/4,
+    #         'strong': pi/4,
+    #         'spring_konstant': 100
+    #     },
+    #     'N': {
+    #         'weak': 5,
+    #         'strong': 5,
+    #         'spring_konstant': 10
+    #     },
+    #     'C': {
+    #         'weak': pi/3 + (pi - pi/4), #40deg from T weak
+    #         'strong': pi/2 + (pi - pi/4),
+    #         'spring_konstant': 100
+    #     },
+    #     'G': {
+    #         'weak': 3,
+    #         'strong': 3,
+    #         'spring_konstant': 5
+    #     }
+    # }
+    xb = Crossbridge.FourSpring(config)
+    x_range = [0, 30, .2] 
+    y_range = [0, 30, .2]
     x_locs = np.arange(x_range[0], x_range[1], x_range[2]) 
     y_locs = np.arange(y_range[0], y_range[1], y_range[2])
     # c_loc and h_loc assignment is confusing. The indices go like this: 
@@ -52,7 +74,7 @@ def main():
     springs = 4
     
     xit, yit, sit = 0, 0, 0
-    for state in [2, 3]:
+    for state in [2]:
         for y in y_locs:
             for x in x_locs:
                 h_locs[sit, yit, xit] = [x, y]

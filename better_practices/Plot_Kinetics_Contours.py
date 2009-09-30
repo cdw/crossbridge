@@ -86,7 +86,7 @@ def main():
     # Fix the and annotate
     titles = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
     for a in axe:
-        a.set_yticks((32, 34, 36, 38, 40, 42))
+        #a.set_yticks((32, 34, 36, 38, 40, 42))
         a.set_xlim([x_locs[0], x_locs[-1]])
         a.set_ylim([y_locs[0], y_locs[-1]])
         a.set_xlabel("Binding site offset (nm)")
