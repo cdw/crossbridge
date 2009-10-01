@@ -68,8 +68,8 @@ def main(argv=None):
             else:
                 raise Usage("Unhandled option")
         # Set ranges used
-        x_range = [0, 20, 0.5] 
-        y_range = [10, 20, 0.5]
+        x_range = [0, 20, 0.25] 
+        y_range = [10, 20, 0.25]
         d10_range = [fil_sep_to_d10(y_range[0]), 
                     fil_sep_to_d10(y_range[1]), 1.5 * y_range[2]]
             # The y range is chosen based on values of SL length range for 
@@ -132,7 +132,7 @@ def main(argv=None):
                  'G': {
                      'weak': 19.93,
                      'strong': 16.47,
-                     'spring_konstant': 5
+                     'spring_konstant': 2.2
                  }
             }
             xb = Crossbridge.TwoSpring(config)
@@ -164,14 +164,21 @@ def main(argv=None):
         store = Storage.Storage(xbtype, config, x_range, d10_range)
         # Generate some properties, or all of them
         if prop_to_gen is None:
+            print "Calculating energies... ",
             energy = calc_values(xb, x_range, y_range, 'energy', state=1)
             free_e = calc_values(xb, x_range, y_range, 'free_energy', state=2)
+            print "done."
+            print "Calculating binding rate... ",
             r12 = calc_values(xb, x_range, y_range, 'r12', trials = trials)
+            print "done."
+            print "Calculating all other values... ",
             r23 = calc_values(xb, x_range, y_range, 'r23')
             r31 = calc_values(xb, x_range, y_range, 'r31')
             force1 = calc_values(xb, x_range, y_range, 'force', state=1)
             force2 = calc_values(xb, x_range, y_range, 'force', state=2)
             force3 = calc_values(xb, x_range, y_range, 'force', state=3)
+            print "done."
+            print "Storing output, will exit when done."
             store.write('energy', energy)
             store.write('free_energy', free_e)
             store.write('r12', r12)
@@ -236,18 +243,21 @@ def fil_sep_to_d10(face_to_face):
     """Convert filament seperation values from filament-face-to-filament face
     to d10 values that folks are used to seeing in x-ray diffraction studies
     """
-    # Filament paramter setup
-    thick_dia = 26 # in nm, from Millman, 1998, pg378 
-    # Note that 31 nm value is in Kensler & Harris, 2008, PMCID: PMC2242758
-    thin_dia = 9.5 # in nm, from Millman, 1998 on pg378
-    # The dist from fil center to fil center must consider these diameters
-    cent_to_cent = face_to_face + 0.5 * thick_dia + 0.5 * thin_dia
-    # From Millman 1998, pg362, we derive
-    # d10 = 2*(np.cos(30*(np.pi/180)) * cent_to_cent) * np.cos(30*(np.pi/180))
-    # or, since np.cos(30*(np.pi/180)) = np.sqrt(3/4)
-    # d10 = 2*(np.sqrt(3/4) * cent_to_cent) * np.sqrt(3/4) or
-    # d10 = 2* np.sqrt(3/4) * np.sqrt(3/4) * cent_to_cent  or
-    # d10 = 3/2 * cent_to_cent
+    # # Filament paramter setup
+    #    thick_dia = 26 # in nm, from Millman, 1998, pg378 
+    #    # Note that 31 nm value is in Kensler & Harris, 2008, PMCID: PMC2242758
+    #    thin_dia = 9.5 # in nm, from Millman, 1998 on pg378
+    #    # The dist from fil center to fil center must consider these diameters
+    #    cent_to_cent = face_to_face + 0.5 * thick_dia + 0.5 * thin_dia
+    #    # From Millman 1998, pg362, we derive
+    #    # d10 = 2*(np.cos(30*(np.pi/180)) * cent_to_cent) * np.cos(30*(np.pi/180))
+    #    # or, since np.cos(30*(np.pi/180)) = np.sqrt(3/4)
+    #    # d10 = 2*(np.sqrt(3/4) * cent_to_cent) * np.sqrt(3/4) or
+    #    # d10 = 2* np.sqrt(3/4) * np.sqrt(3/4) * cent_to_cent  or
+    #    # d10 = 3/2 * cent_to_cent
+    
+    # Based on values from ParamterEstimation.py
+    cent_to_cent = face_to_face + 6.90
     return (1.5 * cent_to_cent)
 
 if __name__ == "__main__":
