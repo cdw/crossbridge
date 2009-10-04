@@ -9,6 +9,7 @@ import Storage
 import Crossbridge
 import warnings
 import sys
+import time
 import getopt
 import numpy as np
 from numpy import pi, radians
@@ -34,6 +35,7 @@ class Usage(Exception):
 
 def main(argv=None):
     """Parse options and manage the creation of desired data"""
+    tic = time.time()
     if argv is None:
         argv = sys.argv
     try:
@@ -211,6 +213,7 @@ def main(argv=None):
             store.write(prop_to_gen, prop_vals)
         # Save results to disk
         store.save()
+        print "That took " + str(time.time()-tic) + " seconds."
         
     except Usage, err:
         print >> sys.stderr, sys.argv[0].split("/")[-1] + ": " + str(err.msg)
