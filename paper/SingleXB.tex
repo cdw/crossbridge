@@ -53,18 +53,18 @@ We demonstrate an alternative model, computationally simple enough to use in lar
 %  - Considerations in modeling (computational complexity) 
 % Needs more, come back to this
 
-\textbf{Needs a purpose and a rewrite.}
+% Sarcomere-scale modeling of muscle contraction has changed since the introduction of the sliding crossbridge model in the 1950s, but the geometry of the individual crossbridges used has remained largely unaltered. 
+% While individual crossbridges have been treated independently with spatial modeling, thermodynamic accounting has been introduced to the crossbridge kinetics, compliance introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
+% We propose that with a shift to crossbridges that use two or four four springs, new insight into the effects of lattice spacing and radial forces generated during axial shortening may be gained.
 
-Sarcomere-scale modeling of muscle contraction has changed since the introduction of the sliding crossbridge model in the 1950s, but the geometry of the individual crossbridges used has remained largely unaltered. 
-While individual crossbridges have been treated independently with spatial modeling, thermodynamic accounting has been introduced to the crossbridge kinetics, compliance introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
-We propose that with a shift to crossbridges that use two or four four springs, new insight into the effects of lattice spacing and radial forces generated during axial shortening may be gained.
-
-The now-traditional single spring crossbridge introduced by \citet{Huxley:1957:p255} has been the dominant model used in modeling studies since its introduction. 
-The geometry of the single spring crossbridge has remained largely unchanged while the kinetics underlying transitions between force generating states have been increased in complexity throughout subsequent work. \citep{Pate:1989:p181, Daniel:1998:p1611, Chase:2004:p204, Tanner:2007:pe115}
+Theoretical and computational models of cross-bridge force generation have largely focused on one-dimensional analyses. 
+Thus, from the early work of \citet{Huxley:1957:p255} to more recent models \citep{Daniel:1998:p1611, Chase:2004:p204, Tanner:2007:pe115} our focus has been more on the force distribution along the filament lattice.  
+From a computational standpoint, somewhat less attention has focused on radial forces. 
+That said the geometry of the single spring crossbridge has remained largely unchanged while the kinetics underlying transitions between force generating states have been increased in complexity throughout subsequent work. \citep{Pate:1989:p181, Daniel:1998:p1611, Tanner:2007:pe115}
 Meanwhile, \citet{Houdusse:2001:p182} and others have proposed that the region of the lever arm directly adjacent to the converter region is a flexible area that acts as a spring. 
 This model of force generation by myosin suggests that inclusion of torsional spring might create a system that better reflects the underling mechanisms of the powerstroke. 
 
-We propose and compare two torsional spring based crossbridge models that are targeted for use in spatially explicit models of the half sarcomere. 
+Here we analyze the properties of and compare two torsional spring based crossbridge models that are targeted for use in spatially explicit models of the half sarcomere. 
 The first is a four spring crossbridge (4sXB) that is directly inspired by the structure of the S1 and S2 regions of myosin II. 
 Following this, we consider a two spring crossbridge (2sXB) that replicates many of the behaviors of the 4sXB while requiring fewer computational resources.
 
@@ -100,31 +100,34 @@ This system requires iterative solution methods, as our four spring crossbridge 
  %  - Unbinding rate
  %  - Calculation of reverse rates
 
-We restrict our analysis to representations of crossbridges that are useful for spatially explicit modeling of the half-sarcomere, i.e.\ models utilizing from one to several springs.
-Representations of the crossbridge as a single spring have been used extensively in previous work and serve as a baseline against which we can compare more complicated models.
-A crossbridge comprised of four springs is able to replicate both the known geometry of the crossbridge and the movements that comprise the power stroke.
-A simpler crossbridge consisting of just two springs, able to replicate most of the four spring crossbridge's behavior, is also described.
+We consider two crossbridge models meant to capture a range of mechanical behaviors suggested by the literature.  
+Each, described more fully below can be derived from a generalized crossbridge consisting of 4 springs:  two torsional springs and two linear springs (Fig 1).  
+These are contrasted to the traditional one-dimensional single spring model of a crossbridge.
 
 \subsection*{Geometry} % (fold)
 
 \paragraph{Spring configurations} % (fold)
-The 1sXB consists of a single linear spring aligned parallel to the thick and thin filaments.
-As described above, it is insensitive to changes in lattice spacing and is unable to account for radial forces generated during axial shortening.
+Our simplest model consists of a single linear spring aligned parallel to the thick and thin filaments, existing in one dimension.
+This one spring crossbridge (1sXB) is, as described above, the current crossbridge model implemented in most computational analyses. 
+The one-dimensional 1sXB is insensitive to changes in lattice spacing and unable to account for radial forces generated during axial shortening.
 
-The 4sXB uses two linear and two torsional springs to represent the myosin head, as depicted in Fig \ref{fig:types}D.
+Our generalized four spring crossbridge (4sXB) uses two linear and two torsional springs to represent the myosin head, as depicted in Fig 1D.%\ref{fig:types}D.
 This allows the springs used in the model to closely correspond to pieces of the crossbridge.
-Specifically the four springs correspond to the S2 attachment region, the lever arm, the pliant region/converter domain, and the globular head region.
-Additionally, the additional springs of the 4sXB cause it to occupy two dimensions, where the 1sXB only occupies one.
+Specifically the four springs correspond to the S2/rod attachment point, the S2 region, the S2/light chain domain (LCD) attachment point, and the LCD.
+The use of multiple springs by the 4sXB also allow it to represent properties of the crossbridge that are only present in two dimensional space, in contrast to the one-dimensional 1sXB. 
+The rest angle of the torsional spring linking the S2 domain and the LCD simulates the powerstroke by increasing during the transition from a weakly bound to a strongly bound state.
 This two dimensionality allows the 4sXB to be embedded in a space that takes the distance between thick and thin filaments into account, introducing lattice spacing dependence.
 
-The 2sXB uses one linear and one torsional spring to represent the myosin head, as depicted in Figure~\ref{fig:types}C.
-This crossbridge acts as a simplification of the 4sXB, retaining movement generated by a lever arm, but altering the length of the lever such that it can bridge the entire distance between the thick and thin filaments.
+The 2sXB uses one linear and one torsional spring to represent the myosin head, (Figure 1C). %Figure~\ref{fig:types}C.
+This crossbridge is a simplification of the 4sXB, retaining movement generated by a lever arm, but altering the length of the lever such that it can bridge the entire distance between the thick and thin filaments.
 The parameters characterizing the 2sXB are chosen to match the step size and kinetics of the 2sXB to those of the 4sXB.
 
-Each type of crossbridge has several physical parameters that must be set before they may be used.
+Parameters for both crossbridges are derived,where possible, from known physical parameters.
 Each linear spring (one in the 1sXB, two in the 4sXB and one in the 2sXB) requires a rest length and spring constant, while each torsional spring (two in the 4sXB and one in the 2sXB) requires a rest angle and spring constant.
-The rest length or angle of one spring in each crossbridge is altered during the transition from a weakly bound state to a strongly bound state, in order to produce the force that tensions the linked filaments.
+The lengths and angles of the springs used for the 4sXB are chosen from tomographic reconstructions of in vivo S2 lengths (CITE TAYLOR1999) and x-ray crystallographic reconstructions of the S1 fragment (CITE RAYMENT1993, OTHERS).
+The rest length and angle of the 2sXB are set so that the tips of the 2sXB and 4sXB are in the same location before and after the powerstroke.
 
+% Should include a bit on spring constant derivation from Pi hydrolysis energies 
 % MORE SHOULD BE ADDED ON PARAMETER CHOICE HERE
 
 % paragraph spring_configurations (end)
@@ -133,6 +136,10 @@ The rest length or angle of one spring in each crossbridge is altered during the
 The geometry of the 1sXB model of the crossbridge has evolved with an eye towards accounting for the offset generated by the powerstroke and the energy utilized in the creation of this offset. 
 From these two concerns the force the spring (assuming it to be a linear one) can produce is accounted for. 
 In a two dimensional model there is the additional goal of replicating the crossbridge's sensitivity to lattice spacing and multidimensional force generated. 
+
+Based on earlier mechanical models of force generation (e.g Pate and Cooke, Daniel et al; Tanner et al.) each crossbridge undergoes a distortion upon the hydrolysis of ATP to ADP.Pi.  
+That distortion changes the effective rest length of the crossbridge by an amount proportional to the energy derived from the hydrolysis.  
+Upon release of the Pi, that distortional strain energy drives force generation by the crossbridge, essentially appearing as a change in the rest length of the molecule.
 % paragraph displacement_and_force_generation (end)
 
 \paragraph{Calculation of spring lengths and angles} % (fold)
