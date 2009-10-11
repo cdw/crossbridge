@@ -20,8 +20,9 @@ linear or torsional springs. A schematic follows.
 
 import warnings
 import numpy.random as random
-from scipy.optimize import fmin_powell as fmin
+from scipy.optimize import fmin_bfgs as fmin
 from numpy import pi, sin, cos, arctan2, sqrt, hypot, exp, tanh, log
+import math as m
 
 
 class Spring:
@@ -50,9 +51,9 @@ class Spring:
     def energy(self, curr_val, state):
         """Given a current value, return the energy the spring stores"""
         if state in [1, 2]:
-            return (0.5 * self.k * (curr_val-self.weak)**2)
+            return (0.5 * self.k * m.pow((curr_val-self.weak),2))
         elif state == 3:
-            return (0.5 * self.k * (curr_val-self.strong)**2)
+            return (0.5 * self.k * m.pow((curr_val-self.strong),2))
         else:
             warnings.warn("Improper value for spring state")
     
@@ -160,8 +161,8 @@ class Crossbridge:
     
     def minimize_energy(self, h_loc, state):
         """Return the min energy in the XB with the head at the given loc"""
-        rest_conv_loc = (self.n.rest(state) * cos(self.t.rest(state)),
-                         self.n.rest(state) * sin(self.t.rest(state)))
+        rest_conv_loc = (self.n.rest(state) * m.cos(self.t.rest(state)),
+                         self.n.rest(state) * m.sin(self.t.rest(state)))
         min_conv = fmin(self.energy, 
             rest_conv_loc, args = (h_loc, state), disp=0)
         return (self.energy(min_conv, h_loc, state), min_conv)
@@ -202,19 +203,19 @@ class Crossbridge:
         g_k = self.g.k
         c_s = self.c.rest(state)
         g_s = self.g.rest(state)
-        f_x = (-g_k * (g_len - g_s) * cos(c_ang) + 
-                1/g_len * c_k * (c_ang - c_s) * sin(c_ang))
-        f_y = (-g_k * (g_len - g_s) * sin(c_ang) + 
-                1/g_len * c_k * (c_ang - c_s) * cos(c_ang))
+        f_x = (-g_k * (g_len - g_s) * m.cos(c_ang) + 
+                1/g_len * c_k * (c_ang - c_s) * m.sin(c_ang))
+        f_y = (-g_k * (g_len - g_s) * m.sin(c_ang) + 
+                1/g_len * c_k * (c_ang - c_s) * m.cos(c_ang))
         return [float(f_x), float(f_y)]
     
     def seg_values(self, conv_loc, h_loc):
         """Calculate the values of the segments of the XB"""
         diff = [h_loc[0] - conv_loc[0], h_loc[1] - conv_loc[1]]
-        t_ang = arctan2(conv_loc[1], conv_loc[0])
-        n_len = hypot(conv_loc[0], conv_loc[1])
-        c_ang = arctan2(diff[1], diff[0]) + pi - t_ang
-        g_len = hypot(diff[0], diff[1])
+        t_ang = m.atan2(conv_loc[1], conv_loc[0])
+        n_len = m.hypot(conv_loc[0], conv_loc[1])
+        c_ang = m.atan2(diff[1], diff[0]) + m.pi - t_ang
+        g_len = m.hypot(diff[0], diff[1])
         return (t_ang, n_len, c_ang, g_len)
     
     def bind_or_not(self, b_site):
@@ -228,14 +229,14 @@ class Crossbridge:
         c_ang = self.c.bop()
         g_len = self.g.bop()
         ## Translate those values to (x,y) postitions
-        conv_loc = (n_len * cos(t_ang),
-                    n_len * sin(t_ang))
-        h_loc = (conv_loc[0] + g_len * cos(c_ang + t_ang - pi), 
-                 conv_loc[1] + g_len * sin(c_ang + t_ang - pi))
+        conv_loc = (n_len * m.cos(t_ang),
+                    n_len * m.sin(t_ang))
+        h_loc = (conv_loc[0] + g_len * m.cos(c_ang + t_ang - m.pi), 
+                 conv_loc[1] + g_len * m.sin(c_ang + t_ang - m.pi))
         ## Find the distance to the binding site
-        distance = hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
+        distance = m.hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
         ## The binding prob is dept on the exp of a dist
-        b_prob = exp(-distance)
+        b_prob = 10*m.exp(-distance)
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
@@ -251,7 +252,7 @@ class Crossbridge:
         """
         state2_energy = self.minimize_energy(b_site, 2)[0]
         state3_energy = self.minimize_energy(b_site, 3)[0]
-        rate = .5 * (1 + tanh(.6 * (state2_energy - state3_energy)))+.001
+        rate = .5 * (1 + m.tanh(.6 * (state2_energy - state3_energy)))+.001
         return float(rate)
     
     def r31(self, b_site):
@@ -259,7 +260,7 @@ class Crossbridge:
         bound, return a probability of transition to an unbound state
         """
         state3_energy = self.minimize_energy(b_site, 3)[0]
-        rate = exp(-1 / (state3_energy + 1e-9)) #1e-9 avoids 1/0 at rest site
+        rate = m.exp(-1 / (state3_energy + 1e-9)) #1e-9 avoids 1/0 at rest loc
         return float(rate)
     
 
@@ -302,8 +303,8 @@ class TwoSpring(Crossbridge):
     
     def minimize_energy(self, h_loc, state):
         """Return the min energy in the XB with the head at the given loc"""
-        rest_conv_loc = (self.n.rest(state) * cos(self.t.rest(state)),
-                         self.n.rest(state) * sin(self.t.rest(state)))
+        rest_conv_loc = (self.n.rest(state) * m.cos(self.t.rest(state)),
+                         self.n.rest(state) * m.sin(self.t.rest(state)))
         return (self.energy(rest_conv_loc, h_loc, state), rest_conv_loc)
     
     def bind_or_not(self, b_site):
@@ -317,14 +318,14 @@ class TwoSpring(Crossbridge):
         c_ang = self.c.bop()
         g_len = self.g.bop()
         ## Translate those values to (x,y) postitions
-        conv_loc = (n_len * cos(t_ang),
-                    n_len * sin(t_ang))
-        h_loc = (conv_loc[0] + g_len * cos(c_ang + t_ang - pi), 
-                 conv_loc[1] + g_len * sin(c_ang + t_ang - pi))
+        conv_loc = (n_len * m.cos(t_ang),
+                    n_len * m.sin(t_ang))
+        h_loc = (conv_loc[0] + g_len * m.cos(c_ang + t_ang - m.pi), 
+                 conv_loc[1] + g_len * m.sin(c_ang + t_ang - m.pi))
         ## Find the distance to the binding site
-        distance = hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
+        distance = m.hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
         ## The binding prob is dept on the exp of a dist
-        b_prob = exp(-distance)
+        b_prob = 10*m.exp(-distance)
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
@@ -349,7 +350,8 @@ class OneSpring(Crossbridge):
         ## Find the distance to the binding site
         distance = abs(b_site[0]-n_len) #Ignore y dim
         ## The binding prob is dept on the exp of a dist
-        b_prob = exp(-distance)
+        b_prob = m.exp(-distance)
         ## Throw a random number to check binding
         return (b_prob > random.rand())
+    
 
