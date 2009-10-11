@@ -166,20 +166,24 @@ def main(argv=None):
         store = Storage.Storage(xbtype, config, x_range, d10_range)
         # Generate some properties, or all of them
         if prop_to_gen is None:
+            runing_tic = time.time()
             print "Calculating energies... ",
             energy = calc_values(xb, x_range, y_range, 'energy', state=1)
             free_e = calc_values(xb, x_range, y_range, 'free_energy', state=2)
-            print "done."
+            print "done. Took " + str(time.time()-runing_tic) + " seconds."
+            runing_tic = time.time()
             print "Calculating binding rate... ",
             r12 = calc_values(xb, x_range, y_range, 'r12', trials = trials)
-            print "done."
+            print "done. Took " + str(time.time()-runing_tic) + " seconds."
+            runing_tic = time.time()
             print "Calculating all other values... ",
             r23 = calc_values(xb, x_range, y_range, 'r23')
             r31 = calc_values(xb, x_range, y_range, 'r31')
             force1 = calc_values(xb, x_range, y_range, 'force', state=1)
             force2 = calc_values(xb, x_range, y_range, 'force', state=2)
             force3 = calc_values(xb, x_range, y_range, 'force', state=3)
-            print "done."
+            print "done. Took " + str(time.time()-runing_tic) + " seconds."
+            runing_tic = time.time()
             print "Storing output, will exit when done."
             store.write('energy', energy)
             store.write('free_energy', free_e)
@@ -213,7 +217,7 @@ def main(argv=None):
             store.write(prop_to_gen, prop_vals)
         # Save results to disk
         store.save()
-        print "That took " + str(time.time()-tic) + " seconds."
+        print "The whole thing took " + str(time.time()-tic) + " seconds."
         
     except Usage, err:
         print >> sys.stderr, sys.argv[0].split("/")[-1] + ": " + str(err.msg)
