@@ -133,6 +133,27 @@ def main():
             % (degrees(tor_ang[0]), degrees(tor_ang[1]))
     print " "
     
+    # Find the stength of the springs from the known liberated energy of ATP 
+    # hydrolysis.
+    
+    R = 8.31447 # Joule/(Kelvin Mole)
+    T = 288 # Kelvin
+    Total_Energy = 24 # RT energy liberated over an actomyosin cycle
+    eta = 0.68 # fractional free energy drop from states one to three
+    # Typically, for a torsional angle U = .5 * k (angle-rest_angle)^2
+    # Rearrange to get  k = 2 U/(angle-angle_rest)^2, use this to estimate the 
+    # strength of the angular springs
+    k4sXB = (2*eta*Total_Energy)/(phi[0]-phi[1])**2
+    k2sXB = (2*eta*Total_Energy)/(tor_ang[0]-tor_ang[1])**2
+    
+    print "Results for the Torsional spring values:"
+    print "========================================"
+    print "Torsional strength of 4sXB (in RT): " + str(k4sXB)
+    print "Torsional strength of 2sXB (in RT): " + str(k2sXB)
+    print " "
+    
+    
+    
     # Calculate the lattice spacing conversion formulas
     
     # From Morel's 1997 work: radial forces shift from compressive to 
