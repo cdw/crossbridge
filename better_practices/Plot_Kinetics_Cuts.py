@@ -46,7 +46,7 @@ def bert_data(kinetic_prop, x_locs):
     #   << Units` 
     #   Convert[(MolarGasConstant * 288 Kelvin * AvogadroConstant^-1)
     #       /(Nano Meter)^2, (Pico Newton)/(Nano Meter)]
-    xb_0 = sqrt(eta * DeltaG / k_xb)
+    xb_0 =13.55 # adjusted from sqrt(eta * DeltaG / k_xb) to match moderns
     ## Create functions for free energy in a given location and state:
     g_1 = lambda x: 0 * x
     g_2 = lambda x: alpha * -DeltaG + k_xb * (x - xb_0)**2
@@ -57,7 +57,7 @@ def bert_data(kinetic_prop, x_locs):
     r_23 = lambda x: (
         B / sqrt(k_xb) * (1 - tanh(C * sqrt(k_xb) * (x - xb_0))) + D)
     r_31 = lambda x: (
-        sqrt(k_xb) * (sqrt(M * x**2) - N * x) + P)
+        sqrt(k_xb) * (sqrt(M * (x-4.76)**2) - N * (x-4.76)) + P)
     ## Create functions to derive reverse transition rates using the
     ## thermo equation:
     ## r_forward(x)/r_backward(x) = exp(G_next(x) - G_prev(x))
@@ -106,7 +106,8 @@ def main():
     # This should be integrated as an external file at some point?
     # Set contour levels and cut positions
     #RT = 3.97
-    cut_locs = np.searchsorted(y_locs, (36, 37, 38))
+    #cut_locs = np.searchsorted(y_locs, (36, 37, 38))
+    cut_locs = np.searchsorted(y_locs, (1.5*(12.61+6.9), 1.5*(14.61+6.9), 1.5*(16.61+6.9)))
     ## Set up
     fig = plt.figure(1, figsize=(8, 6))
     axe = ([fig.add_subplot(2, 2, g+1) for g in range(2*2)])
@@ -126,7 +127,7 @@ def main():
     axe[1].plot(x_locs, r12[0][cut_locs[1]], color=colors[1])
     axe[1].plot(x_locs, r12[1][cut_locs[1]], color=colors[2])
     axe[1].set_title("b)", x=-0.20, y=0.97, weight="demi")
-    axe[1].legend(("1sXB", "2sXB", "4sXB"))
+    #axe[1].legend(("1sXB", "2sXB", "4sXB"))
     # Powerstroke rates
     axe[2].plot(x_locs, bert_data("rates_23", x_locs), color=colors[0])
     axe[2].plot(x_locs, r23[0][cut_locs[1]], color=colors[1])
