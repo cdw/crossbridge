@@ -236,7 +236,7 @@ class Crossbridge:
         ## Find the distance to the binding site
         distance = m.hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
         ## The binding prob is dept on the exp of a dist
-        b_prob = 10*m.exp(-distance)
+        b_prob = 3*m.exp(-distance)
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
@@ -252,7 +252,7 @@ class Crossbridge:
         """
         state2_energy = self.minimize_energy(b_site, 2)[0]
         state3_energy = self.minimize_energy(b_site, 3)[0]
-        rate = .5 * (1 + m.tanh(.6 * (state2_energy - state3_energy)))+.001
+        rate = .1 * (1 + m.tanh(.4 * (state2_energy - state3_energy)+4))+.001
         return float(rate)
     
     def r31(self, b_site):
@@ -260,7 +260,8 @@ class Crossbridge:
         bound, return a probability of transition to an unbound state
         """
         state3_energy = self.minimize_energy(b_site, 3)[0]
-        rate = m.exp(-1 / (state3_energy + 1e-9)) #1e-9 avoids 1/0 at rest loc
+        #rate = m.exp(-1 / (state3_energy + 1e-9)) #1e-9 avoids 1/0 at rest loc
+        rate = m.sqrt(.14 * state3_energy) - .02 * m.sqrt(state3_energy) + .001
         return float(rate)
     
 
@@ -325,7 +326,7 @@ class TwoSpring(Crossbridge):
         ## Find the distance to the binding site
         distance = m.hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
         ## The binding prob is dept on the exp of a dist
-        b_prob = 10*m.exp(-distance)
+        b_prob = 30*m.exp(-2*distance) +.00001
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
