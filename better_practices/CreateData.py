@@ -105,7 +105,7 @@ def main(argv=None):
                 'C': {
                     'weak': 2*pi - radians(165), #pi/3 + (pi - radians(40)), #40deg from T weak
                     'strong': 2*pi - radians(110), # pi/2 + (pi - pi/4),
-                    'spring_konstant': 100
+                    'spring_konstant': 40
                 },
                 'G': {
                     'weak': 9.6,
@@ -129,12 +129,12 @@ def main(argv=None):
                  'C': {
                      'weak': radians(47.16) + pi,
                      'strong': radians(73.20) + pi,
-                     'spring_konstant': 100
+                     'spring_konstant': 40
                  },
                  'G': {
                      'weak': 19.93,
                      'strong': 16.47,
-                     'spring_konstant': 2.2
+                     'spring_konstant': 2
                  }
             }
             xb = Crossbridge.TwoSpring(config)
