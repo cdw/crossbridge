@@ -83,7 +83,7 @@ def main():
         prob_lvls, colors = grey_steps)
     axe[7].contour(x_grid, y_grid, r31[0], 
         prob_lvls, colors = 'white')
-    # Fix the and annotate
+    # Fix and annotate
     titles = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
     for a in axe:
         #a.set_yticks((32, 34, 36, 38, 40, 42))
