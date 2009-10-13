@@ -24,7 +24,7 @@ def main():
     x_locs = np.array([np.arange(x[0], x[1], x[2]) for x in x_range])
     y_range = [s.get("y_range") for s in store]
     y_locs = np.array([np.arange(y[0], y[1], y[2]) for y in y_range])
-    y_ticks = (-50,0,50)
+    y_ticks = (-5, 0, 5, 10, 15)
     # If we plot bits outside our y window, the external arrows can stick into 
     # the window of interest, so trim the data
     #y_ind = (np.searchsorted(y_locs[0, ::2], y_limits[0])-1, np.searchsorted(y_locs[0, ::2], y_limits[1]))
