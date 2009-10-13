@@ -68,10 +68,10 @@ Here we analyze the properties of and compare two torsional spring based crossbr
 The first is a four spring crossbridge (4sXB) that is directly inspired by the structure of the S1 and S2 regions of myosin II. 
 Following this, we consider a two spring crossbridge (2sXB) that replicates many of the behaviors of the 4sXB while requiring fewer computational resources.
 
-% \paragraph{Comparison to previous systems} % (fold)
-This discussion owes a debt to \citet{Schoenberg:1980:p1802} and \citet{Schoenberg:1980:p1627} which contain a proposal and analysis of several different types of crossbridges, primarily two spring crossbridges where the S2 arm is represented as a linear spring and the S2-S1 junction area is represented as a torsional spring. 
-This system requires iterative solution methods, as our four spring crossbridge does, but restrains the crossbridge to an area within one S1 length of the line in which the S2 segment is set.
-% paragraph comparison_to_previous_systems (end)
+% % \paragraph{Comparison to previous systems} % (fold)
+% This discussion owes a debt to \citet{Schoenberg:1980:p1802} and \citet{Schoenberg:1980:p1627} which contain a proposal and analysis of several different types of crossbridges, primarily two spring crossbridges where the S2 arm is represented as a linear spring and the S2-S1 junction area is represented as a torsional spring. 
+% This system requires iterative solution methods, as our four spring crossbridge does, but restrains the crossbridge to an area within one S1 length of the line in which the S2 segment is set.
+% % paragraph comparison_to_previous_systems (end)
 
 % section introduction (end)
 
@@ -101,7 +101,7 @@ This system requires iterative solution methods, as our four spring crossbridge 
  %  - Calculation of reverse rates
 
 We consider two crossbridge models meant to capture a range of mechanical behaviors suggested by the literature.  
-Each, described more fully below can be derived from a generalized crossbridge consisting of 4 springs:  two torsional springs and two linear springs (Fig 1).  
+Each, described more fully below can be derived from a generalized crossbridge consisting of 4 springs:  two torsional springs and two linear springs (Fig 1). % (Fig \ref{fig:types}).  
 These are contrasted to the traditional one-dimensional single spring model of a crossbridge.
 
 \subsection*{Geometry} % (fold)
@@ -124,7 +124,7 @@ The parameters characterizing the 2sXB are chosen to match the step size and kin
 
 Parameters for both crossbridges are derived,where possible, from existing physical measurements.
 Each linear spring (one in the 1sXB, two in the 4sXB and one in the 2sXB) requires a rest length and spring constant, while each torsional spring (two in the 4sXB and one in the 2sXB) requires a rest angle and spring constant.
-The lengths and angles of the springs used for the 4sXB are chosen from tomographic reconstructions of in vivo S2 lengths (CITE TAYLOR1999) and x-ray crystallographic reconstructions of the S1 fragment (CITE RAYMENT1993, OTHERS).
+The lengths and angles of the springs used for the 4sXB are chosen from tomographic reconstructions of in vivo S2 lengths and x-ray crystallographic reconstructions of the S1 fragment \citep{Taylor:1999p2569, Rayment:1993p1914}.
 The rest length and angle of the 2sXB are set so that the tips of the 2sXB and 4sXB are in the same location before and after the powerstroke.
 
 % Should include a bit on spring constant derivation from Pi hydrolysis energies 
@@ -135,18 +135,18 @@ The rest length and angle of the 2sXB are set so that the tips of the 2sXB and 4
 \paragraph{Displacement and force generation} % (fold)
 Based on earlier mechanical models of force generation (e.g.\ Pate and Cooke; Daniel et al; Tanner et al.) each crossbridge undergoes a distortion upon the hydrolysis of ATP to ADP.Pi.  
 That distortion changes the effective rest length of the crossbridge by an amount proportional to the energy derived from the hydrolysis.  
-Within the 1sXB, this distortion is accomplished by a change in the rest length of the crossbridge's spring, while the 4sXB and 2sXB represent the distortion with a change in the rest angle of a torsional spring, a process more closely replicating the lever- arm mechanism \citep{Reedy:2000p2620}.
-Upon release of the Pi, that distortional strain energy drives force generation by the crossbridge, essentially appearing as a change in the rest length of the molecule.
+Within the 1sXB, this distortion is accomplished by a change in the rest length of the crossbridge's spring, while the 4sXB and 2sXB represent the distortion with a change in the rest angle of a torsional spring, a process more closely replicating the lever-arm mechanism \citep{Reedy:2000p2620}.
+Upon release of Pi, distortional strain energy drives force generation by the crossbridge, essentially appearing as a change in the rest length of the molecule.
 % paragraph displacement_and_force_generation (end)
 
 \paragraph{Calculation of spring lengths and angles} % (fold)
 % Goal here is to clearly communicate the ways in which the spring compoments are calculated. This should go through: what each angle actually is (from where to where with what as the apex), calculation of angle for 4sXB, and calculation of angle for the 2sXB.
-When the 1sXB is distorted such that the myosin head is horizontally offset from thick filament attachment site relative to its resting position, the length of the 1sXB's spring is simple to find as it must completely span the head to thick filament attachment distance.
+When the 1sXB is placed under strain such that the myosin head is horizontally offset from the thick filament attachment site relative to its resting position, the length of the 1sXB's spring is simple to find as it must completely span the head to thick filament attachment distance.
 The lengths and angles of the springs in the 2sXB and 4sXB must take into account the radial distance they must cover as well.
 The 2sXB may be analytically determined, as it has all spring values set by the choice of a head location, with arm length and angle given by $r(h_x, h_y)=(h_x^2 + h_y^2)^{1/2}$ and $\theta(h_x, h_y)=\arctan(h_y/h_x)$, respectively.
-The 4sXB suffers from increased computational complexity over the 1sXB and 2sXB systems in that iterative optimization is required to find the location of the distal torsional spring representing the converter region when the crossbridge's head is moved to a new location.
+The 4sXB's greater number of degrees of freedom mean it requires iterative optimization to find the location of the distal torsional spring representing the link between the S2 and S1 regions when the crossbridge's head is moved to a new location.
 We use a modification of Powell's ``dog-leg'' method, present in the SciPy package of computational tools \citep{SciPy}, to relax the location of the distal torsional spring to that which results in the lowest energy state of the 4sXB.
-Once the distal torsional spring's location is known (as $(c_x, c_y)$), the angle of the proximal torsional spring and the lengths of the two linear springs are analytically determinable.
+Once the distal torsional spring's location is known (as $(c_x, c_y)$), the angle of the proximal torsional spring and the lengths of the two linear springs are determined analytically.
 The angle of the proximal torsional spring is given as $\phi(c_x, c_y)=\arctan(c_y/c_x)$, the length of the proximal linear spring as $\ell(c_x, c_y)=(c_x^2 + c_y^2)^{1/2}$, the angle of the distal torsional spring as $\theta(c_x, c_y, h_x, h_y) = \arctan((h_y-c_y)/(h_x-c_x)) + \pi - \phi(c_x, c_y)$, and the length of the distal linear spring as $r(c_x, c_y, h_x, h_y)=((h_x-c_x)^2 + (h_y-c_y)^2)$.
 % paragraph calculation_of_spring_lengths_and_angles (end)
 % subsection geometry (end)
@@ -164,11 +164,11 @@ The angle of the proximal torsional spring is given as $\phi(c_x, c_y)=\arctan(c
 %   = Distortion dependence
 %  - Unbinding rate
 %  - Calculation of reverse rates
-As in other recent works, such as \citet{Tanner:2007:pe115}, we choose to use a simplified three state model of the crossbridge cycle with energies based on the work of Pate and Cooke in \citet{Pate:1989:p181}. 
-This simplified system allows for the most direct linking of the crossbridge's kinetics and chemo-mechanics; the three kinetic states being directly comparable to the myosin configurations described in \citet{Houdusse:2000:p11238}.
+We choose to use a simplified three state model of the crossbridge cycle \citep{Pate:1989:p181, Tanner:2007:pe115}. 
+This simplified system directly links the crossbridge's kinetics to mechanics; the three kinetic states are directly comparable to the myosin configurations described in \citet{Houdusse:2000:p11238}.
 A secondary benefit of a three state kinetics system is that it allows multiple-motor models which use our many-spring crossbridges to more easily compare their results to those from the aforementioned previous models.
 
-The three states represented in our kinetics are an unbound state, a loosely-bound state, and a tightly-bound force-generating state.
+The three states represented in our kinetics are (1) an unbound state (2) a loosely-bound state and (3) a tightly-bound force-generating state.
 As depicted in figure \ref{fig:types} A, these states correspond to a Myosin-ADP-Pi state, an Actin-Myosin-ADP-Pi state, and an Actin-Myosin-ADP state.
 
 The kinetics of both the two spring and the four spring models are strain dependent and are essentially transforms of the free energy landscapes experienced by the crossbridges in their different states.
@@ -390,8 +390,16 @@ Spatially explicit explorations of how these forces are transmitted throughout t
     \label{fig:types}
     \caption{
         \textbf{Kinetic scheme and crossbridge types under investigation.} 
-        The three state kinetic system used both here and in prior models is shown in subfigure a). The three states represented are an unbound state (1), a loosely bound state (2), and a strongly bound state (3). The binding rate ($r_{1,2}$), strong transition rate ($r_{2,3}$), and unbinding rate ($r_{3,1}$) at a given location are functions of the energy stored in the springs representing the crossbridge, if the crossbridge head is moved to that location. The reverse rates ($r_{2,1}$, $r_{3,2}$, and $r_{1,3}$) are all functions of the forward transition rates.
-        Subfigures b), c), and d) show the various spring based representations of the crossbridge. Subfigure b) shows the single spring crossbridge representation used in models since \protect\cite{Huxley:1957:p255}. Subfigure c) shows the two spring system, consisting of a torsional/angular spring and a linear spring, that we propose to allow the modeling of radial forces. Finally, subfigure d) shows the four spring system using two torsional and two linear springs which we also compare to the single and dual spring crossbridges.
+        The three state kinetic system is shown in subfigure a. 
+        The three states represent (1) an unbound state, (2) a loosely bound state, and (3) a strongly bound state. 
+        The binding rate ($r_{1,2}$), strong transition rate ($r_{2,3}$), and unbinding rate ($r_{3,1}$) are determined by the energy stored in the springs representing the crossbridge. 
+        The reverse rates ($r_{2,1}$, $r_{3,2}$, and $r_{1,3}$) are functions of the forward transition rates.
+        Subfigures b, c, and d show the representations of the crossbridge we examine, plotted against a myosin crystal structure for comparison. 
+        Subfigure b shows the single-spring crossbridge (1sXB) used heavily used in models since \protect\citep{Huxley:1957:p255}. 
+        Subfigure c depicts the two-spring crossbridge (2sXB) which uses both a torsional/angular spring and a linear spring. 
+        Subfigure d shows a four-spring crossbridge (4sXB) using two torsional and two linear springs, which we compare the single and dual spring crossbridges against.
+        The locations of the distal torsional spring and tip of the 4sXB are denoted as $(c_x, c_y)$ and $(h_x, h_y)$ respectively. 
+        The tip of the 2sXB is also denoted as $(c_x, c_y)$.
     }
     \end{center}
 \end{figure}
@@ -402,10 +410,16 @@ Spatially explicit explorations of how these forces are transmitted throughout t
     \label{kinetics_contours}
     \caption{
         \textbf{Energy and kinetics of the 4sXB and 2sXB systems at varying axial offsets and lattice spacings.} 
-        The free energy of the four spring crossbridge at various lattice spacings (represented along the y-axis), with the head stretched to an axial offset from the point where it attaches to the thick filament (zero on the x-axis) is depicted in a). Simmilarly, the free energy of the two spring crossbridge is represented in b).
-        The subfigures c) and d) show $r_{1,2}$, the probability that the four and two spring crossbridges will transition from an unbound state to a bound state, and the dependence of this transition on both the axial offset of the open binding site from the myosin thick filament attachment site and the lattice spacing $d_{1,0}$ which is a function of the distance between the binding site and the thick filament attachment point of the myosin head. Subfigure c) depicts this probability for the four spring crossbridge as a two dimensional contour with the same axes as a) while subfigure d) depicts the transition probabilities for the two spring crossbridge.
-        Subfigures e) and f) show $r_{2,3}$, the probability of transition from a weakly bound state to a strongly bound state, for the same crossbridges, with the same axes and scales as c) and d) show $r_{1,2}$.
-        Subfigures g) and h) show $r_{3,1}$, the probability of unbinding from a strongly bound state, for the same crossbridges, with the same axes and scales as c) and d) show $r_{1,2}$.
+        Subfigures a through h show the properties of the 4sXB (subfigures a, c, e, and g) and the 2sXB (subfigures b, d, f, and h) as they change with binding site offset and $d_{1,0}$ lattice spacing.
+        Binding site offset is the distance between the current axial location of the crossbridge's tip, $h_x$, and the location where the crossbridge attaches to the thick filament.
+        Lattice spacing ($d_{1,-0}$) is defined as in \citet{Millman:1998p1346}, with an offset to account for filament thicknesses so that the crossbridge exactly bridges the two filaments at a rest lattice spacing of 34 nm.
+        Subfigure a depicts the free energy of the 4sXB at various lattice spacings (represented along the y-axis), with the head stretched to an axial offset from the thick filament attachment point (zero on the x-axis).
+        Similarly, the free energy of the 2sXB is shown in subfigure b.
+        The lowest energy myosin head locations in both a and b are shown as the darkest part of the plot and change in axial offset as lattice spacing changes.
+        The subfigures c and d show $r_{1,2}$, the probability that the 4sXB and the 2sXB will transition from an unbound state to a bound state, and the dependence of this transition on both the axial offset of the open binding site from the myosin thick filament attachment site and the lattice spacing $d_{1,0}$ which is a function of the distance between the binding site and the thick filament attachment point of the myosin head. 
+        Subfigure c depicts this probability for the four spring crossbridge as a two dimensional contour with the same axes as a while subfigure d depicts the transition probabilities for the two spring crossbridge.
+        Subfigures e and f show $r_{2,3}$, the probability of transition from a weakly bound state to a strongly bound state, for the same crossbridges, with the same axes and scales as c and d show $r_{1,2}$.
+        Subfigures g and h show $r_{3,1}$, the probability of unbinding from a strongly bound state, for the same crossbridges, with the same axes and scales as c and d show $r_{1,2}$.
         The reverse rates, $r_{2,1}$, $r_{3,2}$, and $r_{1,3}$ may be back-calculated from the forward rates via the method described in \cite{Tanner:2007:pe115}.
     }
     \end{center}
@@ -416,8 +430,13 @@ Spatially explicit explorations of how these forces are transmitted throughout t
     \includegraphics[width=3.2in]{../imgs/Figure3.pdf}
     \label{kinetics_cuts}
     \caption{
-        \textbf{Energy and kinetics of the four, two and single spring crossbridges at the resting lattice spacing.}
-        Comparison of traditional single spring crossbridge properties to those of the two spring crossbridge at resting lattice spacing.
+        \textbf{Energy and kinetics of the 1sXB, 2sXB, and 4sXB at the resting lattice spacing.}
+        Subfigures a through d show the energy and transition rates of the 1sXB (black line), 2sXB (green line), and 4sXB (red line) at resting lattice spacing.
+        The 1sXB values shown for comparison are derived from those of \citet{Daniel:1998:p1611} and \citet{Tanner:2007:pe115}, shifted axially so the resting location of the crossbridge head in each case is aligned with that of the 2sXB and 4sXB. 
+        The free energy of the crossbridges in state two is shown in subfigure a, where the multi-spring crossbridges' shifts from a strictly parabolic trajectory is visible.
+        The explicit thermal forcing of the multi-spring crossbridge heads in subfigure b results in binding probabilities that are more distributed than those of the single spring crossbridge.
+        The rate of powerstrokes, in subfigure c, remains least changed between the single and the multi-spring crossbridge models.
+        The energy-based kinetics of the multi-spring crossbridges are least able to replicate the detachment rated of the 1sXB, as shown in subfigure d. 
     }
     \end{center}
 \end{figure}
@@ -427,28 +446,32 @@ Spatially explicit explorations of how these forces are transmitted throughout t
     \includegraphics[width=3.2in]{../imgs/Figure4.pdf}
     \label{force_vectors}
     \caption{
-        \textbf{Force vectors of the two and four spring crossbridges, and the differences between.}        
+        \textbf{Overview and detail of the forces exerted by the 2sXB and 4sXB.}
+        Subfigures a through d show the forces exerted by the 4sXB and the 2sXB, with the shade of the vector arrows being determined by the chance of such a configuration occurring, the $r_{23}$ transition probability. 
+        Subfigures a and c show overviews of the forces exerted, respectively, by the 4sXB and the 2sXB over lattice spacings and axial offsets that vary as in Figure 2.
+        The forces exerted by the two crossbridges have radial components which frequently equal or exceed their axial components.
+        A more detailed view of the region surrounding the rest position of the crossbridges is shown in subfigures b and d, where the large radial components of the crossbridge forces, particularly for the 2sXB, is again evident.
     }
     \end{center}
 \end{figure}
 
-\begin{figure}[htbp]
-    \begin{center}
-    \includegraphics[width=3.2in]{../imgs/FigureS1.pdf}
-    \label{fig:one_spring_comparison}
-    \caption{
-        Comparison of traditional single spring crossbridge properties to those of the two spring crossbridge at resting lattice spacing.}
-    \end{center}
-\end{figure}
-
-\begin{figure}[htbp]
-    \begin{center}
-    \includegraphics[width=3.2in]{../imgs/FigureS2.pdf}
-    \label{fig:force_components}
-    \caption{
-        Separated axial and radial components of force exerted by the two spring crossbridge at several lattice spacings.}
-    \end{center}
-\end{figure}
+% \begin{figure}[htbp]
+%     \begin{center}
+%     \includegraphics[width=3.2in]{../imgs/FigureS1.pdf}
+%     \label{fig:one_spring_comparison}
+%     \caption{
+%         Comparison of traditional single spring crossbridge properties to those of the two spring crossbridge at resting lattice spacing.}
+%     \end{center}
+% \end{figure}
+% 
+% \begin{figure}[htbp]
+%     \begin{center}
+%     \includegraphics[width=3.2in]{../imgs/FigureS2.pdf}
+%     \label{fig:force_components}
+%     \caption{
+%         Separated axial and radial components of force exerted by the two spring crossbridge at several lattice spacings.}
+%     \end{center}
+% \end{figure}
 
 % section figures (end)
 
