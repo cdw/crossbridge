@@ -30,7 +30,7 @@ def main():
     y_locs = np.arange(y_range[0], y_range[1], y_range[2])
     x_grid, y_grid = np.meshgrid(x_locs, y_locs)
     # Set up to the plot
-    fig = plt.figure(1, figsize=(7, 8))
+    fig = plt.figure(1, figsize=(7.4, 8.0))
     axe = ([fig.add_subplot(4, 2, g+1) for g in range(4*2)])
     colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
     grey_steps = ('.2', '.3', '.4', '.5', '.6', '.7', '.8')
@@ -50,7 +50,8 @@ def main():
         ener_lvls, colors = 'white')
     colorbar = plt.colorbar(contour, ax=axe[1], ticks = ener_lvls[1:-1], 
                             format='% 4.1f')
-    colorbar.ax.set_position([.86, .82, .1, .1])    
+    colorbar.ax.set_position([.90, .81, .1, .1])    
+    colorbar.set_label("Energy")
     # Binding rate of the 4sXB
     axe[2].contourf(x_grid, y_grid, r12[1], 
         prob_lvls, colors = grey_steps)
@@ -60,7 +61,8 @@ def main():
     contour = axe[3].contourf(x_grid, y_grid, r12[0], 
         prob_lvls, colors = grey_steps)
     colorbar = plt.colorbar(contour, ax=axe[3], format='%.2f')
-    colorbar.ax.set_position([.86, .58, .1, .1])
+    colorbar.ax.set_position([.90, .58, .1, .1])
+    colorbar.set_label("Binding Prob.")
     axe[3].contour(x_grid, y_grid, r12[0], 
         prob_lvls, colors = 'white')
     # Power stroke rate of the 4sXB
@@ -69,20 +71,26 @@ def main():
     axe[4].contour(x_grid, y_grid, r23[1], 
         prob_lvls, colors = 'white')
     # Power stroke rate of the 2sXB
-    axe[5].contourf(x_grid, y_grid, r23[0], 
+    contour = axe[5].contourf(x_grid, y_grid, r23[0], 
         prob_lvls, colors = grey_steps)
     axe[5].contour(x_grid, y_grid, r23[0], 
         prob_lvls, colors = 'white')
+    colorbar = plt.colorbar(contour, ax=axe[5], format='%.2f')
+    colorbar.ax.set_position([.90, .34, .1, .1])
+    colorbar.set_label("Powerstroke Prob.")
     # Detachment rate of the 4sXB
     axe[6].contourf(x_grid, y_grid, r31[1], 
         prob_lvls, colors = grey_steps)
     axe[6].contour(x_grid, y_grid, r31[1], 
         prob_lvls, colors = 'white')
     # Detachment rate of the 2sXB
-    axe[7].contourf(x_grid, y_grid, r31[0], 
+    contour = axe[7].contourf(x_grid, y_grid, r31[0], 
         prob_lvls, colors = grey_steps)
     axe[7].contour(x_grid, y_grid, r31[0], 
         prob_lvls, colors = 'white')
+    colorbar = plt.colorbar(contour, ax=axe[7], format='%.2f')
+    colorbar.ax.set_position([.90, .10, .1, .1])
+    colorbar.set_label("Detachment Prob.")
     # Fix and annotate
     titles = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
     for a in axe:
@@ -94,7 +102,7 @@ def main():
         a.set_title(titles.pop(0), x=-0.18, y=0.95, weight="demi")
     # Display the results
     fig.subplots_adjust(wspace=0.30, hspace=0.60,
-                        left=0.10, right=0.95,
+                        left=0.10, right=0.88,
                         top=0.94, bottom=0.08)
     plt.show()
     

@@ -112,36 +112,47 @@ def main():
     fig = plt.figure(1, figsize=(8, 6))
     axe = ([fig.add_subplot(2, 2, g+1) for g in range(2*2)])
     colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
+    lnwdth=2
     ## Plot free energy and transition rates
     # Energy of the loosely bound state
-    axe[0].plot(x_locs, bert_data("energy_2", x_locs), color=colors[0])
-    axe[0].plot(x_locs, free_energy[0][cut_locs[1]], color=colors[1])
-    axe[0].plot(x_locs, free_energy[1][cut_locs[1]], color=colors[2])
+    axe[0].plot(x_locs, bert_data("energy_2", x_locs), color=colors[0],
+                lw=lnwdth)
+    axe[0].plot(x_locs, free_energy[0][cut_locs[1]], color=colors[1],
+                lw=lnwdth)
+    axe[0].plot(x_locs, free_energy[1][cut_locs[1]], color=colors[2],
+                lw=lnwdth)
     axe[0].set_xlabel("Binding site offset (nm)")
     axe[0].set_ylabel("Free Energy (RT)")
     axe[0].set_ylim((-10, 15))
     axe[0].set_yticks((-10, -5, 0, 5, 10, 15))
     axe[0].set_title("a)", x=-0.20, y=0.97, weight="demi")
+    axe[0].legend(("1sXB", "2sXB", "4sXB"), loc=0, borderpad=0.3,
+                  handlelength=1.8, handletextpad=0.3, labelspacing=0.2,
+                  fancybox=True)
     # Binding rates
-    axe[1].plot(x_locs, bert_data("rates_12", x_locs), color=colors[0])
-    axe[1].plot(x_locs, r12[0][cut_locs[1]], color=colors[1])
-    axe[1].plot(x_locs, r12[1][cut_locs[1]], color=colors[2])
+    axe[1].plot(x_locs, bert_data("rates_12", x_locs), color=colors[0],
+                lw=lnwdth)
+    axe[1].plot(x_locs, r12[0][cut_locs[1]], color=colors[1], lw=lnwdth)
+    axe[1].plot(x_locs, r12[1][cut_locs[1]], color=colors[2], lw=lnwdth)
     axe[1].set_title("b)", x=-0.20, y=0.97, weight="demi")
-    #axe[1].legend(("1sXB", "2sXB", "4sXB"))
+    axe[1].set_ylabel("Binding Rate (s$^{-1}$)")
     # Powerstroke rates
-    axe[2].plot(x_locs, bert_data("rates_23", x_locs), color=colors[0])
-    axe[2].plot(x_locs, r23[0][cut_locs[1]], color=colors[1])
-    axe[2].plot(x_locs, r23[1][cut_locs[1]], color=colors[2])
-    axe[2].set_title("c)", x=-0.20, y=0.97, weight="demi")
+    axe[2].plot(x_locs, bert_data("rates_23", x_locs), color=colors[0],
+                lw=lnwdth)
+    axe[2].plot(x_locs, r23[0][cut_locs[1]], color=colors[1], lw=lnwdth)
+    axe[2].plot(x_locs, r23[1][cut_locs[1]], color=colors[2], lw=lnwdth)
+    axe[2].set_title("c)", x=-0.20, y=0.97, weight="demi") 
+    axe[2].set_ylabel("Powerstroke Rate (s$^{-1}$)")
     # Detachment rates
-    axe[3].plot(x_locs, bert_data("rates_31", x_locs), color=colors[0])
-    axe[3].plot(x_locs, r31[0][cut_locs[1]], color=colors[1])
-    axe[3].plot(x_locs, r31[1][cut_locs[1]], color=colors[2])
+    axe[3].plot(x_locs, bert_data("rates_31", x_locs), color=colors[0],
+                lw=lnwdth)
+    axe[3].plot(x_locs, r31[0][cut_locs[1]], color=colors[1], lw=lnwdth)
+    axe[3].plot(x_locs, r31[1][cut_locs[1]], color=colors[2], lw=lnwdth)
     axe[3].set_title("d)", x=-0.20, y=0.97, weight="demi")
+    axe[3].set_ylabel("Detachment Rate (s$^{-1}$)")
     # Add lables and limits
     for a in axe[1:]:
         a.set_xlabel("Binding site offset (nm)")
-        a.set_ylabel("Transition Rate (s$^{-1}$)")
         a.set_ylim((-.1, 1000.1))
         a.set_yticks((0, 200, 400, 600, 800, 1000))
     ## Display
