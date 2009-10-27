@@ -107,7 +107,7 @@ def main():
     # Set contour levels and cut positions
     #RT = 3.97
     #cut_locs = np.searchsorted(y_locs, (36, 37, 38))
-    cut_locs = np.searchsorted(y_locs, (1.5*(12.61+6.9), 1.5*(14.61+6.9), 1.5*(16.61+6.9)))
+    cut_locs = np.searchsorted(y_locs, (31, 34, 37))
     ## Set up
     fig = plt.figure(1, figsize=(8, 6))
     axe = ([fig.add_subplot(2, 2, g+1) for g in range(2*2)])
