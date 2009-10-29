@@ -17,7 +17,7 @@ import pylab
 def main():
     # Load properties that will be needed
     store = [Storage.Storage(2), Storage.Storage(4)]
-    force3 = np.array([s.get("force2") for s in store])
+    force3 = np.array([s.get("force3") for s in store])
     mag = np.array([[[np.hypot(entry[0], entry[1]) for entry in row] 
         for row in xb] for xb in force3])
     ore = np.array([[[np.arctan2(entry[1], entry[0]) for entry in row] 
@@ -31,7 +31,7 @@ def main():
     y_locs = np.arange(y_range[0], y_range[1], y_range[2])
     x_grid, y_grid = np.meshgrid(x_locs, y_locs)
     # Set up to the plot
-    fig = plt.figure(1, figsize=(7, 4))
+    fig = plt.figure(1, figsize=(8, 4))
     axe = ([fig.add_subplot(2, 2, g+1) for g in range(2*2)])
     colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
     grey_steps = ('.2', '.3', '.4', '.5', '.6', '.7', '.8')
@@ -42,8 +42,8 @@ def main():
     '#003dff', '#0000c9', '#003dff', '#00ffad', '#ffd000')
     ore_steps = np.arange(-np.pi, np.pi+np.pi*2/len(ore_colors),
                                   np.pi*2/len(ore_colors))
-    force_lvls = (0, 3, 6, 9, 12, 15)
     # Plot contours
+    force_lvls = (0, 3, 6, 9, 12, 15)
     # 4sXB Magnitude Contour
     axe[0].contourf(x_grid, y_grid, mag[1], 
         force_lvls, colors = grey_steps)
@@ -60,12 +60,31 @@ def main():
     axe[2].contourf(x_grid, y_grid, ore[0], ore_steps, colors=ore_colors)
     axe[2].set_title("4sXB force direction")
     # 2sXB Directional Contour
-    contour = axe[3].contourf(x_grid, y_grid, ore[1], ore_steps, colors=ore_colors)
+    contour = axe[3].contourf(x_grid, y_grid, ore[1], ore_steps, 
+                              colors=ore_colors)
     colorbar = plt.colorbar(contour, ax=axe[3], shrink = 0.6, 
         ticks=[-3.2, -1.6, 0, 1.6, 3.2])
-    colorbar.ax.set_position([.86, .16, .2, .23])
+    colorbar.ax.set_position([.93, .11, .2, .29])
     axe[3].set_title("2sXB force direction")
-    # Fix the and annotate
+    
+    # #Plot other contours
+    # force_lvls = (-6, -3, 0, 3, 6, 9, 12, 15)
+    # axe[0].set_title("4sXB axial force")
+    # axe[0].contourf(x_grid, y_grid, force3[1,:,:,0], 
+    #     force_lvls, colors = grey_steps)
+    # axe[1].set_title("4sXB radial force")
+    # axe[1].contourf(x_grid, y_grid, force3[1,:,:,1], 
+    #     force_lvls, colors = grey_steps)
+    # axe[2].set_title("2sXB axial force")
+    # axe[2].contourf(x_grid, y_grid, force3[0,:,:,0], 
+    #     force_lvls, colors = grey_steps)
+    # axe[3].set_title("2sXB radial force")
+    # c = axe[3].contourf(x_grid, y_grid, force3[0,:,:,1], 
+    #     force_lvls, colors = grey_steps)
+    # cb = plt.colorbar(c, ax=axe[3], shrink = 0.6)
+    # cb.ax.set_position([.94, .11, .2, .29])
+    
+    # Fix the limits and annotate
     for a in axe:
         a.set_xlim([x_locs[0], x_locs[-1]])
         a.set_ylim([y_locs[0], y_locs[-1]])
@@ -73,7 +92,7 @@ def main():
         a.set_ylabel("$d_{1,0}$ (nm)")
     # Display the results
     fig.subplots_adjust(wspace=0.30, hspace=0.70,
-                        left=0.10, right=0.95,
+                        left=0.10, right=0.92,
                         top=0.92, bottom=0.11)
     plt.show()
     
