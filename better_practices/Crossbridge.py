@@ -261,7 +261,7 @@ class Crossbridge:
         """
         state3_energy = self.minimize_energy(b_site, 3)[0]
         #rate = m.exp(-1 / (state3_energy + 1e-9)) #1e-9 avoids 1/0 at rest loc
-        rate = m.sqrt(.14 * state3_energy) - .02 * m.sqrt(state3_energy) + .001
+        rate =  m.sqrt(.05 * state3_energy) - .02 * m.sqrt(state3_energy) + 0.00001
         return float(rate)
     
 
