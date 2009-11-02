@@ -112,7 +112,7 @@ def main():
     fig = plt.figure(1, figsize=(8, 6))
     axe = ([fig.add_subplot(2, 2, g+1) for g in range(2*2)])
     colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
-    lnwdth=2
+    lnwdth=2 # width of plot lines in points
     ## Plot free energy and transition rates
     # Energy of the loosely bound state
     axe[0].plot(x_locs, bert_data("energy_2", x_locs), color=colors[0],
