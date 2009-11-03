@@ -65,13 +65,6 @@ def main():
         chance[1,:,:][sparse_inds[1], :][:, sparse_inds[0]],
         cmap=plt.get_cmap("Greys"))
     axe[0].set_xticks([0, 5, 10, 15, 20])
-    axe[0].quiverkey(Sparse4sXB, 
-                    0.86,           # x coord 
-                    1.05,           # y coord
-                    10,             # scale
-                    "10pn",         # label
-                    labelpos='E',   # place text right of arrow
-                    coordinates='axes') 
      
     ## Magnified force of the 4sXB
     Magnified4sXB = axe[2].quiver(magnified_grid[0], magnified_grid[1], 
@@ -81,13 +74,6 @@ def main():
             cmap=plt.get_cmap("Greys"))
     axe[2].set_xticks(magnified_locs[0][1::2])
     axe[2].set_yticks(magnified_locs[1])
-    axe[2].quiverkey(Magnified4sXB, 
-                    0.89,           # x coord 
-                    1.05,           # y coord
-                    2,              # scale
-                    "2pn",          # label
-                    labelpos='E',   # place text right of arrow
-                    coordinates='axes') 
     
     ## Force of the 2sXB
     Sparse2sXB = axe[1].quiver(sparse_grid[0], sparse_grid[1], 
@@ -97,6 +83,13 @@ def main():
         cmap=plt.get_cmap("Greys"))
     #axe[1].set_xticks(sparse_locs[0][1::2])
     axe[1].set_xticks([0, 5, 10, 15, 20])
+    qk = axe[1].quiverkey(Sparse2sXB, 
+                    1.12,           # x coord 
+                    0.56,           # y coord
+                    10,             # scale
+                    "10 pn",        # label
+                    labelpos='S',   # place text below the arrow
+                    coordinates='axes')
        
     ## Magnified force of the 2sXB
     Magnified2sXB = axe[3].quiver(magnified_grid[0], magnified_grid[1], 
@@ -106,56 +99,62 @@ def main():
             cmap=plt.get_cmap("Greys"))
     axe[3].set_xticks(magnified_locs[0][1::2])
     axe[3].set_yticks(magnified_locs[1])
+    axe[3].quiverkey(Magnified2sXB, 
+                    1.12,           # x coord 
+                    0.56,           # y coord
+                    2,              # scale
+                    "2 pn",         # label
+                    labelpos='S',   # place text below the arrow
+                    coordinates='axes') 
     
     ## Plot other contours 
     grey_steps = ('.1', '.2', '.3', '.4', '.5', '.6', '.7', '.8')
     force_lvls = (-15, -10, -5, 0, 5, 10, 15, 20, 25)
     
     # 4sXB axial force
-    plt.subplot(4, 2, 5)
+    axe[4].annotate("4sXB axial force", (0.5, 1.05), 
+                    xycoords='axes fraction', horizontalalignment='center')
     c = axe[4].contourf(x_grid, y_grid, force3[1,:,:,0], 
        force_lvls, colors = grey_steps)
-    cb = plt.colorbar(c, ax=axe[4], shrink = 0.7, fraction=.16, format='% d')
-    cb.ax.set_position([.42, .33, .07, .13])
-    cb.set_label("4sXB axial force")
     
     # 4sXB radial force
-    plt.subplot(4, 2, 6)
+    axe[6].annotate("4sXB radial force", (0.5, 1.05), 
+                    xycoords='axes fraction', horizontalalignment='center')
     c = axe[6].contourf(x_grid, y_grid, force3[1,:,:,1], 
        force_lvls, colors = grey_steps)
-    cb = plt.colorbar(c, ax=axe[6], shrink = 0.7, fraction=.16, format='% d')
-    cb.ax.set_position([.42, .09, .07, .13])
-    cb.set_label("4sXB radial force")
     
     # 2sXB axial force
-    plt.subplot(4, 2, 7)
+    axe[5].annotate("2sXB axial force", (0.5, 1.05), 
+                    xycoords='axes fraction', horizontalalignment='center')
     c = axe[5].contourf(x_grid, y_grid, force3[0,:,:,0], 
        force_lvls, colors = grey_steps)
     cb = plt.colorbar(c, ax=axe[5], shrink = 0.7, fraction=.16, format='% d')
     cb.ax.set_position([.92, .33, .07, .13])
-    cb.set_label("2sXB axial force")
+    cb.set_label("axial force")
     
     # 2sXB radial force
-    plt.subplot(4, 2, 8)
+    axe[7].annotate("2sXB radial force", (0.5, 1.05), 
+                    xycoords='axes fraction', horizontalalignment='center')
     c = axe[7].contourf(x_grid, y_grid, force3[0,:,:,1], 
        force_lvls, colors = grey_steps)
     cb = plt.colorbar(c, ax=axe[7], shrink = 0.7, fraction=.16, format='% d')
     cb.ax.set_position([.92, .09, .07, .13])
-    cb.set_label("2sXB radial force")
+    cb.set_label("radial force")
+    
+    # Fix the limits
     for i in range(4,8):
         axe[i].set_xlim([x_locs[0], x_locs[-1]])
         axe[i].set_ylim([y_locs[0], y_locs[-1]])
     
-    ## Fix and annotate
+    ## Set the titles and axis labels
     titles = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
-    #titles = ["4sXB", "Section from 4sXB", "2sXB", "Section from 2sXB"]
     for a in axe:
         a.set_xlabel("Binding site offset (nm)")
         a.set_ylabel("$d_{1,0}$ (nm)")
         a.set_title(titles.pop(0), x=-0.15, y=0.99, weight="demi")
     
     ## Display the results
-    fig.subplots_adjust(wspace=0.58, hspace=0.60,
+    fig.subplots_adjust(wspace=0.40, hspace=0.60,
                         left=0.10, right=0.91,
                         top=0.94, bottom=0.08)
     plt.show()
