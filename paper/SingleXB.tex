@@ -324,13 +324,14 @@ Combined, these effects can reduce the amount of force a crossbridge will genera
 As lattice spacing moves away from its 34 nm $d_{10}$ rest value, a crossbridge becomes less likely bind if unbound and more likely to detach if bound.
 As defined above, the rest lattice spacing is defined as the radial offset at which multi-spring crossbridges under no strain will come to rest.
 The rates of binding and detachment are dependent on the difference in free energy between the unbound state and the loosely bound state in the first case and between the tightly bound state and the unbound state in the second.
-Thus, as lattice spacing increases or decreases from that at which bound crossbridges are under the least strain, the energy differences between bound states and the zero-energy unbound state increase and the crossbridge becomes increasingly likely to transition to and remain in the unbound state (figures \ref{kinetics_contours}c, \ref{kinetics_contours}d, \ref{kinetics_contours}g and \ref{kinetics_contours}h). 
-An example of this is that the lowest rate of detachment of the 4sXB is XXX at a lattice spacing of 34 nm $d_{10}$ and only XXX at 38 nm $d_{10}$.
+Thus, as lattice spacing increases or decreases from that at which bound crossbridges are under the least strain, the energy differences between bound states and the zero-energy unbound state increase and the crossbridge becomes increasingly likely to transition to and remain in the unbound state (figures \ref{fig_kinetics_contours}c, \ref{fig_kinetics_contours}d, \ref{fig_kinetics_contours}g and \ref{fig_kinetics_contours}h). 
+An example of this is that the lowest rate of detachment of the 4sXB is 39/sec at a lattice spacing of 34 nm $d_{10}$ while at 38 nm $d_{10}$ the detachment rate only dips as low as 486/sec.
 This is likely, in models incorporating multiple crossbridges, to decrease the number of crossbridges generating force at larger lattice spacings. 
 At smaller lattice spacings, crossbridge induced realignment of binding sites due to the greater possible step size of each crossbridge shown above may cancel this effect.
-As the powerstroke rates depend on the difference between two parabolic energy profiles fed into $\tanh$, their maximum and minimum probabilities do not change with lattice spacing (figures \ref{kinetics_contours}e and \ref{kinetics_contours}f). 
+As the powerstroke rates depend on the difference between two parabolic energy profiles fed into $\tanh$, their maximum and minimum probabilities do not change with lattice spacing (figures \ref{fig_kinetics_contours}e and \ref{fig_kinetics_contours}f). 
 The result of these changes in the multi-spring crossbridges' kinetics as lattice spacing diverges from its rest value, considered independently of realignment present in models which incorporate multiple crossbridges, is that individual crossbridges will spend less time in a bound state . 
-% paragraph magnitude_of_transition_rates_and_energies_vary_with_lattice_spacing (end)
+% paragraph probability_of_a_crossbridge_being_in_a_bound state decreases as lattice spacing diverges from rest (end)
+
 
 \paragraph{Forces at a given axial offset increase with lattice spacing} % (fold)
 As lattice spacing grows greater, the axial and radial forces at a given axial offset will become more positive as lattice spacing increases, trending from initial negative values, through offsets of little force, to very positive values (see Fig.\ \ref{fig_forces}). 
@@ -342,21 +343,13 @@ How these differences will alter the results of multiple crossbridge models usin
 % paragraph forces_at_a_given_axial_offset_increase_with_lattice_spacing (end)
 
 
-\paragraph{Axial force offset, but not magnitude, varies with lattice spacing} % (fold)
-The axial force, which is the force directed in the direction of muscle shortening when mapped to an intact system, varies less with lattice spacing than does radial force (See Fig.\ \ref{fig_forces}). 
-Similar to the energy levels above in figure \ref{fig_kinetics_contours}, the baseline of the axial force changes little over the various lattice spacings examined. 
-However, the axial offset producing the least force in the axial direction at a given lattice spacing does shift by several nm over the examined lattice spacings. 
-Thus increased or decreased axial force produced by a single modeled crossbridge at altered lattice spacings is due more to changes in resting position than overall elevated levels of strain in the crossbridge's constituent springs.
-% paragraph axial_force_offset_but_not_magnitude_varies_with_lattice_spacing (end)
+\paragraph{Radial forces are of the same order of magnitude as axial forces} % (fold)
+The force produced by a 4sXB or 2sXB when moved from its rest position to an axial offset has a radial component that, at most lattice spacings, is of the same order of magnitude as its axial component (Fig.\ \ref{fig_forces}). 
+These radial forces are tunable by choice of the stiffness of the linear springs included in the 4sXB and the 2sXB. 
 
-
-\paragraph{Radial forces are on same order as axial forces, depend on lattice spacing and axial offset} % (fold)
-The forces exerted by a 4sXB or 2sXB, when moved from its rest position to an axial offset, will have a radial component at all lattice spacings as shown in figure \ref{fig_forces}. 
-Examining the force vectors in figure \ref{fig_forces}, produced by he compression or expansion caused when a crossbridge head is moved from its position of lowest energy, reveals that they are often off the horizontal by 45$^\circ$ or more. 
+Examining the force vectors in figure \ref{fig_forces}, produced by the compression or expansion caused when a crossbridge head is moved from its position of lowest energy, reveals that they are often off the horizontal by 45$^\circ$ or more. 
 Such a deviation from purely horizontal, or axially aligned, force vectors indicates that the radial forces present are on the same order of magnitude as the axial forces. 
-The size of these radial forces also appears to be more dependent on lattice spacing than that of the same crossbridge's axial forces. 
-This increased dependence, due to changes in lattice spacing being changes in the radial direction, results in larger compressive force accompanying larger lattice spacings on a per crossbridge level. 
-% paragraph radial_forces_are_on_same_order_as_axial_forces_dependent_on_lattice_spacing_and_axial_offset (end)
+% paragraph radial_forces_are_of_the_same_order_of_magnitude_as_axial_forces (end)
 
 % section results (end)
 
@@ -497,7 +490,8 @@ Spatially explicit explorations of how these forces are transmitted throughout t
     \caption{
         \label{fig_forces}
         \textbf{Overview and detail of the forces exerted by the 2sXB and 4sXB.}
-        Subfigures a through d show the forces exerted by the 4sXB and the 2sXB, with the shade of the vector arrows being determined by the chance of such a configuration occurring, the $r_{23}$ transition probability. 
+        Subfigures a through d show the forces exerted by the 4sXB and the 2sXB, with the shade of the vector arrows being determined by the chance of such a configuration occurring, a sum of the $r_{23}$ and \textbf{the} the inverse of the $r_{31}$ transition probabilities. 
+        Subfigures e through h show, separated, the axial and radial components of the 4sXB and the 2sXB.
         Subfigures a and b show overviews of the forces exerted, respectively, by the 4sXB and the 2sXB over lattice spacings and axial offsets that vary as in Figure 2.
         The forces exerted by the two crossbridges have radial components which frequently equal or exceed their axial components.
         A more detailed view of the region surrounding the rest position of the crossbridges is shown in subfigures c and d, where the large radial components of the crossbridge forces, particularly for the 2sXB, is again evident.
