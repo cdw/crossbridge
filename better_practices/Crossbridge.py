@@ -21,7 +21,7 @@ linear or torsional springs. A schematic follows.
 import warnings
 import numpy.random as random
 from scipy.optimize import fmin_bfgs as fmin
-from numpy import pi, sin, cos, arctan2, sqrt, hypot, exp, tanh, log
+from numpy import pi, sqrt, log
 import math as m
 
 
@@ -51,9 +51,9 @@ class Spring:
     def energy(self, curr_val, state):
         """Given a current value, return the energy the spring stores"""
         if state in [1, 2]:
-            return (0.5 * self.k * m.pow((curr_val-self.weak),2))
+            return (0.5 * self.k * m.pow((curr_val-self.weak), 2))
         elif state == 3:
-            return (0.5 * self.k * m.pow((curr_val-self.strong),2))
+            return (0.5 * self.k * m.pow((curr_val-self.strong), 2))
         else:
             warnings.warn("Improper value for spring state")
     
@@ -132,23 +132,23 @@ class Crossbridge:
         if config == None:
             config = {
                 'T': {
-                    'weak': pi/4,
-                    'strong': pi/4,
+                    'weak': 40*pi/180,
+                    'strong': 40*pi/180,
                     'spring_konstant': 100
                 },
                 'N': {
-                    'weak': 7,
-                    'strong': 5,
+                    'weak':  10.5,
+                    'strong':  10.5,
                     'spring_konstant': 10
                 },
                 'C': {
-                    'weak': pi/3 + (pi - pi/4), #pi/4 from T weak
-                    'strong': pi/2 + (pi - pi/4),
-                    'spring_konstant': 100
+                    'weak':2*pi - 165*pi/180,
+                    'strong': 2*pi - 110*pi/180,
+                    'spring_konstant': 40
                 },
                 'G': {
-                    'weak': 3,
-                    'strong': 3,
+                    'weak': 9.6,
+                    'strong': 9.6,
                     'spring_konstant': 5
                 }
             }
