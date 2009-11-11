@@ -35,17 +35,17 @@ def main():
     fig = plt.figure(1, figsize=(8, 2.5))
     axe = ([fig.add_subplot(1, 2, g+1) for g in range(1*2)])
     ## Plot the 4sXB radial/axial ratio
-    axe[0].annotate("4sXB radial/axial force ratio", (0.5, 1.05), 
+    axe[0].annotate("4sXB |radial/axial| force ratio", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
-    c = axe[0].contourf(x_grid, y_grid, axrad[0, :, :])
-    cb = plt.colorbar(c, ax=axe[0], shrink = 0.7, fraction=.16, format='% d')
+    c = axe[0].contourf(x_grid, y_grid, np.abs(axrad[0, :, :]), np.arange(0,2.25,.25))
+    cb = plt.colorbar(c, ax=axe[0], shrink = 0.7, fraction=.16, format='%.1f')
     cb.ax.set_position([.42, .23, .13, .55])
     cb.set_label("radial/axial ratio")
     ## Plot the 2sXB radial/axial ratio
-    axe[1].annotate("2sXB radial/axial force ratio", (0.5, 1.05), 
+    axe[1].annotate("2sXB |radial/axial| force ratio", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
-    c = axe[1].contourf(x_grid, y_grid, axrad[1, :, :])
-    cb = plt.colorbar(c, ax=axe[1], shrink = 0.7, fraction=.16, format='% d')
+    c = axe[1].contourf(x_grid, y_grid, np.abs(axrad[1, :, :]), np.arange(0,2.25,.25))
+    cb = plt.colorbar(c, ax=axe[1], shrink = 0.7, fraction=.16, format='%.1f')
     cb.ax.set_position([.92, .23, .13, .55])
     cb.set_label("radial/axial ratio")
     ## Set the titles and axis labels
