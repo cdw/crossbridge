@@ -70,8 +70,8 @@ def main(argv=None):
             else:
                 raise Usage("Unhandled option")
         # Set ranges used
-        x_range = [0, 20, 0.25] 
-        y_range = [10, 20, 0.25]
+        x_range = [0, 20, 0.1] 
+        y_range = [10, 20, 0.1]
         d10_range = [fil_sep_to_d10(y_range[0]), 
                     fil_sep_to_d10(y_range[1]), 1.5 * y_range[2]]
             # The y range is chosen based on values of SL length range for 
@@ -167,16 +167,16 @@ def main(argv=None):
         # Generate some properties, or all of them
         if prop_to_gen is None:
             runing_tic = time.time()
-            print "Calculating energies... ",
+            print "Calculating energies... "
             energy = calc_values(xb, x_range, y_range, 'energy', state=1)
             free_e = calc_values(xb, x_range, y_range, 'free_energy', state=2)
             print "done. Took " + str(time.time()-runing_tic) + " seconds."
             runing_tic = time.time()
-            print "Calculating binding rate... ",
+            print "Calculating binding rate... "
             r12 = calc_values(xb, x_range, y_range, 'r12', trials = trials)
             print "done. Took " + str(time.time()-runing_tic) + " seconds."
             runing_tic = time.time()
-            print "Calculating all other values... ",
+            print "Calculating all other values... "
             r23 = calc_values(xb, x_range, y_range, 'r23')
             r31 = calc_values(xb, x_range, y_range, 'r31')
             force1 = calc_values(xb, x_range, y_range, 'force', state=1)
