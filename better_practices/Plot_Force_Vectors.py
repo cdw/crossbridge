@@ -20,6 +20,25 @@ def main():
     force3 = np.array([s.get("force3") for s in store])
     r23 = np.array([s.get("r23") for s in store])
     r31 = np.array([s.get("r31") for s in store])
+    ## Print force properties
+    print "## Force properties"
+    print "4sXB max/min axial force: ", np.max(force3[1, :, :, 0]), "/", \
+        np.min(force3[1, :, :, 0])
+    print "4sXB max/min radial force: ", np.max(force3[1, :, :, 1]), "/", \
+            np.min(force3[1, :, :, 1])
+    print "2sXB max/min axial force: ", np.max(force3[0, :, :, 0]), "/", \
+            np.min(force3[0, :, :, 0])
+    print "2sXB max/min radial force: ", np.max(force3[0, :, :, 1]), "/", \
+            np.min(force3[0, :, :, 1])
+    ## Clip low force regions for non-exploding ratios
+    force_limit = 0.5
+    cliped_f = np.array([[[[v if abs(v)>force_limit else 1 for v in xb] for xb in row] for row in col] for col in force3[:, :, :, :]])
+    print "4sXB max radial/axial ratio: ", np.max(np.divide(cliped_f[1, :, :, 1], cliped_f[1, :, :, 0]))
+    print "4sXB min radial/axial ratio: ", np.min(np.divide(cliped_f[1, :, :, 1], cliped_f[1, :, :, 0]))    
+    print "2sXB max radial/axial ratio: ", np.max(np.divide(cliped_f[0, :, :, 1], cliped_f[0, :, :, 0]))
+    print "2sXB min radial/axial ratio: ", np.min(np.divide(cliped_f[0, :, :, 1], cliped_f[0, :, :, 0]))
+    axradratio = np.divide(cliped_f[0, :, :, 1], cliped_f[0, :, :, 0])
+    print "## Transition Probs"
     print "4sXB r31 max: ", np.max(r31[0])
     print "4sXB r31 min: ", np.min(r31[0])
     print "2sXB r31 max: ", np.max(r31[1])
@@ -27,10 +46,13 @@ def main():
     ## Calculate the likelyhood of force being exerted at all locations
     chance = np.clip( \
         [np.add(np.subtract(1, r31[i]), r23[i]) for i in [0,1]], 0, 1)
+    print "## Chance scales"
     print "4sXB chance max is ", np.max(chance[0]), 
     print " and min is ", np.min(chance[0])
     print "2sXB chance max is ", np.max(chance[1]), 
     print " and min is ", np.min(chance[1])
+    ## Clip unlikely locations from forces for ratios
+    # cliped_f = np.array([[[[v if abs(v)>force_limit else 1 for v in xb] for xb in row] for row in col] for col in force3[:, :, :, :]])
     ## Load and process x/y related values
     assert(store[0].get("x_range")==store[1].get("x_range")) # XBs should have
     assert(store[0].get("y_range")==store[1].get("y_range")) # same x/y ranges
