@@ -46,7 +46,7 @@ Keywords: myosin; spatially-explicit model; crossbridge kinetics
 % Models of muscle contraction have long treated the molecular motor myosin as a simple spring oriented parallel to its direction of movement. 
 % This does not allow for the investigation of phenomena such as the perpendicular force observed during shortening, or the dependence of the maximum force produced on spacing between the contractile filaments that comprise muscle.
 % We demonstrate an alternative model, computationally simple enough to use in large networked models, that incorporates both linear and torsional (angle dependent) springs. 
-% These multi-spring models capture much of the behavior missing in single spring crossbridge models.
+% This model type captures much of the behavior missing from single spring models of the crossbridge.
 % paragraph author_summary (end)
 
 
@@ -62,9 +62,9 @@ Keywords: myosin; spatially-explicit model; crossbridge kinetics
 % We propose that with a shift to crossbridges that use two or four four springs, new insight into the effects of lattice spacing and radial forces generated during axial shortening may be gained.
 
 Theoretical and computational models of cross-bridge force generation have largely focused on one-dimensional analyses. 
-Thus, from the early work of \citet{Huxley:1957:p255} to more recent models \citep{Daniel:1998:p1611, Chase:2004:p204, Tanner:2007:pe115} our focus has been more on the force distribution along the filament lattice.  
+Thus, from the early work of \citet{Huxley1957} to more recent models \citep{Daniel1998, Chase:2004:p204, Tanner:2007:pe115} our focus has been more on the force distribution along the filament lattice.  
 From a computational standpoint, somewhat less attention has focused on radial forces. 
-That said the geometry of the single spring crossbridge has remained largely unchanged while the kinetics underlying transitions between force generating states have been increased in complexity throughout subsequent work. \citep{Pate:1989:p181, Daniel:1998:p1611, Tanner:2007:pe115}
+That said the geometry of the single spring crossbridge has remained largely unchanged while the kinetics underlying transitions between force generating states have been increased in complexity throughout subsequent work. \citep{Pate1989, Daniel1998, Tanner:2007:pe115}
 Meanwhile, \citet{Houdusse:2001:p182} and others have proposed that the region of the lever arm directly adjacent to the converter region is a flexible area that acts as a spring. 
 This model of force generation by myosin suggests that inclusion of torsional spring might create a system that better reflects the underling mechanisms of the powerstroke. 
 
@@ -73,7 +73,7 @@ The first is a four spring crossbridge (4sXB) that is directly inspired by the s
 Following this, we consider a two spring crossbridge (2sXB) that replicates many of the behaviors of the 4sXB while requiring fewer computational resources.
 
 % % \paragraph{Comparison to previous systems} % (fold)
-% This discussion owes a debt to \citet{Schoenberg:1980:p1802} and \citet{Schoenberg:1980:p1627} which contain a proposal and analysis of several different types of crossbridges, primarily two spring crossbridges where the S2 arm is represented as a linear spring and the S2-S1 junction area is represented as a torsional spring. 
+% This discussion owes a debt to \citet{Schoenberg1980a} and \citet{Schoenberg1980b} which contain a proposal and analysis of several different types of crossbridges, primarily two spring crossbridges where the S2 arm is represented as a linear spring and the S2-S1 junction area is represented as a torsional spring. 
 % This system requires iterative solution methods, as our four spring crossbridge does, but restrains the crossbridge to an area within one S1 length of the line in which the S2 segment is set.
 % % paragraph comparison_to_previous_systems (end)
 
@@ -128,7 +128,7 @@ The parameters characterizing the 2sXB are chosen to match the step size and kin
 
 Parameters for both crossbridges are derived, where possible, from existing physical measurements.
 Each linear spring (one in the 1sXB, two in the 4sXB and one in the 2sXB) requires a rest length and spring constant, while each torsional spring (two in the 4sXB and one in the 2sXB) requires a rest angle and spring constant.
-The lengths and angles of the springs used for the 4sXB are chosen from tomographic reconstructions of in vivo S2 lengths and x-ray crystallographic reconstructions of the S1 fragment \citep{Taylor:1999p2569, Rayment:1993p1914}.
+The lengths and angles of the springs used for the 4sXB are chosen from tomographic reconstructions of in vivo S2 lengths and x-ray crystallographic reconstructions of the S1 fragment \citep{Taylor1999, Rayment1993}.
 The rest length and angle of the 2sXB are set so that the tips of the 2sXB and 4sXB are in the same location before and after the powerstroke.
 
 % Should include a bit on spring constant derivation from Pi hydrolysis energies 
@@ -178,7 +178,7 @@ The angle of the proximal torsional spring is given as $\phi(c_x, c_y)=\arctan(c
 %   = Distortion dependence
 %  - Unbinding rate
 %  - Calculation of reverse rates
-We choose to use a simplified three state model of the crossbridge cycle \citep{Pate:1989:p181, Tanner:2007:pe115}. 
+We choose to use a simplified three state model of the crossbridge cycle \citep{Pate1989, Tanner:2007:pe115}. 
 This simplified system directly links the crossbridge's kinetics to mechanics; the three kinetic states are directly comparable to the myosin configurations described in \citet{Houdusse:2000:p11238}.
 A secondary benefit of a three state kinetics system is that it allows multiple-motor models which use our many-spring crossbridges to more easily compare their results to those from the aforementioned previous models.
 
@@ -196,7 +196,7 @@ This method is similar to that used by \citet{Tanner:2007:pe115}.
 
 \paragraph{Free energy in each state} % (fold)
 The total energy, liberated by the hydrolysis of a $P_i$, available to a crossbridge depends on the concentrations of $ATP$, $ADP$ and $P_i$ and is given by $\Delta G = -\Delta G_{0,ATP} - \ln \frac{[ATP]}{[ADP] [P_i]}$. 
-In weakly and strongly bound states a portion of that energy is available to the crossbridge, allowing the crossbridge at most 28\% (in the weakly bound state) or 68\% (in the strongly bound state) of $\Delta G$ for mechanical work (see efficiency factors $\alpha=0.28$ and $\eta=0.68$ below; \citet{Pate:1989:p181, Tanner:2007:pe115}).
+In weakly and strongly bound states a portion of that energy is available to the crossbridge, allowing the crossbridge at most 28\% (in the weakly bound state) or 68\% (in the strongly bound state) of $\Delta G$ for mechanical work (see efficiency factors $\alpha=0.28$ and $\eta=0.68$ below; \citet{Pate1989, Tanner:2007:pe115}).
 The total free energy of a crossbridge in each state also depends on the strain that the crossbridge experiences from distortion upon binding.
 Thus the total free energy is a linear combination of the strain-dependent and phosphate-dependent energy of the crossbridge in each state.
 The free energy of the 4sXB system in each state is: 
@@ -243,7 +243,7 @@ This two step system, with diffusion followed by a chance of attachment, is used
 
 \paragraph{Powerstroke and detachment rates} % (fold)
 % Distortion dependence
-The powerstroke and detachment rates are based on the earlier work of \citet{Pate:1989:p181} and \citet{Tanner:2007:pe115}, and generalized here for the 4sXB and 2sXB in two-dimensional space. 
+The powerstroke and detachment rates are based on the earlier work of \citet{Pate1989} and \citet{Tanner:2007:pe115}, and generalized here for the 4sXB and 2sXB in two-dimensional space. 
 Both the powerstroke rate, $r_{23}$, and the detachment rate, $r_{31}$, are distortion dependent as they contain a term based on the differences in free energy between the current state and the one being considered for transition. 
 This means that transitions are more likely when they are energetically favorable and less likely in other circumstances, a natural scheme based in the geometry of the crossbridges.
 The particular rates are as follows for both the 4sXB and the 2sXB:
@@ -253,7 +253,7 @@ $$r_{31}(U_3, U_1) = e^{-1 / (U_3 - U_1)}$$
 
 \paragraph{Calculation of reverse rates} % (fold)
 % Technique of reverse rate calculation
-Reverse transition rates are given by the thermodynamically balancing formula $r_{ij}/r_{ji}=\exp^{U_i-U_j}$ where $r_{ji}$ is the forward rate and $r_{ij}$ is the reverse rate (see \citet{Pate:1989:p181, Daniel:1998:p1611, Tanner:2007:pe115}).
+Reverse transition rates are given by the thermodynamically balancing formula $r_{ij}/r_{ji}=\exp^{U_i-U_j}$ where $r_{ji}$ is the forward rate and $r_{ij}$ is the reverse rate (see \citet{Pate1989, Daniel1998, Tanner:2007:pe115}).
 For the transition from a weakly bound state to an unbound state this requires that the reverse transition is again treated as a fraction of an ensemble of transition opportunities.
 % paragraph calculation_of_reverse rates (end)
 % subsection kinetics (end)
@@ -314,11 +314,11 @@ Despite these differences, many of the properties of the single-spring crossbrid
 \paragraph{Axial offset of most crossbridge properties decrease as lattice spacing increases} % (fold)
 The axial offset of most energies and kinetics of the 4sXB and 2sXB decreases as lattice spacing grows larger.
 The axial offset of a crossbridge property is the distance from the thick filament attachment site to that property's extremum or point of inflection at a given lattice spacing. 
-An example of this change in axial offset is visible in subfigures \ref{fig_kinetics_contours}a and \ref{fig_kinetics_contours}b where the lowest energy point that the 4sXB or the 2sXB may reach at a lattice spacing of 32 nm $d_{10}$ is more than 3 nm further from the crossbridge's thick filament attachment point than the lowest energy point reachable at a lattice spacing of 38 nm $d_{10}$.
+An example of this change in axial offset is visible in Figures \ref{fig_kinetics_contours}a and \ref{fig_kinetics_contours}b where the lowest energy point that the 4sXB or the 2sXB may reach at a lattice spacing of 32 nm $d_{10}$ is more than 3 nm further from the crossbridge's thick filament attachment point than the lowest energy point reachable at a lattice spacing of 38 nm $d_{10}$.
 This offset-lattice spacing rule alters the behavior of the crossbridge with changes in lattice-spacing.
-The decreased chance of large axial offset binding occurring at larger lattice spacings decreases the chance of forward biased binding of the crossbridges at large lattice spacings (figures \ref{fig_kinetics_contours}c and \ref{fig_kinetics_contours}d).
-Similarly, the decreased axial offset of likely powerstrokes at larger lattice spacings causes the multi-spring crossbridges to have a smaller powerstroke at expanded lattice spacings (figures \ref{fig_kinetics_contours}e and \ref{fig_kinetics_contours}f).
-The only crossbridge property where the axial offset doesn't decrease as lattice spacing increases is the detachment rate of the 4sXB, due to the post-powerstroke angle of the crossbridge's head (figure \ref{fig_kinetics_contours}g).
+The decreased chance of large axial offset binding occurring at larger lattice spacings decreases the chance of forward biased binding of the crossbridges at large lattice spacings (Fig.s \ref{fig_kinetics_contours}c and \ref{fig_kinetics_contours}d).
+Similarly, the decreased axial offset of likely powerstrokes at larger lattice spacings causes the multi-spring crossbridges to have a smaller powerstroke at expanded lattice spacings (Fig.s \ref{fig_kinetics_contours}e and \ref{fig_kinetics_contours}f).
+The only crossbridge property where the axial offset doesn't decrease as lattice spacing increases is the detachment rate of the 4sXB, due to the post-powerstroke angle of the crossbridge's head (Fig.\ \ref{fig_kinetics_contours}g).
 Combined, these effects can reduce the amount of force a crossbridge will generate at larger lattice spacings.
 % paragraph key_points_of_transition_rates_and_energies_vary_with_lattice_spacing (end)
 
@@ -359,7 +359,9 @@ That few such vectors are present indicates that neither the axial nor the radia
 \section{Discussion} % (fold)
 
  % Discussion, integration into the field:
- %   - Lack of lattice spacing dependence of axial forces is in line with variance based on crossbridge populations
+ 
+ 
+%   - Lack of lattice spacing dependence of axial forces is in line with variance based on crossbridge populations
 
 
  %  * Provides new crossbridge mechanics for use in models
@@ -376,7 +378,17 @@ That few such vectors are present indicates that neither the axial nor the radia
  %  * Radial forces and experimental observations of compression (Cecchi)
  %   - Check magnitude of forces needed
 
-\paragraph{Strain and force generation at the level of a single crossbridge depend on lattice spacing} % (fold)
+% Discussion intro paragraph %(fold) 
+This study investigated the 4sXB and 2sXB multi-spring crossbridge models for use examining the lattice spacing dependence and radial force production of muscle. 
+These crossbridges incorporated powerstrokes based on changes of the rest angle of torsional springs representing the converter region. 
+Crossbridges created with these spring geometries and powerstroke parameters produced radial forces of the same magnitude as axial forces, similar to what is seen experimentally in some investigations \citep{Cecchi1990,Brenner1991}. 
+Proposed crossbridge energies and kinetics adapt existing one-dimensional rates for use with multi-dimensional crossbridges \citep{Pate1989}.
+This adaptation introduced lattice spacing dependencies into the forces and kinetics of the crossbridges that have the potential to explain differences in observed force generation at altered lattice spacings  \citep{Millman1998}. 
+Forces out of the crossbridge head's primary plane are not considered. % TODO cite some work on such forces 
+
+% (end)
+
+\paragraph{Forces generated by the multi-spring crossbridges depend on lattice spacing} % (fold)
 Lattice spacing greatly alters the kinetic landscape to which individual multi-spring crossbridges are subject.
 Complex, and not entirely easy to visualize interactions occur between different kinetic rates with varying lattice spacing. 
 A single example of this is that, for the 2sXB, the small lattice spacing axial offsets that are most likely to bind are increasingly less likely to quickly complete a powerstroke, due to the shift in the powerstroke rate's inflection point.
@@ -387,24 +399,17 @@ Multiple spring crossbridges open new doors to explore the relationships between
 % \paragraph{Lattice spacing alters both likelihood of interaction and likely interaction location} % (fold)
 % % paragraph lattice_spacing_alters_both_likelihood_of_interaction_and_likely_interaction_location (end)
 
-\paragraph{Simplicity of the 2sXB may be desirable} % (fold)
-While the 2sXB does not exactly mirror the behaviors of the 4sXB, it does resemble them in most ways (as seen in figures \ref{fig_kinetics_contours}, \ref{fig_kinetics_cuts} and \ref{fig_forces}) and may be the best option for further use in spatially explicit models due to its low computational requirements.
-As mentioned in the methods section, whenever the head of the 4sXB is moved the position of the middle torsional spring, roughly equivalent to the convertor domain, must be found through an iterative technique. 
-This imposes a computation cost that is small for a single crossbridge, but which make longer duration multifilament simulations untenable. 
-These problems do not exist for the 2sXB which requires no such step.
-As the kinetics and force of the 2sXB system resemble those of the 4sXB system in most instances, with the exceptions of their differing lattice spacing dependencies of the powerstroke rate and precise force orientation at some of the more extreme offsets, it may prove to be a useful model system.
-% paragraph simplicity_of_the_2sxb_may_be_desirable (end)
-
-\paragraph{Increased fidelity to known structure and mechanisms} % (fold)
-The multiple spring crossbridges both have a far greater ability than single spring crossbridges to replicate the defining characteristics of muscle myosin structure and the lever arm mechanism of force generation. 
-The 2sXB and the 4sXB both generate force through the changing of the rest angle of a torsional spring attached to a lever arm.
-This is closely analogous to the lever arm mechanism as it is understood and stands in contrast to the mechanism by which a single spring crossbridge replicates the powerstroke \citep{Houdusse:2001:p182}.
-The single spring crossbridge generates its force with an offset of the myosin head can also be thought of as the spring representing the crossbridge having a different rest length in the unbound state and the loosely bound state than it does in the tightly bound state. 
-This offset or altered rest length is what determines the stroke distance of the single spring crossbridge and estimates of it have varied from as little as 1 nm to as large as 10 nm (needs citation). 
-By treating the crossbridge as several components instead of a single spring we are able to base input parameters on values that can be referenced to existing crystallography structures.
+% TODO Incorporate the following paragraph into the intro?
+% \paragraph{Increased fidelity to known structure and mechanisms} % (fold)
+% The multiple spring crossbridges both have a far greater ability than single spring crossbridges to replicate the defining characteristics of muscle myosin structure and the lever arm mechanism of force generation. 
+% The 2sXB and the 4sXB both generate force through the changing of the rest angle of a torsional spring attached to a lever arm.
+% This is closely analogous to the lever arm mechanism as it is understood and stands in contrast to the mechanism by which a single spring crossbridge replicates the powerstroke \citep{Houdusse:2001:p182}.
+% The single spring crossbridge generates its force with an offset of the myosin head can also be thought of as the spring representing the crossbridge having a different rest length in the unbound state and the loosely bound state than it does in the tightly bound state. 
+% This offset or altered rest length is what determines the stroke distance of the single spring crossbridge and estimates of it have varied from as little as 1 nm to as large as 10 nm (needs citation). 
+% By treating the crossbridge as several components instead of a single spring we are able to base input parameters on values that can be referenced to existing crystallography structures.
 % paragraph increased_fidelity_to_known_structure_and_mechanisms (end)
 
-\paragraph{Step size varies with lattice spacing for a two spring crossbridge} % (fold)
+\paragraph{Multi-spring crossbridge step size varies with lattice spacing} % (fold)
 Inherent in the geometry of the 2sXB and the 4sXB is a change in step size with a change in lattice spacing.
 Step size at a given lattice spacing is defined as the axial distance a myosin head moves between pre- and post-powerstroke angles if unconstrained in the axial direction and allowed to settle into the position which minimizes the energy of the crossbridge.
 These changes in step size occur because the angle which a given axial movement subtends increases with decreasing lattice spacings.
@@ -415,12 +420,29 @@ These additional springs also adjust with lattice spacing, allowing the location
 This is yet another factor that may alter the force generated at different lattice spacings, increasing the strain and probability of detachment shortly after completing the powerstroke at larger lattice spacings.
 % paragraph step_size_varies_with_lattice_spacing_for_a_two_spring_crossbridge (end)
 
-\paragraph{Modeled radial forces are too large to ignore} % (fold)
+\paragraph{Large radial component of forces argues for inclusion in future models} % (fold)
 Simulated radial forces for both the 2sXB and the 4sXB were of the same order as the axial forces being produced. 
 Inclusion of these forces in future modeling efforts presents an opportunity to examine an type of interaction ignored by previous spatially explicit models.
-Experimental evidence for the existence of strong radial forces during contraction is provided, at the level of muscle fibers, by observations of lattice spacings during redevelopment of tension in \citet{Cecchi:1990p2763}.
+Experimental evidence for the existence of strong radial forces during contraction is provided, at the level of muscle fibers, by observations of lattice spacings during redevelopment of tension in \citet{Cecchi1990}. % Cecchi1990 sez radial forces are 23% of axial 
 Spatially explicit explorations of how these forces are transmitted throughout the lattice, or what restoring force prevents the creation of an overly disordered lattice where radial forces kink thick and thin filaments out of their axial paths are possible with either presented crossbridge.
 % paragraph modeled_radial_forces_are_too_large_to_ignore (end)
+
+\paragraph{The 2sXB approximates the 4sXB} % (fold)
+The energies, kinetics, and forces generated by the 2sXB are not exact duplicates of those governing the 4sXB, but are subject to the same governing trends (Fig.s \ref{fig_kinetics_contours}, \ref{fig_kinetics_cuts} and \ref{fig_forces}). 
+Mimicry of the 4sXB by the 2sXB is intentional and desirable because the 2sXB is intended as a less computationally expensive alternative to the 4sXB. 
+The energies, binding rates, and powerstroke rates of the multi-spring crossbridges are almost identical, while the rate of detachment is rotated by 20$^\circ$ between the two systems (Fig.\ \ref{fig_kinetics_contours}).
+The forces generated by the multi-spring crossbridges are the greatest differences between the 4sXB and the 2sXB.
+The 2sXB requires a 10 nm change in lattice spacing to double the axial force generated at a 10 nm binding site offset, a force increase that takes the 4sXB just under a 6 nm change in lattice spacing (Fig.\ \ref{fig_forces}). 
+So while both the axial force generated by both crossbridges depends on lattice spacing, that of the 2sXB does so less than that of the 4sXB.
+This pattern is reversed for the radial forces generated by the crossbridges, where the 2sXB's radial force is more dependent on lattice spacing than is the 4sXB's.
+In each of these cases, the forces generated by the each of the multi-spring crossbridges is subject to the same trend as lattice spacing or axial offset from the binding site increases.
+This similarity of forces and near mirroring of energies and kinetics lends support to use of the 2sXB in cases where the 4sXB would be prohibitively computationally expensive.
+% TODO: Incorporate the next few lines into materials and methods or intro:
+% As discussed above, whenever the head of the 4sXB is moved, the position of the middle torsional spring (roughly equivalent to the converter domain) must be determined iteratively. 
+% This imposes a computation cost that is small for a single crossbridge, but makes longer duration multifilament simulations require prohibitively large resources. 
+% These problems do not exist for the 2sXB which requires no such step.
+% As the kinetics and force of the 2sXB system resemble those of the 4sXB system in most instances, with the exceptions of their differing lattice spacing dependencies of the powerstroke rate and precise force orientation at some of the more extreme offsets, it may prove to be a useful model system.
+% paragraph simplicity_of_the_2sxb_may_be_desirable (end)
 
 
 % section discussion (end)
@@ -440,7 +462,7 @@ Spatially explicit explorations of how these forces are transmitted throughout t
         The binding rate ($r_{1,2}$), strong transition rate ($r_{2,3}$), and unbinding rate ($r_{3,1}$) are determined by the energy stored in the springs representing the crossbridge. 
         The reverse rates ($r_{2,1}$, $r_{3,2}$, and $r_{1,3}$) are functions of the forward transition rates.
         Subfigures b, c, and d show the representations of the crossbridge we examine, plotted against a myosin crystal structure for comparison. 
-        Subfigure b shows the single-spring crossbridge (1sXB) used heavily used in models since \protect\citep{Huxley:1957:p255}. 
+        Subfigure b shows the single-spring crossbridge (1sXB) used heavily used in models since \protect\citep{Huxley1957}. 
         Subfigure c depicts the two-spring crossbridge (2sXB) which uses both a torsional/angular spring and a linear spring. 
         Subfigure d shows a four-spring crossbridge (4sXB) using two torsional and two linear springs, which we compare the single and dual spring crossbridges against.
         The locations of the distal torsional spring and tip of the 4sXB are denoted as $(c_x, c_y)$ and $(h_x, h_y)$ respectively. 
@@ -457,7 +479,7 @@ Spatially explicit explorations of how these forces are transmitted throughout t
         \textbf{Energy and kinetics of the 4sXB and 2sXB systems at varying axial offsets and lattice spacings.} 
         Subfigures a through h show the properties of the 4sXB (subfigures a, c, e, and g) and the 2sXB (subfigures b, d, f, and h) as they change with binding site offset and $d_{1,0}$ lattice spacing.
         Binding site offset is the distance between the current axial location of the crossbridge's tip, $h_x$, and the location where the crossbridge attaches to the thick filament.
-        Lattice spacing ($d_{1,-0}$) is defined as in \citet{Millman:1998p1346}, with an offset to account for filament thicknesses so that the crossbridge exactly bridges the two filaments at a rest lattice spacing of 34 nm.
+        Lattice spacing ($d_{1,-0}$) is defined as in \citet{Millman1998}, with an offset to account for filament thicknesses so that the crossbridge exactly bridges the two filaments at a rest lattice spacing of 34 nm.
         Subfigure a depicts the free energy of the 4sXB at various lattice spacings (represented along the y-axis), with the head stretched to an axial offset from the thick filament attachment point (zero on the x-axis).
         Similarly, the free energy of the 2sXB is shown in subfigure b.
         The lowest energy myosin head locations in both a and b are shown as the darkest part of the plot and change in axial offset as lattice spacing changes.
@@ -477,7 +499,7 @@ Spatially explicit explorations of how these forces are transmitted throughout t
         \label{fig_kinetics_cuts}
         \textbf{Energy and kinetics of the 1sXB, 2sXB, and 4sXB at the resting lattice spacing.}
         Subfigures a through d show the energy and transition rates of the 1sXB (black line), 2sXB (green line), and 4sXB (red line) at resting lattice spacing.
-        The 1sXB values shown for comparison are derived from those of \citet{Daniel:1998:p1611} and \citet{Tanner:2007:pe115}, shifted axially so the resting location of the crossbridge head in each case is aligned with that of the 2sXB and 4sXB. 
+        The 1sXB values shown for comparison are derived from those of \citet{Daniel1998} and \citet{Tanner:2007:pe115}, shifted axially so the resting location of the crossbridge head in each case is aligned with that of the 2sXB and 4sXB. 
         The free energy of the crossbridges in state two is shown in subfigure a, where the multi-spring crossbridges' shifts from a strictly parabolic trajectory is visible.
         The explicit thermal forcing of the multi-spring crossbridge heads in subfigure b results in binding probabilities that are more distributed than those of the single spring crossbridge.
         The rate of powerstrokes, in subfigure c, remains least changed between the single and the multi-spring crossbridge models.
