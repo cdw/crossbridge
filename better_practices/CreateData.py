@@ -203,7 +203,7 @@ def main(argv=None):
                 'free_energy': lambda:
                 calc_values(xb, x_range, y_range, 'free_energy', state=2), 
                 'post_energy': lambda:
-                calc_values(xb, x_range, y_range, 'free_energy', state=3)
+                calc_values(xb, x_range, y_range, 'free_energy', state=3),
                 'r12': lambda:
                 calc_values(xb, x_range, y_range, 'r12', trials = trials),
                 'r23': lambda:
