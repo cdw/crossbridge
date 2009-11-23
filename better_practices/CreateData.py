@@ -188,7 +188,7 @@ def main(argv=None):
             print "Storing output, will exit when done."
             store.write('energy', energy)
             store.write('free_energy', free_e)
-            store.write('post_stroke_energy', post_e)
+            store.write('post_energy', post_e)
             store.write('r12', r12)
             store.write('trials', trials)
             store.write('r23', r23)
