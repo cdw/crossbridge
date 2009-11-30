@@ -29,6 +29,8 @@ def main():
     y_range = store[0].get("y_range")
     y_locs = np.arange(y_range[0], y_range[1], y_range[2])
     x_grid, y_grid = np.meshgrid(x_locs, y_locs)
+    y_steps = [26, 30, 34, 38]
+    y_steps = [y_steps, [y_locs.searchsorted(y) for y in y_steps]]
     # Set up to the plot
     fig = plt.figure(1, figsize=(8, 10))
     axe = ([fig.add_subplot(4, 2, g+1) for g in range(4*2)])
@@ -58,6 +60,11 @@ def main():
                     xycoords='axes fraction', horizontalalignment='center')
     axe[2].contourf(x_grid, y_grid, r12[1], 
         prob_lvls, colors = grey_steps)
+    print "============================"
+    print "4sXB max attachment rate loc"
+    x_steps = [x_locs[r12[1][y].index(max(r12[1][y]))] for y in y_steps[1]]
+    for i in range(len(x_steps)):
+        print "@ ", y_steps[0][i], "nm, max x loc is ", x_steps[i]
     # Binding rate of the 2sXB
     axe[3].annotate("2sXB attachment rate", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
@@ -67,11 +74,21 @@ def main():
                             ticks=prob_ticks, spacing='proportional')
     colorbar.ax.set_position([.92, .57, .07, .13])
     colorbar.set_label("Binding Rate")
+    print "============================"
+    print "2sXB max attachment rate loc"
+    x_steps = [x_locs[r12[0][y].index(max(r12[0][y]))] for y in y_steps[1]]
+    for i in range(len(x_steps)):
+        print "@ ", y_steps[0][i], "nm, max x loc is ", x_steps[i]
     # Power stroke rate of the 4sXB
     axe[4].annotate("4sXB powerstroke rate", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
     axe[4].contourf(x_grid, y_grid, r23[1], 
         prob_lvls, colors = grey_steps)
+    print "============================"
+    print "4sXB max powerstroke rate loc"
+    x_steps = [x_locs[r23[1][y].index(max(r23[1][y]))] for y in y_steps[1]]
+    for i in range(len(x_steps)):
+        print "@ ", y_steps[0][i], "nm, max x loc is ", x_steps[i]    
     # Power stroke rate of the 2sXB
     axe[5].annotate("2sXB powerstroke rate", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
@@ -81,6 +98,11 @@ def main():
                             ticks=prob_ticks, spacing='proportional')
     colorbar.ax.set_position([.92, .33, .07, .13])
     colorbar.set_label("Powerstroke Rate")
+    print "============================"
+    print "2sXB max powerstroke rate loc"
+    x_steps = [x_locs[r23[0][y].index(max(r23[0][y]))] for y in y_steps[1]]
+    for i in range(len(x_steps)):
+        print "@ ", y_steps[0][i], "nm, max x loc is ", x_steps[i]    
     # Detachment rate of the 4sXB
     axe[6].annotate("4sXB detachment rate", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
