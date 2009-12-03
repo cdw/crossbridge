@@ -52,25 +52,27 @@ Keywords: myosin; spatially-explicit model; crossbridge kinetics
 
 \section{Introduction} %(fold)
 
-% * Set out view of force generation and power stroke
-% * Mismatch with single spring crossbridge
-%  - Considerations in modeling (computational complexity) 
-% Needs more, come back to this
-
 % Sarcomere-scale modeling of muscle contraction has changed since the introduction of the sliding crossbridge model in the 1950s, but the geometry of the individual crossbridges used has remained largely unaltered. 
 % While individual crossbridges have been treated independently with spatial modeling, thermodynamic accounting has been introduced to the crossbridge kinetics, compliance introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
 % We propose that with a shift to crossbridges that use two or four four springs, new insight into the effects of lattice spacing and radial forces generated during axial shortening may be gained.
 
-Theoretical and computational models of cross-bridge force generation have largely focused on one-dimensional analyses. 
-Thus, from the early work of \citet{Huxley1957} to more recent models \citep{Daniel1998, Chase:2004:p204, Tanner:2007:pe115} focus has been more on the force distribution along the filament lattice.  
-From a computational standpoint, somewhat less attention has focused on radial forces. 
-Thus the geometry of the single spring crossbridge has remained largely unchanged while the kinetics underlying transitions between force generating states have been increased in complexity throughout subsequent work. \citep{Pate1989, Daniel1998, Tanner:2007:pe115}
-Meanwhile, the idea that the region of the lever arm directly adjacent to the converter region is a flexible area that acts as a spring was proposed and supported \citep{Uyeda1996, Huxley2000, Houdusse:2001:p182}. 
-This structural model of force generation by myosin suggests that inclusion of torsional springs in computational models might create a system that better reflects the underling mechanisms of the powerstroke. 
+Radial force generation in contracting intact muscles have been shown and measured, and have been put forward as a possible regulator of force generation . % TODO : Cite checci, martyn, others
+Alongside the demonstration of radial forces, increases in our knowledge of myosin's structure have lead to the idea that myosin generates force through the action of a lever arm \citep{Rayment1993, Uyeda1996, Huxley2000}.
+It is believed that the region of myosin's lever arm directly adjacent to the converter region is flexible and acts as a torsional or angular spring that genrates strain via a change in rest angle accompanying the powerstroke \citep{Huxley2000, Houdusse:2001:p182}. 
 
-Here we analyze the properties of and compare two torsional spring based crossbridge models that are targeted for use in spatially explicit models of the half sarcomere. 
+
+Existing theoretical and computational models of crossbridge force generation have focused on one-dimensional analyses. 
+Thus, from the early work of \citet{Huxley1957} to more recent models \citep{Daniel1998, Chase:2004:p204, Tanner:2007:pe115} focus has been more on the force distribution along the filament lattice.  
+From a computational standpoint, less attention has focused on radial forces. 
+Thus, the geometry of the single spring crossbridge has remained largely unchanged while the kinetics underlying transitions between force generating states have increased in complexity throughout subsequent work \citep{Pate1989, Daniel1998, Tanner:2007:pe115}.
+This structural model of force generation by myosin suggests that inclusion of torsional springs in computational models might create a system that better reflects the underlying mechanisms of the powerstroke. 
+
+In this paper we examine and compare two torsional spring based crossbridge models, both well suited for use in spatially explicit models of the half sarcomere. 
 The first is a four spring crossbridge (4sXB) that is directly inspired by the structure of the S1 and S2 regions of myosin II. 
 Following this, we consider a two spring crossbridge (2sXB) that replicates many of the behaviors of the 4sXB while requiring fewer computational resources.
+
+In these crossbridge models we quantify radial force produced by the single crossbridge and the effects of lattice spacing on the forces and kinetic rates of single crossbridges.
+
 
 % % \paragraph{Comparison to previous systems} % (fold)
 % This discussion owes a debt to \citet{Schoenberg1980a} and \citet{Schoenberg1980b} which contain a proposal and analysis of several different types of crossbridges, primarily two spring crossbridges where the S2 arm is represented as a linear spring and the S2-S1 junction area is represented as a torsional spring. 
