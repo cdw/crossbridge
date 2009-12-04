@@ -14,3 +14,6 @@ syntax: glob
 *.bbl
 *.blg
 *.synctex.gz
+# \end{latex-detritus}
+._*        #Mac meta-data
+.DS_Store  #Mac-related files
