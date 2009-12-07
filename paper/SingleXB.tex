@@ -54,25 +54,28 @@ Keywords: myosin; spatially-explicit model; crossbridge kinetics
 
 % While individual crossbridges have been treated independently with spatial modeling, thermodynamic accounting has been introduced to the crossbridge kinetics, compliance introduced to the filaments, and multiple filaments have been arranged to mimic the lattice, the one dimensional nature of the crossbridge has continued to be used as a model of the mechanism of force generation.
 
-Radial forces of the same order as axial force have been shown to exist in  intact contracting muscles . % TODO : Cite checci, martyn, others
-These forces have been put forward as a possible regulator of force generation . % TODO : Citations
+Radial forces of the same order as axial force have been shown to exist in  contracting muscles \citep{Cecchi1990, Millman1998}. 
+These forces, and radial lattice spacing, have been put forward as a possible regulator of force generation \citep{Fuchs2005}. 
 At the same time, increases in our knowledge of myosin's structure have lead to the idea that myosin generates force through the action of a lever arm \citep{Rayment1993, Uyeda1996, Huxley2000}.
 Myosin's lever arm generates the strain that accompanies the powerstroke via a change in the rest angle at which the lever is attached to S1 region \citep{Huxley2000, Houdusse:2001:p182}. 
 This change in angle occurs at the converter region, a flexible area that and acts as a torsional or angular spring. 
 It has been suggested that these phenomena are related, that radial forces during force generation by a crossbridge are a result of the geometry of the lever arm \citep{Schoenberg1980b}. 
 
-Existing theoretical and computational models of crossbridge force generation have focused on one-dimensional analyses. 
-Thus, from the early work of \citet{Huxley1957} to more recent models \citep{Daniel1998, Chase:2004:p204, Tanner:2007:pe115} focus has been more on the force distribution along the filament lattice.  
-From a computational standpoint, less attention has focused on radial forces. 
+Existing theoretical and computational models of crossbridge force generation, at the filamental level, have used one-dimensional crossbridge models. 
+As a consequence these computational studies have confined themselves, from the early work of \citet{Huxley1957} to more recent models \citep{Daniel1998, Chase:2004:p204, Tanner:2007:pe115}, to forces aligned along the axes of the contractile filaments.  
+From a computational standpoint, less attention has been paid to radial forces. 
 Thus, the geometry of the single spring crossbridge has remained largely unchanged while the kinetics underlying transitions between force generating states have increased in complexity throughout subsequent work \citep{Pate1989, Daniel1998, Tanner:2007:pe115}.
-This structural model of force generation by myosin suggests that inclusion of torsional springs in computational models might create a system that better reflects the underlying mechanisms of the powerstroke. 
+Meanwhile, the lever arm mechanism of force generation by myosin suggests that inclusion of torsional springs in computational models would create a system that better reflects the underlying mechanisms of the powerstroke. 
 
 In this paper we examine and compare two torsional spring based crossbridge models, both well suited for use in spatially explicit models of the half sarcomere. 
-The first is a four spring crossbridge (4sXB) that is directly inspired by the structure of the S1 and S2 regions of myosin II. 
-Following this, we consider a two spring crossbridge (2sXB) that replicates many of the behaviors of the 4sXB while requiring fewer computational resources.
+The first is a four spring crossbridge (4sXB) based upon the structure of the S1 and S2 regions of myosin II. 
+Following this, we consider a two spring crossbridge (2sXB) that replicates many of the behaviors of the 4sXB while requiring fewer computational resources. 
+We derive three state kinetic systems for each type of crossbridge from those used by prior models. 
+We quantify the radial force produced by these isolated crossbridges and how such forces increase as lattice spacings expand.
+We also look at how changes in lattice spacing affect the other properties of the isolated crossbridges, such as how the optimum axial location of an available actin site for binding, the powerstroke, and detachment shifts towards the base of the crossbridge as lattice spacing increases. 
 
-In these crossbridge models we quantify radial force produced by the single crossbridge and the effects of lattice spacing on the forces and kinetic rates of single crossbridges.
-
+The crossbridge models developed here, when included in spatially explicit multi-filament models of the half-sarcomere, will permit such models to investigate the effects of radial forces and lattice spacings for the first time. 
+Such models will be able to contribute to the ongoing discussion about the role that radial forces, transmitted directly or through titin, and changes in lattice spacing play in the Frank-Starling mechanism and in the regulation of Ca$^{2+}$ sensitivity as lattice spacing and sarcomere length vary. % TODO : Split into two sentences? Cite?
 
 % % \paragraph{Comparison to previous systems} % (fold)
 % This discussion owes a debt to \citet{Schoenberg1980a} and \citet{Schoenberg1980b} which contain a proposal and analysis of several different types of crossbridges, primarily two spring crossbridges where the S2 arm is represented as a linear spring and the S2-S1 junction area is represented as a torsional spring. 
