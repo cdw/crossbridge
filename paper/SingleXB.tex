@@ -87,36 +87,15 @@ Such models will be able to contribute to the ongoing discussion about the role 
 
 \section{Materials and Methods}  % (fold)
 
- % * Overview
- %  - Classes of crossbridges: 1, 4, and 2 springs
- % * Geometry
- %  - Spring configurations
- %   = Single spring axially parallel
- %   = Four spring correspondence to physical parts
- %   = Sources of four spring values
- %   = Acknowledge powerstroke distance
- %   = Two spring fit to replicate four spring
- %  - Force generated via displacement
- %  - Calculation of spring lengths/angles
- % * Kinetics
- %  - Free energy in each state
- %   = Liberation of energy by Pi hydrolysis
- %  - Calculation of binding rate
- %   = Perturbation of crossbridge head
- %   = Probability of binding based on distance to binding site
- %  - Powerstroke rate
- %   = Distortion dependence
- %  - Unbinding rate
- %  - Calculation of reverse rates
-
 We consider two crossbridge models meant to capture a range of mechanical behaviors suggested by the literature.  
-Each, described more fully below can be derived from a generalized crossbridge consisting of 4 springs:  two torsional springs and two linear springs (Fig \ref{fig_xb_types}).  
+Each, described more fully below, can be derived from a generalized crossbridge consisting of 4 springs:  two torsional springs and two linear springs (Fig \ref{fig_xb_types}).  
 These are contrasted to the traditional one-dimensional single spring model of a crossbridge.
 
 \subsection*{Geometry} % (fold)
 
 \paragraph{Spring configurations} % (fold)
-Our simplest model consists of a single linear spring aligned parallel to the thick and thin filaments, existing in one dimension.
+The simplest crossbridge model examined here is similar to those used previously, and consists of a single linear spring parallel to the axes of the thick and thin filaments.
+As the forces this crossbridge generates are solely in the direction of shortening, it can be described as a one-dimensional crossbridge. 
 This one spring crossbridge (1sXB) is, as described above, the current crossbridge model implemented in most computational analyses. 
 The one-dimensional 1sXB is insensitive to changes in lattice spacing, and unable to account for radial forces generated during axial shortening.
 
@@ -142,10 +121,6 @@ The rest length and angle of the 2sXB are set so that the tips of the 2sXB and 4
 % paragraph spring_configurations (end)
 
 \paragraph{Calculation of lattice spacing} % (fold)
-\textbf{Needs to be filled in with the following:}
-\begin{itemize}
- \item Define range of typical lattice spacings
-\end{itemize}
 Throughout this paper, d$_{1,0}$ lattice spacing is derived from the geometry of the crossbridge and the lattice spacing having the smallest radial force. 
 The model provides a measurement of spacing that is analogous to the in vivo surface-to-surface distance between the thick and thin filaments.
 The d$_{1,0}$ spacing is calculated from the surface-to-surface lattice spacing as $\rm{d}_{1,0} = 1.5 (surface-to-surface + offset)$ where the offset accounts for d$_{1,0}$ being measured from the center of one thick filament to another \citep{Millman1998}.
