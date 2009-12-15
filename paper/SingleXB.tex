@@ -235,12 +235,12 @@ This two step system, with diffusion followed by a chance of attachment, is used
 
 \paragraph{Powerstroke and detachment rates} % (fold)
 % Distortion dependence
-The powerstroke and detachment rates are based on the earlier work of \citet{Pate1989} and \citet{Tanner:2007:pe115}, and generalized here for the 4sXB and 2sXB in two-dimensional space. 
+The powerstroke and detachment rates are based on the earlier work of \citet{Pate1989} and \citet{Tanner:2007:pe115}, and generalized here for the 4sXB and 2sXB in two-dimensional space by writing them in terms of a dependence on the free energy of the crossbridge. 
 Both the powerstroke rate, $r_{23}$, and the detachment rate, $r_{31}$, are distortion dependent as they contain a term based on the differences in free energy between the current state and the one being considered for transition. 
 This means that transitions are more likely when they are energetically favorable and less likely in other circumstances, a natural scheme based in the geometry of the crossbridges.
 The particular rates are as follows for both the 4sXB and the 2sXB:
 $$r_{23}(U_2, U_3) = 0.001 + 0.5 * (1 + \tanh(0.6 (U_2 - U_3))) $$
-$$r_{31}(U_3, U_1) = e^{-1 / (U_3 - U_1)}$$
+$$r_{31}(U_3, U_1) = \sqrt{0.01 *  (U_3 - U_1)} + 0.02$$
 % paragraph unbinding_rate (end)
 
 \paragraph{Calculation of reverse rates} % (fold)
@@ -276,36 +276,38 @@ For the transition from a weakly bound state to an unbound state this requires t
 The models we present here were developed to examine consequences of lattice spacing on crossbridge kinetics and two dimensional force production.
 Multi-spring crossbridges introduce lattice spacing dependence into force production and kinetics, and account for forces not aligned with the direction of contraction.
 As lattice spacing changes, most kinetics and forces of the 4sXB and 2sXB shift in both magnitude and axial offset.
+% Intro paragraph (end)
 
-\subparagraph{Axial offsets, magnitudes, axial components and radial components} % (fold)
+\paragraph{Axial offsets, magnitudes, axial components and radial components} % (fold)
 The axial component of vector values, such as force, is the vector portion that lies along the axis of the thick and thin filaments.
 The radial component of a vector value lies perpendicular to the thick and thin filaments, orthogonal to the axial component.
-% subparagraph axial_offsets_magnitudes_axial_components_and_radial_components (end)
 
 Baseline value changes occur where the lowest points, the highest points, or simply the offset of a value is shifted with regard to that seen at rest lattice spacing.
 Baseline value changes manifest in, e.g., the lowered probability of any binding occurring at extreme lattice spacings. 
 Key value offsets occur when maxima, minima, inflection points, or other landmarks of a value's profile are shifted axially from where they occur at rest lattice spacing.
 Key value offsets are reflected in phenomena such as the axial offset at which a powerstroke will occur becoming right shifted at higher lattice spacings for the 2sXB.
 In addition to these lattice spacing dependencies, we examine the ability of the 4sXB and the 2sXB to model the radial component of the force produced during the powerstroke.
-% Intro paragraph (end)
+% paragraph axial_offsets_magnitudes_axial_components_and_radial_components (end)
 
 \paragraph{At 34 nm $d_{10}$, the multi- and single-spring crossbridges have similar kinetics and energies} % (fold)
-The free energy, binding rates, powerstroke rates and detachment rates of the 4sXB and 2sXB, when taken at a lattice spacing of 34 nm $d_{10}$, are similar to those of the 1sXB (Figure \ref{fig_kinetics_cuts}). 
-Much of this similarity is due to the common basis of the multi- and single-spring crossbridges' kinetics \citep{Pate1989}.
-The single-spring crossbridge kinetics and energies were modified to be independent of the number of springs in a crossbridge, instead depending on the free energy of the crossbridge head in its current location. 
+The free energy, binding rates, powerstroke rates and detachment rates of the 4sXB and 2sXB, when taken at a lattice spacing of 34 nm $d_{10}$, are similar to those of the 1sXB (Figure \ref{fig_kinetics_cuts}, with 1sXB data calculated as in \cite{Tanner2007}). 
+This similarity is retained from the common basis of the multi- and single-spring crossbridges' kinetics \citep{Pate1989}.
 The crossbridge properties of the 1sXB, 2sXB and 4sXB are shown together in figure \ref{fig_kinetics_cuts}, where the 1sXB values used are calculated as in figure 10 of \citet{Tanner:2007:pe115}. 
 Although the properties of the multi- and single-spring crossbridges are largely similar, some divergences do occur. 
-The multi-spring crossbridges' binding rate is a wider distribution than the single-spring crossbridge's binding rate due to the multi-spring crossbridges' use of diffusion-based binding probabilities.
-This causes the 2sXB and 4sXB, when averaged over all offsets, to be less likely to bind but also to be more likely to bind at offsets with larger strains. 
-The detachment rate of the single-spring crossbridge is its least energy-based value and required the most modification to function for all spring-based crossbridges. 
-The detachment rate thus differs more than other rates or energies between the single- and multi-spring crossbridges. 
-Despite these differences, many of the properties of the single-spring crossbridge are retained through the modifications which generalize the kinetics to two and higher dimensions. 
+The free energies of the multi-spring crossbridges are the products of springs at different angles and so are slightly skewed from the symmetric hyperbola of the 1sXB.
+The multi-spring crossbridges' use of diffusion-based binding probabilities  causes their binding rate distributions to be wider than those of the single-spring crossbridge.
+The multi-spring crossbridges are thus less likely than the 1sXB to bind at a small offset, but more likely than the 1sXB to bind at larger offsets. 
+This spread of binding regions reflects the increase in degrees of freedom present in the two-dimensional crossbridges. 
+The powerstroke rates of the multi-spring crossbridges are essentially those of the single-spring crossbridge, with energy dependent terms now using the  sum of the free energy of every spring comprising a crossbridge. 
+The detachment rate of the 1sXB explicitly relies on crossbridge position as well as energy; the dependence on position was removed in adapting the detachment rate for the multi-spring crossbridges. 
+The detachment rate thus loses the intentional asymmetry that the position term provided and retains only the asymmetry created by the spring geometries of the 2sXB and 4sXB. 
+Thus the detachment rate, like the other crossbridge properties, maintains the greatest similarity to the 1sXB consistent with the proposed changes: embedding the crossbridge in multiple dimensions and the transition to generalized kinetics based on crossbridge free energy. 
 % paragraph kinetics_at_rest_lattice_spacings_are_similar_to_previous_efforts (end)
 
 
 \paragraph{Axial offset of most crossbridge properties decrease as lattice spacing increases} % (fold)
 The axial offset of most energies and kinetics of the 4sXB and 2sXB decreases as lattice spacing grows larger.
-The axial offset of a crossbridge property is the distance from the thick filament attachment site to that property's extremum or point of inflection at a given lattice spacing. 
+The axial offset of a crossbridge property is the distance from the thick filament attachment site to that property's extreme value or point of inflection at a given lattice spacing. 
 An example of this change in axial offset is visible in Figures \ref{fig_kinetics_contours}a and \ref{fig_kinetics_contours}b where the lowest energy point that the 4sXB or the 2sXB may reach at a lattice spacing of 32 nm $d_{10}$ is more than 3 nm further from the crossbridge's thick filament attachment point than the lowest energy point reachable at a lattice spacing of 38 nm $d_{10}$.
 This offset-lattice spacing rule alters the behavior of the crossbridge with changes in lattice-spacing.
 The decreased chance of large axial offset binding occurring at larger lattice spacings decreases the chance of forward biased binding of the crossbridges at large lattice spacings (Fig.s \ref{fig_kinetics_contours}c and \ref{fig_kinetics_contours}d).
