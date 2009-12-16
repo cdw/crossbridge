@@ -63,7 +63,7 @@ def main():
     # Now we calculate the rest locations of the s2-LCD junction (hinge) and 
     # the LCD-CD junction (head) before and after the powerstroke. So, head[0] 
     # is pre powerstroke x and y location, while head[1] is the 
-    # post-powestroke location. These names a little bit misleading as the tip 
+    # post-powerstroke location. These names a little bit misleading as the tip 
     # of the CD is more rightly the "head" than the LCD-CD junction. To get 
     # the proper angles to use here, there is a little bit of fiddling 
     # required. We are taking the compliment of the angle between the LCD and 
@@ -133,7 +133,7 @@ def main():
             % (degrees(tor_ang[0]), degrees(tor_ang[1]))
     print " "
     
-    # Find the stength of the springs from the known liberated energy of ATP 
+    # Find the strength of the springs from the known liberated energy of ATP 
     # hydrolysis.
     
     R = 8.31447 # Joule/(Kelvin Mole)
