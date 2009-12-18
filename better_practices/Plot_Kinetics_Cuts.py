@@ -125,7 +125,7 @@ def main():
     axe[0].set_ylabel("Free Energy (RT)")
     axe[0].set_ylim((-10, 15))
     axe[0].set_yticks((-10, -5, 0, 5, 10, 15))
-    axe[0].set_title("a)", x=-0.20, y=0.97, weight="demi")
+    axe[0].set_title("A", x=-0.20, y=1.04, weight="demi")
     axe[0].legend(("1sXB", "2sXB", "4sXB"), loc=0, borderpad=0.3,
                   handlelength=1.8, handletextpad=0.3, labelspacing=0.2,
                   fancybox=True)
@@ -134,21 +134,21 @@ def main():
                 lw=lnwdth)
     axe[1].plot(x_locs, r12[0][cut_locs[1]], color=colors[1], lw=lnwdth)
     axe[1].plot(x_locs, r12[1][cut_locs[1]], color=colors[2], lw=lnwdth)
-    axe[1].set_title("b)", x=-0.20, y=0.97, weight="demi")
+    axe[1].set_title("B", x=-0.20, y=1.04, weight="demi")
     axe[1].set_ylabel("Binding Rate (s$^{-1}$)")
     # Powerstroke rates
     axe[2].plot(x_locs, bert_data("rates_23", x_locs), color=colors[0],
                 lw=lnwdth)
     axe[2].plot(x_locs, r23[0][cut_locs[1]], color=colors[1], lw=lnwdth)
     axe[2].plot(x_locs, r23[1][cut_locs[1]], color=colors[2], lw=lnwdth)
-    axe[2].set_title("c)", x=-0.20, y=0.97, weight="demi") 
+    axe[2].set_title("C", x=-0.20, y=1.04, weight="demi") 
     axe[2].set_ylabel("Powerstroke Rate (s$^{-1}$)")
     # Detachment rates
     axe[3].plot(x_locs, bert_data("rates_31", x_locs), color=colors[0],
                 lw=lnwdth)
     axe[3].plot(x_locs, r31[0][cut_locs[1]], color=colors[1], lw=lnwdth)
     axe[3].plot(x_locs, r31[1][cut_locs[1]], color=colors[2], lw=lnwdth)
-    axe[3].set_title("d)", x=-0.20, y=0.97, weight="demi")
+    axe[3].set_title("D", x=-0.20, y=1.04, weight="demi")
     axe[3].set_ylabel("Detachment Rate (s$^{-1}$)")
     # Add lables and limits
     for a in axe[1:]:
@@ -156,9 +156,9 @@ def main():
         a.set_ylim((-.1, 1000.1))
         a.set_yticks((0, 200, 400, 600, 800, 1000))
     ## Display
-    fig.subplots_adjust(wspace=0.35, hspace=0.40,
+    fig.subplots_adjust(wspace=0.38, hspace=0.40,
                         left=0.10, right=0.95,
-                        top=0.94, bottom=0.08)
+                        top=0.92, bottom=0.08)
     plt.show()
 
 

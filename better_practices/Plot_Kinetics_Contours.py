@@ -117,7 +117,7 @@ def main():
     print "2sXB min detachment rate loc"
     printminratelocs(r31[0], y_steps, x_locs)
     # Fix and annotate
-    titles = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
+    titles = ["A", "B", "C", "D", "E", "F", "G", "H"]
     for a in axe:
         #a.set_yticks((32, 34, 36, 38, 40, 42))
         #a.set_xlim([x_locs[0], x_locs[-1]])
@@ -125,7 +125,7 @@ def main():
         a.set_yticks([26, 30, 34, 38])
         a.set_xlabel("Axial offset (nm)")
         a.set_ylabel("$d_{1,0}$ (nm)")
-        a.set_title(titles.pop(0), x=-0.18, y=0.95, weight="demi")
+        a.set_title(titles.pop(0), x=-0.20, y=1.04, weight="demi")
         a.xaxis.set_ticks_position('bottom')
         a.yaxis.set_ticks_position('left')
     # Display the results
