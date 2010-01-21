@@ -68,7 +68,7 @@ Existing theoretical and computational models of cross-bridge force generation, 
 This has been the case from the earliest fundamental models of muscle contraction, \citet{Huxley1957}, to more elaborate and spatially explicit models \citep{Daniel1998, Chase2004, Tanner2007}.  
 %cite Majailovich ... ????
 
-In the development of computational models of muscle contraciton, less attention has been paid to radial forces. 
+In the development of computational models of muscle contraction, less attention has been paid to radial forces. 
 Thus, the geometry of the single spring cross-bridge has remained largely unchanged while the kinetics underlying transitions between force generating states have increased in complexity throughout subsequent work \citep{Pate1989, Daniel1998, Tanner2007}.
 Meanwhile, myosin's lever arm mechanism of force generation suggests that inclusion of torsional springs in computational models would create a system that better reflects the underlying mechanisms of the powerstroke. 
 Thus the presence of radial forces along with well established concepts of lever-arm actions of cross-bridges suggest alternate modeling approaches may be appropriate.
@@ -84,7 +84,6 @@ In addition, we look at how altering lattice spacing shifts the kinetics (i.e.\ 
 
 % I killed the next two paragraphs....   merely because they are conjecture and not appropriate for the intro.
 %The cross-bridge models developed here, when included in spatially explicit multi-filament models of the half-sarcomere, will permit such models to investigate the effects of radial forces and lattice spacings for the first time. 
-%Such models will be able to contribute to the ongoing discussion about the role that radial forces, transmitted directly or through titin, and changes in lattice spacing play in the Frank-Starling mechanism and in the regulation of Ca$^{2+}$ sensitivity as lattice spacing and sarcomere length vary. % TODO : Split into two sentences? Cite?
 
 % section introduction (end)
 
@@ -237,7 +236,7 @@ $$r_{31}(U_3, U_1) = 1000\sqrt{0.01 *  (U_3 - U_1)} + 20$$
 \paragraph{Calculation of reverse rates} % (fold)
 % TODO : Fix up this paragraph with a nice ending covering exactly how the reverse transition from bound to unbound will be calculated.
 Reverse transition rates are given by the thermodynamically balancing formula $r_{ij}/r_{ji}=\exp^{U_i-U_j}$ where $r_{ji}$ is the forward rate and $r_{ij}$ is the reverse rate \citep{Pate1989, Daniel1998, Tanner2007}.
-For the transition from a weakly bound state to an unbound state this requires that the reverse transition is again treated as a fraction of an ensemble of transition opportunities.
+For the transition from a weakly bound state to an unbound state this requires that the reverse transition is again treated as a fraction of an ensemble of transition opportunities. 
 % paragraph calculation_of_reverse rates (end)
 % subsection kinetics (end)
 
@@ -380,18 +379,22 @@ This is yet another factor that may alter the force generated at different latti
 % By treating the cross-bridge as several components instead of a single spring we are able to base input parameters on values that can be referenced to existing crystallography structures.
 % paragraph increased_fidelity_to_known_structure_and_mechanisms (end)
 
-\paragraph{Large radial component of forces argues for inclusion in future models} % (fold) % TODO : Weak, fix it. Talk about limitations of previous models and why the radial component should be included. Sell the model.
-Simulated radial forces for both the 2sXB and the 4sXB were of the same order as the axial forces being produced. 
-Inclusion of these forces in future modeling efforts will present an opportunity to examine an type of interaction ignored by previous spatially explicit models.
-Experimental evidence for the existence of strong radial forces during contraction is provided, at the level of muscle fibers, by observations of lattice spacings during redevelopment of tension in \citet{Cecchi1990}. % Cecchi1990 sez radial forces are 23% of axial 
-Spatially explicit explorations of how these forces are transmitted throughout the lattice, or what restoring force prevents the creation of an overly disordered lattice where radial forces kink thick and thin filaments out of their axial paths are possible with either presented cross-bridge.
+\paragraph{Large radial component of forces may influence lattice spacing in multi-filament models} % (fold) 
+The 4sXB and the 2sXB produce large radial forces: forces of the same order of magnitude as the axial forces a cross-bridge generates. 
+%These forces range between 10\% and 50\% of the axial force at the axial offsets at lattice spacings where a cross-bridge is most likely to become strongly bound (Fig.~\ref{fig_forces}).
+The 4sXB and 2sXB are the first spatially explicit cross-bridge models that are able to model the observed radial component of muscle contraction.
+Observations of lattice spacing during redevelopment of tension following length changes provides experimental evidence of strong radial forces at the level of individual muscle fibers \citep{Cecchi1990}. % Cecchi1990 sez radial forces are 23% of axial 
+A spatially explicit model, even using multiple thick and thin filaments arranged in a lattice, is insensitive to lattice spacing if it uses a version of the 1sXB.
+Embedding the multi-spring cross-bridges in a multi-filament model will allow simulation of radial force regulation in a lattice of thick and thin filaments.  
+Radial force has been put forward as a regulator of lattice spacing and of Ca$^{2+}$ sensitivity as lattice spacing and sarcomere length vary; a multi-filament model using the 4sXB or 2sXB can simulate the interaction of cross-bridge generated radial force with restoring forces provided by other mechanisms, e.g.\ titin or electrostatic repulsion \citep{Martyn2004, Cazorla2001}. % TODO : Close read of Cazorla. Add electrostatic paper.
+Inclusion of these forces in future modeling efforts will present an opportunity to examine an interaction ignored by previous spatially explicit models and assess its likely contribution to lattice spacing regulation and lattice spacing sensitive processes, such at the Frank-Starling mechanism. % TODO : Justify FSM more?
 % paragraph modeled_radial_forces_are_too_large_to_ignore (end)
 
 \paragraph{The 2sXB approximates the 4sXB} % (fold)
 The energies, kinetics, and forces generated by the 2sXB are not exact duplicates of those governing the 4sXB, but are subject to the same governing trends (Figs.~\ref{fig_kinetics_contours}, \ref{fig_kinetics_cuts} and \ref{fig_forces}). 
-Mimicry of the 4sXB by the 2sXB is intentional and desirable because the 2sXB is intended as a less computationally expensive alternative to the 4sXB. 
-The energies, binding rates, and powerstroke rates of the multi-spring cross-bridges are almost identical, while the rate of detachment is rotated by 20$^\circ$ between the two systems (Fig.~\ref{fig_kinetics_contours}).
-The forces generated by the multi-spring cross-bridges are the greatest differences between the 4sXB and the 2sXB.
+Mimicry of the 4sXB by the 2sXB is intentional and desirable, the 2sXB is intended to be a computationally cheaper alternative to the 4sXB. 
+The energies, binding rates, and powerstroke rates of the multi-spring cross-bridges are almost identical, while the rate of detachment is rotated by approximately 20$^\circ$ between the two systems due to differences in the way the post-powerstroke position is achieved (Fig.~\ref{fig_kinetics_contours}).
+The greatest differences between the 4sXB and the 2sXB come in the forces that they generate.
 The 2sXB requires a 10 nm change in lattice spacing to double the axial force generated at a 10 nm binding site offset, a force increase that takes the 4sXB just under a 6 nm change in lattice spacing (Fig.~\ref{fig_forces}). 
 So while both the axial force generated by both cross-bridges depends on lattice spacing, that of the 2sXB does so less than that of the 4sXB.
 This pattern is reversed for the radial forces generated by the cross-bridges, where the 2sXB's radial force is more dependent on lattice spacing than is the 4sXB's.
