@@ -2,19 +2,14 @@
 ToDo
 ====
 
-TODO - Read McMahon's thing on Huxley's model
-TODO - Check that component selection in FigureConstructor.quiver_cut works
-TODO - Investigate disturbing reports of odd forces for the four spring xb at smaller lattice spacings
-TODO - Start to throw in a), b), etc in the generated figures
 
-Rearrange Figure 2
-Rearrange Figure 3
-Rearrange Figure 4
-Read through Reedy's work
+## Near Term
+ - Mike wants the 'energy bean' back, possibly by modifying Fig 2
+ - Need to get a parameter table to improve the methods section
+    - This is turning into a lit-cite thing, with much data already in the ParameterGeneration.py file.
+ - Color in Fig 4
+ - Try to cut off Figure 4 with the energy that it takes to get a crossbridge to a given location, rather than by transition probabilities.
 
 
-TODO During Review
- - Check out Powell's method use on 4sXB
+## Long Term
  - Read http://www.cs.cmu.edu/~jrs/jrspapers.html is conj grad method better?
- - Pull parameters out of literature, more justification
- - 
