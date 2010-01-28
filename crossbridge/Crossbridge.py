@@ -253,6 +253,7 @@ class Crossbridge:
         state2_energy = self.minimize_energy(b_site, 2)[0]
         state3_energy = self.minimize_energy(b_site, 3)[0]
         rate = .1 * (1 + m.tanh(.4 * (state2_energy - state3_energy)+4))+.001
+        # Note that the .001 is just to keep rates above 0.0000 at all times
         return float(rate)
     
     def r31(self, b_site):
