@@ -21,41 +21,18 @@ def main():
     r23 = np.array([s.get("r23") for s in store])
     r31 = np.array([s.get("r31") for s in store])
     ## Print force properties
-    print "## Force properties"
-    print "4sXB max/min axial force: ", np.max(force3[1, :, :, 0]), "/", \
-        np.min(force3[1, :, :, 0])
-    print "4sXB max/min radial force: ", np.max(force3[1, :, :, 1]), "/", \
-            np.min(force3[1, :, :, 1])
-    print "2sXB max/min axial force: ", np.max(force3[0, :, :, 0]), "/", \
-            np.min(force3[0, :, :, 0])
-    print "2sXB max/min radial force: ", np.max(force3[0, :, :, 1]), "/", \
-            np.min(force3[0, :, :, 1])
-    ## Clip low force regions for non-exploding ratios
-    force_limit = 0.5
-    cliped_f = np.array([[[[v if abs(v)>force_limit else 1 for v in xb] for xb in row] for row in col] for col in force3[:, :, :, :]])
-    print "4sXB max radial/axial ratio: ", np.max(np.divide(cliped_f[1, :, :, 1], cliped_f[1, :, :, 0]))
-    print "4sXB min radial/axial ratio: ", np.min(np.divide(cliped_f[1, :, :, 1], cliped_f[1, :, :, 0]))    
-    print "2sXB max radial/axial ratio: ", np.max(np.divide(cliped_f[0, :, :, 1], cliped_f[0, :, :, 0]))
-    print "2sXB min radial/axial ratio: ", np.min(np.divide(cliped_f[0, :, :, 1], cliped_f[0, :, :, 0]))
-    axradratio = np.divide(cliped_f[0, :, :, 1], cliped_f[0, :, :, 0])
-    print "## Transition Probs"
-    print "4sXB r31 max: ", np.max(r31[0])
-    print "4sXB r31 min: ", np.min(r31[0])
-    print "2sXB r31 max: ", np.max(r31[1])
-    print "2sXB r31 min: ", np.min(r31[1])
-    ## Calculate the likelyhood of force being exerted at all locations
-    chance = np.clip( \
-        [np.add(np.subtract(1, r31[i]), r23[i]) for i in [0,1]], 0, 1)
-    print "## Chance scales"
-    print "4sXB chance max is ", np.max(chance[0]), 
-    print " and min is ", np.min(chance[0])
-    print "2sXB chance max is ", np.max(chance[1]), 
-    print " and min is ", np.min(chance[1])
+    print_force_properties(force3)
+    print_clipped_force_properties(force3)
+    chance = get_chance(r31, r23)
+    ## Make chance all or nothing
+    chance = np.array([[[1 if xb > -0.3 else 0 for xb in r] for r in c] for c in chance])
     ## Clip unlikely locations from forces for ratios
-    # cliped_f = np.array([[[[v if abs(v)>force_limit else 1 for v in xb] for xb in row] for row in col] for col in force3[:, :, :, :]])
+    # cliped_f = np.array([[[[v if abs(v)>force_limit else 1 for v in xb]
+    #       for xb in row] for row in col] for col in force3[:, :, :, :]])
     ## Load and process x/y related values
-    assert(store[0].get("x_range")==store[1].get("x_range")) # XBs should have
-    assert(store[0].get("y_range")==store[1].get("y_range")) # same x/y ranges
+    # Cross-bridges should have the same x and y ranges.
+    assert(store[0].get("x_range")==store[1].get("x_range")) 
+    assert(store[0].get("y_range")==store[1].get("y_range")) 
     x_range = store[0].get("x_range")
     x_locs = np.arange(x_range[0], x_range[1], x_range[2])
     y_range = store[0].get("y_range")
@@ -93,7 +70,7 @@ def main():
     axe[2].quiver(magnified_grid[0], magnified_grid[1], 
             force3[1, :, :, 0][magnified_inds[1], :][:, magnified_inds[0]], 
             force3[1, :, :, 1][magnified_inds[1], :][:, magnified_inds[0]],
-            chance[1, :, :][magnified_inds[1], :][:, magnified_inds[0]],
+                  #chance[1, :, :][magnified_inds[1], :][:, magnified_inds[0]],
             cmap=plt.get_cmap("Greys"))
     axe[2].set_xticks(magnified_locs[0][1::2])
     axe[2].set_yticks(magnified_locs[1])
@@ -120,7 +97,7 @@ def main():
     Magnified2sXB = axe[3].quiver(magnified_grid[0], magnified_grid[1], 
             force3[0, :, :, 0][magnified_inds[1], :][:, magnified_inds[0]], 
             force3[0, :, :, 1][magnified_inds[1], :][:, magnified_inds[0]],
-            chance[0, :, :][magnified_inds[1], :][:, magnified_inds[0]],
+                                  #chance[0, :, :][magnified_inds[1], :][:, magnified_inds[0]],
             cmap=plt.get_cmap("Greys"))
     axe[3].set_xticks(magnified_locs[0][1::2])
     axe[3].set_yticks(magnified_locs[1])
@@ -133,22 +110,24 @@ def main():
                     coordinates='axes') 
     ## Plot other contours 
     grey_steps = ('.1', '.2', '.3', '.4', '.5', '.6', '.7', '.8')
-    force_lvls = (-15, -10, -5, 0, 5, 10, 15, 20, 25)
+    colors = ('#553388','#333388','#2288FF','#77DD55',
+              '#FFDD44','#FF7722','#AA4422','#FF4466','#FF6688' )
+    force_lvls = (-15, -10, -5, 0, 5, 10, 15, 20, 35)
     ## 4sXB axial force
     axe[4].annotate("4sXB axial force", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
     c = axe[4].contourf(x_grid, y_grid, force3[1, :, :, 0], 
-        force_lvls, colors = grey_steps)
+        force_lvls, colors = colors)
     ## 4sXB radial force
     axe[6].annotate("4sXB radial force", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
     c = axe[6].contourf(x_grid, y_grid, force3[1,:,:,1], 
-        force_lvls, colors = grey_steps)
+        force_lvls, colors = colors)
     ## 2sXB axial force
     axe[5].annotate("2sXB axial force", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
     c = axe[5].contourf(x_grid, y_grid, force3[0, :, :, 0], 
-       force_lvls, colors = grey_steps)
+       force_lvls, colors = colors)
     cb = plt.colorbar(c, ax=axe[5], shrink = 0.7, fraction=.16, format='% d',
                            ticks=force_lvls[1:-1:2])
     cb.ax.set_position([.92, .33, .07, .13])
@@ -157,16 +136,17 @@ def main():
     axe[7].annotate("2sXB radial force", (0.5, 1.05), 
                     xycoords='axes fraction', horizontalalignment='center')
     c = axe[7].contourf(x_grid, y_grid, force3[0, :, :, 1], 
-       force_lvls, colors = grey_steps)
+       force_lvls, colors = colors)
     cb = plt.colorbar(c, ax=axe[7], shrink = 0.7, fraction=.16, format='% d',
                         ticks=force_lvls[1:-1:2])
     cb.ax.set_position([.92, .09, .07, .13])
     cb.set_label("radial force (pn)")
     ## Fix the limits
     for i in range(4, 8):
-        #axe[i].set_xlim([x_locs[0], x_locs[-1]])
+        axe[i].set_xlim([x_locs[0], x_locs[-1]])
         axe[i].set_ylim([y_locs[0], y_locs[-1]])
         axe[i].set_yticks([26, 30, 34, 38])
+        axe[i].set_xticks([0, 5, 10, 15, 20])
     ## Set the titles and axis labels
     titles = ["a)", "b)", "c)", "d)", "e)", "f)", "g)", "h)"]
     for a in axe:
@@ -181,6 +161,43 @@ def main():
                         top=0.94, bottom=0.08)
     plt.show()
 
+def print_force_properties(force3):
+    """Print force max, min, etc for 4sXB and 2sXB"""
+    print "## Force properties"
+    print "4sXB max/min axial force: ", np.max(force3[1, :, :, 0]), "/", \
+            np.min(force3[1, :, :, 0])
+    print "4sXB max/min radial force: ", np.max(force3[1, :, :, 1]), "/", \
+            np.min(force3[1, :, :, 1])
+    print "2sXB max/min axial force: ", np.max(force3[0, :, :, 0]), "/", \
+            np.min(force3[0, :, :, 0])
+    print "2sXB max/min radial force: ", np.max(force3[0, :, :, 1]), "/", \
+            np.min(force3[0, :, :, 1])
+
+def print_clipped_force_properties(force3, force_limit = 0.5):
+    """Clip low force regions for non-exploding ratios"""
+    cliped_f = np.array([[[[v if abs(v)>force_limit else 1 for v in xb] 
+                        for xb in row] for row in col] 
+                        for col in force3[:, :, :, :]])
+    print "4sXB max radial/axial ratio: ", \
+        np.max(np.divide(cliped_f[1, :, :, 1], cliped_f[1, :, :, 0]))
+    print "4sXB min radial/axial ratio: ", \
+        np.min(np.divide(cliped_f[1, :, :, 1], cliped_f[1, :, :, 0]))    
+    print "2sXB max radial/axial ratio: ", \
+        np.max(np.divide(cliped_f[0, :, :, 1], cliped_f[0, :, :, 0]))
+    print "2sXB min radial/axial ratio: ", \
+        np.min(np.divide(cliped_f[0, :, :, 1], cliped_f[0, :, :, 0]))
+
+def get_chance(r31, r23):
+    """Calculate the likelihood of force being exerted at all locations"""
+    #chance = np.clip( \
+            #    [np.add(np.subtract(1, r31[i]), r23[i]) for i in [0,1]], 0, 1)
+    chance = np.array([np.subtract(r23[i], r31[i]) for i in [0,1]])
+    print "## Chance scales"
+    print "4sXB chance max is ", np.max(chance[0]), 
+    print " and min is ", np.min(chance[0])
+    print "2sXB chance max is ", np.max(chance[1]), 
+    print " and min is ", np.min(chance[1])
+    return chance 
 
 if __name__ == '__main__':
     main()
