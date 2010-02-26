@@ -5,11 +5,10 @@ ToDo
 
 ## Near Term
  - Mike wants the 'energy bean' back, possibly by modifying Fig 2
- - Need to get a parameter table to improve the methods section
-    - This is turning into a lit-cite thing, with much data already in the ParameterGeneration.py file.
- - Color in Fig 4
- - Try to cut off Figure 4 with the energy that it takes to get a crossbridge to a given location, rather than by transition probabilities.
-
+ - Do a lit search of BiophysJ and see if it is not possible to get a table of acronyms and their definitions near the start.
+ - Come up with a term to replace spatially explicit, one that conveys the idea that it is a multiple spring cross-bridge that is sensitive to radial force and lattice spacing, but that it is just one cross-bridge not a chain.
+ - Look up Lu and other radial force papers for citation. 
+    - Write summary of each and the methods used therein.
 
 ## Long Term
  - Read http://www.cs.cmu.edu/~jrs/jrspapers.html is conj grad method better?
