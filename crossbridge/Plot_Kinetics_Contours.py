@@ -34,7 +34,7 @@ def main():
     # Set up to the plot
     fig = plt.figure(1, figsize=(8, 10))
     axe = ([fig.add_subplot(4, 2, g+1) for g in range(4*2)])
-    colors = ('#333388','#2288FF','#77DD55','#FFDD44','#FF7722','#FF4466')
+    colors = ('#4444BB','#2288FF','#77DD55','#FFDD44','#FF7722','#FF4466')
     grey_steps = ('.2', '.25', '.3', '.35', '.4', '.45', '.5', '.55', '.6', '.65', '.7', '.75', '.8')
     RT = 3.97
     ener_lvls = (-100*RT, -1*RT, 1*RT, 3*RT, 5*RT, 100*RT)

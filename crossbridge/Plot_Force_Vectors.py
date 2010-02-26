@@ -110,8 +110,8 @@ def main():
                     coordinates='axes') 
     ## Plot other contours 
     grey_steps = ('.1', '.2', '.3', '.4', '.5', '.6', '.7', '.8')
-    colors = ('#553388','#333388','#2288FF','#77DD55',
-              '#FFDD44','#FF7722','#AA4422','#FF4466','#FF6688' )
+    colors = ('#4444BB','#333388','#2288FF','#77DD55',
+              '#FFDD44','#FF7722','#AA4422', '#FF4466','#FF0000' )
     force_lvls = (-15, -10, -5, 0, 5, 10, 15, 20, 35)
     ## 4sXB axial force
     axe[4].annotate("4sXB axial force", (0.5, 1.05), 
