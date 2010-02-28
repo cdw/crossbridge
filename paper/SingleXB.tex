@@ -262,17 +262,17 @@ This two step system, with diffusion followed by a chance of attachment, is used
 % paragraph binding_rate_calculation (end)
 
 \paragraph{Power stroke and detachment rates} % (fold)
-The power stroke and detachment rates are based on prior models but are here expressed as a dependence on the free energy of the cross-bridge \citep{Pate1989, Tanner2007}.
-Dependence on the cross-bridge free energies, rather than myosin head offset, makes these rates suitable for use by cross-bridges in both one and two-dimensions and agnostic to the number of springs which constitute a given cross-bridge. 
-Both the power stroke rate, $r_{23}$, and the detachment rate, $r_{31}$, are distortion dependent as they depend on the differences in free energy between the current state and the one being considered for transition. 
+The power stroke and detachment rates are evolved from prior models with dependence on cross-bridge head distortion replaced with a dependence on the free energy of the cross-bridge \citep{Pate1989, Tanner2007}.
+These free energy dependent rates are insensitive to the number of springs composing a cross-bridge and function similarly in one- and two-dimensional models. 
+Both the power stroke rate ($r_{23}$) and the detachment rate ($r_{31}$) are distortion dependent as they depend on the differences in free energy between the current state and the one being considered for transition. 
 This means that transitions are more likely when they are energetically favorable and less likely in other circumstances, a natural scheme based in the geometry of the cross-bridges.
-The particular rates are as follows for both the 4sXB and the 2sXB: 
+The particular rates for both the 4sXB and the 2sXB are: 
 $$r_{23}(U_2, U_3) = 100 + 100\tanh(4 + 0.4 (U_2 - U_3)) $$
 $$r_{31}(U_3, U_1) = 20 + 100 \sqrt{U_3 - U_1} $$
 % paragraph unbinding_rate (end)
 
 \paragraph{Calculation of reverse rates} % (fold)
-Reverse transition rates are given by the thermodynamically balancing formula $r_{ij}/r_{ji}=\exp^{U_i-U_j}$ where $r_{ji}$ is the forward rate and $r_{ij}$ is the reverse rate \citep{Pate1989, Daniel1998, Tanner2007}.
+The reverse transition rate from state $i$ to state $j$ is given by the thermodynamically balancing formula $r_{ij}/r_{ji}=\exp^{U_i-U_j}$ where $r_{ji}$ is the forward rate and $r_{ij}$ is the reverse rate \citep{Pate1989, Daniel1998, Tanner2007}.
 For the transition from a weakly bound state to an unbound state this requires that the reverse transition is again treated as a fraction of an ensemble of transition opportunities. 
 % paragraph calculation_of_reverse rates (end)
 % subsection kinetics (end)
