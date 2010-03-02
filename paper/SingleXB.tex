@@ -249,7 +249,7 @@ The free energies of the 2sXB system are:
 \paragraph{Binding rate calculation} % (fold)
 Our binding algorithm follows \citet{Tanner2007} but differs in two key ways: (1) we treat binding to the thin filament as a two step process and (2) our diffusion step works with any number of springs.
 Binding depends on diffusion of the cross-bridge head and proximity to the nearest binding site.
-Analogously, the process we use to simulate binding the diffusion of the myosin head to a new location followed by possible attachment to the nearest binding site (depending on the distance from the head and the binding site).
+Analogously, the process we use to simulate binding has the diffusion of the myosin head to a new location followed by possible attachment to the nearest binding site (depending on the distance from the head and the binding site).
 The diffusion step is simulated by thermally forcing each of a cross-bridge's constituent springs with an energy taken from a Boltzmann distribution \citep{BergBook, HowardBook}.
 This energy is used to calculate the deformation (change in length or angle) of each spring. 
 Generating a diffusion energy and calculating the resulting offset of a spring is implemented as selecting a sample from the probability density function $P(x) = \sqrt{k / (2 \pi kT)} \exp^{-(k x^2)/(2 kT)}$ where $x$ is the offset, $k$ is the spring constant of the particular spring, and $T$ is the system's temperature in Kelvin  \citep{DillBook, HowardBook}. %TODO: Double check this PDF.
@@ -284,29 +284,28 @@ The transition from a weakly bound state to an unbound state requires the revers
 \section*{Results} % (fold)
 
 % Intro paragraph (fold)
-The 4sXB and 2sXB models detailed here were developed to examine consequences of lattice spacing on cross-bridge kinetics and two dimensional force production.
-Multi-spring cross-bridges introduce lattice spacing dependence into force production and kinetics, and account for radial forces not aligned with the direction of contraction. 
-As lattice spacing changes, the kinetics and forces of the 4sXB and 2sXB shift in both magnitude and axial offset.
+The 4sXB and 2sXB models detailed here were developed to examine the consequences of lattice spacing on cross-bridge kinetics and two dimensional force production.
+Multi-spring cross-bridges introduce a lattice spacing dependence into force production and kinetics, and account for radial forces not aligned with the direction of contraction. 
+As lattice spacing changes, the kinetics and forces of the 4sXB and 2sXB shift in both magnitude and axial offset (the distance from where the S2/thick filament join to a property's extreme value or point of inflection).
 % Intro paragraph (end)
 
 \paragraph{At 34 nm $d_{10}$, the multi- and single-spring cross-bridges have similar kinetics and energies} % (fold)
-The characteristics of the multi-spring cross-bridges are similar, at their rest lattice spacing of 34 nm $d_{10}$, to those of the 1sXB\@.
-In Figure~\ref{fig_kinetics_cuts} we compare the free energy, binding rates, power stroke rates and detachment rates of the multi-spring cross-bridges to 1sXB data. 
-This similarity is retained from the common basis of the multi- and single-spring cross-bridges' kinetics \citep{Pate1989}.
+The characteristics of the multi-spring cross-bridges are similar, at their rest lattice spacing of 34 nm $d_{10}$, to those of the 1sXB, as seen in their free energy, binding rates, power stroke rates and detachment rates (Figure~\ref{fig_kinetics_cuts}). 
+These similarities are a consequence of our implementation of kinetics similar to those used by the single-spring cross-bridges \citep{Pate1989}.
 The cross-bridge properties of the 1sXB, 2sXB and 4sXB are shown together in Figure~\ref{fig_kinetics_cuts}, where the 1sXB values used are calculated as in \citet[Fig.~10]{Tanner2007}. 
-Although the properties of the multi- and single-spring cross-bridge models are largely similar, some divergences are seen. 
-The free energies of the multi-spring cross-bridges are the products of springs at different angles and are thus slightly skewed from the symmetric hyperbola of the 1sXB  (Fig.~\ref{fig_kinetics_cuts}A).
+Although at rest lattice spacing the kinetics of the of the multi- and single-spring cross-bridge models are largely similar, some divergences are seen. 
+The free energies of the multi-spring cross-bridges are products of springs alternately sensitive to the angle they make with the thick filament or at an angle to the thick filament; these free energies are thus slightly skewed from the symmetric hyperbola of the 1sXB  (Fig.~\ref{fig_kinetics_cuts}A).
 The two-dimensional diffusion-based binding probability function that governs the multi-spring cross-bridges causes their likely binding areas to occupy a greater range of axial positions than those of the single-spring cross-bridge (Fig.~\ref{fig_kinetics_cuts}B) \citep{BergBook, DillBook}).
 The multi-spring cross-bridges are thus less likely than the 1sXB to bind at a small offset, but more likely than the 1sXB to bind at larger offsets. 
-This flattening and spread of the probability of binding is a consequence of the extra degrees of freedom present in the two-dimensional cross-bridges. 
-The power stroke rates of the multi-spring cross-bridges are essentially those of the single-spring cross-bridge, with energy dependent terms now using the  sum of the free energy of every spring comprising a cross-bridge  (Fig.~\ref{fig_kinetics_cuts}C). 
+This flattening and spread of the probability of binding results from the extra degrees of freedom of motion which the two-dimensional cross-bridges posses. 
+The power stroke rates of the multi-spring cross-bridges are essentially those of the single-spring cross-bridge, with energy dependent terms using the sum of the free energy of every spring comprising a cross-bridge (Fig.~\ref{fig_kinetics_cuts}C). 
 The detachment rate of the 1sXB explicitly relies on cross-bridge position as well as energy; the dependence on position was removed in adapting the detachment rate for the multi-spring cross-bridges. 
 The detachment rate thus loses the intentional asymmetry the position term provided and retains only the asymmetry created by the spring geometries of the 2sXB and 4sXB (Fig.~\ref{fig_kinetics_cuts}D). 
-Thus the detachment rate, like the other cross-bridge properties, maintains the greatest similarity to the 1sXB consistent with the proposed changes: embedding the cross-bridge in multiple dimensions and the transition to generalized kinetics based on cross-bridge free energy. 
+Hence the detachment rate, like the other cross-bridge properties, maintains the greatest similarity to the 1sXB consistent with the proposed changes: embedding the cross-bridge in multiple dimensions and the transition to generalized kinetics based on cross-bridge free energy. 
 % paragraph (end)
 
 \paragraph{Axial offset of most cross-bridge properties decrease as lattice spacing increases} % (fold)
-The axial offset of most energies and kinetics of the 4sXB and 2sXB decreases as lattice spacing grows larger.
+As lattice spacing grows larger, the axial offsets of the most of the multi-spring cross-bridges' kinetics and free energies grows smaller.
 The axial offset of a cross-bridge property is the distance from the thick filament attachment site to the property's extreme value or point of inflection at a given lattice spacing. 
 An example of this change in axial offset is visible in Figures~\ref{fig_kinetics_contours}A-B where the lowest energy point the 4sXB or the 2sXB may reach at a lattice spacing of 32 nm $d_{10}$ is more than 3 nm further from the cross-bridge's thick filament attachment point than the lowest energy point reachable at a lattice spacing of 38 nm $d_{10}$.
 This relationship between axial offset and lattice spacing changes the behavior of a cross-bridge as lattice spacing grows or shrinks.
