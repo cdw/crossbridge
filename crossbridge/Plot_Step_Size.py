@@ -10,7 +10,6 @@ import Storage
 import numpy as np
 from scipy import signal as sig
 import matplotlib.pyplot as plt
-#import pylab
 
 def main():
     """Will calculate and plot step size versus lattice spacing"""
