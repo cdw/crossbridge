@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
+
 <svg
    xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -14,12 +15,19 @@
    height="405"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.46"
+   inkscape:version="0.47 r22583"
    version="1.0"
    sodipodi:docname="Figure1.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 202.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="270 : 202.5 : 1"
+       inkscape:persp3d-origin="135 : 135 : 1"
+       id="perspective365" />
     <clipPath
        id="p368acd63582d3fa8070a2285864b5837">
       <rect
@@ -243,13 +251,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image5333"
-         x="87.962837"
+         style="display:inline"
          y="92.601791"
-         style="display:inline" />
+         x="87.962837"
+         id="image5333"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          id="path2780"
          d="M 49.217415,122.74976 L 19.172418,111.76947"
@@ -261,13 +269,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image3562"
-         x="170.18552"
+         style="display:inline"
          y="61.797951"
-         style="display:inline" />
+         x="170.18552"
+         id="image3562"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          inkscape:label="#path3564"
          id="2sXB_S2"
@@ -280,13 +288,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image3568"
-         x="252.40819"
+         style="display:inline"
          y="30.994123"
-         style="display:inline" />
+         x="252.40819"
+         id="image3568"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          inkscape:label="#path3570"
          id="4sXB_S2"
@@ -1909,14 +1917,14 @@
      style="display:inline">
     <text
        xml:space="preserve"
-       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
        x="8"
        y="17"
        id="text6062"><tspan
          sodipodi:role="line"
          id="tspan6064"
          x="8"
-         y="17">a)</tspan></text>
+         y="17">A)</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -1926,7 +1934,7 @@
          sodipodi:role="line"
          id="tspan6068"
          x="7.5847692"
-         y="90.053787">b)</tspan></text>
+         y="90.053787">B)</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -1936,7 +1944,7 @@
          sodipodi:role="line"
          id="tspan6072"
          x="8.1331482"
-         y="206.05379">c)</tspan></text>
+         y="206.05379">C)</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:14px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -1946,7 +1954,7 @@
          sodipodi:role="line"
          id="tspan6076"
          x="7.3339233"
-         y="306.05377">d)</tspan></text>
+         y="306.05377">D)</tspan></text>
   </g>
   <g
      transform="matrix(1.25,0,0,1.25,111.07858,-283.31279)"
