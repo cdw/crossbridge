@@ -7,12 +7,7 @@ ToDo
  - Design a figure that explores the changes in force and kinetics as a given parameter, e.g. S2 length, is changed. The purpose of this is to snag some ammo to use against worries that the model is overly dependent on parameter choice. On second thought, it might be best to limit the properties explored to force, obviating the need for the multiple long runs that it would take to put together the binding rate figure for multiple parameter values.
  - Mike wants the 'energy bean' back, possibly by modifying Fig 2
 ### Tom Comments 
- - Do a run through looking at prior article referencing, meaning clarify what "this" or "that" is referring to, be assiduous.
- - Look for micro-edits that can sure (shore?) up a section.
- - Check symbol consistency and first definitions. 
  - Make a symbol table for referencing, or at least for an appendix.
- - Remove ibids
- - Brainstorm a replacement for the "spatially-explicit" keyword. Use the lab for this as well. What is wanted is something that will indicate the nature of the cross-bridges that we are using, that they are sensitive to radial forces and lattice spacing and use multiple springs, but that they aren't a model which incorporates multiple cross-bridges.
 
 ## Long Term
  - Read http://www.cs.cmu.edu/~jrs/jrspapers.html is conj grad method better?
