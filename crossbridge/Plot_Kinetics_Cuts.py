@@ -47,6 +47,7 @@ def bert_data(kinetic_prop, x_locs):
     #   Convert[(MolarGasConstant * 288 Kelvin * AvogadroConstant^-1)
     #       /(Nano Meter)^2, (Pico Newton)/(Nano Meter)]
     xb_0 =13.55 # adjusted from sqrt(eta * DeltaG / k_xb) to match moderns
+    xb_1 =5 # adjusted from sqrt(eta * DeltaG / k_xb) to match moderns
     ## Create functions for free energy in a given location and state:
     g_1 = lambda x: 0 * x
     g_2 = lambda x: alpha * -DeltaG + k_xb * (x - xb_0)**2
@@ -63,7 +64,10 @@ def bert_data(kinetic_prop, x_locs):
     ## r_forward(x)/r_backward(x) = exp(G_next(x) - G_prev(x))
     r_21 = lambda x: r_12(x) / exp(g_1(x) - g_2(x))
     r_32 = lambda x: r_23(x) / exp(g_2(x) - g_3(x))
-    r_13 = lambda x: 0 * x # See Tanner, 2007 Pg 1209 for justification
+    r_13 = lambda x: 0 * x # See Tanner, 2007 Pg 1209 for justification]
+    ## Create functions to return the force generated
+    af = lambda x: np.abs(- k_xb * (xb_1 - x))
+    rf = lambda x: x * 0
     ## Create the data
     #x_locs = np.arange(-5, 15, .1)
     if kinetic_prop == "energy_1":
@@ -84,6 +88,10 @@ def bert_data(kinetic_prop, x_locs):
         return r_31(x_locs) # Forward rate 31
     elif kinetic_prop == "rates_13":
         return r_13(x_locs) # Reverse rate 13
+    elif kinetic_prop == "axial_force":
+        return af(x_locs)    # Axial force
+    elif kinetic_prop == "radial_force":
+        return rf(x_locs)    # Radial force
     else:
         raise Usage("Unhandled crossbridge property")
 
@@ -95,6 +103,7 @@ def main():
     r12 = [np.multiply(s.get("r12"), 1000) for s in store]
     r23 = [np.multiply(s.get("r23"), 1000) for s in store]
     r31 = [np.multiply(s.get("r31"), 1000) for s in store]
+    force3 = np.array([s.get("force3") for s in store])
     # Parse out rest lattice spacing related values
     # This is a todo
     # Load and process x/y related values
@@ -109,8 +118,8 @@ def main():
     #cut_locs = np.searchsorted(y_locs, (36, 37, 38))
     cut_locs = np.searchsorted(y_locs, (31, 34, 37))
     ## Set up
-    fig = plt.figure(1, figsize=(8, 6))
-    axe = ([fig.add_subplot(2, 2, g+1) for g in range(2*2)])
+    fig = plt.figure(1, figsize=(8, 10))
+    axe = ([fig.add_subplot(3, 2, g+1) for g in range(3*2)])
     colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
     lnwdth=2 # width of plot lines in points
     ## Plot free energy and transition rates
@@ -150,8 +159,28 @@ def main():
     axe[3].plot(x_locs, r31[1][cut_locs[1]], color=colors[2], lw=lnwdth)
     axe[3].set_title("D", x=-0.20, y=1.04, weight="demi")
     axe[3].set_ylabel("Detachment Rate (s$^{-1}$)")
-    # Add lables and limits
-    for a in axe[1:]:
+    # Axial force
+    axe[4].plot(x_locs, bert_data("axial_force", x_locs), color=colors[0],
+                lw=lnwdth)
+    axe[4].plot(x_locs, force3[0, cut_locs[1], :, 0], color=colors[1], lw=lnwdth)
+    axe[4].plot(x_locs, force3[1, cut_locs[1], :, 0], color=colors[2], lw=lnwdth)
+    axe[4].set_title("E", x=-0.20, y=1.04, weight="demi")
+    axe[4].set_ylabel("Axial Force (pN)")
+    axe[4].set_xlabel("Binding site offset (nm)")
+    axe[4].set_ylim((-5,20))
+    axe[4].set_yticks(np.arange(-5, 21, 5))
+    # Radial force
+    axe[5].plot(x_locs, bert_data("radial_force", x_locs), color=colors[0],
+                lw=lnwdth)
+    axe[5].plot(x_locs, force3[0, cut_locs[1], :, 1], color=colors[1], lw=lnwdth)
+    axe[5].plot(x_locs, force3[1, cut_locs[1], :, 1], color=colors[2], lw=lnwdth)
+    axe[5].set_title("F", x=-0.20, y=1.04, weight="demi")
+    axe[5].set_ylabel("Radial Force (pN)")
+    axe[5].set_xlabel("Binding site offset (nm)")
+    axe[5].set_ylim((-5,15))
+    axe[5].set_yticks(np.arange(-5, 16, 5))
+   # Add labels and limits
+    for a in axe[1:4]:
         a.set_xlabel("Binding site offset (nm)")
         a.set_ylim((-.1, 1000.1))
         a.set_yticks((0, 200, 400, 600, 800, 1000))
