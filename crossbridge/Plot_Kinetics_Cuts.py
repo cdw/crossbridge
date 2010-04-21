@@ -66,7 +66,7 @@ def bert_data(kinetic_prop, x_locs):
     r_32 = lambda x: r_23(x) / exp(g_2(x) - g_3(x))
     r_13 = lambda x: 0 * x # See Tanner, 2007 Pg 1209 for justification]
     ## Create functions to return the force generated
-    af = lambda x: np.abs(- k_xb * (xb_1 - x))
+    af = lambda x: - k_xb * (xb_1 - x)
     rf = lambda x: x * 0
     ## Create the data
     #x_locs = np.arange(-5, 15, .1)
