@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-
 <svg
    xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/"
    xmlns:dc="http://purl.org/dc/elements/1.1/"
@@ -15,12 +14,19 @@
    height="405"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.47 r22583"
+   inkscape:version="0.46"
    version="1.0"
    sodipodi:docname="Figure1.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape">
   <defs
      id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 202.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="270 : 202.5 : 1"
+       inkscape:persp3d-origin="135 : 135 : 1"
+       id="perspective3170" />
     <linearGradient
        id="linearGradient15615">
       <stop
@@ -180,17 +186,17 @@
      objecttolerance="10"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.4142136"
-     inkscape:cx="184.3178"
-     inkscape:cy="243.46368"
+     inkscape:zoom="2.0000001"
+     inkscape:cx="128.81043"
+     inkscape:cy="151.99302"
      inkscape:document-units="px"
-     inkscape:current-layer="layer7"
+     inkscape:current-layer="g5292"
      showgrid="false"
      units="in"
      inkscape:window-width="1022"
      inkscape:window-height="752"
-     inkscape:window-x="243"
-     inkscape:window-y="1122"
+     inkscape:window-x="0"
+     inkscape:window-y="14"
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-maximized="0">
@@ -211,7 +217,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -801,13 +807,13 @@
          sodipodi:linespacing="125%"
          id="text4171"
          y="198.44383"
-         x="130.92108"
+         x="129.80495"
          style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;display:inline;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
          xml:space="preserve"><tspan
            y="198.44383"
-           x="130.92108"
+           x="129.80495"
            sodipodi:role="line"
-           id="tspan4193">Low                  High</tspan></text>
+           id="tspan4193">-RT                       RT</tspan></text>
       <text
          xml:space="preserve"
          style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
