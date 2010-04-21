@@ -62,7 +62,7 @@ ENTRY
     journal
     key
     month
-    %note
+    note
     number
     organization
     pages
@@ -71,7 +71,7 @@ ENTRY
     series
     title
     type
-    %url
+    url
     volume
     year
   }
