@@ -174,6 +174,7 @@ Here we detail two models of cross-bridges that use multiple springs to replicat
 Both are affected by changes in lattice spacing and account for the radial component of force produced during the power stroke.  
 The first model (referred to as the 4sXB model) simulates the cross-bridge as a system of four linearly elastic springs arranged in a geometry based upon the structure of the S1 and S2 regions of myosin II (Fig.~\ref{fig_xb_types}D).  
 Our second model (referred to as the 2sXB model) consists of two linearly elastic springs and provides greater computational efficiency than the 4sXB model while replicating many of the more complex model's behaviors (Fig.~\ref{fig_xb_types}C). 
+The structure of the 2sXB model owes a debt to \citet{Schoenberg1980a} and \citet{Schoenberg1980b} which contain a proposal and analysis a two spring cross-bridge where the S2 arm is represented as a linear spring and the S2-S1 junction area is represented as a torsional spring. 
 Both the 4sXB model and the 2sXB model use a three-state model of the cross-bridge cycle's kinetics, consisting of an unbound state, a low-force pre-power stroke state, and a force-producing post-power stroke state. 
 The kinetics of transition from one state to another in our models are similar to those used previously but are generalized for use in two dimensions; our kinetics calculate transition probabilities using the free energy landscape of the cross-bridges instead of the offset of the cross-bridge head (Fig.~\ref{fig_xb_types}A) \citep{Pate1989, Daniel1998, Takagi2004, Tanner2007}. 
 We quantify both axial and the radial forces produced by our two cross-bridge models. 
@@ -284,6 +285,7 @@ How this decreasing number of bound, force generating, cross-bridges translates 
 \paragraph{Multi-spring cross-bridge step size varies with lattice spacing} % (fold)
 The geometry of the 4sXB and 2sXB models dictates that a change in step size must accompany a change in lattice spacing. 
 The distance subtended by a given angle will grow as the length of the sides of the angle increase. 
+Step size of the 4sXB and 2sXB is given by the axial distance between a myosin head's pre- and post-power stroke positions with the head held at a fixed lattice spacing. 
 Step size changes with lattice spacing because the difference between the pre-power stroke and the post-power stroke cross-bridge angle does not vary with changes in lattice spacing while the change in the length of the lever arm does. 
 This phenomenon is more pronounced in the 2sXB model, which lacks a second set of springs that partially compensate for lattice spacing changes, placing the full burden of bridging the thick and thin filaments on the lever-arm (Fig.~\ref{fig_step_size}). 
 The 4sXB model possesses a set of springs between the lever-arm and the thick filament that also adjust with lattice spacing, allowing the location of the 4sXB model's lever-arm pivot point to change with lattice spacing and causing the 4sXB model's step size to depend less strongly on the magnitude of changes in lattice spacing (Fig.~\ref{fig_step_size}).  
@@ -332,25 +334,31 @@ To enable comparison with previous cross-bridge models, we implement a one-dimen
 This one-dimensional model uses a linearly elastic spring oriented parallel to the long axis of the thick filament (1sXB, Fig.~\ref{fig_xb_types}B).  
 The resulting cross-bridge forces are restricted to the direction of shortening, that is, axially oriented. 
 The one-dimensional 1sXB model cannot yield radial forces.
-Moreover, this model's geometry is unable to account for kinetics or forces which depend on lattice spacing. 
-This comparison model is identical to those used in recent spatially-explicit computational analyses \citep{Daniel1998, Chase2004, Tanner2007}. 
+Moreover, this model's geometry is unable to account for changes in kinetics or forces at varying lattice spacing. 
+This reference model is identical to those used in recent spatially-explicit computational analyses \citep{Daniel1998, Chase2004, Tanner2007}. 
 
 The 4sXB model uses two linear and two torsional springs to represent the myosin head (Fig.~\ref{fig_xb_types}D).
 This arrangement of four springs corresponds closely to regions of the cross-bridge believed to regulate and respond to strain or deformation \citep{Houdusse2001}.
-In particular, the four springs correspond to the point where the S2 region attaches to the rod, or $\alpha$; the S2 region, or $\beta$; the point where the S2 region attaches to the light chain domain (LCD), or $\delta$; and the LCD, or $\gamma$ (Fig.~\ref{fig_xb_types}D).
-Initial values and their sources are detailed in Table~\ref{parameter_table}. 
-The torsional spring $\delta$ is able to generate the force of the power stroke by a change in its rest angle, mimicking myosin's force generation by lever-arm \citep{Houdusse2000, Houdusse2001}. 
-Since the angle at which the head attaches to actin remains unchanged in our model, the torque generated at the converter region can be accounted for with a torsional spring on the end of LCD linear spring closer to the thick filament attachment point \citep{Houdusse2000}. 
-By using a two-dimensional array of springs the 4sXB model allows us to compute radial forces and other cross-bridge properties that are not present in the 1sXB's one-dimensional space. 
-To simulate the power stroke, the rest angle of the torsional spring linking the S2 domain and the LCD increases during the transition from a pre-power stroke to a post-power stroke state.
-This method of force generation acts in two dimensions and thus allows us to include the role lattice spacing plays in determining the forces and state transition rates of the cross-bridges. 
+In particular, the four springs correspond to the point where the S2 region attaches to the rod, the S2 region, the point where the S2 region attaches to the light chain domain (LCD), and the LCD.
+These points are labeled $\alpha$, $\beta$, $\delta$, and $\gamma$, respectively (Fig.~\ref{fig_xb_types}D).
+Rest values, stiffnesses, and their sources are detailed in Table~\ref{parameter_table}. 
 
-The 2sXB model is a simplification of the 4sXB model and uses one linear spring ($\rho$); and one torsional spring ($\theta$) to represent the myosin head (Fig.~\ref{fig_xb_types}C). 
-In the 2sXB model, there is still a lever arm mechanism generating force.  
-Moreover, we adjusted the length of the 2sXB model's lever arm so that the distance from the thick filament to the tip of the cross-bridge is identical to the same measurement in the 4sXB model.
-The parameters characterizing the 2sXB model are chosen to match the step size, tip location and kinetics of the 4sXB model. 
-Step size is the axial distance between a myosin head's pre- and post-power stroke positions when the head is not permitted to move in the radial direction, the distance by which the powerstroke changes the effective rest length of the cross-bridge. 
-The result is computationally simpler than the 4sXB model, while retaining the 4sXB's two-dimensional behavior.
+The rest angle of $\delta$ decreases to simulate the transition from a pre-power stroke to a post-power stroke state.
+This method of force generation acts in two dimensions and thus allows lattice spacing to influence forces and state transition rates. 
+In the 4sXB, a change in the rest angle of $\delta$ mimics myosin's lever-arm mechanism of force generation \citep{Houdusse2000, Houdusse2001}. 
+As the linear spring $\gamma$ does not bend and the angle at which the globular domain attaches to actin remains unchanged, applying torque at one end of $\gamma$ is equivalent to applying the opposite torque at the opposite end.
+Thus a change in the rest angle of $\delta$ produces a torque equivalent to that which the converter domain applies to the LCD during the power stroke.
+
+The 2sXB model is a simplification of the 4sXB model, using one linear spring ($\rho$) and one torsional spring ($\theta$) to represent the myosin head (Fig.~\ref{fig_xb_types}C).
+The 2sXB treats the power stroke as a change in the rest angle of $\theta$; like the 4sXB, the 2sXB generates force by applying torque to a lever arm.
+The parameters of the 2sXB are set so that the pre- and post-power stroke tip location and kinetics of the 2sXB match those of the 4sXB model. 
+In addition to the change in the rest angle of $\theta$ during the power stroke, we adjust the length of $\rho$ so that the base-to-tip distance of the 2sXB in both the pre- and post-power stroke states is equal to the same measurement in the 4sXB model.
+The result is computationally simpler than the 4sXB model, but retains the 4sXB's two-dimensional behavior.
+
+This 2sXB is contrasted to the alternative geometry used in \citet{Schoenberg1980a} and \citet{Schoenberg1980b}, where an extensional spring representing the S2 domain is joined, via a torsional spring, to a rigid rod representing the S1 domain.
+The use of this alternative geometry requires the position of the torsional spring linking the S1 and S2 domains be found through iterative solution methods whenever the cross-bridge tip position changes. 
+This use of iterative solution methods is similar to that required by our 4sXB and imposes similarly large computational requirements when incorporated into larger spatially explicit models. 
+Additionally, this alternative geometry restrains the cross-bridge tip to an area within one S1 length of the line in which the S2 segment is set.
 
 Parameters used in both cross-bridge models are derived, where possible, from existing experimental data, described below.  
 Each linear spring (one in the 1sXB model, two in the 4sXB model and one in the 2sXB model) has a rest length and a spring constant, while each torsional spring (two in the 4sXB model and one in the 2sXB model) has a rest angle and a spring constant. 
@@ -515,7 +523,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
         (C) The 2sXB which uses a torsional/angular spring ($\theta$) and a linear spring ($\rho$). 
         (D) The 4sXB with two torsional and two linear springs.
         Of the 4sXB's springs, $\alpha$ corresponds to the point at which the S2 region rejoins the thick filament backbone, $\beta$ to the S2 region itself, $\delta$ to the area linking the S2 and the light chain domains, and $\gamma$ to the light chain domain itself.
-        It is $\delta$ that replicates the change in angle accompanying the powerstroke.
+        It is $\delta$ that replicates the change in angle accompanying the power stroke.
         \label{fig_xb_types}
         }
     \end{center}
