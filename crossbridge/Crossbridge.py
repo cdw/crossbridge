@@ -153,7 +153,7 @@ class Crossbridge:
                 }
             }
         self.config = config
-        # Define inital spring values
+        # Define initial spring values
         self.t = Spring(self.config['T'])
         self.n = Spring(self.config['N'])
         self.c = Spring(self.config['C'])
@@ -195,7 +195,7 @@ class Crossbridge:
         
     
     def force(self, h_loc, state):
-        """From the head loc, get the for vector being exerted by the XB"""
+        """From the head loc, the force vector being exerted by the XB"""
         (energy, conv_loc) = self.minimize_energy(h_loc, state)
         (t_ang, n_len, c_ang, g_len) = self.seg_values(conv_loc, h_loc)
         del(energy, t_ang, n_len) # Not needed
