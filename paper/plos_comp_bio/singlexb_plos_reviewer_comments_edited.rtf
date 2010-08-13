@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
 {\colortbl;\red255\green255\blue255;\red33\green65\blue155;}
-\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\margl1440\margr1440\vieww10940\viewh17120\viewkind0
 \deftab720
 \pard\pardeftab720\ql\qnatural
 
@@ -47,7 +47,9 @@ Ruth Nussinov \
 Deputy Editor-in-Chief \
 PLoS Computational Biology \
 \
------------------------------------------------------------------------- \
+\pard\pardeftab720\ql\qnatural
+
+\b \cf0 ------------------------------------------------------------------------ \
 \
 Reviewer #1 (Remarks for the Author): \
 \
@@ -56,13 +58,23 @@ Cross-bridge models have for many years become more complex by increasing the nu
 \
 Major concerns \
 \
-The manuscript is missing any discussion of how the model kinetics have been adapted for cardiac myosin, and what cardiac myosin (human or small rodent, alpha- or beta-MHC isoform) is the target. What parameters in the model would be altered to allow simulations of these various myosins, primarily compliance or kinetics, or is it necessary for both to co-vary? It would seem appropriate to briefly consider in discussion the possibility that disease-related mutations in cardiac myosin might have their major effects through changes in cross-bridge compliance. For example, see two papers from Kraft and colleagues (K\'f6hler, J., G. Winkler, I. Schulte, T. Scholz, W. McKenna, B. Brenner, and T. Kraft. 2002. Mutation of the myosin converter domain alters cross-bridge elasticity. Proc. Natl. Acad. Sci. USA 99:3557-3562; Seebohm, B., F. Matinmehr, J. K\'f6hler, A. Francino, F. Navarro-Lopez, A. Perrot, C. Ozcelik, W. J. McKenna, B. Brenner, and T. Kraft. 2009. Cardiomyopathy\
+The manuscript is missing any discussion of how the model kinetics have been adapted for cardiac myosin, and what cardiac myosin (human or small rodent, alpha- or beta-MHC isoform) is the target. \
+
+\b0 TODO: Get refs organized by source isoform
+\b \
+What parameters in the model would be altered to allow simulations of these various myosins, primarily compliance or kinetics, or is it necessary for both to co-vary? \
+\
+It would seem appropriate to briefly consider in discussion the possibility that disease-related mutations in cardiac myosin might have their major effects through changes in cross-bridge compliance. For example, see two papers from Kraft and colleagues (K\'f6hler, J., G. Winkler, I. Schulte, T. Scholz, W. McKenna, B. Brenner, and T. Kraft. 2002. Mutation of the myosin converter domain alters cross-bridge elasticity. Proc. Natl. Acad. Sci. USA 99:3557-3562; Seebohm, B., F. Matinmehr, J. K\'f6hler, A. Francino, F. Navarro-Lopez, A. Perrot, C. Ozcelik, W. J. McKenna, B. Brenner, and T. Kraft. 2009. Cardiomyopathy\
 mutations reveal variable region of myosin converter as major element of cross-bridge compliance. Biophys. J. 97:806-824). Thin filament mutant's effects on compliance might also be important in the broader model, but that is beyond the scope of the current manuscript. The model may ultimately provide important insight into cardiac disease mechanisms. \
 \
 What are the implications for shortening velocity when the new models are missing the asymmetric cross-bridge detachment rate that were built into the 1sXB model? Williams' approach that avoids discontinuous functions is certainly more appealing, but is it as successful as Huxley's at explaining such a wide variety of physiological phenomena? \
 \
 Williams introduces arbitrary "efficiency factors" for the free energy of the attached states (page 10). What is the sensitivity of the model to the values used? \
-\
+
+\b0 The efficiency factors used on page 10 are from the work of Pate and Cooke (1989) and other muscle modelers such as Tanner et al. (2007). This was cited in an unclear fashion that we've attempted to improve. \
+TODO: Create figure of changes in transition rates with changes in efficiency factors?\
+
+\b \
 \
 Minor concerns \
 \
@@ -166,7 +178,8 @@ Minor Comments \
 9. Bottom of page 10: There are some critical typographical errors in formulae for P(x) (I'm fairly certain that 'k' appears when 'R' was meant in two of the terms) and p_12(d) (a minus sign is missing in front of d in the exponent). \
 \
 10. The value of tau is discussed, but not listed. \
-\
+
+\b0 \
 \
 \
 \

@@ -176,7 +176,7 @@ Here we detail two models of cross-bridges that use multiple springs to replicat
 Both models are affected by changes in lattice spacing as well as axial offset from binding sites along the thin filament, and both account for the radial component of force produced during the power stroke.  
 The first model (referred to as the 4sXB model) simulates the cross-bridge as a system of four linearly elastic springs arranged in a geometry based upon the structure of the S1 and S2 regions of myosin II (Fig~\ref{fig_xb_types}C).  
 Our second model (referred to as the 2sXB model) consists of two linearly elastic springs and provides greater computational efficiency than the 4sXB model while replicating many of the more complex model's behaviors (Fig~\ref{fig_xb_types}B). 
-The structure of the 2sXB model owes a debt to Schoenberg (1980a, 1980b) (\citep{Schoenberg1980a} and \citep{Schoenberg1980b}) which contain a proposal and analysis of a two spring cross-bridge where the S2 arm is represented as a linear spring and the S2-S1 junction is represented as a torsional spring. 
+The structure of the 2sXB model owes a debt to Schoenberg (1980) (\citep{Schoenberg1980a} and \citep{Schoenberg1980b}) which contain a proposal and analysis of a two spring cross-bridge where the S2 arm is represented as a linear spring and the S2-S1 junction is represented as a torsional spring. 
 Both the 4sXB model and the 2sXB model use a three-state model of cross-bridge cycling kinetics, consisting of an unbound state, a low-force pre-power stroke state, and a force-producing post-power stroke state. 
 The kinetics of transition from one state to another in our models are similar to those used previously but are generalized for use in two dimensions; our kinetics calculate transition probabilities using the free energy landscape of the cross-bridges instead of the offset of the cross-bridge head (Fig~\ref{fig_xb_types}D) \citep{Pate1989, Daniel1998, Takagi2004, Tanner2007}. 
 We compare the 4sXB and 2sXB models to a single spring model of the cross-bridge (referred to as the 1sXB model), similar to those used previously. 
@@ -434,9 +434,9 @@ This probability is tested against a random number from a uniform distribution t
 \paragraph{Free energy in each state} % (fold)
 The total free energy liberated by the hydrolysis of the gamma P$_i$ of ATP and available to the myosin head over the course of a cross-bridge cycle ($\Delta G$) depends on both the standard free energy of ATP hydrolysis ($\Delta G_{0,ATP}$) and the concentrations of $ATP$, $ADP$ and $P_i$. 
 The free energy available to the cross-bridge over its cycle is given by $\Delta G = -\Delta G_{0,ATP} - \ln \frac{[ATP]}{[ADP] [P_i]}$. 
-Only a portion of the liberated free energy is available to the cross-bridge in a given state \citep{Pate1989, Tanner2007}.
-The limits on the amount of $\Delta G$ that can be used for mechanical work are included in the free energy of each state as an efficiency factor.
-The weakly bound state's efficiency is 28\%, accounted for with $\alpha_e=0.28$, and the strongly bound state's efficiency is 68\%, accounted for with $\eta_e=0.68$. 
+Only a portion of the liberated free energy is available to the cross-bridge in a given state.
+The limits on available $\Delta G$ are included in the free energy of each state as an efficiency factor as in Tanner et al.~(2007) \citep{Pate1989, Tanner2007} .
+The weakly bound state's efficiency is 28\%, represented with $\alpha_e=0.28$, and the strongly bound state's efficiency is 68\%, represented with $\eta_e=0.68$. 
 The free energy of a cross-bridge in each state also depends on the strain the cross-bridge experiences from distortion upon binding.
 Thus the free energy of the cross-bridge in state $i$ ($U_i$) is a linear combination of the strain-dependent and phosphate-dependent energy of the cross-bridge.
 The free energies of the 4sXB system are: 
@@ -513,7 +513,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
 
 \begin{figure}[!ht]
     \begin{center}
-    %\includegraphics[width=3.1in]{../imgs/Figure1.pdf}
+    %\includegraphics[width=3.1in]{../imgs/fig_xb_types.pdf}
     \caption{ \textbf{Cross-bridge types and kinetic scheme.} 
         (A)--(C) The three cross-bridge models, plotted against a myosin crystal structure for comparison (structure image generated from Gourinath et al.~(2003) \protect\citep{Gourinath2003} with PyMol \protect\citep{pymol}).
         The energy landscape of each cross-bridge and the free energy at rest lattice spacing are shown adjacent to the cross-bridge schematic.
@@ -534,7 +534,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
-    %\includegraphics[width=3.25in]{../imgs/Figure3.pdf}
+    %\includegraphics[width=3.25in]{../imgs/fig_kinetics_cuts.pdf}
     \caption{ \textbf{Forces, energy, and kinetics of the 1sXB, 2sXB, and 4sXB models at resting lattice spacing.}
         (A)--(F) show the energy, transition rates, and forces of the 1sXB model (black), 2sXB model (green), and 4sXB model (red) at resting lattice spacing.  
         The 1sXB model values shown for comparison are derived from those of Daniel et al.~(1998) and Tanner et al.~(2007), \protect\citep{Daniel1998, Tanner2007}, shifted axially so the resting location of the cross-bridge head in each case is aligned with the resting locations of the 2sXB model and 4sXB model allowing easier comparison. 
@@ -551,7 +551,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
-    %\includegraphics[width=3.25in]{../imgs/Figure2.pdf}
+    %\includegraphics[width=3.25in]{../imgs/fig_kinetics_contours.pdf}
     \caption{ \textbf{Energy and kinetics of the multi-spring cross-bridge models change with axial offset and lattice spacing.} 
         Axial offset is the distance between the current axial location of the cross-bridge tip and the location where the cross-bridge attaches to the thick filament.  
         Lattice spacing ($d_{10}$) is defined as in Millman (1998) \protect\citep{Millman1998}, with an offset to account for filament thicknesses so the cross-bridge spans the filaments at a rest lattice spacing of 34 nm. 
@@ -570,7 +570,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
-    %\includegraphics[width=3.25in]{../imgs/Figure4.pdf}
+    %\includegraphics[width=3.25in]{../imgs/fig_forces.pdf}
     \caption{ \textbf{Overview and detail of the forces exerted by the 2sXB and 4sXB\@ models.}
         (A)--(D) show the forces exerted by the 4sXB and the 2sXB models; omitted are vectors for unlikely configurations as determined by the sum of $r_{23}$ and the inverse of $r_{31}$. 
         (A) and (B) show overviews of the forces exerted, respectively, by the 4sXB model and the 2sXB model over lattice spacings and axial offsets that vary as in Figure 2. 
@@ -584,7 +584,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
-    %\includegraphics[width=8.3cm]{../imgs/FigureS3.pdf}
+    %\includegraphics[width=8.3cm]{../imgs/fig_force_contours.pdf}
     \caption{ \textbf{Axial and radial forces as separate components.}
         (A)--(D) show, separated, the axial and radial components of the forces produced by the 4sXB and the 2sXB models.
         \label{fig_force_contours}
@@ -595,7 +595,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
-    %\includegraphics[width=8.3cm]{../imgs/FigureS1.pdf}
+    %\includegraphics[width=8.3cm]{../imgs/fig_step_size.pdf}
     \caption{ \textbf{Changes in step size with lattice spacing.}
         Step size varies as lattice spacing diverges from its rest value.
         Step size is defined as the change in the rest axial offset between the pre- and post-power stroke states. 
@@ -608,7 +608,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
-    %\includegraphics[width=8.3cm]{../imgs/FigureS2.pdf}
+    %\includegraphics[width=8.3cm]{../imgs/fig_power_stroke_changes.pdf}
     \caption{ \textbf{Changes in cross-bridge resting geometry with the power stroke.}
         (A)--(C) show, schematically, the change in the rest lengths and angles of the single and multi-spring cross-bridges. 
         The rest length and angle of the 2sXB's extensional and torsional springs are set, in both the pre- and post-power stroke states so as to match the tip position of the 2sXB in each condition to that of the 4sXB (in Table~\ref{parameter_table}).
