@@ -15,7 +15,7 @@
    id="svg2"
    version="1.0"
    inkscape:version="0.47 r22583"
-   sodipodi:docname="FigureS3.svg"
+   sodipodi:docname="fig_force_contours.svg"
    sodipodi:version="0.32"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    style="display:inline">
@@ -26,16 +26,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="5.1810618"
+     inkscape:zoom="4.2079788"
      inkscape:cx="153.86014"
-     inkscape:cy="23.328241"
+     inkscape:cy="92.232947"
      inkscape:document-units="px"
      inkscape:current-layer="layer14"
      showgrid="true"
      units="cm"
      gridtolerance="10"
-     inkscape:window-width="1438"
-     inkscape:window-height="860"
+     inkscape:window-width="1662"
+     inkscape:window-height="1014"
      inkscape:window-x="0"
      inkscape:window-y="16"
      inkscape:window-maximized="0"
@@ -404,7 +404,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
         <dc:creator>
           <cc:Agent>
             <dc:title>C Dave Williams</dc:title>
@@ -1391,6 +1391,42 @@
          transform="translate(0,-97.056252)"
          width="294.09448"
          height="187.79527" />
+      <rect
+         style="fill:#ffffff;stroke:none"
+         id="rect3104"
+         width="63.307487"
+         height="8.2994566"
+         x="44.199432"
+         y="3132.8799" />
+      <rect
+         y="3132.8799"
+         x="184.19943"
+         height="8.2994566"
+         width="63.307487"
+         id="rect3106"
+         style="fill:#ffffff;stroke:none" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="rect3108"
+         width="12.35268"
+         height="36.479008"
+         x="141.28378"
+         y="23.929249"
+         transform="translate(0,3052.2055)" />
+      <rect
+         y="3078.1348"
+         x="141.28378"
+         height="36.479008"
+         width="12.35268"
+         id="rect3110"
+         style="fill:#ffffff;fill-opacity:1;stroke:none" />
+      <rect
+         style="fill:#ffffff;fill-opacity:1;stroke:none"
+         id="rect3112"
+         width="12.35268"
+         height="36.479008"
+         x="141.28378"
+         y="3178.1348" />
     </g>
   </g>
 </svg>

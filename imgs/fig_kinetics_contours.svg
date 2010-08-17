@@ -16,7 +16,7 @@
    width="294.09448"
    height="361.41733"
    xml:space="preserve"
-   sodipodi:docname="Figure2.svg"
+   sodipodi:docname="fig_kinetics_contours.svg"
    version="1.0"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata
      id="metadata3820"><rdf:RDF><cc:Work
@@ -66,8 +66,8 @@
      d="m 315.697,57.6 191.183,0 0,104.067 -191.183,0 0,-104.067 z"
      id="path5643" /></clipPath>
 </defs><sodipodi:namedview
-     inkscape:window-height="751"
-     inkscape:window-width="1022"
+     inkscape:window-height="962"
+     inkscape:window-width="1053"
      inkscape:pageshadow="2"
      inkscape:pageopacity="0.0"
      guidetolerance="10.0"
@@ -81,8 +81,8 @@
      units="cm"
      width="3.25in"
      inkscape:zoom="3.4133334"
-     inkscape:cx="198.5786"
-     inkscape:cy="62.327566"
+     inkscape:cx="116.27084"
+     inkscape:cy="74.046316"
      inkscape:window-x="0"
      inkscape:window-y="14"
      inkscape:current-layer="g3824"
@@ -104,6 +104,7 @@
      y="-709.64325">4sXB Free Energy</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:7.2;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -116,6 +117,7 @@
      id="tspan7141"
      x="167.66"
      y="-709.64325">2sXB Free Energy</tspan></text>
+
 
 
 <text
@@ -132,6 +134,7 @@
      y="-637.11157">4sXB Attachment Rate</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:7.2;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -144,6 +147,7 @@
      id="tspan7149"
      x="167.66"
      y="-637.11157">2sXB Attachment Rate</tspan></text>
+
 
 
 <text
@@ -160,6 +164,7 @@
      y="-565.57434">4sXB Powerstroke Rate</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:7.2;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -172,6 +177,7 @@
      id="tspan7157"
      x="167.32857"
      y="-565.90582">2sXB Powerstroke Rate</tspan></text>
+
 
 
 <text
@@ -188,6 +194,7 @@
      y="-492.37979">4sXB Detachment Rate</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:7.2;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -200,6 +207,7 @@
      id="tspan7165"
      x="167.32855"
      y="-492.37979">2sXB Detachment Rate</tspan></text>
+
 
 
 <g
@@ -509,6 +517,7 @@
      sodipodi:role="line">5RT</tspan></text>
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text3052"
@@ -520,6 +529,7 @@
      x="3137.5"
      id="tspan3054"
      sodipodi:role="line">3RT</tspan></text>
+
 
 
 <text
@@ -535,6 +545,7 @@
      sodipodi:role="line">RT</tspan></text>
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text3060"
@@ -546,6 +557,7 @@
      x="3137.5"
      id="tspan3062"
      sodipodi:role="line">-RT</tspan></text>
+
 
 
 </g><text
@@ -560,6 +572,7 @@
      x="-2286.3899"
      y="3090.915"
      id="tspan3078">Energy</tspan></text>
+
 
 
 </g><g
@@ -649,6 +662,7 @@
      y="6.9718013">(nm)</tspan></text>
 
 
+
 </g><rect
    ry="0"
    rx="4.9077435"
@@ -673,6 +687,7 @@
      sodipodi:role="line">0</tspan></text>
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13291"
@@ -684,6 +699,7 @@
      x="2454.1604"
      id="tspan13293"
      sodipodi:role="line">5</tspan></text>
+
 
 
 <text
@@ -699,6 +715,7 @@
      sodipodi:role="line">10</tspan></text>
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13299"
@@ -712,6 +729,7 @@
      sodipodi:role="line">15</tspan></text>
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13303"
@@ -723,6 +741,7 @@
      x="2650.7393"
      id="tspan13305"
      sodipodi:role="line">20</tspan></text>
+
 
 
 </g><g
@@ -740,6 +759,7 @@
      sodipodi:role="line">38</tspan></text>
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13357"
@@ -751,6 +771,7 @@
      x="2358.2996"
      id="tspan13359"
      sodipodi:role="line">34</tspan></text>
+
 
 
 <text
@@ -766,6 +787,7 @@
      sodipodi:role="line">30</tspan></text>
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13365"
@@ -777,6 +799,7 @@
      x="2358.4629"
      id="tspan13367"
      sodipodi:role="line">26</tspan></text>
+
 
 
 </g><g
@@ -848,6 +871,7 @@
      sodipodi:role="line">Axial Offset (nm)</tspan></text>
 
 
+
 </g><text
    xml:space="preserve"
    style="font-size:9.59999999999999964;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -860,6 +884,7 @@
      id="tspan15965"
      x="6.7629967"
      y="-707.31555">A</tspan></text>
+
 
 
 <g
@@ -919,6 +944,7 @@
      y="-629.27118">1000</tspan></text>
 
 
+
 <text
    transform="scale(1,-1)"
    xml:space="preserve"
@@ -931,6 +957,7 @@
      id="tspan3295"
      x="259.03778"
      y="-609.66241">500</tspan></text>
+
 
 
 <text
@@ -947,6 +974,7 @@
      y="-590.43634">0</tspan></text>
 
 
+
 </g><text
    transform="matrix(0,1,1,0,0,0)"
    sodipodi:linespacing="125%"
@@ -959,6 +987,7 @@
      x="612.30902"
      id="tspan3303"
      sodipodi:role="line">Binding Rate</tspan></text>
+
 
 
 <text
@@ -975,6 +1004,7 @@
      y="-706.55591">B</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:9.59999999999999964;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -987,6 +1017,7 @@
      id="tspan17687"
      x="6.8874216"
      y="-634.47827">C</tspan></text>
+
 
 
 <text
@@ -1003,6 +1034,7 @@
      y="-634.28613">D</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:9.59999999999999964;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -1015,6 +1047,7 @@
      id="tspan17695"
      x="7.4735847"
      y="-562.31714">E</tspan></text>
+
 
 
 <text
@@ -1031,6 +1064,7 @@
      y="-562.39673">F</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:9.59999999999999964;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -1045,6 +1079,7 @@
      y="-490.87466">G</tspan></text>
 
 
+
 <text
    xml:space="preserve"
    style="font-size:9.59999999999999964;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -1057,6 +1092,7 @@
      id="tspan17707"
      x="113.69586"
      y="-490.20721">H</tspan></text>
+
 
 
 <use
@@ -1129,6 +1165,7 @@
      y="231.8775">Powerstroke Rate</tspan></text>
 
 
+
 <use
    x="0"
    y="0"
@@ -1150,4 +1187,75 @@
      y="231.8775">Detachment Rate</tspan></text>
 
 
-</g></svg>
+
+<rect
+   style="fill:#ffffff;fill-opacity:1;stroke:none"
+   id="rect3075"
+   width="62.402344"
+   height="8.7890625"
+   x="43.652344"
+   y="81.632179"
+   transform="matrix(0.8,0,0,-0.8,0,721.13363)" /><rect
+   transform="scale(1,-1)"
+   y="-655.82788"
+   x="140.52185"
+   height="7.03125"
+   width="49.921875"
+   id="rect3077"
+   style="fill:#ffffff;fill-opacity:1;stroke:none" /><rect
+   style="fill:#ffffff;fill-opacity:1;stroke:none"
+   id="rect3079"
+   width="49.921875"
+   height="7.03125"
+   x="140.52185"
+   y="-583.82776"
+   transform="scale(1,-1)" /><rect
+   transform="scale(1,-1)"
+   y="-583.82776"
+   x="36.521858"
+   height="7.03125"
+   width="49.921875"
+   id="rect3081"
+   style="fill:#ffffff;fill-opacity:1;stroke:none" /><rect
+   style="fill:#ffffff;fill-opacity:1;stroke:none"
+   id="rect3083"
+   width="10.839844"
+   height="35.449219"
+   x="135.64453"
+   y="207.60873"
+   transform="matrix(0.8,0,0,-0.8,0,721.13363)" /><rect
+   transform="scale(1,-1)"
+   y="-625.44653"
+   x="108.51562"
+   height="28.359375"
+   width="8.671875"
+   id="rect3085"
+   style="fill:#ffffff;fill-opacity:1;stroke:none" /><rect
+   style="fill:#ffffff;fill-opacity:1;stroke:none"
+   id="rect3087"
+   width="8.671875"
+   height="28.359375"
+   x="108.51562"
+   y="-700.64661"
+   transform="scale(1,-1)" /><rect
+   transform="scale(1,-1)"
+   y="-481.44666"
+   x="108.51562"
+   height="28.359375"
+   width="8.671875"
+   id="rect3089"
+   style="fill:#ffffff;fill-opacity:1;stroke:none" /><rect
+   transform="scale(1,-1)"
+   y="-511.82779"
+   x="140.52185"
+   height="7.03125"
+   width="49.921875"
+   id="rect3091"
+   style="fill:#ffffff;fill-opacity:1;stroke:none" /><rect
+   style="fill:#ffffff;fill-opacity:1;stroke:none"
+   id="rect3093"
+   width="49.921875"
+   height="7.03125"
+   x="36.521858"
+   y="-511.82779"
+   transform="scale(1,-1)" /></g></svg>

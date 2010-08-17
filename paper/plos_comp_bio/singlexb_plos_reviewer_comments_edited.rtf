@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;\red33\green65\blue155;}
-\margl1440\margr1440\vieww10940\viewh17120\viewkind0
+{\colortbl;\red255\green255\blue255;\red33\green65\blue155;\red0\green0\blue0;}
+\margl1440\margr1440\vieww9520\viewh20120\viewkind0
 \deftab720
 \pard\pardeftab720\ql\qnatural
 
@@ -59,8 +59,9 @@ Cross-bridge models have for many years become more complex by increasing the nu
 Major concerns \
 \
 The manuscript is missing any discussion of how the model kinetics have been adapted for cardiac myosin, and what cardiac myosin (human or small rodent, alpha- or beta-MHC isoform) is the target. \
+\pard\pardeftab720\ql\qnatural
 
-\b0 TODO: Get refs organized by source isoform
+\b0 \cf0 TODO: Get refs organized by source isoform
 \b \
 What parameters in the model would be altered to allow simulations of these various myosins, primarily compliance or kinetics, or is it necessary for both to co-vary? \
 \
@@ -71,23 +72,33 @@ What are the implications for shortening velocity when the new models are missin
 \
 Williams introduces arbitrary "efficiency factors" for the free energy of the attached states (page 10). What is the sensitivity of the model to the values used? \
 
-\b0 The efficiency factors used on page 10 are from the work of Pate and Cooke (1989) and other muscle modelers such as Tanner et al. (2007). This was cited in an unclear fashion that we've attempted to improve. \
+\b0 The efficiency factors used on page 10 are the values used in Tanner et al. (2007) and are derived from the work of Pate and Cooke (1989). They are governed by the drop in free energy from the unbound state to the loosely bound state and from the loosely bound state to the strongly bound state.  This was cited and discussed in an unclear fashion that we've attempted to improve. \
 TODO: Create figure of changes in transition rates with changes in efficiency factors?\
+\pard\pardeftab720\ql\qnatural
 
-\b \
+\b \cf0 \
 \
 Minor concerns \
 \
 Page 2, line 11 from bottom: omit use of 1980a,b for Schoenberg references. These designations are not included in the reference list. \
+\pard\pardeftab720\ql\qnatural
+
+\b0 \cf0 Corrected.
+\b \
 \
 Do the authors anticipate that their modeling with variable lattice spacing will help to resolve experimental differences and conclusions between laboratories on the importance of lattice spacing for the Frank-Starling mechanism? \
 \
 What is meant by "tuning" in the legend for Fig. 6? This isn't explained in the text, and isn't obvious in the figure. \
 \
 Fig. 3 is overly cluttered with redundant text and labels. Fig. 5 could be similarly simplified. \
+
+\b0 Redundant labels that were extraneous and unnecessary have been removed, which is to say that they have been excised or omitted for the purpose of reducing repetition.
+\b \
 \
 Fig. 4 C, D vertical axis begins and ends at 32 nm. \
-\
+
+\b0 Whoops, that is has been corrected.
+\b \
 \
 \
 Reviewer #2 (Remarks for the Author): \
@@ -95,8 +106,21 @@ Reviewer #2 (Remarks for the Author): \
 The goal of the present study was to develop multi-spring cross-bridge models and use these models to investigate how myofilament lattice spacing affects cross-bridge kinetics and force generation (both axial and radial forces). Most current geometric models depict a cross-bridge as a linear spring oriented along the myofilament axial direction. This is clearly inconsistent with the structural data and also with experimentally established observations that cross-bridges exert both axial and radial forces and radial forces are significant. Thus, a more realistic cross-bridge geometric model is desirable and interpretations of experimental data using such a model are likely to provide new insights. However, there are several concerns regarding the manuscript. \
 \
 (1) It is not clear whether a multi-spring model is required for the observed effects of lattice spacing. Would similar results be obtained by simply orienting a single spring at a specified rest angle and rest length? It appears that this simple modification of the conventional single spring model will yield similar results - existence of radial force, dependence of cross-bridge force and free energy (and consequently of cross-bridge kinetics) on both axial offset and lattice spacing. It is acknowledged that the 4sXB model better mimics the real cross-bridge structure, but the 2sXB model could be tuned to yield similar results. It is desirable to know whether a torsional spring is mandatory or whether an angled linear spring (force-generator) would suffice. \
+
+\b0 \
+We thanks the reviewer for raising this point as it was something we considered in the early stages of model design. Let us take such a cross-bridge to be composed of a single linear spring attached at a 45 degree angle to the thick filament. For the cross-bridge to be composed of a single spring, the angle which it makes with the thick filament must be fixed or must rotate freely, a resistance to rotation would be the use of a torsional spring.  \
 \
-(2) Some of the results have to be the way they are almost by definition. For example, cross-bridge attachment rate constant decreases and detachment rate constant increases as lattice spacing increases. This is a direct consequence of the prescribed dependence of these rate constants on cross-bridge free energy, which increase as the lattice spacing is altered from its rest state because of the prescribed cross-bridge geometry (any angled force generator will do this). Similar comments apply to the existence of the radial force and its relative magnitude. The manuscript will be significantly strengthened if some of the model-based predictions (calculations) are compared with existing experimental data. \
+In the case where the angle is fixed, the translation of bound cross-bridge heads becomes problematic. The a bound cross-bridge head that is held at a fixed angle cannot move in the axial direction without changing its length. This length change, occurring at an angle to both the thick and thin filaments, requires a change in the radial spacing between the respective thick and thin filament nodes. Our example 45 degree cross-bridge would require a 1nm change in local lattice spacing for every 1nm axial translation. This large deformation in lattice spacing is energetically unfeasible and wreaks havoc on transition rate schemes.\
+\
+In the case where the angle is allowed to change freely, making the thick filament cross-bridge attachment point a freely rotating joint, the cross-bridge is unlikely to perform any net work. The freely rotating cross-bridge is equally likely to bind at any point with the same radius to the thick filament attachment point. This results in cross-bridges binding both forward of and reverse of the axia\cf3 l location of their thick filament attachment points, and thus undergoing power strokes that cause both contractive and expansive forces. Put another way, without further restrictions there is no mechanism to "rectify" the work done by the cross-bridge such that it is biased in the forward direction. \
+\
+TODO: Should we address a freely rotating cross-bridge that is restrained to an angle between 0 and 90 degrees with the thick filament? It seems like it might work somewhat okay, although when the cross-bridge was dragged past 90 degrees its energy would go, step-wise, to infinity and it would either have to pop off or halt changes in the relative axial positions of the thick and thin filament nodes it was connecting. \
+\
+TODO: Should we include a paragraph about computation? All of these proposed cross-bridges place the linear spring at an angle and as such are still non-linear and will use iterative solution techniques: they won't be any faster than the two-spring model, although they could possibly be conceptually simpler. \
+\pard\pardeftab720\ql\qnatural
+
+\b \cf3 \
+(2) Some of the results have to be the way they are almost by definition. For example, cross-bridge attachment rate constant decreases and detachment rate constant increases as lattice spacing increases. This is a direct consequence of the prescribed dependence of these rate constants on cross-\cf0 bridge free energy, which increase as the lattice spacing is altered from its rest state because of the prescribed cross-bridge geometry (any angled force generator will do this). Similar comments apply to the existence of the radial force and its relative magnitude. The manuscript will be significantly strengthened if some of the model-based predictions (calculations) are compared with existing experimental data. \
 \
 (3) The presentation of the model calculations, results, and interpretations is quite confusing. The authors should make every attempt to improve the presentation and readability aspects of the manuscript. Here are some (not exhaustive) examples of this confusion. \
 \
@@ -113,8 +137,15 @@ The goal of the present study was to develop multi-spring cross-bridge models an
 (3.6) Page 6, 2sXB vs. 4sXB: That the 2sXB model produces results similar to those produced by 4sXB is not surprising - again, this is primarily by design; the 2sXB model parameters were adjusted to yield pre- and post-power stroke tip location and kinetics to match the 4sXB model (page 7). \
 \
 (3.7) Page 6: "... the 2sXB's axial force is more steeply dependent on lattice spacing (Fig. 5A, C). This pattern is reversed for radial forces..., where the 2sXB model's radial force is more dependent on lattice spacing ... (Fig. 5B, D)." This is a very confusing statement - it seems to indicate that 2sXB model forces (both axial and radial) are more sensitive to lattice spacing, so where is the reversal of the pattern? \
+\pard\pardeftab720\ql\qnatural
+
+\b0 \cf0 Apologies, the section in question should have read  "the 4sXB's axial force is more steeply dependent on lattice spacing".  The text has been corrected to reflect the correct relationships.
+\b \
 \
 (3.8) Page 7, line 2: "such as" instead of "such at." \
+
+\b0 Corrected, thank you.
+\b \
 \
 (3.9) Page 8, calculation of lattice spacing: This discussion is quite unclear. It appears that lattice spacing and axial offset were the prescribed quantities. If so, what does the calculation of lattice spacing mean? \
 \
