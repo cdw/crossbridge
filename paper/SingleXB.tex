@@ -372,15 +372,16 @@ The rest length and angle of the springs used in the 2sXB model are set so that 
 % paragraph spring_configurations (end)
 
 \paragraph{Calculation of lattice spacing} % (fold)
-Lattice spacing is given as $d_{10}$, the spacing between adjacent myosin lines, a measurement common in x-ray diffraction studies of muscle \citep{Millman1998}.
-We calculate $d_{10}$ lattice spacing from both the geometry of the cross-bridge and the lattice spacing at which the cross-bridge generates the least radial force. 
-The measurement of lattice spacing that the multi-spring cross-bridges provide is analogous to the \emph{in vivo} surface-to-surface distance between the thick and thin filament faces.
-After simulations are complete, the $d_{10}$ spacing is calculated from this surface-to-surface lattice spacing (ssLS) with a correction factor compensating for $d_{10}$ being measured from the center of one thick filament to the center of another. 
+The multi-spring models use an internal representation of lattice spacing that is analogous to the \emph{in vivo} distance from the surface of a thick filament to the surface of an adjacent thin filament. 
+However, since this surface-to-surface lattice spacing (ssLS) is not commonly reported, we present lattice spacing as the $d_{10}$ measurement used in x-ray diffraction studies of muscle \citep{Millman1998}. 
+The $d_{10}$ value is the distance between the centers of mass of adjacent thick filaments. 
+We calculate the $d_{10}$ value that corresponds to a given ssLS using both the geometry of the cross-bridge and the lattice spacing at which the cross-bridge generates the least radial force. 
 Specifically, $d_{10}$ is found from $d_{10} = 1.5 (ssLS + cf)$ \citep{Millman1998}. 
-The correction factor, $cf$, is used to set ssLS so that, at rest lattice spacing, the post-power stroke cross-bridge generates neither compressive nor tensile radial force.  
+The correction factor ($cf$) compensates for the filament radii: the difference between the ssLS surface-based measurement and the $d_{10}$ center-of-mass-based measurement.
+The correction factor offset also sets the relationship between ssLS and $d_{10}$ so that, at rest lattice spacing, the post-power stroke cross-bridge generates neither compressive nor tensile radial force.  
 This offset becomes 6.90 nm when the rest $d_{10}$ spacing is 34 nm \citep{Brenner1991}. 
-The ssLS that correspond to the $d_{10}$ spacings of interest are then calculated and used to define the window of lattice spacings we examine \citep{Millman1998}. 
-Thus the calculation of lattice spacing within the model is parametrized by resting ssLS, the lattice spacing at which radial forces are minimized, and the geometry of the actomyosin lattice. 
+The ssLS that correspond to the $d_{10}$ spacings of interest are then calculated and define the window of lattice spacings we examine \citep{Millman1998}. 
+Thus the lattice spacing within the model is bound by experimental lattice spacings and is a function of both the geometry of the actomyosin lattice and the lattice spacing at which radial forces are minimized. 
 % paragraph calculation_of_lattice_spacing (end)
 
 \paragraph{Displacement and force generation} % (fold)
