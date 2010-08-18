@@ -118,7 +118,6 @@ class Spring:
         return (random.normal(self.weak, self.stand_dev))
     
 
-
 class Crossbridge:
     """A generic crossbridge, a TNCG one most likely"""
     def __init__(self, config = None):
@@ -193,7 +192,6 @@ class Crossbridge:
         elif state is 3:
             return float(eta * g_lib + self.minimize_energy(h_loc, state)[0])
         
-    
     def force(self, h_loc, state):
         """From the head loc, the force vector being exerted by the XB"""
         (energy, conv_loc) = self.minimize_energy(h_loc, state)
@@ -266,7 +264,6 @@ class Crossbridge:
         return float(rate)
     
 
-
 class FourSpring(Crossbridge):
     """An instance of the four-spring crossbridge.
         
@@ -284,7 +281,6 @@ class FourSpring(Crossbridge):
         """No modification of values needed, just trigger the att calc"""
         Crossbridge.__init__(self, config)
     
-
 
 class TwoSpring(Crossbridge):
     """An instance of the two-spring crossbridge.
