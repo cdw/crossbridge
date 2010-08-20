@@ -190,7 +190,7 @@ Additionally, we show how changes in lattice spacing and axial offset affect kin
 % Intro paragraph (fold)
 The 4sXB and 2sXB models detailed here were developed to discover the consequences of lattice spacing on cross-bridge kinetics and two dimensional force production.
 Multi-spring cross-bridges introduce a lattice spacing dependence into force production and kinetics, and account for radial forces. 
-As lattice spacing changes, the kinetics and forces of the 4sXB and 2sXB models shift in both magnitude and axial offset (the distance from where the S2/thick filament join to a property's extreme value or point of inflection).
+As lattice spacing changes, the kinetics and forces of the 4sXB and 2sXB models shift in both magnitude and axial offset.
 % Intro paragraph (end)
 % TODO: It would be best if there was a more detailed summary of what the result are and the order in which they will be presented.
 
@@ -249,6 +249,11 @@ These energy landscapes also show that no lattice spacing is free of radial forc
 The radial force produced by a cross-bridge, even at rest lattice spacing, increases in magnitude as the cross-bridge `tip' moves away from its unstrained axial offset. 
 While the forces of both the 4sXB model and the 2sXB model undergo similar trends of increasing forces with lattice spacings, the details of their force landscapes differ as a result of their different spring geometries (Fig~\ref{fig_forces}). 
 At large lattice spacings, this greater force per cross-bridge is countered by the decreased probability a cross-bridge will bind and generate force, an interaction requiring a model of the half-sarcomere using multi-spring cross-bridges to evaluate thoroughly \citep{Martyn2004}. 
+% paragraph (end)
+
+\paragraph{Step size depends on lattice spacing} % (fold)
+The step size of both multi-spring models varies with lattice spacing (Fig~\ref{fig_step_size}). 
+In this case, we define step size as \dots
 % paragraph (end)
 
 \paragraph{Radial forces are of the same order of magnitude as axial forces} % (fold)
@@ -466,9 +471,10 @@ Binding depends on diffusion of the cross-bridge head and proximity to the neare
 Analogously, the process we use to simulate binding begins with the diffusion of the myosin head to a new location followed by possible attachment to the nearest binding site (depending on the distance from the head and the binding site).
 The diffusion step is simulated by thermally forcing each of a cross-bridge's constituent springs with an energy taken from a Boltzmann distribution \citep{BergBook, HowardBook}.
 This energy is used to calculate the deformation (change in length or angle) of each spring. 
-Generating a diffusion energy and calculating the resulting offset of a spring is implemented as selecting a sample from the probability density function $P(x) = \sqrt{k / (2 \pi kT)} \exp^{-(k x^2)/(2 kT)}$ where $x$ is the offset, $k$ is the spring constant of the particular spring, and $T$ is the system's temperature in Kelvin  \citep{DillBook, HowardBook}. %TODO: Double check this PDF.
+Generating a diffusion energy and calculating the resulting offset of a spring is implemented as selecting a sample from the probability density function $P(x) = \sqrt{k / (2 \pi \kappa T)} \exp^{-(k x^2)/(2 \kappa T)}$ where $x$ is the offset, $k$ is the spring constant of the particular spring, and $T$ is the system's temperature in Kelvin  \citep{DillBook, HowardBook}. %TODO: Double check this PDF.
 We find the updated location of the cross-bridge head from these new spring lengths and angles.
-The probability of cross-bridge attachment depends on the distance ($d$) from the cross-bridge head's new location to the nearest binding site: $p_{12}(d) = \tau \exp ^{-d}$, where $\tau$ is a scale factor with a value of 3, chosen to provide attachment rates consistent with previous work \citep{Daniel1998, Tanner2007}.
+The probability of cross-bridge attachment depends on the distance ($d$) from the cross-bridge head's new location to the nearest binding site, decreasing exponentially as distance increases. %TODO: Can I cite Howard for this?
+Thus the probability a cross-bridge will bind to an available site is given by $p_{12}(d) = \tau \exp ^{-d}$, where $\tau$ is a scale factor with a value of 3 for the 4sXB and 30 for the 2sXB, chosen to provide attachment rates consistent with previous work \citep{Daniel1998, Tanner2007}.
 Attachment occurs when $p_{12}$ is greater, on a given time step, than a random number chosen from a uniform distribution in the domain 0 to 1 \citep{Tanner2007}.
 Binding rates are calculated as the fraction of an ensemble of cross-bridges that bind given the same starting conditions. 
 Thus, for an ensemble of size $n$: 
@@ -633,7 +639,7 @@ The transition from a pre-power stroke state to an unbound state requires the re
     \begin{tabular}[t]{|c|c|c|c|c|} \hline
     %\multicolumn{4}{|l|}{\textbf{4sXB}} \\ 
     %\multicolumn{1}{|l}{~} 
-    Model & Spring    & Rest value & $E$        & Source \\ \hline % \cline{2-4}  
+    Model & Spring    & Rest value & $k$        & Source \\ \hline % \cline{2-4}  
     4sXB  & $\alpha$  & 40\de      & 100 pN/rad & \citet{Liu2006}      \\ \hline
           & $\beta$   & 10.5 nm    & 10 pN/nm   & \citet{Liu2006}      \\ \hline
           & $\delta$  & 125\de     & 40 pN/rad  & \citet{Taylor1999}   \\ \hline
@@ -646,6 +652,8 @@ The transition from a pre-power stroke state to an unbound state requires the re
           & $\theta'$ & 73\de      & 40 pN/rad  & See caption \\ \hline
           & $\rho$    & 20 nm      & 2 pN/nm    & See caption \\ \hline
           & $\rho'$   & 16 nm      & 2 pN/nm    & See caption \\ \hline
+    1sXB  & $k$       & 5 nm       & 5 pN/rad   & \citet{Tanner2007} \\ \hline
+          & $k'$      & 0 nm       & 5 pN/rad   & \citet{Tanner2007} \\ \hline
     \end{tabular}
     \caption{ 
 	    \label{parameter_table}
@@ -658,8 +666,9 @@ The transition from a pre-power stroke state to an unbound state requires the re
 	    In Taylor et al.~(1999) \citep{Taylor1999} (clearly explained in \citep{Davis2009}) the angle between the LCD and the thick filament's axial axis goes from 125\de~to 70\de~with the power stroke. 
 	    The LCD rest length generated by measurements made of structure 1DFK from Houdusse et al.~(2000) \citep{Houdusse2000}. 
 	    The rest values of the 2sXB model's springs are determined by those of the 4sXB model; they are calculated so that the rest position of the 2sXB's head is the same as the rest position of the 4sXB's head. 
-	    The spring constant, $E$, for the angular spring responsible for each cross-bridge's power stroke is determined by the change in angle over the power stroke and the energy liberated by the hydrolysis of ATP \citep{Tanner2007}. 
+	    The spring constant, $k$, for the angular spring responsible for each cross-bridge's power stroke is determined by the change in angle over the power stroke and the energy liberated by the hydrolysis of ATP \citep{Tanner2007}. 
 	    Additional spring constants are chosen to be consistent with previous work, and to provide sufficient flexibility to enable diffusion. 
+        The parameters of the single spring cross-bridge, used for comparison, are taken from \citep{Tanner2007}.
     }
     \end{center}
 \end{table}
