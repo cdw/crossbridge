@@ -1,21 +1,20 @@
 #!/usr/bin/env python
 # encoding: utf-8
-"""
-Crossbridge.py
+""" Crossbridge.py
 Created by Dave Williams on 2009-07-01.
 
 This file defines the system for the various crossbridge types. 
 These crossbridges have four points that may be represented as 
-linear or torsional springs. A schematic follows.
-       H   - Head of the myosin
-       |  
-       G   - Globular domain
-       |  
-       C   - Converter region
-      /   
-     N     - Neck region
-    /     
-===T====== - Thick filament
+linear or torsional springs. A schematic follows::
+           H   - Head of the myosin
+           |  
+           G   - Globular domain
+           |  
+           C   - Converter region
+          /   
+         N     - Neck region
+        /     
+    ===T====== - Thick filament
 """
 
 import warnings
@@ -25,9 +24,19 @@ from numpy import pi, sqrt, log
 import math as m
 
 
-class Spring:
+class Spring(object):
     """A generic spring that handles some accounting"""
     def __init__(self, spring_config):
+        """Create the spring with a set of passed values
+        
+        Takes:
+            spring_config: a dictionary containing the keys
+                weak: the spring rest value when unbound or weakly bound
+                strong: the spring rest value when strongly bound
+                spring_konstant: the spring constant
+        Returns: 
+            None
+        """
         self.weak = spring_config['weak']
         self.strong = spring_config['strong']
         self.k = spring_config['spring_konstant']
@@ -40,7 +49,13 @@ class Spring:
         self.stand_dev = sqrt(k_t/self.k) # of seg vals
     
     def rest(self, state):
-        """Return the rest value of the spring at state state"""
+        """Return the rest value of the spring at in a given state
+        
+        Takes:
+            state: the spring state of interest [1, 2, or 3]
+        Returns:
+            None
+        """
         if state in [1, 2]:
             return self.weak
         elif state == 3:
@@ -118,8 +133,12 @@ class Spring:
         return (random.normal(self.weak, self.stand_dev))
     
 
-class Crossbridge:
-    """A generic crossbridge, a TNCG one most likely"""
+class Crossbridge(object):
+    """A generic crossbridge, a TNCG one by default
+    
+    This cross-bridge class provides default functionality, such
+    as calculation of energies and transition rate constants, that
+    later classes of cross-bridge may build upon."""
     def __init__(self, config = None):
         # Sample Config:
         #   T.weak
