@@ -192,16 +192,15 @@ The 4sXB and 2sXB models detailed here were developed to discover the consequenc
 Multi-spring cross-bridges introduce a lattice spacing dependence into force production and kinetics, and account for radial forces. 
 As lattice spacing changes, the kinetics and forces of the 4sXB and 2sXB models shift in both magnitude and axial offset.
 % Intro paragraph (end)
-% TODO: It would be best if there was a more detailed summary of what the result are and the order in which they will be presented.
 
 \paragraph{At 34 nm $d_{10}$, the multi- and single-spring cross-bridges have similar kinetics and energies} % (fold)
 At rest lattice spacing, the free energies and kinetics of the of the single- and multi-spring cross-bridge models are largely similar, as seen in Figure \ref{fig_kinetics_cuts} (where the 1sXB values used are calculated as in Fig~10 of Tanner et al.~(2007) \citep{Tanner2007}).  
-These properties share a common base and are intentionally conserved where possible between the multiple-spring and single-spring cross-bridges \citep{Pate1989}.
+These properties share a common base that is intentionally conserved, where possible, between the multiple-spring and single-spring cross-bridges \citep{Pate1989}.
 The free energies of the multi-spring cross-bridges are a result of both extensional springs that are at an angle to the thick filament and torsional springs sensitive to the angle they make with the thick filament. 
 As the multi-spring cross-bridges move in the axial direction, their angles to the thick filament backbone change. 
 This angle dependence skews the free energies of the multi-spring cross-bridges from the symmetric hyperbola of the 1sXB (Fig~\ref{fig_kinetics_cuts}A).
 The two-dimensional diffusion-based binding probability function that governs the multi-spring cross-bridges (as described in the binding rate calculation section) causes the likely binding areas to occupy a greater range of axial positions than those of the single-spring cross-bridge (Fig~\ref{fig_kinetics_cuts}B) \citep{BergBook, DillBook}.
-Multi-spring cross-bridges are thus less likely than the 1sXB model to bind at a small offset, but more likely to bind at larger offsets. 
+Multi-spring cross-bridges are thus less likely than the 1sXB model to bind near their rest position, but are more likely to bind than the 1sXB at greater offsets from their rest postion. 
 This flattening and spreading of the binding probability function is a result of the extra degrees of freedom of motion in the two-dimensional models. 
 The power stroke rate constants of the multi-spring cross-bridges are the same as those of the single-spring cross-bridge, with energy-dependent terms using the sum of the free energy of every spring comprising a cross-bridge (Fig~\ref{fig_kinetics_cuts}C). 
 The detachment rate constant of the 1sXB explicitly relies on cross-bridge head position as well as energy.
@@ -210,14 +209,13 @@ The detachment rate constant thus loses the intentional asymmetry that the posit
 The rate of detachment and the other cross-bridge kinetic rate constants remain close to those of the 1sXB, despite the kinetics of the multi-spring cross-bridges being based not on axial position but on the free energy of the cross-bridge in multiple dimensions. 
 % paragraph (end)
 
-\paragraph{Axial offsets of most cross-bridge properties decrease as lattice spacing increases} % (fold)
+\paragraph{Axial offsets of most cross-bridge properties decrease as lattice spacing grows} % (fold)
 The axial offset of a cross-bridge property is the distance from the thick filament attachment site to the property's extreme value or point of inflection at a given lattice spacing. 
 As lattice spacing increases, the axial offsets of most of the multi-spring cross-bridges' kinetics and free energies grow smaller.
-An example of this change in axial offset is visible in Figure~\ref{fig_kinetics_contours}A and B where the lowest energy point the 4sXB or the 2sXB may reach at a lattice spacing of 32 nm $d_{10}$ is more than 3 nm further from the cross-bridge thick filament attachment point than the lowest energy point reachable at a lattice spacing of 38 nm $d_{10}$. 
-This relationship between axial offset and lattice spacing changes the behavior of a cross-bridge as lattice spacing grows or shrinks.
-Since binding at a large axial offset is unlikely to occur at larger lattice spacings, forward biasing of binding is decreased as lattice spacing increases (Fig~\ref{fig_kinetics_contours}C-D). 
+This relationship is visible in Figure~\ref{fig_kinetics_contours}A and B, where the axial offset of the 4sXB or 2sXB model's lowest energy point is more than 3 nm greater at a lattice spacing of 32 nm $d_{10}$ than at a lattice spacing of 38 nm $d_{10}$. 
+Since binding at a large axial offset is unlikely to occur at larger lattice spacings, forward biasing of binding is decreased as lattice spacing increases (Fig~\ref{fig_kinetics_contours}C-D).  %TODO: Clarify forward biasing.
 Similarly, decreases in the axial offset of the power stroke rate constant's inflection point as lattice spacing increases causes the size of the power stroke to change with lattice spacing (Fig~\ref{fig_kinetics_contours}E-F).
-The rate of detachment in the 4sXB model is the only cross-bridge property where the axial offset does not decrease as lattice spacing increases (Fig~\ref{fig_kinetics_contours}G). 
+The 4sXB model's rate of detachment is the only cross-bridge property whose axial offset is predominatly invariant with changes in lattice spacing (Fig~\ref{fig_kinetics_contours}G). 
 This exception is explained by the radially aligned post-power stroke orientation of $\gamma$, the 4sXB model's final spring. 
 Combined, these effects reduce the axial force a cross-bridge generates at larger lattice spacings with implications for the sarcomere length dependence of force production and relaxation. 
 These multi-spring cross-bridge models are the first to be capable of reproducing these lattice spacing dependent effects on force production and kinetics.
@@ -225,32 +223,23 @@ These multi-spring cross-bridge models are the first to be capable of reproducin
 
 \paragraph{Probability of a cross-bridge being bound decreases as lattice spacing diverges from rest} % (fold)
 The number of cross-bridges in a force generating state depends on lattice spacing. 
-As lattice spacing diverges from its 34 nm $d_{10}$ rest value, attachment rate constants at any axial location decrease while detachment rate constants at any axial location increase (Fig~\ref{fig_kinetics_contours}C-D and \ref{fig_kinetics_contours}G-H). 
-These kinetic rate constants change with lattice spacing because the difference in free energy, on which they depend, increases with lattice spacing.
-Binding rates are dependent on the difference in free energy between the unbound state and the pre-power stroke state.  
-Detachment rates are dependent on the difference in the free energy between the post-power stroke state and the unbound state.  
-As above, the rest lattice spacing is defined by the radial offset at which a multi-spring cross-bridge is under no strain. 
-Thus, as the lattice spacing increases or decreases from the point where bound cross-bridges are under the least strain, the energy difference between a bound state and the zero-energy unbound state increases. 
-This increase in energy makes the cross-bridge increasingly likely to transition to the unbound state and remain there (Fig~\ref{fig_kinetics_contours}C-D and  \ref{fig_kinetics_contours}G-H). 
+Taking any axial location, as lattice spacing diverges from its 34 nm $d_{10}$ rest value, the rate of attachment decreases while the rate of detachment increases (Fig~\ref{fig_kinetics_contours}C-D and \ref{fig_kinetics_contours}G-H). 
+These kinetic rate constants change with lattice spacing because they depend on the difference in free energy between the unbound state and the pre- or post-power stroke state, a difference which increases with lattice spacing.
+This increase in energy makes a cross-bridge increasingly likely to transition to the unbound state and remain there (Fig~\ref{fig_kinetics_contours}C-D and  \ref{fig_kinetics_contours}G-H). 
 An example of the decrease in the likelihood of a cross-bridge remaining bound can be seen in the 4sXB model, where the slowest rate of detachment is 20/sec at a lattice spacing of 34 nm $d_{10}$ but rises to 260/sec at 38 nm $d_{10}$ (Fig~\ref{fig_kinetics_contours}G). 
-Dependence of kinetic rate constants on lattice spacing decreases the likelihood a cross-bridge will generate force as lattice spacing increases.
-As the power stroke rate constants depend on the difference between $\tanh$ of two parabolic energy profiles, the maximum and minimum probabilities of a cross-bridge undergoing a power stroke do not change with lattice spacing (Fig~\ref{fig_kinetics_contours}E-F). 
-Individual cross-bridges spend less time in a bound state as a result of these changes in their kinetics as lattice spacing diverges from its rest value.
+As a result of these changes, individual cross-bridges spend less time in a bound state and are less likely to generate force as lattice spacing diverges from its rest value.
 % paragraph (end)
 
 \paragraph{Forces at a given axial offset increase with lattice spacing} % (fold)
 The axial and radial forces at a given axial offset correlate with lattice spacing (Figs~\ref{fig_forces} and \ref{fig_force_contours}).
-When lattice spacing is compressed, the forces produced tend to become more expansive or negative. 
-When lattice spacing is at rest, little axial or radial force is produced. 
-When lattice spacing is expanded, the cross-bridge models produce positive or compressive forces. 
-This effect competes with the decreased rate of binding and force generation that a multi-spring cross-bridge experiences at greater lattice spacings. 
-% TODO De-redundancy this.
-An increase in forces with increased lattice spacing is seen, for example, when the 4sXB model has a 10 nm axial offset and 35 nm $d_{10}$, producing half the axial and half the radial force as the same cross-bridge does at 38 nm $d_{10}$ (Fig~\ref{fig_force_contours}A-B). 
-Similarly, with the 2sXB model a 12 nm axial offset and 35 nm $d_{10}$ produce about two thirds of the axial and radial forces as at 38 nm $d_{10}$ (Fig~\ref{fig_force_contours}C-D).  
-These energy landscapes also show that no lattice spacing is free of radial force at all axial offsets.  
+When lattice spacing is compressed, more expansive radial forces and smaller axial forces are produced. 
+When lattice spacing is expanded, more compressive radial forces and larger axial forces are produced. 
+An example of increased forces with increased lattice spacing is seen in the 4sXB model which, at a 10 nm axial offset, produces half the radial and half the axial force at 35 nm $d_{10}$ as it does at 38 nm $d_{10}$ (Fig~\ref{fig_force_contours}A-B). 
+Similarly with the 2sXB model at a 12 nm axial offset, a lattice spacing of 35 nm $d_{10}$ produces two thirds of the axial and radial forces as a lattice spacing of 38 nm $d_{10}$ (Fig~\ref{fig_force_contours}C-D).
+At large lattice spacings, this greater force per cross-bridge competes with the decreased probability a cross-bridge will bind and generate force, an interaction that requires a model of the half-sarcomere using multi-spring cross-bridges to fully evaluate \citep{Martyn2004}. 
+
+The force landscapes of Figure~\ref{fig_force_contours} also show that no lattice spacing is free of radial force at all axial offsets.  
 The radial force produced by a cross-bridge, even at rest lattice spacing, increases in magnitude as the cross-bridge `tip' moves away from its unstrained axial offset. 
-While the forces of both the 4sXB model and the 2sXB model undergo similar trends of increasing forces with lattice spacings, the details of their force landscapes differ as a result of their different spring geometries (Fig~\ref{fig_forces}). 
-At large lattice spacings, this greater force per cross-bridge is countered by the decreased probability a cross-bridge will bind and generate force, an interaction requiring a model of the half-sarcomere using multi-spring cross-bridges to evaluate thoroughly \citep{Martyn2004}. 
 % paragraph (end)
 
 \paragraph{Step size varies with lattice spacing} % (fold)
@@ -287,18 +276,19 @@ The energy landscape of a multi-spring cross-bridge, and the resulting force, de
 At most locations, the forces and strains any cross-bridge produces at a given axial offset increase as lattice spacing increases (Fig~\ref{fig_forces}E-H). 
 While this increased cross-bridge strain translates into greater axial and radial force per post-power stroke cross-bridge, the binding probability decreases as lattice spacing increases (Fig~\ref{fig_kinetics_contours}C-D).
 The decrease in attachment rate constants at extreme lattice spacings, while power stroke rate constants remain unchanged (Fig~\ref{fig_kinetics_contours}E-F), suggests lattice spacing influences muscle fiber force generation by altering the rate of cross-bridge attachment rather than the power stroke rate \citep{Martyn2004}. 
-Spatially explicit effects in the compliant sarcomere, such as cross-bridge induced realignment of binding sites, may counter the decreased rates of binding and increased rates of detachment that accompany larger lattice spacings.
+Spatially explicit effects in the compliant sarcomere, such as cross-bridge induced realignment of binding sites, may act to compensate for the decreased binding and increased detachment at larger lattice spacings.
 % paragraph strain_and_force_generation_at_the_level_of_a_single_cross-bridge_depend_on_lattice_spacing (end)
 
 \paragraph*{The 2sXB model approximates the 4sXB model} % (fold)
-The energies, kinetics, and forces generated by the 2sXB model are not exact duplicates of those governing the 4sXB model, but instead are subject to the same governing trends (Figs~\ref{fig_kinetics_cuts}, \ref{fig_kinetics_contours} and \ref{fig_forces}). 
-Interestingly, we were able to adjust the parameters of the 2sXB model to give results that are similar to the 4sXB model, permitting a more computationally frugal approach to including a multi-dimensional cross-bridge.
-The energies, binding rate constants, and power stroke rate constants of the multi-spring cross-bridges are almost identical, while the rate constant of detachment is rotated by approximately 20\de~between the two systems due to differences in the way the post-power stroke position is achieved (Fig~\ref{fig_kinetics_contours}).
-The greatest differences between the 4sXB model and the 2sXB model are apparent in the forces they generate; while the axial force generated by both cross-bridges depends on lattice spacing, the 4sXB's axial force is more steeply dependent on lattice spacing (Fig~\ref{fig_force_contours}A, C). 
-This pattern is reversed for the radial forces generated by the cross-bridges, where the 2sXB model's radial force is more dependent on lattice spacing than that of the 4sXB model (Fig~\ref{fig_force_contours}B, D).  
-In each of these cases, the forces generated by the multi-spring cross-bridges are subject to the same trend as lattice spacing or axial offset from the binding site increases.
-This similarity of forces between the 2sXB model and the 4sXB model, and the close agreement between the energies and kinetics of the two cross-bridge representations, lends support to use of the 2sXB in cases where the 4sXB would require prohibitive computational resources.
-Substitution of the 2sXB model for the 4sXB model reduces the runtime of a simulation by two orders of magnitude and puts multi-spring cross-bridge simulations of the half-sarcomere within reach.
+The energies, kinetics, and forces generated by the 2sXB model are subject to the same governing trends as those of the 4sXB model, and can be made similar by deliberate parameter choice (Table~\ref{parameter_table} and Figs~\ref{fig_kinetics_cuts}, \ref{fig_kinetics_contours}, \ref{fig_forces}, and \ref{fig_force_contours}). 
+That the 2sXB model can replicate the results of the 4sXB model indicates two things: first, the 2sXB may be used in place of the 4sXB in larger simulations, enabling work that would otherwise require prohibitive resources, and second, the feature responsible for the interesting properties of our simulations is shared between our two models,the use of a lever arm which undergoes an angle change to generate force. 
+While the energies, binding rate constants, and power stroke rate constants of the multi-spring cross-bridges are almost identical, there are some smaller differences between the two models. 
+The rate constant of detachment is rotated by approximately 20\de~between the two systems due to differences in the way the post-power stroke position is achieved (Fig~\ref{fig_kinetics_contours}).
+The 4sXB model and the 2sXB model generate somewhat different forces; the axial force produced by each model increases with lattice spacing, but that produced by the 4sXB does so more steeply (Fig~\ref{fig_force_contours}A, C). 
+In a reversal of this pattern, the 2sXB model's radial force is more dependent on lattice spacing (Fig~\ref{fig_force_contours}B, D).  
+In each of these cases, the forces generated by both multi-spring cross-bridges are subject to the same trend.
+The close agreement between the forces and other properties of the two cross-bridge representations supports the position that the key feature of our multi-spring models is the use of a lever arm to generate force, rather than a factor unique to the 4sXB model, such as the simulation of interaction between the lever arm and the S2 domain. 
+Allowing the 2sXB model to be substituted for the 4sXB model reduces the runtime of a simulation by two orders of magnitude and puts multi-spring cross-bridge simulations of the half-sarcomere within reach.
 % paragraph 2sXB_approximates_the_4sXB (end)
 
 \paragraph{Cross-bridge step size depends on lattice spacing, influences shortening velocity} % (fold)
@@ -444,7 +434,7 @@ Examples of these free energy landscapes are shown in Figure~\ref{fig_kinetics_c
 
 The binding probabilities of both the 4sXB and the 2sXB models are determined by Monte-Carlo simulations of their diffusion as a result of being perturbed by Boltzmann-derived energy distributions \citep{DillBook}. 
 After a new head location is found, a binding probability is calculated which decreases exponentially with distance from the potential binding site. 
-This probability is tested against a random number from a uniform distribution to determine if binding occurs in a given time step.
+This probability is tested against a random number from a uniform distribution to determine if binding occurs in our chosen time step of 1 ms.
 
 \paragraph{Free energy in each state} % (fold)
 The total free energy liberated by the hydrolysis of the gamma P$_i$ of ATP and available to the myosin head over the course of a cross-bridge cycle ($\Delta G$) depends on both the standard free energy of ATP hydrolysis ($\Delta G_{0,ATP}$) and the concentrations of $ATP$, $ADP$ and $P_i$. 
@@ -484,7 +474,7 @@ Generating a diffusion energy and calculating the resulting offset of a spring i
 We find the updated location of the cross-bridge head from these new spring lengths and angles.
 The probability of cross-bridge attachment depends on the distance ($d$) from the cross-bridge head's new location to the nearest binding site, decreasing exponentially as distance increases. %TODO: Can I cite Howard for this?
 Thus the probability a cross-bridge will bind to an available site is given by $p_{12}(d) = \tau \exp ^{-d}$, where $\tau$ is a scale factor with a value of 3 for the 4sXB and 30 for the 2sXB, chosen to provide attachment rates consistent with previous work \citep{Daniel1998, Tanner2007}.
-Attachment occurs when $p_{12}$ is greater, on a given time step, than a random number chosen from a uniform distribution in the domain 0 to 1 \citep{Tanner2007}.
+Attachment occurs when $p_{12}$ is greater, on a given 1 ms time step, than a random number chosen from a uniform distribution in the domain 0 to 1 \citep{Tanner2007}.
 Rates of binding are calculated as the fraction of an ensemble of cross-bridges that bind given the same starting conditions. 
 Thus, for an ensemble of size $n$: 
 $$r_{12} =  \frac{\sum_0^n \left( 1\; \textrm{if}\; \tau \exp^{-d}>rand ,\; \textrm{else}\; 0 \right)}{n}$$
@@ -587,8 +577,8 @@ The transition from a pre-power stroke state to an unbound state requires the re
 \begin{figure}[!ht]
     \begin{center}
     \includegraphics[width=3.25in]{../imgs/fig_forces.pdf}
-    \caption{ \textbf{Overview and detail of the forces exerted by the 2sXB and 4sXB\@ models.}
-        (A)--(D) show the forces exerted by the 4sXB and the 2sXB models as vector fields of reaction forces. 
+    \caption{ \textbf{Overview and detail of the forces exerted by the 2sXB and 4sXB\@ models in the post-power stroke state.}
+        (A)--(D) show the post-power stroke forces exerted by the 4sXB and the 2sXB models as vector fields of reaction forces. 
         The reaction force is that necessary to retain the cross-bridge head in a given location, thus the vectors for a compressed cross-bridge orient upwards and those for an extended cross-bridge orient downwards.
         Positions in which the cross-bridge is unlikely to generate force are omitted; these unlikely locations are determined by the sum of $r_{23}$ and the inverse of $r_{31}$. 
         (A) and (B) show overviews of the forces exerted, respectively, by the 4sXB model and the 2sXB model over lattice spacings and axial offsets that vary as in Figure 2. 
@@ -603,8 +593,8 @@ The transition from a pre-power stroke state to an unbound state requires the re
 \begin{figure}[!ht]
     \begin{center}
     \includegraphics[width=8.3cm]{../imgs/fig_force_contours.pdf}
-    \caption{ \textbf{Axial and radial forces as separate components.}
-        (A)--(D) show the separated axial and radial components of the forces produced by the 4sXB and the 2sXB models.
+    \caption{ \textbf{Axial and radial post-power stroke forces as separate components.}
+        (A)--(D) show, separated, the axial and radial components of the forces produced by the 4sXB and the 2sXB models in the post-power stroke state.
         \label{fig_force_contours}
            }
     \end{center}

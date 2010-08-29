@@ -1,9 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue128;\red255\green0\blue0;}
-{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{hyphen\}}{\leveltext\leveltemplateid1\'01\uc0\u8259 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\margl1440\margr1440\vieww12620\viewh16960\viewkind0
+\margl1440\margr1440\vieww12080\viewh20120\viewkind0
 \deftab720
 \pard\pardeftab720\ql\qnatural
 
@@ -132,12 +130,13 @@
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TOM: Revise manuscript, weaken reference to FS REF IS ALREADY WEAK. "When parameters become available, for cardiac myosin\'85" If the parameters aren't available, the reviewer's request is moot.
+\f0\b0 \cf3 TOM: Revise manuscript, weaken reference to FS REF IS ALREADY WEAK. "When parameters become available, for cardiac myosin\'85" If the parameters aren't available, the reviewer's request is moot.
 \f1 \
 
 \f0 Check with Mike to see if these parameters really do exist. Although I don't think they are.
 \f1 \
-\
+\pard\pardeftab720\ql\qnatural
+\cf0 \
 \pard\pardeftab720\ql\qnatural
 
 \f0\b \cf0 What parameters in the model would be altered to allow simulations of these various myosins, primarily compliance or kinetics, or is it necessary for both to co-vary? 
@@ -303,8 +302,8 @@
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TODO: Try this
-\f1 \
+\f0\b0 \cf3 DAVE: Try this
+\f1 \cf0 \
 \pard\pardeftab720\ql\qnatural
 
 \b \cf0 \
@@ -457,17 +456,23 @@
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TODO: We appreciate, we have revised blah to make clear these issues, this is a topic made challenging by the complex mix of heory and computation
+\f0\b0 \cf0 TODO: We appreciate, we have revised blah to make clear these issues, this is a topic made challenging by the complex mix of theory and computation
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
 \b \cf0 \
 
-\f0 Some additional details regarding simulation of the ensemble of crossbridges used to estimate r12 should be included. What was the 'given time step' used to evaluate binding events? Were the results sensitive to this number? 
-\f1 \
-\
+\f0 Some additional details regarding simulation of the ensemble of crossbridges used to estimate r12 should be included. What was the 'given time step' used to evaluate binding events? Were the results sensitive to this number? \
+\pard\pardeftab720\ql\qnatural
 
-\f0 2. Detachment rate - It is not clear what displacements (lengths and angles) are being used in the calculation of the energy (U1) the bridge would have following detachment. In the attached state, the energy seems straightforwardly defined by the location of the binding site. What happens following detachment is not intuitively clear to this reviewer, but certainly some assumptions have been made by the authors. These must be more explicitly stated. The reverse attachment rate (r21) is affected by this same issue - there is some mention of re-treating an ensemble of crossbridges to make this calculation, but again it does not read clearly enough for someone else to reproduce the work. 
+\b0 \cf0 We thank the reviewer for pointing out this omission. Our chosen time step was 1 ms. We have revised the text to reflect this. As in the work of Daniel et al (1998) and Tanner et al (2007) this time step is included as an implicit scaling factor in the kinetic rate constants, making the results independent of the chosen time step.\
+\
+DAVE: Should we include this as an explicit factor?
+\f1\b \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f0 \cf0 2. Detachment rate - It is not clear what displacements (lengths and angles) are being used in the calculation of the energy (U1) the bridge would have following detachment. In the attached state, the energy seems straightforwardly defined by the location of the binding site. What happens following detachment is not intuitively clear to this reviewer, but certainly some assumptions have been made by the authors. These must be more explicitly stated. The reverse attachment rate (r21) is affected by this same issue - there is some mention of re-treating an ensemble of crossbridges to make this calculation, but again it does not read clearly enough for someone else to reproduce the work. 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -478,11 +483,15 @@
 \b \cf0 \
 \
 
-\f0 3. The implications of crossbridge geometry on the balance of axial and radial forces is clearly an important part of this work. At several points (particularly in Figs 4 and 5 and throughout the text) when force is being discussed, it is not clear whether the force refers to the pre- or post-powerstroke state. This needs to be clarified. Along these same lines, it seems as though the effects of lattice spacing (particulary the transitions from compressive to expansive highlighted in the text) could be different, depending on what state the bridge is in. 
-\f1 \
-\
+\f0 3. The implications of crossbridge geometry on the balance of axial and radial forces is clearly an important part of this work. At several points (particularly in Figs 4 and 5 and throughout the text) when force is being discussed, it is not clear whether the force refers to the pre- or post-powerstroke state. This needs to be clarified. Along these same lines, it seems as though the effects of lattice spacing (particulary the transitions from compressive to expansive highlighted in the text) could be different, depending on what state the bridge is in. \
+\pard\pardeftab720\ql\qnatural
 
-\f0 4. It seems like the implications of the work are not adequately discussed. Much of the results section merely recapitulates what was stated in the results section. The authors should build closer ties to experimental work by discussing not only which questions will be affected by the results, but also how. 
+\b0 \cf0 We thank the reviewer for drawing the ambiguity in our force description to our attention. All forces depicted are in the post-power stroke state, and figure captions have been updated to reflect this. The reviewer is correct that the effects of lattice spacing vary somewhat with what state the cross-bridge occupies. While we focus our discussion on the post-power stroke state for reasons of clarity, the trends described in the paper apply to both the pre- and post-power stroke states. 
+\f1\b \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f0 \cf0 4. It seems like the implications of the work are not adequately discussed. Much of the results section merely recapitulates what was stated in the results section. The authors should build closer ties to experimental work by discussing not only which questions will be affected by the results, but also how. 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -501,9 +510,6 @@
 \pard\pardeftab720\ql\qnatural
 
 \f0\b0 \cf0 "The long axis of the myofilaments" is far more clear and has been incorporated.
-\f1 \
-
-\f0 TODO: Should that be "axes" of the myofilaments? There are more than one myofilament after all, but they do share an axis, kind of. 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -529,24 +535,35 @@
 
 \b \cf0 \
 
-\f0 4. Middle of page 3, directly following reference to Figure 2B: I'm reasonably certain that the description of results is backwards - it seems like multi-spring models are MORE likely to bind at small offsets. 
-\f1 \
-\
-\
+\f0 4. Middle of page 3, directly following reference to Figure 2B: I'm reasonably certain that the description of results is backwards - it seems like multi-spring models are MORE likely to bind at small offsets.\
+\pard\pardeftab720\ql\qnatural
 
-\f0 5. Bottom of page 3: The term 'forward biasing' does not have clear meaning. The authors should consider more careful description of the term or the corresponding results. They are interesting, and perhaps should be emphasized a little more. 
-\f1 \
+\b0 \cf0 We greatly thank the reviewer for noticing this. The offsets referred to were intended to be relative to cross-bridge's resting positions, not their axial offset from the thick filament attachment site. We have reworded the sentence to remove the wording's closeness to axial offset.
+\f1\b \
 \
+\pard\pardeftab720\ql\qnatural
 
-\f0 6. Bottom of page 4: The idea that at larger lattice spacing bridges produce more force but are less likely to bind is repeated twice within a few lines. One of the instances should be removed. 
-\f1 \
+\f0 \cf0 5. Bottom of page 3: The term 'forward biasing' does not have clear meaning. The authors should consider more careful description of the term or the corresponding results. They are interesting, and perhaps should be emphasized a little more.\
+\pard\pardeftab720\ql\qnatural
+
+\b0 \cf3 DAVE: This is a todo.\
+\pard\pardeftab720\ql\qnatural
+
+\f1\b \cf0 \
+
+\f0 6. Bottom of page 4: The idea that at larger lattice spacing bridges produce more force but are less likely to bind is repeated twice within a few lines. One of the instances should be removed. \
+\pard\pardeftab720\ql\qnatural
+
+\b0 \cf0 We have removed one of the redundant instances and rewritten the section for clarity.
+\f1\b \
 \
+\pard\pardeftab720\ql\qnatural
 
-\f0 7. Check spelling of last word on page 4. 
+\f0 \cf0 7. Check spelling of last word on page 4. 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 Our apologies; we used the archaic form, which is still in our editor's dictionary. We have corrected this to the modern form.
+\f0\b0 \cf0 Our apologies; we used the archaic form. We have corrected this to the modern form.
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -556,28 +573,12 @@
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TODO: Check out papers on shortening velocity vs sarcomere length.
-\f1 \
-
-\f0 So here is an interaction\
-\pard\tx220\tx720\pardeftab720\li720\fi-720\ql\qnatural
-\ls1\ilvl0\cf0 {\listtext	\uc0\u8259 	}DAVE: I'm confused, if you increase SL bewlond a certain point, you get faster shortening (Edman1979), but if you dcrease LS by compression you get slower shortening? What is up with that?\
-\pard\pardeftab720\ql\qnatural
-\cf0 MIKE: Remind that this is a single motor, maybe give a magnitude effect . Set the boundary, max shortening velocity is limited by detachment rate, link this to step size. Product of two could be given as the change in shortening velocity or a weighting factor therein at least. (Filament displacement effect, rate of filament displacement???)\
-	
-\f1 \
-
-\f0 	Shortening velocity is is thought of as being limited by drag from negatively strained cross-bridges, shortening velocity also changes with lattice spacing, we show that step size also changes with lattice spacing
-\f1 \
-
-\f0 So step size might be another regulator of max shortening velocity
-\f1 \
-\pard\pardeftab720\ql\qnatural
-
-\b \cf0 \
+\f0\b0 \cf0 We thank the reviewer for bringing up this point. The discussion now contains a section addressing the possibly ties between lattice spacing, step size, detachment rates, and unloaded shortening velocity. 
+\f1\b \
 \
+\pard\pardeftab720\ql\qnatural
 
-\f0 9. Bottom of page 10: There are some critical typographical errors in formulae for P(x) (I'm fairly certain that 'k' appears when 'R' was meant in two of the terms) and p_12(d) (a minus sign is missing in front of d in the exponent). 
+\f0 \cf0 9. Bottom of page 10: There are some critical typographical errors in formulae for P(x) (I'm fairly certain that 'k' appears when 'R' was meant in two of the terms) and p_12(d) (a minus sign is missing in front of d in the exponent). 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
