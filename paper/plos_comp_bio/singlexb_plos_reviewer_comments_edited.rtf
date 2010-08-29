@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue128;\red255\green0\blue0;}
-\margl1440\margr1440\vieww12080\viewh20120\viewkind0
+\margl1440\margr1440\vieww12080\viewh17120\viewkind0
 \deftab720
 \pard\pardeftab720\ql\qnatural
 
@@ -264,14 +264,16 @@
 \f0 In the case where the angle is allowed to change freely, making the thick filament cross-bridge attachment point a freely rotating joint, the cross-bridge is unlikely to perform any net work. The freely rotating cross-bridge is equally likely to bind at any point with the same radius to the thick filament attachment point. This results in cross-bridges binding both forward of and reverse of the axial location of their thick filament attachment points, and thus undergoing power strokes that cause both contractive and expansive forces. Put another way, without further restrictions there is no mechanism to "rectify" the work done by the cross-bridge such that it is biased in the forward direction. 
 \f1 \
 \
+\pard\pardeftab720\ql\qnatural
 
-\f0 DAVE: Should we address a freely rotating cross-bridge that is restrained to an angle between 0 and 90 degrees with the thick filament? It seems like it might work somewhat okay, although when the cross-bridge was dragged past 90 degrees its energy would go, step-wise, to infinity and it would either have to pop off or halt changes in the relative axial positions of the thick and thin filament nodes it was connecting. 
+\f0 \cf3 DAVE: Should we address a freely rotating cross-bridge that is restrained to an angle between 0 and 90 degrees with the thick filament? It seems like it might work somewhat okay, although when the cross-bridge was dragged past 90 degrees its energy would go, step-wise, to infinity and it would either have to pop off or halt changes in the relative axial positions of the thick and thin filament nodes it was connecting. 
 \f1 \
 \
 
 \f0 DAVE: Should we include a paragraph about computation? All of these proposed cross-bridges place the linear spring at an angle and as such are still non-linear and will use iterative solution techniques: they won't be any faster than the two-spring model, although they could possibly be conceptually simpler. 
 \f1 \
-\
+\pard\pardeftab720\ql\qnatural
+\cf0 \
 \pard\pardeftab720\ql\qnatural
 
 \f0\b \cf0 (2) Some of the results have to be the way they are almost by definition. For example, cross-bridge attachment rate constant decreases and detachment rate constant increases as lattice spacing increases. This is a direct consequence of the prescribed dependence of these rate constants on cross-bridge free energy, which increase as the lattice spacing is altered from its rest state because of the prescribed cross-bridge geometry (any angled force generator will do this). Similar comments apply to the existence of the radial force and its relative magnitude. 
@@ -312,7 +314,8 @@
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TOM: Suggest we not do this.
+\f0\b0 \cf3 TOM: Suggest we not do this.\
+DAVE: I did, I just need to write it up.
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -322,7 +325,7 @@
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TODO: Other reviewer liked this explanation
+\f0\b0 \cf3 TODO: Other reviewer liked this explanation
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -332,7 +335,7 @@
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TODO: Sorry for the confusion, using non-absolute values
+\f0\b0 \cf3 TODO: Sorry for the confusion, using non-absolute values
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -346,9 +349,14 @@
 \
 \pard\pardeftab720\ql\qnatural
 
-\f0 \cf0 (3.6) Page 6, 2sXB vs. 4sXB: That the 2sXB model produces results similar to those produced by 4sXB is not surprising - again, this is primarily by design; the 2sXB model parameters were adjusted to yield pre- and post-power stroke tip location and kinetics to match the 4sXB model (page 7). 
+\f0 \cf0 (3.6) Page 6, 2sXB vs. 4sXB: That the 2sXB model produces results similar to those produced by 4sXB is not surprising - again, this is primarily by design; the 2sXB model parameters were adjusted to yield pre- and post-power stroke tip location and kinetics to match the 4sXB model (page 7).\
+\pard\pardeftab720\ql\qnatural
+
+\b0 \cf0 This is a very good point and signals that we have not addressed the similarities between the 4sXB and 2sXB models in an useful fashion.  We have rewritten this section to put more emphasis on the relevant point: that the 2sXB model is capable of imitating the 4sXB model. We feel that the key point here is not that the properties of the models are fortuitously similar, but that the 2sXB model (a vastly more computationally efficient system than the 4sXB model) is not fundamentally incapable of being made to replicate the 4sXB model's results. This similarity points to the key feature needed to study the effects of lattice spacing and radial forces being the presence of a torsional spring driving a lever arm, rather than the specific system that is the 4sXB model. 
 \f1 \
-\
+\pard\pardeftab720\ql\qnatural
+
+\b \cf0 \
 
 \f0 (3.7) Page 6: "... the 2sXB's axial force is more steeply dependent on lattice spacing (Fig. 5A, C). This pattern is reversed for radial forces..., where the 2sXB model's radial force is more dependent on lattice spacing ... (Fig. 5B, D)." This is a very confusing statement - it seems to indicate that 2sXB model forces (both axial and radial) are more sensitive to lattice spacing, so where is the reversal of the pattern? 
 \f1 \
@@ -448,15 +456,19 @@
 \f1 \
 \
 
-\f0 1. Binding rate calculation - In previous work (Tanner et al. 2007 and Daniel et al. 1998) crossbridge attachment rate (r12) was directly proportional to the value of the PDF describing tethered diffusion of the myosin head for a given crossbridge distortion. The present work uses the same PDF, but in a much different way. It therefore needs more careful description and justification than given at present. The description of perturbing the distortion of each spring element is very difficult to follow due to mixing of algorithmic an theoretical steps. This should be resolved in such a way that both aspects are clear. 
-\f1 \
-\
+\f0 1. Binding rate calculation - In previous work (Tanner et al. 2007 and Daniel et al. 1998) crossbridge attachment rate (r12) was directly proportional to the value of the PDF describing tethered diffusion of the myosin head for a given crossbridge distortion. The present work uses the same PDF, but in a much different way. It therefore needs more careful description and justification than given at present. The description of perturbing the distortion of each spring element is very difficult to follow due to mixing of algorithmic an theoretical steps. This should be resolved in such a way that both aspects are clear. \
+\pard\pardeftab720\ql\qnatural
+
+\b0 \cf3 TODO: Look at this section, revise. Say what revisions were made.
+\f1\b \
+\pard\pardeftab720\ql\qnatural
+\cf0 \
 
 \f0 Also, there is no clear justification provided for the 'second step' of thin filament binding that is new to this work, wherein probability of attachment is proportional to exp(-d), where d is the displacement of the head to the binding site. Because this is a departure from previous formulations, and because its accuracy will determine the predictive relevance of the model, it must be justified very explicitly. 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TODO: We appreciate, we have revised blah to make clear these issues, this is a topic made challenging by the complex mix of theory and computation
+\f0\b0 \cf3 TODO: We appreciate, we have revised blah to make clear these issues, this is a topic made challenging by the complex mix of theory and computation
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -467,17 +479,18 @@
 
 \b0 \cf0 We thank the reviewer for pointing out this omission. Our chosen time step was 1 ms. We have revised the text to reflect this. As in the work of Daniel et al (1998) and Tanner et al (2007) this time step is included as an implicit scaling factor in the kinetic rate constants, making the results independent of the chosen time step.\
 \
-DAVE: Should we include this as an explicit factor?
+\pard\pardeftab720\ql\qnatural
+\cf3 DAVE: Should we include this as an explicit factor?
 \f1\b \
-\
 \pard\pardeftab720\ql\qnatural
+\cf0 \
 
-\f0 \cf0 2. Detachment rate - It is not clear what displacements (lengths and angles) are being used in the calculation of the energy (U1) the bridge would have following detachment. In the attached state, the energy seems straightforwardly defined by the location of the binding site. What happens following detachment is not intuitively clear to this reviewer, but certainly some assumptions have been made by the authors. These must be more explicitly stated. The reverse attachment rate (r21) is affected by this same issue - there is some mention of re-treating an ensemble of crossbridges to make this calculation, but again it does not read clearly enough for someone else to reproduce the work. 
+\f0 2. Detachment rate - It is not clear what displacements (lengths and angles) are being used in the calculation of the energy (U1) the bridge would have following detachment. In the attached state, the energy seems straightforwardly defined by the location of the binding site. What happens following detachment is not intuitively clear to this reviewer, but certainly some assumptions have been made by the authors. These must be more explicitly stated. The reverse attachment rate (r21) is affected by this same issue - there is some mention of re-treating an ensemble of crossbridges to make this calculation, but again it does not read clearly enough for someone else to reproduce the work. 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TOM: Shown in equations blah, but as this reviewer points out, we should clarify further the physical basis for this equation and have done so in the manuscript.Equations zzzzzz showed this.  But, as this reviewer points out, we can clarify the physical basis for this equation further.  And have done so in our reviwsion
-\f1 \
+\f0\b0 \cf3 TOM: Shown in equations blah, but as this reviewer points out, we should clarify further the physical basis for this equation and have done so in the manuscript.Equations zzzzzz showed this.  But, as this reviewer points out, we can clarify the physical basis for this equation further.  And have done so in our reviwsion
+\f1 \cf0 \
 \pard\pardeftab720\ql\qnatural
 
 \b \cf0 \
@@ -495,11 +508,10 @@ DAVE: Should we include this as an explicit factor?
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 TODO: Allowed to tie into field. Look for likes to a couple of experiments that deal with declines in forces in lattice spacing, this is consistent with our data
-\f1 \
+\f0\b0 \cf0 The reviewer raises a very good point. We have re-written our discussion section to relate our results more directly to the field.\
 \pard\pardeftab720\ql\qnatural
 
-\b \cf0 \
+\f1\b \cf0 \
 
 \f0 Minor Comments 
 \f1 \
