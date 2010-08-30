@@ -42,7 +42,7 @@ class Spring(object):
         self.k = spring_config['spring_konstant']
         # Diffusion related
         temperature = 288 # in K
-        boltzman = 1.381 * 10**-23 #Boltzman const (in J/K)
+        boltzman = 1.381 * 10**-23 # Boltzman const (in J/K)
         k_t = boltzman * temperature * 10**21  # kT without pN/nM conversion
         # Normalize is a factor used to normalize the PDF of the segment vals
         self.normalize = sqrt(2*pi*k_t/self.k)
@@ -134,18 +134,23 @@ class Spring(object):
     
 
 class Crossbridge(object):
-    """A generic crossbridge, a TNCG one by default
-    
-    This cross-bridge class provides default functionality, such
-    as calculation of energies and transition rate constants, that
-    later classes of cross-bridge may build upon."""
     def __init__(self, config = None):
-        # Sample Config:
-        #   T.weak
-        #    .strong
-        #    .spring_konstant
-        #   Ditto for N, C, and G
+        """A generic cross-bridge, a TNCG one by default
         
+        This cross-bridge class provides default functionality, such
+        as calculation of energies and transition rate constants, that
+        later classes of cross-bridge may build upon.
+        Takes:
+            config: a dictionary containing the spring definitions, a sample:
+                {'T': {'weak': 40*pi/180,
+                       'strong': 40*pi/180,       
+                       'spring_konstant': 100
+                      }, 
+                 'N': ...
+                 'C': ...
+                 'G': ... 
+                }
+        """
         # Eventually, take out default config, put in GenerateData
         if config == None:
             config = {
@@ -178,7 +183,15 @@ class Crossbridge(object):
         self.g = Spring(self.config['G'])
     
     def minimize_energy(self, h_loc, state):
-        """Return the min energy in the XB with the head at the given loc"""
+        """The cross-bridge's minimum energy for a given head location, state
+        
+        Takes:
+            h_loc:  [x,y] location of the cross-bridge tip
+            state: state of the cross-bridge, 1, 2, or 3
+        Returns:
+            energy: cross-bridge's minimum energy 
+            min_conv: [x,y] converter location yielding the minimum energy 
+        """
         rest_conv_loc = (self.n.rest(state) * m.cos(self.t.rest(state)),
                          self.n.rest(state) * m.sin(self.t.rest(state)))
         min_conv = fmin(self.energy, 
@@ -253,7 +266,7 @@ class Crossbridge(object):
         ## Find the distance to the binding site
         distance = m.hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
         ## The binding prob is dept on the exp of a dist
-        b_prob = 3*m.exp(-distance)
+        b_prob = 3*m.exp(-m.sqrt(distance))
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
@@ -342,7 +355,7 @@ class TwoSpring(Crossbridge):
         ## Find the distance to the binding site
         distance = m.hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
         ## The binding prob is dept on the exp of a dist
-        b_prob = 30*m.exp(-2*distance) +.00001
+        b_prob = 30*m.exp(-m.sqrt(distance)) +.00001
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
