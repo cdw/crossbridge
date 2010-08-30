@@ -211,12 +211,13 @@ The rate of detachment and the other cross-bridge kinetic rate constants remain 
 
 \paragraph{Axial offsets of most cross-bridge properties decrease as lattice spacing grows} % (fold)
 The axial offset of a cross-bridge property is the distance from the thick filament attachment site to the property's extreme value or point of inflection at a given lattice spacing. 
-As lattice spacing increases, the axial offsets of most of the multi-spring cross-bridges' kinetics and free energies grow smaller.
+As lattice spacing increases, the axial offsets of most multi-spring cross-bridge kinetic rates and free energies grows smaller.
 This relationship is visible in Figure~\ref{fig_kinetics_contours}A and B, where the axial offset of the 4sXB or 2sXB model's lowest energy point is more than 3 nm greater at a lattice spacing of 32 nm $d_{10}$ than at a lattice spacing of 38 nm $d_{10}$. 
-Since binding at a large axial offset is unlikely to occur at larger lattice spacings, forward biasing of binding is decreased as lattice spacing increases (Fig~\ref{fig_kinetics_contours}C-D).  %TODO: Clarify forward biasing.
-Similarly, decreases in the axial offset of the power stroke rate constant's inflection point as lattice spacing increases causes the size of the power stroke to change with lattice spacing (Fig~\ref{fig_kinetics_contours}E-F).
-The 4sXB model's rate of detachment is the only cross-bridge property whose axial offset is predominatly invariant with changes in lattice spacing (Fig~\ref{fig_kinetics_contours}G). 
-This exception is explained by the radially aligned post-power stroke orientation of $\gamma$, the 4sXB model's final spring. 
+The positions where cross-bridges are most likely to bind are shifted to smaller axial offsets at larger lattice spacings, decreasing the how extended a cross-bridge is likely to be upon binding (Fig~\ref{fig_kinetics_contours}C-D). 
+% Since binding at a large axial offset is unlikely to occur at larger lattice spacings, forward biasing of binding is decreased as lattice spacing increases (Fig~\ref{fig_kinetics_contours}C-D).  %TODO: Clarify forward biasing.
+Similarly, as lattice spacing increases, decreases in the axial offset of the power stroke rate constant inflection point cause the size of the power stroke to change with lattice spacing (Fig~\ref{fig_kinetics_contours}E-F).
+The 4sXB model's rate of detachment is the only cross-bridge property whose axial offset is predominately invariant with changes in lattice spacing (Fig~\ref{fig_kinetics_contours}G). 
+This exception is explained by the largely radially aligned post-power stroke orientation of $\gamma$, the 4sXB model's final spring. 
 Combined, these effects reduce the axial force a cross-bridge generates at larger lattice spacings with implications for the sarcomere length dependence of force production and relaxation. 
 These multi-spring cross-bridge models are the first to be capable of reproducing these lattice spacing dependent effects on force production and kinetics.
 % paragraph (end)
@@ -439,6 +440,8 @@ This probability is tested against a random number from a uniform distribution t
 \paragraph{Free energy in each state} % (fold)
 The total free energy liberated by the hydrolysis of the gamma P$_i$ of ATP and available to the myosin head over the course of a cross-bridge cycle ($\Delta G$) depends on both the standard free energy of ATP hydrolysis ($\Delta G_{0,ATP}$) and the concentrations of $ATP$, $ADP$ and $P_i$. 
 The free energy available to the cross-bridge over its cycle is given by $\Delta G = -\Delta G_{0,ATP} - \ln \frac{[ATP]}{[ADP] [P_i]}$. 
+The free energy in the unbound state serves as a reference for the other states and is set to 0. 
+As the unbound cross-bridge supports no strain, its free energy remains at 0 for all axial offsets and lattice spacings. 
 Only a portion of the liberated free energy is available to the cross-bridge in a given state.
 The limits on available $\Delta G$ are included in the free energy of each state as an efficiency factor as in Tanner et al.~(2007) \citep{Pate1989, Tanner2007} .
 The weakly bound state's efficiency is 28\%, represented with $\alpha_e=0.28$, and the strongly bound state's efficiency is 68\%, represented with $\eta_e=0.68$. 
@@ -476,25 +479,43 @@ The probability of cross-bridge attachment depends on the distance ($d$) from th
 Thus the probability a cross-bridge will bind to an available site is given by $p_{12}(d) = \tau \exp ^{-d}$, where $\tau$ is a scale factor with a value of 3 for the 4sXB and 30 for the 2sXB, chosen to provide attachment rates consistent with previous work \citep{Daniel1998, Tanner2007}.
 Attachment occurs when $p_{12}$ is greater, on a given 1 ms time step, than a random number chosen from a uniform distribution in the domain 0 to 1 \citep{Tanner2007}.
 Rates of binding are calculated as the fraction of an ensemble of cross-bridges that bind given the same starting conditions. 
-Thus, for an ensemble of size $n$: 
-$$r_{12} =  \frac{\sum_0^n \left( 1\; \textrm{if}\; \tau \exp^{-d}>rand ,\; \textrm{else}\; 0 \right)}{n}$$
+Thus, for an ensemble of size $n$:
+\begin{equation}
+    r_{12} =  \frac{\sum_0^n \left( 1\; \textrm{if}\; \tau \exp^{-d}>rand ,\; \textrm{else}\; 0 \right)}{n}  
+    \label{eq_r12}
+\end{equation}
 This two step system, with diffusion followed by a chance of attachment, is used for both the 4sXB and 2sXB models with only a change in the number of thermally forced springs.
 % paragraph binding_rate_calculation (end)
 
 \paragraph{Power stroke and detachment rates} % (fold)
-The power stroke and detachment rates are evolved from prior models \citep{Pate1989, Tanner2007}. 
-For the power stroke and detachment rate constants, dependence on cross-bridge head distortion is replaced with a dependence on the free energy of the cross-bridge.
-These free energy dependent rates are insensitive to the number of springs composing a cross-bridge and function similarly in one- and two-dimensional models. 
-Both the power stroke rate constant ($r_{23}$) and the detachment rate constant ($r_{31}$) depend on distortion, since they depend on the differences in free energy between the current state and the one being considered for transition.  
+The power stroke and detachment rates are evolved from prior models \citep{Pate1989, Tanner2007}.
+% Key bits: not bopping each spring (depends on free energy), remember that the free energy of the unbound state is zero, 
+Unlike with binding, the rates of the power stroke and detachment explicitly depend on the free energy of the cross-bridge with the tip co-located at the relevant binding site. 
+The free energies are functions of the distortion and kinetic state of each cross-bridge, and are discussed above as the free energy in each state.
+Of note, the unbound cross-bridge supports no strain and so $U_1 = 0$.
+These rate constants are insensitive to the number of springs comprising each cross-bridge and function similarly in one- and two-dimensional models. 
+Both the power stroke rate constant ($r_{23}$) and the detachment rate constant ($r_{31}$) depend on the differences in free energy between the current state and the one being considered for transition.  
 This dependence on the difference in free energies means transitions are more likely when they are energetically favorable and less likely in other circumstances, a natural scheme based in the geometry of the cross-bridges.
 The particular rate constants for both the 4sXB and the 2sXB models are: 
-$$r_{23}(U_2, U_3) = 100 + 100\tanh(4 + 0.4 (U_2 - U_3)) $$
-$$r_{31}(U_3, U_1) = 20 + 100 (U_3 - U_1)^{1/2} $$
+\begin{equation}
+    r_{23}(U_2, U_3) = 100 + 100\tanh(4 + 0.4 (U_2 - U_3)) 
+    \label{eq_r23}
+\end{equation}
+\begin{equation}
+    r_{31}(U_3, U_1) = 20 + 100 (U_3 - U_1)^{1/2}
+    \label{eq_r31}
+\end{equation}
 % paragraph unbinding_rate (end)
 
 \paragraph{Calculation of reverse rates} % (fold)
-The reverse transition rate constant from state $i$ to state $j$ is given by the thermodynamically balancing formula $r_{ij}/r_{ji}=\exp^{U_i-U_j}$ where $r_{ji}$ is the forward rate constant and $r_{ij}$ is the reverse rate constant \citep{Pate1989, Daniel1998, Tanner2007}.
-The transition from a pre-power stroke state to an unbound state requires the reverse transition again be treated as a fraction of an ensemble of transition opportunities. 
+The reverse transition rate constant from state $i$ to state $j$ is given by the thermodynamically balancing formula: 
+\begin{equation}
+    r_{ij}/r_{ji}=\exp^{U_i-U_j}
+    \label{eq_reverse}
+\end{equation}
+where $r_{ji}$ is the forward rate constant and $r_{ij}$ is the reverse rate constant \citep{Pate1989, Daniel1998, Tanner2007}.
+The transition from a pre-power stroke state to an unbound state requires the reverse transition again be treated as a fraction of an ensemble of transition opportunities, as denoted in Equation~\ref{eq_r12}. 
+
 % paragraph calculation_of_reverse rates (end)
 % subsection kinetics (end)
 
