@@ -1,10 +1,10 @@
 #!/usr/bin/env python
 # encoding: utf-8
 """
-Plot_Kinetics_Cuts.py
-Plots the free energy and forward transition rates at a resting lattice 
-spacing for the 4sXB, the 2sXB, and the historical single spring crossbridge.
-Created by Dave Williams on 2009-09-09.
+Plot_Multiple_Kinetics_Cuts.py
+Plots the free energy and forward transition rates at multiple lattice 
+spacings for the 4sXB and the 2sXB models.
+Created by Dave Williams on 2010-10-26.
 """
 
 import sys
@@ -93,8 +93,11 @@ def main():
     mr_alphabet = ["A", "B", "C", "D", "E", "F", "G", "H"]
     for axis, letter in zip(axe, mr_alphabet):
         axis.set_title(letter, x=-0.20, y=1.04, size=12, weight="demi")
-    # Legends
-    axe[7].legend(cut_vals, loc=2, borderpad=0.3,
+    fig.text(.34,.96, "2sXB Cuts", ha='center', size=12)
+    fig.text(.80,.96, "4sXB Cuts", ha='center', size=12)
+    # Legend
+    leg_vals = [str(val)+" nm" for val in cut_vals]
+    axe[5].legend(leg_vals, loc=9, borderpad=0.3,
                   handlelength=1.4, handletextpad=0.1, labelspacing=0.1,
                   fancybox=True, ncol=2, columnspacing=.8, 
                   prop={"size":9})
