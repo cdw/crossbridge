@@ -441,30 +441,30 @@ This probability is tested against a random number from a uniform distribution t
 The total free energy liberated by the hydrolysis of the gamma P$_i$ of ATP and available to the myosin head over the course of a cross-bridge cycle ($\Delta G$) depends on both the standard free energy of ATP hydrolysis ($\Delta G_{0,ATP}$) and the concentrations of $ATP$, $ADP$ and $P_i$. 
 The free energy available to the cross-bridge over its cycle is given by $\Delta G = -\Delta G_{0,ATP} - \ln \frac{[ATP]}{[ADP] [P_i]}$. 
 The free energy in the unbound state serves as a reference for the other states and is set to 0. 
-As the unbound cross-bridge supports no strain, its free energy remains at 0 for all axial offsets and lattice spacings. 
+As the unbound cross-bridge supports no strain, its free energy ($U_1$) remains at 0 for all axial offsets and lattice spacings. 
 Only a portion of the liberated free energy is available to the cross-bridge in a given state.
-The limits on available $\Delta G$ are included in the free energy of each state as an efficiency factor as in Tanner et al.~(2007) \citep{Pate1989, Tanner2007} .
+The limits on available $\Delta G$ are included in the free energy of each state as an efficiency factor, as in Tanner et al.~(2007) \citep{Pate1989, Tanner2007} .
 The weakly bound state's efficiency is 28\%, represented with $\alpha_e=0.28$, and the strongly bound state's efficiency is 68\%, represented with $\eta_e=0.68$. 
 The free energy of a cross-bridge in each state also depends on the strain the cross-bridge experiences from distortion upon binding.
 Thus the free energy of the cross-bridge in state $i$ ($U_i$) is a linear combination of the strain-dependent and phosphate-dependent energy of the cross-bridge.
 The free energies of the 4sXB system are: 
 %Energy of the four spring cross-bridge
-\begin{eqnarray*}
-\label{4sEnergy}
-U_1(\alpha, \beta, \delta, \gamma) & = & 0 \\
+\begin{eqnarray}
+\label{eq_4sEnergy}
+U_1(\alpha, \beta, \delta, \gamma) & = & 0 \nonumber \\
 U_2(\alpha, \beta, \delta, \gamma) & = & \alpha_e \Delta G + \frac{k_\alpha (\alpha-\alpha_0)^2 + k_\beta (\beta-\beta_0)^2 + k_\delta (\delta-\delta_0)^2 + k_\gamma (\gamma-\gamma_0)^2}{2} \\
-U_3(\alpha, \beta, \delta, \gamma) & = & \eta_e \Delta G + \frac{k_\alpha (\alpha-\alpha_0)^2 + k_\beta (\beta-\beta_0)^2 + k_\delta (\delta-\delta_1)^2 + k_\gamma (\gamma-\gamma_0)^2}{2} 
-\end{eqnarray*}
+U_3(\alpha, \beta, \delta, \gamma) & = & \eta_e \Delta G + \frac{k_\alpha (\alpha-\alpha_0)^2 + k_\beta (\beta-\beta_0)^2 + k_\delta (\delta-\delta_1)^2 + k_\gamma (\gamma-\gamma_0)^2}{2} \nonumber
+\end{eqnarray}
 The free energies of the 2sXB system are: 
 % Energy of the two spring cross-bridge
-\begin{eqnarray*}
-\label{2sEnergy}
-	U_1(\theta, \rho) & = & 0 \\
+\begin{eqnarray}
+\label{eq_2sEnergy}
+	U_1(\theta, \rho) & = & 0 \nonumber \\
     U_2(\theta, \rho) & = & \alpha_e \Delta G + \frac{k_\rho (\rho - \rho_0)^2 + 
                           k_\theta (\theta - \theta_0)^2}{2} \\
     U_3(\theta, \rho) & = & \eta_e \Delta G   + \frac{k_\rho (\rho - \rho_1)^2 + 
-                          k_\theta (\theta - \theta_1)^2}{2} 
-\end{eqnarray*}
+                          k_\theta (\theta - \theta_1)^2}{2} \nonumber 
+\end{eqnarray}
 % paragraph free_energy_in_each_state(end)
 
 \paragraph{Binding rate calculation} % (fold)
@@ -488,10 +488,11 @@ This two step system, with diffusion followed by a chance of attachment, is used
 % paragraph binding_rate_calculation (end)
 
 \paragraph{Power stroke and detachment rates} % (fold)
-The power stroke and detachment rates are evolved from prior models \citep{Pate1989, Tanner2007}.
+The power stroke and detachment rates are adaptations of prior models \citep{Pate1989, Tanner2007}.
 % Key bits: not bopping each spring (depends on free energy), remember that the free energy of the unbound state is zero, 
-Unlike with binding, the rates of the power stroke and detachment explicitly depend on the free energy of the cross-bridge with the tip co-located at the relevant binding site. 
-The free energies are functions of the distortion and kinetic state of each cross-bridge, and are discussed above as the free energy in each state.
+Unlike with binding, the power stroke and detachment rate constants explicitly depend on the free energy of the cross-bridge. 
+This free energy is calculated from equations \ref{eq_4sEnergy} and \ref{eq_2sEnergy}, with the tip co-located at the relevant binding site. 
+In the case of the 4sXB, each calculation of a transition rate constant requires that the location of the converter domain be optimized to relax the cross-bridge into its lowest energy state.
 Of note, the unbound cross-bridge supports no strain and so $U_1 = 0$.
 These rate constants are insensitive to the number of springs comprising each cross-bridge and function similarly in one- and two-dimensional models. 
 Both the power stroke rate constant ($r_{23}$) and the detachment rate constant ($r_{31}$) depend on the differences in free energy between the current state and the one being considered for transition.  
@@ -514,7 +515,8 @@ The reverse transition rate constant from state $i$ to state $j$ is given by the
     \label{eq_reverse}
 \end{equation}
 where $r_{ji}$ is the forward rate constant and $r_{ij}$ is the reverse rate constant \citep{Pate1989, Daniel1998, Tanner2007}.
-The transition from a pre-power stroke state to an unbound state requires the reverse transition again be treated as a fraction of an ensemble of transition opportunities, as denoted in Equation~\ref{eq_r12}. 
+The transition from a pre-power stroke state to an unbound state requires the reverse transition again be treated as a fraction of an ensemble of transition opportunities, using Equation~\ref{eq_r12} to provide $r_{12}$. 
+The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calculated from equations \ref{eq_r23} and \ref{eq_r31}, while all free energies are provided by equations \ref{eq_4sEnergy} and \ref{eq_2sEnergy}.
 
 % paragraph calculation_of_reverse rates (end)
 % subsection kinetics (end)

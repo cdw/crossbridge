@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue128;\red255\green0\blue0;}
-\margl1440\margr1440\vieww12080\viewh17120\viewkind0
+\margl1440\margr1440\vieww11120\viewh20080\viewkind0
 \deftab720
 \pard\pardeftab720\ql\qnatural
 
@@ -133,7 +133,8 @@
 \f0\b0 \cf3 TOM: Revise manuscript, weaken reference to FS REF IS ALREADY WEAK. "When parameters become available, for cardiac myosin\'85" If the parameters aren't available, the reviewer's request is moot.
 \f1 \
 
-\f0 Check with Mike to see if these parameters really do exist. Although I don't think they are.
+\f0 Check with Mike to see if these parameters really do exist. Although I don't think they are.\
+Mike: The model can be adjusted for different myosin isoforms that have different kinetics by varying this rate and this rate d, mainly detachment and powerstroke rates, other than that, we don't know in differences in extensibility. Refer to P&C 89, probe in the range of fast skeletal muscle. 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 \cf0 \
@@ -480,7 +481,7 @@ DAVE: I did, I just need to write it up.
 \b0 \cf0 We thank the reviewer for pointing out this omission. Our chosen time step was 1 ms. We have revised the text to reflect this. As in the work of Daniel et al (1998) and Tanner et al (2007) this time step is included as an implicit scaling factor in the kinetic rate constants, making the results independent of the chosen time step.\
 \
 \pard\pardeftab720\ql\qnatural
-\cf3 DAVE: Should we include this as an explicit factor?
+\cf3 DAVE: Should we include this as an explicit factor in the paper?
 \f1\b \
 \pard\pardeftab720\ql\qnatural
 \cf0 \
@@ -488,16 +489,10 @@ DAVE: I did, I just need to write it up.
 \f0 2. Detachment rate - It is not clear what displacements (lengths and angles) are being used in the calculation of the energy (U1) the bridge would have following detachment. In the attached state, the energy seems straightforwardly defined by the location of the binding site. What happens following detachment is not intuitively clear to this reviewer, but certainly some assumptions have been made by the authors. These must be more explicitly stated. The reverse attachment rate (r21) is affected by this same issue - there is some mention of re-treating an ensemble of crossbridges to make this calculation, but again it does not read clearly enough for someone else to reproduce the work. \
 \pard\pardeftab720\ql\qnatural
 
-\b0 \cf0 As shown in equations in the "Free energy in each state" subsection of the description of model kinetics, the free energy of the detached cross-bridge is set to a reference point of 0. As in prior work, the detached cross-bridge is assumed to relax to an unstressed state. As the reviewer points out, this process was unclear in the manuscript. We have rewritten the relevant section on "Power stroke and detachment rates". \
-\
-\pard\pardeftab720\ql\qnatural
-\cf3 DAVE: Still a bit more to do on this fellow.\
-\
-TOM: Shown in equations blah, but as this reviewer points out, we should clarify further the physical basis for this equation and have done so in the manuscript.Equations zzzzzz showed this.  But, as this reviewer points out, we can clarify the physical basis for this equation further.  And have done so in our revision
-\f1 \cf0 \
+\b0 \cf0 As shown in equations in the "Free energy in each state" subsection of the description of model kinetics, the free energy of the detached cross-bridge is set to a reference point of 0. As in prior work, the detached cross-bridge is assumed to relax to an unstressed state. As the reviewer points out, this process was unclear in the manuscript, and was not easy to find when looking reading the section on detachment rates. We have rewritten the relevant section on "Power stroke and detachment rates" and inserted appropriate references in the following sections. \
 \pard\pardeftab720\ql\qnatural
 
-\b \cf0 \
+\f1\b \cf0 \
 \
 
 \f0 3. The implications of crossbridge geometry on the balance of axial and radial forces is clearly an important part of this work. At several points (particularly in Figs 4 and 5 and throughout the text) when force is being discussed, it is not clear whether the force refers to the pre- or post-powerstroke state. This needs to be clarified. Along these same lines, it seems as though the effects of lattice spacing (particulary the transitions from compressive to expansive highlighted in the text) could be different, depending on what state the bridge is in. \
