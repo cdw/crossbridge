@@ -104,6 +104,8 @@ def main():
     r23 = [np.multiply(s.get("r23"), 1000) for s in store]
     r31 = [np.multiply(s.get("r31"), 1000) for s in store]
     force3 = np.array([s.get("force3") for s in store])
+    axial_force = list(force3[:,:,:,0])
+    radial_force = list(force3[:,:,:,1])
     # Parse out rest lattice spacing related values
     # This is a todo
     # Load and process x/y related values
@@ -113,81 +115,79 @@ def main():
     y_locs = np.arange(y_range[0], y_range[1], y_range[2])
     ## Recreate Bert's Data
     # This should be integrated as an external file at some point?
+    free_energy.append(bert_data("energy_2", x_locs))
+    r12.append(bert_data("rates_12", x_locs))
+    r23.append(bert_data("rates_23", x_locs))
+    r31.append(bert_data("rates_31", x_locs))
+    axial_force.append(bert_data("axial_force", x_locs))  
+    radial_force.append(bert_data("radial_force", x_locs)) 
     # Set contour levels and cut positions
     #RT = 3.97
-    #cut_locs = np.searchsorted(y_locs, (36, 37, 38))
-    cut_locs = np.searchsorted(y_locs, (31, 34, 37))
+    cut_locs = np.searchsorted(y_locs, [31, 34])
+    cut = np.searchsorted(y_locs, 34)
     ## Set up
-    fig = plt.figure(1, figsize=(8, 10))
-    axe = ([fig.add_subplot(3, 2, g+1) for g in range(3*2)])
+    fig = plt.figure(1, figsize=(6.83, 3.30))
+    axe = ([fig.add_subplot(2, 3, g+1) for g in range(3*2)])
     colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
-    lnwdth=2 # width of plot lines in points
+    lnw=2 # width of plot lines in points
+    # Set up a plotting shortcut
+    def plot_cuts(axis, prop): 
+        axis.plot(x_locs, prop[2], color=colors[0], lw=lnw)
+        axis.plot(x_locs, prop[0][cut], color=colors[1], lw=lnw)
+        axis.plot(x_locs, prop[1][cut], color=colors[2], lw=lnw)
+        
+    
     ## Plot free energy and transition rates
-    # Energy of the loosely bound state
-    axe[0].plot(x_locs, bert_data("energy_2", x_locs), color=colors[0],
-                lw=lnwdth)
-    axe[0].plot(x_locs, free_energy[0][cut_locs[1]], color=colors[1],
-                lw=lnwdth)
-    axe[0].plot(x_locs, free_energy[1][cut_locs[1]], color=colors[2],
-                lw=lnwdth)
-    axe[0].set_xlabel("Binding site offset (nm)")
-    axe[0].set_ylabel("Free Energy (RT)")
-    axe[0].set_ylim((-10, 15))
-    axe[0].set_yticks((-10, -5, 0, 5, 10, 15))
-    axe[0].set_title("A", x=-0.20, y=1.04, weight="demi")
-    axe[0].legend(("1sXB", "2sXB", "4sXB"), loc=0, borderpad=0.3,
+    # Basic plots
+    plot_cuts(axe[0], free_energy)
+    plot_cuts(axe[1], r12)
+    plot_cuts(axe[2], r23)
+    plot_cuts(axe[3], r31)
+    plot_cuts(axe[4], axial_force)
+    plot_cuts(axe[5], radial_force)
+    # Axis Labels
+    set_x = lambda a,t: a.set_xlabel(t, size=10)
+    [set_x(axis, "Binding site offset (nm)") for axis in axe[3:]]
+    set_y = lambda a,t: a.set_ylabel(t, labelpad=14, size=9.5, 
+                                     ha="center", linespacing=1)
+    set_y(axe[0], "Free Energy (RT) \n")
+    set_y(axe[1], "Binding Rate \n Constant (s$^{-1}$)")
+    set_y(axe[2], "Powerstroke Rate \n Constant (s$^{-1}$)")
+    set_y(axe[3], "Detachment Rate \n Constant (s$^{-1}$)")
+    set_y(axe[4], "Axial force (pN) \n")
+    set_y(axe[5], "Radial Force (pN) \n")
+    # Y Axis Limits and Ticks
+    def set_y_axis(axis, tics):
+        axis.set_ybound(tics[0], tics[-1])
+        axis.set_yticks(tics)
+        axis.set_yticklabels(tics, size=8)
+        axis.yaxis.set_ticks_position('left')
+    
+    set_y_axis(axe[0], np.arange(-10, 16, 5))
+    for axis in axe[1:4]:
+        set_y_axis(axis, np.arange(0, 1001, 200))
+    set_y_axis(axe[4], np.arange(-5, 21, 5))
+    set_y_axis(axe[5], np.arange(-5, 16, 5))
+    # X Axis Ticks
+    for axis in axe:
+        tics = range(0,21,5)
+        axis.set_xbound(tics[0], tics[-1])
+        axis.set_xticks(tics)
+        axis.set_xticklabels(tics, size=8)
+        axis.xaxis.set_ticks_position('bottom')
+    # Titles
+    mr_alphabet = ["A", "B", "C", "D", "E", "F", "G", "H"]
+    for axis, letter in zip(axe, mr_alphabet):
+        axis.set_title(letter, x=-0.20, y=1.04, size=12, weight="demi")
+    # Legend 
+    legend_vals = ("1sXB", "2sXB", "4sXB")
+    axe[2].legend(legend_vals , loc=0, borderpad=0.3,
                   handlelength=1.8, handletextpad=0.3, labelspacing=0.2,
-                  fancybox=True)
-    # Binding rates
-    axe[1].plot(x_locs, bert_data("rates_12", x_locs), color=colors[0],
-                lw=lnwdth)
-    axe[1].plot(x_locs, r12[0][cut_locs[1]], color=colors[1], lw=lnwdth)
-    axe[1].plot(x_locs, r12[1][cut_locs[1]], color=colors[2], lw=lnwdth)
-    axe[1].set_title("B", x=-0.20, y=1.04, weight="demi")
-    axe[1].set_ylabel("Binding Rate (s$^{-1}$)")
-    # Powerstroke rates
-    axe[2].plot(x_locs, bert_data("rates_23", x_locs), color=colors[0],
-                lw=lnwdth)
-    axe[2].plot(x_locs, r23[0][cut_locs[1]], color=colors[1], lw=lnwdth)
-    axe[2].plot(x_locs, r23[1][cut_locs[1]], color=colors[2], lw=lnwdth)
-    axe[2].set_title("C", x=-0.20, y=1.04, weight="demi") 
-    axe[2].set_ylabel("Powerstroke Rate (s$^{-1}$)")
-    # Detachment rates
-    axe[3].plot(x_locs, bert_data("rates_31", x_locs), color=colors[0],
-                lw=lnwdth)
-    axe[3].plot(x_locs, r31[0][cut_locs[1]], color=colors[1], lw=lnwdth)
-    axe[3].plot(x_locs, r31[1][cut_locs[1]], color=colors[2], lw=lnwdth)
-    axe[3].set_title("D", x=-0.20, y=1.04, weight="demi")
-    axe[3].set_ylabel("Detachment Rate (s$^{-1}$)")
-    # Axial force
-    axe[4].plot(x_locs, bert_data("axial_force", x_locs), color=colors[0],
-                lw=lnwdth)
-    axe[4].plot(x_locs, force3[0, cut_locs[1], :, 0], color=colors[1], lw=lnwdth)
-    axe[4].plot(x_locs, force3[1, cut_locs[1], :, 0], color=colors[2], lw=lnwdth)
-    axe[4].set_title("E", x=-0.20, y=1.04, weight="demi")
-    axe[4].set_ylabel("Axial Force (pN)")
-    axe[4].set_xlabel("Binding site offset (nm)")
-    axe[4].set_ylim((-5,20))
-    axe[4].set_yticks(np.arange(-5, 21, 5))
-    # Radial force
-    axe[5].plot(x_locs, bert_data("radial_force", x_locs), color=colors[0],
-                lw=lnwdth)
-    axe[5].plot(x_locs, force3[0, cut_locs[1], :, 1], color=colors[1], lw=lnwdth)
-    axe[5].plot(x_locs, force3[1, cut_locs[1], :, 1], color=colors[2], lw=lnwdth)
-    axe[5].set_title("F", x=-0.20, y=1.04, weight="demi")
-    axe[5].set_ylabel("Radial Force (pN)")
-    axe[5].set_xlabel("Binding site offset (nm)")
-    axe[5].set_ylim((-5,15))
-    axe[5].set_yticks(np.arange(-5, 16, 5))
-   # Add labels and limits
-    for a in axe[1:4]:
-        a.set_xlabel("Binding site offset (nm)")
-        a.set_ylim((-.1, 1000.1))
-        a.set_yticks((0, 200, 400, 600, 800, 1000))
+                  fancybox=True, prop={'size':9})
     ## Display
-    fig.subplots_adjust(wspace=0.38, hspace=0.40,
-                        left=0.10, right=0.95,
-                        top=0.92, bottom=0.08)
+    fig.subplots_adjust(left=0.12,   bottom=0.13, 
+                        right=0.96,  top=0.88, 
+                        wspace=0.68, hspace=0.50)
     plt.show()
 
 

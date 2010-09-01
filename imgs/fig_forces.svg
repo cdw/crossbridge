@@ -42,8 +42,8 @@
      id="base"
      showgrid="false"
      inkscape:zoom="2.8284271"
-     inkscape:cx="139.45533"
-     inkscape:cy="83.085101"
+     inkscape:cx="161.62007"
+     inkscape:cy="104.40482"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:current-layer="g11338"
@@ -504,6 +504,7 @@
 
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13357"
@@ -516,6 +517,7 @@
      x="9.4699631"
      id="tspan13359"
      sodipodi:role="line">34</tspan></text>
+
 
 
 
@@ -534,6 +536,7 @@
 
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13365"
@@ -546,6 +549,7 @@
      x="9.52141"
      id="tspan13367"
      sodipodi:role="line">26</tspan></text>
+
 
 
 
@@ -590,6 +594,7 @@
      style="font-size:7.19999981px">(nm)</tspan></text>
 
 
+
 <rect
    transform="scale(1,-1)"
    ry="0"
@@ -614,6 +619,7 @@
      sodipodi:role="line">Axial Offset (nm)</tspan></text>
 
 
+
 <g
    transform="matrix(0.9798517,0,0,0.9798517,-3.6499312,-103.81224)"
    id="g9739"><text
@@ -628,6 +634,7 @@
      x="24.395319"
      id="tspan13289"
      sodipodi:role="line">0</tspan></text>
+
 
 
 
@@ -646,6 +653,7 @@
 
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13295"
@@ -658,6 +666,7 @@
      x="66.528664"
      id="tspan13297"
      sodipodi:role="line">10</tspan></text>
+
 
 
 
@@ -676,6 +685,7 @@
 
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13303"
@@ -688,6 +698,7 @@
      x="108.62856"
      id="tspan13305"
      sodipodi:role="line">20</tspan></text>
+
 
 
 
@@ -715,6 +726,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -727,6 +739,7 @@
      id="tspan10546"
      x="63.199997"
      y="-709.70013">4sXB Force</tspan></text>
+
 
 
 
@@ -745,6 +758,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:9.60000038px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -757,6 +771,7 @@
      id="tspan10554"
      x="121.2"
      y="-707.42609">B</tspan></text>
+
 
 
 
@@ -775,6 +790,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:9.60000038px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -787,6 +803,7 @@
      id="tspan10562"
      x="121.15283"
      y="-624.76886">D</tspan></text>
+
 
 
 
@@ -821,6 +838,7 @@
 
 
 
+
 <rect
    style="fill:none;stroke:#000000;stroke-width:0.60000002;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
    id="rect11004"
@@ -846,6 +864,7 @@
 
 
 
+
 <g
    transform="translate(-112,80)"
    id="g11241"><text
@@ -860,6 +879,7 @@
      id="tspan11018"
      x="32.779636"
      y="-490.93988">4</tspan></text>
+
 
 
 
@@ -878,6 +898,7 @@
 
 
 
+
 <text
    transform="scale(1,-1)"
    xml:space="preserve"
@@ -890,6 +911,7 @@
      id="tspan11026"
      x="87.891754"
      y="-490.93988">6</tspan></text>
+
 
 
 
@@ -910,13 +932,14 @@
    xml:space="preserve"
    style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
    x="-102.20283"
-   y="-587.21521"
+   y="-590.41516"
    id="text10970"
    sodipodi:linespacing="125%"><tspan
      sodipodi:role="line"
      id="tspan10972"
      x="-102.20283"
-     y="-587.21521">35</tspan></text>
+     y="-590.41516">35</tspan></text>
+
 
 
 
@@ -925,13 +948,14 @@
    xml:space="preserve"
    style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
    x="-102.20283"
-   y="-606.94983"
+   y="-610.14978"
    id="text10974"
    sodipodi:linespacing="125%"><tspan
      sodipodi:role="line"
      id="tspan10976"
      x="-102.20283"
-     y="-606.94983">33</tspan></text>
+     y="-610.14978">33</tspan></text>
+
 
 
 
@@ -940,58 +964,61 @@
    xml:space="preserve"
    style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
    x="-102.15139"
-   y="-616.86597"
+   y="-620.06592"
    id="text10978"
    sodipodi:linespacing="125%"><tspan
      sodipodi:role="line"
      id="tspan10980"
      x="-102.15139"
-     y="-616.86597">32</tspan></text>
+     y="-620.06592">32</tspan></text>
+
 
 
 
 <path
    id="path10982"
    style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
-   d="m -93.694056,618.39245 1.747367,0" /><path
-   d="m -93.694056,608.47636 1.747367,0"
+   d="m -93.694056,621.59245 1.747367,0" /><path
+   d="m -93.694056,611.67636 1.747367,0"
    style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
    id="path10984" /><path
    id="path10986"
    style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
-   d="m -93.694056,588.74169 1.747367,0" /><path
-   d="m -93.694056,578.89062 1.747367,0"
+   d="m -93.694056,591.94169 1.747367,0" /><path
+   d="m -93.694056,582.09062 1.747367,0"
    style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
    id="path10988" /><text
    sodipodi:linespacing="125%"
    id="text11332"
-   y="-597.09875"
+   y="-600.29871"
    x="-102.15138"
    style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
    xml:space="preserve"
    transform="scale(1,-1)"><tspan
-     y="-597.09875"
+     y="-600.29871"
      x="-102.15138"
      id="tspan11334"
      sodipodi:role="line">34</tspan></text>
 
 
 
+
 <path
    id="path11336"
    style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
-   d="m -93.694056,598.62529 1.747367,0" /><text
+   d="m -93.694056,601.82529 1.747367,0" /><text
    sodipodi:linespacing="125%"
    id="text3379"
-   y="-577.36414"
+   y="-580.56409"
    x="-102.04531"
    style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
    xml:space="preserve"
    transform="scale(1,-1)"><tspan
-     y="-577.36414"
+     y="-580.56409"
      x="-102.04531"
      id="tspan3381"
      sodipodi:role="line">36</tspan></text>
+
 
 </g></g><text
    transform="scale(1,-1)"
@@ -1005,6 +1032,7 @@
      x="63.199997"
      id="tspan11675"
      sodipodi:role="line">Small Offset 4sXB Force</tspan></text>
+
 
 
 
@@ -1023,6 +1051,7 @@
 
 
 
+
 <text
    transform="scale(1,-1)"
    sodipodi:linespacing="125%"
@@ -1038,6 +1067,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:6.4;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -1050,6 +1080,7 @@
      id="tspan11804"
      x="226.7937"
      y="-679.43622">10 pn</tspan></text>
+
 
 
 

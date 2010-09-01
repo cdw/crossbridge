@@ -26,9 +26,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.2079788"
-     inkscape:cx="153.86014"
-     inkscape:cy="92.232947"
+     inkscape:zoom="2.9754903"
+     inkscape:cx="227.61692"
+     inkscape:cy="61.555883"
      inkscape:document-units="px"
      inkscape:current-layer="layer14"
      showgrid="true"
@@ -1237,44 +1237,44 @@
           <text
              sodipodi:linespacing="125%"
              id="text13353"
-             y="2328.2881"
+             y="2314.907"
              x="2358.8093"
              style="font-size:21.73929977px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
              xml:space="preserve"><tspan
-               y="2328.2881"
+               y="2314.907"
                x="2358.8093"
                id="tspan13355"
                sodipodi:role="line">38</tspan></text>
           <text
              sodipodi:linespacing="125%"
              id="text13357"
-             y="2289.1033"
+             y="2275.7222"
              x="2358.2996"
              style="font-size:21.73929977px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
              xml:space="preserve"><tspan
-               y="2289.1033"
+               y="2275.7222"
                x="2358.2996"
                id="tspan13359"
                sodipodi:role="line">34</tspan></text>
           <text
              sodipodi:linespacing="125%"
              id="text13361"
-             y="2251.8611"
+             y="2238.48"
              x="2358.2996"
              style="font-size:21.73929977px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
              xml:space="preserve"><tspan
-               y="2251.8611"
+               y="2238.48"
                x="2358.2996"
                id="tspan13363"
                sodipodi:role="line">30</tspan></text>
           <text
              sodipodi:linespacing="125%"
              id="text13365"
-             y="2212.0173"
+             y="2198.6362"
              x="2358.4629"
              style="font-size:21.73929977px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
              xml:space="preserve"><tspan
-               y="2212.0173"
+               y="2198.6362"
                x="2358.4629"
                id="tspan13367"
                sodipodi:role="line">26</tspan></text>
@@ -1282,7 +1282,7 @@
         <g
            id="g17709">
           <path
-             d="m 20.381353,695.41873 1.631846,0"
+             d="m 20.381353,699.3581 1.631846,0"
              style="fill:none;stroke:#000000;stroke-width:0.75;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
              id="path3601" />
           <use
@@ -1315,7 +1315,7 @@
           <use
              height="3240"
              width="5400"
-             transform="matrix(0,1,-1,0,735.29882,639.1281)"
+             transform="matrix(0,1,-1,0,739.23819,639.1281)"
              id="use13395"
              xlink:href="#path3601"
              y="0"
@@ -1323,7 +1323,7 @@
           <use
              height="3240"
              width="5400"
-             transform="matrix(0,1,-1,0,754.79773,639.1281)"
+             transform="matrix(0,1,-1,0,758.7371,639.1281)"
              id="use13397"
              xlink:href="#path3601"
              y="0"
@@ -1331,7 +1331,7 @@
           <use
              height="3240"
              width="5400"
-             transform="matrix(0,1,-1,0,793.15532,639.1281)"
+             transform="matrix(0,1,-1,0,797.09469,639.1281)"
              id="use13399"
              xlink:href="#path3601"
              y="0"
@@ -1339,7 +1339,7 @@
           <use
              height="3240"
              width="5400"
-             transform="matrix(0,1,-1,0,774.2966,639.1281)"
+             transform="matrix(0,1,-1,0,778.23597,639.1281)"
              id="use13401"
              xlink:href="#path3601"
              y="0"

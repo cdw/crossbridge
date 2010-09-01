@@ -44,7 +44,8 @@ def main():
     ## Set up
     fig = plt.figure(1, figsize=(4.86, 6.06))
     axe = ([fig.add_subplot(4, 2, g+1) for g in range(4*2)])
-    colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
+    # colors = ('#1F1E24', '#76D753', '#FF466F', '#F6D246', '#32298F')
+    colors = ('#000000', '#0077BB', '#00B840', '#FF5500', '#F6E010')
     lnw=2 # width of plot lines in points
     # Set up a plotting shortcut
     def plot_cuts(axis, prop): 
@@ -78,17 +79,20 @@ def main():
         axis.set_ybound(tics[0], tics[-1])
         axis.set_yticks(tics)
         axis.set_yticklabels(tics, size=9)
+        axis.yaxis.set_ticks_position('left')
     for axis in axe[2:]:
-        tics=range(0,1001,200)
+        tics = range(0,1001,200)
         axis.set_ybound(tics[0], tics[-1])
         axis.set_yticks(tics)
         axis.set_yticklabels(tics, size=9)
+        axis.yaxis.set_ticks_position('left')
     # X Axis Ticks
     for axis in axe:
         tics = range(0,21,5)
         axis.set_xbound(tics[0], tics[-1])
         axis.set_xticks(tics)
         axis.set_xticklabels(tics, size=9)
+        axis.xaxis.set_ticks_position('bottom')
     # Titles
     mr_alphabet = ["A", "B", "C", "D", "E", "F", "G", "H"]
     for axis, letter in zip(axe, mr_alphabet):
