@@ -266,7 +266,7 @@ class Crossbridge(object):
         ## Find the distance to the binding site
         distance = m.hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
         ## The binding prob is dept on the exp of a dist
-        b_prob = 3*m.exp(-distance**2)
+        b_prob = 5*m.exp(-distance**2)
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
@@ -355,7 +355,7 @@ class TwoSpring(Crossbridge):
         ## Find the distance to the binding site
         distance = m.hypot(b_site[0]-h_loc[0], b_site[1]-h_loc[1])
         ## The binding prob is dept on the exp of a dist
-        b_prob = 30*m.exp(-(distance**2)) +.00001
+        b_prob = 40*m.exp(-(distance**2)) +.00001
         ## Throw a random number to check binding
         return (b_prob > random.rand())
     
