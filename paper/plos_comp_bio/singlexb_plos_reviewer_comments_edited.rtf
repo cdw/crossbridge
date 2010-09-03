@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue128;\red255\green0\blue0;}
-\margl1440\margr1440\vieww11120\viewh20080\viewkind0
+\margl1440\margr1440\vieww10300\viewh17120\viewkind0
 \deftab720
 \pard\pardeftab720\ql\qnatural
 
@@ -460,17 +460,21 @@ DAVE: I did, I just need to write it up.
 \f0 1. Binding rate calculation - In previous work (Tanner et al. 2007 and Daniel et al. 1998) crossbridge attachment rate (r12) was directly proportional to the value of the PDF describing tethered diffusion of the myosin head for a given crossbridge distortion. The present work uses the same PDF, but in a much different way. It therefore needs more careful description and justification than given at present. The description of perturbing the distortion of each spring element is very difficult to follow due to mixing of algorithmic an theoretical steps. This should be resolved in such a way that both aspects are clear. \
 \pard\pardeftab720\ql\qnatural
 
-\b0 \cf3 TODO: Look at this section, revise. Say what revisions were made.
-\f1\b \
-\pard\pardeftab720\ql\qnatural
-\cf0 \
-
-\f0 Also, there is no clear justification provided for the 'second step' of thin filament binding that is new to this work, wherein probability of attachment is proportional to exp(-d), where d is the displacement of the head to the binding site. Because this is a departure from previous formulations, and because its accuracy will determine the predictive relevance of the model, it must be justified very explicitly. 
-\f1 \
+\b0 \cf0 We thank the reviewer for pointing out this poor explanation. In previous work the r12 transition rate constant was calculated using a combined calculation of diffusion of the spring representing the cross-bridge and a binding probability based on the distance of the cross-bridge tip from the nearest binding site. We retain this process, but split it into two steps: a diffusion step followed by a binding probability calculation. This split is necessary for the multi-spring cross-bridges as their geometry dowse not permit a simple diffusion step which may be integrated into the calculation of binding probability.\
+\
+We have revised the section, separating the description of the algorithm and the mathematical details, for increased clarity. We have given special attention to the link between prior binding rate constants and our own. 
+\b \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf3 TODO: We appreciate, we have revised blah to make clear these issues, this is a topic made challenging by the complex mix of theory and computation
-\f1 \
+\f1 \cf0 \
+
+\f0 Also, there is no clear justification provided for the 'second step' of thin filament binding that is new to this work, wherein probability of attachment is proportional to exp(-d), where d is the displacement of the head to the binding site. Because this is a departure from previous formulations, and because its accuracy will determine the predictive relevance of the model, it must be justified very explicitly. \
+\pard\pardeftab720\ql\qnatural
+
+\b0 \cf0 We appreciate this comment, the explanation was indeed unclear. As above, this technique is taken from previous work, but is simply spit into two steps to accommodate the more complex diffusion calculation needed by the multi-spring cross-bridges.\cf3 \
+\pard\pardeftab720\ql\qnatural
+
+\f1 \cf3 \
 \pard\pardeftab720\ql\qnatural
 
 \b \cf0 \
@@ -481,10 +485,8 @@ DAVE: I did, I just need to write it up.
 \b0 \cf0 We thank the reviewer for pointing out this omission. Our chosen time step was 1 ms. We have revised the text to reflect this. As in the work of Daniel et al (1998) and Tanner et al (2007) this time step is included as an implicit scaling factor in the kinetic rate constants, making the results independent of the chosen time step.\
 \
 \pard\pardeftab720\ql\qnatural
-\cf3 DAVE: Should we include this as an explicit factor in the paper?
-\f1\b \
-\pard\pardeftab720\ql\qnatural
-\cf0 \
+
+\f1\b \cf0 \
 
 \f0 2. Detachment rate - It is not clear what displacements (lengths and angles) are being used in the calculation of the energy (U1) the bridge would have following detachment. In the attached state, the energy seems straightforwardly defined by the location of the binding site. What happens following detachment is not intuitively clear to this reviewer, but certainly some assumptions have been made by the authors. These must be more explicitly stated. The reverse attachment rate (r21) is affected by this same issue - there is some mention of re-treating an ensemble of crossbridges to make this calculation, but again it does not read clearly enough for someone else to reproduce the work. \
 \pard\pardeftab720\ql\qnatural
@@ -593,7 +595,7 @@ DAVE: I did, I just need to write it up.
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 We greatly thank the reviewer for pointing out this error. The equation was typeset without differentiating between k, the spring constant,  and kappa, the Boltzmann constant. This error, and the missing minus sign, have been corrected.
+\f0\b0 \cf0 We greatly thank the reviewer for pointing out this error. The equation was typeset without differentiating between k, the spring constant,  and kappa, the Boltzmann constant. This error, and the missing minus sign, have been corrected and a subscript b has been added to kappa to further differentiate it.
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
