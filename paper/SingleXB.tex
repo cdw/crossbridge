@@ -210,7 +210,8 @@ The rate of detachment and the other cross-bridge kinetic rate constants remain 
 % paragraph (end)
 
 \paragraph{Axial offsets of most cross-bridge properties decrease as lattice spacing grows} % (fold)
-The axial offset of a cross-bridge property is the distance from the thick filament attachment site to the property's extreme value or point of inflection at a given lattice spacing. 
+The axial offset of a cross-bridge property is the axial distance from the point where the cross-bridge attaches to the thick filament to the point where the cross-bridge property reaches an extreme value or inflection point. 
+These axial offsets are depicted in Figure~\ref{fig_kinetics_contours} where, for example, the axial offset of the 2sXB attachment rate constant at 34 nm $d_{10}$ is approximately 12 nm. 
 As lattice spacing increases, the axial offsets of most multi-spring cross-bridge kinetic rates and free energies grows smaller.
 This relationship is visible in Figure~\ref{fig_kinetics_contours}A and B, where the axial offset of the 4sXB or 2sXB model's lowest energy point is more than 3 nm greater at a lattice spacing of 32 nm $d_{10}$ than at a lattice spacing of 38 nm $d_{10}$. 
 The positions where cross-bridges are most likely to bind are shifted to smaller axial offsets at larger lattice spacings, decreasing the how extended a cross-bridge is likely to be upon binding (Fig~\ref{fig_kinetics_contours}C-D). 
@@ -470,7 +471,7 @@ The free energies of the 2sXB system are:
 \paragraph{Binding rate calculation} % (fold)
 Our binding algorithm follows Tanner et al.~(2007) \citep{Tanner2007} but differs in two key ways: (1) we split binding to the thin filament into two steps, and (2) our diffusion step works with any number of springs.
 Previous models treated binding rate constants as an exponential function of the distance between a tethered diffusing spring and an available binding site \citep{Tanner2007, Daniel1998}.
-We produce binding rate constants in the same fashion, but in adapting them for multi-spring cross-bridges, split the process into two steps: diffusion of the cross-bridge head to a new location, followed by calculating binding probability at the new location. 
+We produce binding rate constants in the same fashion, but in adapting them for multi-spring cross-bridges, split the process into two steps: diffusion of the myosin head to a new location, followed by calculating binding probability at the new location. 
 The energy of a single spring undergoing thermally forced diffusion is taken from a Boltzmann distribution of possible energies \citep{BergBook, HowardBook}.
 With a single-spring cross-bridge, the cross-bridge tip offset is easily found from the energy of the spring. 
 A thermally forced multi-spring cross-bridge likewise takes the energy for each of its constituent springs from a Boltzmann distribution of energies, but tip location must be separately calculated (see the Geometry section above).
@@ -649,6 +650,19 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
         The change in the unstressed radial distance from the thick filament to the tip of the multi-spring cross-bridges that occurs with the power stroke is particularly visible in (C) and (D) when compared to the single spring cross-bridge (A).
         The effects of the universal joint attaching the springs of the 4sXB and the 2sXB to the globular domain, and the globular domain's own fixed angle to the thin filament, are shown by the continued radial orientation of the globular domain after the power stroke occurs.
         \label{fig_power_stroke_changes}
+           }
+    \end{center}
+\end{figure}
+
+%\clearpage
+\begin{figure}[!ht]
+    \begin{center}
+    \includegraphics[width=8.3cm]{../imgs/fig_multiple_kinetics_cuts.pdf}
+    \caption{ \textbf{SUPPLEMENTAL (COMMENT OUT BEFORE UPLOADING): Cross-bridge free energy and kinetics at multiple lattice spacings}
+        (A)--(B) show the free energies of the 4sXB and the 2sXB models at lattice spacings between 30 and 38 nm. 
+        (C)--(H) show the kinetic rate constants of the 4sXB and the 2sXB models at lattice spacings between 30 and 38 nm.
+        Each rate is a section taken from the corresponding display in Figure \ref{fig_kinetics_contours}.
+        \label{fig_multiple_kinetics_cuts}
            }
     \end{center}
 \end{figure}
