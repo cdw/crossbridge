@@ -1,7 +1,7 @@
 {\rtf1\ansi\ansicpg1252\cocoartf1038\cocoasubrtf320
 {\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 Times-Roman;}
 {\colortbl;\red255\green255\blue255;\red0\green0\blue128;\red255\green0\blue0;}
-\margl1440\margr1440\vieww10760\viewh23120\viewkind0
+\margl1440\margr1440\vieww10760\viewh17120\viewkind0
 \deftab720
 \pard\pardeftab720\ql\qnatural
 
@@ -126,52 +126,38 @@
 \f1 \
 \
 
-\f0 The manuscript is missing any discussion of how the model kinetics have been adapted for cardiac myosin, and what cardiac myosin (human or small rodent, alpha- or beta-MHC isoform) is the target. 
-\f1 \
+\f0 The manuscript is missing any discussion of how the model kinetics have been adapted for cardiac myosin, and what cardiac myosin (human or small rodent, alpha- or beta-MHC isoform) is the target. What parameters in the model would be altered to allow simulations of these various myosins, primarily compliance or kinetics, or is it necessary for both to co-vary? \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf3 TOM: Revise manuscript, weaken reference to FS REF IS ALREADY WEAK. "When parameters become available, for cardiac myosin\'85" If the parameters aren't available, the reviewer's request is moot.
-\f1 \
-
-\f0 Check with Mike to see if these parameters really do exist. Although I don't think they are.\
-Mike: The model can be adjusted for different myosin isoforms that have different kinetics by varying this rate and this rate d, mainly detachment and powerstroke rates, other than that, we don't know in differences in extensibility. Refer to P&C 89, probe in the range of fast skeletal muscle. 
-\f1 \
+\b0 \cf0 \
+Adapting our model to target specific types of myosin, or their mutants, has the potential to be a rich area for further study, and we are grateful to the reviewer for this chance to address it. In the current manuscript, we have targeted our myosin model towards replicating the geometric and kinetic characteristics that are shared between cardiac, skeletal, and insect myosins. A complicating factor, moving towards specific myosin models, is that many of the parameters we need are only available from x-ray crystallization studies, such as that of Rayment et al. (1993), which are not yet available for all myosins. Some data, such as extensibility of various regions, that would assist in targeting our models does not exist for any myosin. It is our desire, once such parameters are available, to test to what extent the differences between various myosin types are due to compliance or geometry, and to what extent they are due to kinetics.\
+\
 \pard\pardeftab720\ql\qnatural
-\cf0 \
+\cf0 We would posit that changing geometry and compliance may be sufficient. The kinetics of our models are functions of the free energies of the cross-bridges, free energies which are functions of the cross-bridges' stiffness and rest values. Changing the compliance or rest value of any part of the cross-bridge will have a corresponding effect on the cross-bridge's energies and thus on the cross-bridge's kinetics. It would bolster our approach to the kinetics of the cross-bridge If such modeling efforts don't require a change in kinetics.\
 \pard\pardeftab720\ql\qnatural
-
-\f0\b \cf0 What parameters in the model would be altered to allow simulations of these various myosins, primarily compliance or kinetics, or is it necessary for both to co-vary? 
-\f1 \
+\cf3 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 This is a very interesting question that we thank the reviewer for raising. The kinetics of our models are functions of the free energies of the cross-bridges, free energies which are functions of the cross-bridges' stiffness and rest values. Changing the compliance of any part of the cross-bridge will have a corresponding effect on the cross-bridge's kinetics. If such modeling efforts don't require a change in cross-bridge kinetics, it will bolster the robustness of our kinetic scheme. 
-\f1 \
-\pard\pardeftab720\ql\qnatural
-
-\f0 \cf3 TODO: This is aimed at getting an answer to what parameters change in these disease states. Take another look at this after reading the papers below.
-\f1 \
-\pard\pardeftab720\ql\qnatural
-
-\b \cf0 \
+\f1\b \cf0 \
 
 \f0 It would seem appropriate to briefly consider in discussion the possibility that disease-related mutations in cardiac myosin might have their major effects through changes in cross-bridge compliance. For example, see two papers from Kraft and colleagues (K\'f6hler, J., G. Winkler, I. Schulte, T. Scholz, W. McKenna, B. Brenner, and T. Kraft. 2002. Mutation of the myosin converter domain alters cross-bridge elasticity. Proc. Natl. Acad. Sci. USA 99:3557-3562; Seebohm, B., F. Matinmehr, J. K\'f6hler, A. Francino, F. Navarro-Lopez, A. Perrot, C. Ozcelik, W. J. McKenna, B. Brenner, and T. Kraft. 2009. Cardiomyopathy
 \f1 \
 
-\f0 mutations reveal variable region of myosin converter as major element of cross-bridge compliance. Biophys. J. 97:806-824). Thin filament mutant's effects on compliance might also be important in the broader model, but that is beyond the scope of the current manuscript. The model may ultimately provide important insight into cardiac disease mechanisms. 
+\f0 mutations reveal variable region of myosin converter as major element of cross-bridge compliance. Biophys. J. 97:806-824). Thin filament mutant's effects on compliance might also be important in the broader model, but that is beyond the scope of the current manuscript. The model may ultimately provide important insight into cardiac disease mechanisms. \
+\pard\pardeftab720\ql\qnatural
+
+\b0 \cf0 \
+This is an exciting point that we are very happy to include in the discussion. We have added a new paragraph to the discussion which addresses the possibility of using data on changes in compliance that occur at the single myosin level in disease states to trace the emergence of disease phenomena at the half-sarcomere level. We very much thank the reviewer for raising this interesting point. 
+\f1\b \
+\
+\pard\pardeftab720\ql\qnatural
+
+\f0 \cf0 What are the implications for shortening velocity when the new models are missing the asymmetric cross-bridge detachment rate that were built into the 1sXB model? Williams' approach that avoids discontinuous functions is certainly more appealing, but is it as successful as Huxley's at explaining such a wide variety of physiological phenomena? 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf3 TODO: Look through papers, include a ref "This can be done, but is not doable until we have a full set of such parameters."
-\f1 \
-\pard\pardeftab720\ql\qnatural
-
-\b \cf0 \
-
-\f0 What are the implications for shortening velocity when the new models are missing the asymmetric cross-bridge detachment rate that were built into the 1sXB model? Williams' approach that avoids discontinuous functions is certainly more appealing, but is it as successful as Huxley's at explaining such a wide variety of physiological phenomena? 
-\f1 \
-\pard\pardeftab720\ql\qnatural
-
-\f0\b0 \cf0 The effects of our revised model on simulations of shortening velocity are now addressed in a new paragraph in the discussion. We treat the effects of both changes in step size and detachment rate constants as lattice spacing changes. While it is not possible to foresee the full range of effects our modifications will have until such cross-bridges are embedded in a model of interacting filaments, one interpretation of our results is that changes in step size and detachment rates as lattice spacing changes should be able to account for changes in shortening velocity as lattice spacing and sarcomere length change. \
+\f0\b0 \cf0 \
+The effects of our revised model on simulations of shortening velocity are now addressed in a new paragraph in the discussion. We treat the effects of both changes in step size and detachment rate constants as lattice spacing changes. While it is not possible to foresee the full range of effects our modifications will have until such cross-bridges are embedded in a model of interacting filaments, one interpretation of our results is that changes in step size and detachment rates as lattice spacing changes should be able to account for changes in shortening velocity as lattice spacing and sarcomere length change. \
 \pard\pardeftab720\ql\qnatural
 
 \f1\b \cf0 \
@@ -180,7 +166,8 @@ Mike: The model can be adjusted for different myosin isoforms that have differen
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 The efficiency factors used on page 10 are the values used in Tanner et al. (2007) and are derived from the work of Pate and Cooke (1989). They are governed by the drop in free energy from the unbound state to the loosely bound state and from the loosely bound state to the strongly bound state.  They are the fraction of free energy liberated by the hydrolysis cycle that is available for use in a given state. We thank the reviewer for drawing our attention to this ambiguous discussion and have reworked it for increases clarity and specificity. 
+\f0\b0 \cf0 \
+The efficiency factors used on page 10 are the values used in Tanner et al. (2007) and are derived from the work of Pate and Cooke (1989). They are governed by the drop in free energy from the unbound state to the loosely bound state and from the loosely bound state to the strongly bound state.  They are the fraction of free energy liberated by the hydrolysis cycle that is available for use in a given state. We thank the reviewer for drawing our attention to this ambiguous and unclear discussion and have reworked it for increased clarity and specificity. 
 \f1 \
 \
 \pard\pardeftab720\ql\qnatural
@@ -193,7 +180,7 @@ Mike: The model can be adjusted for different myosin isoforms that have differen
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 This has been corrected.
+\f0\b0 \cf0 We appreciate the reviewer's comment on this unclear formatting and have corrected it. 
 \f1 \
 \
 \pard\pardeftab720\ql\qnatural
@@ -202,15 +189,10 @@ Mike: The model can be adjusted for different myosin isoforms that have differen
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 Yes, when incorporated into a lattice of thick and thin filaments, these two dimensional cross-bridges will naively incorporate the effects of lattice spacing on axial force generation. While such models are beyond the scope of the current paper, we hope to create them in the near future.
-\f1 \
+\f0\b0 \cf0 Yes, when incorporated into a lattice of thick and thin filaments, these two dimensional cross-bridges will naively incorporate the effects of lattice spacing on axial force generation. This will permit the monitoring, as lattice spacing changes, of cooperativity mechanisms that depend on lattice spacing and influence the development of axial and radial forces generated by the half-sarcomere. Such future work, while beyond the scope of the current paper, is one of the more exciting applications of such radially sensitive cross-bridges. \
 \pard\pardeftab720\ql\qnatural
 
-\f0 \cf3 TODO: Make an overarching comment about what is and what is not in the scope of the paper within the paper, look for a place to include more discussion of further models in the discussion.
-\f1 \
-\pard\pardeftab720\ql\qnatural
-
-\b \cf0 \
+\f1\b \cf0 \
 
 \f0 What is meant by "tuning" in the legend for Fig. 6? This isn't explained in the text, and isn't obvious in the figure. 
 \f1 \
@@ -226,7 +208,7 @@ Mike: The model can be adjusted for different myosin isoforms that have differen
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 We thank the reviewer, the redundant labels have been removed.
+\f0\b0 \cf0 This is a very accurate statement, the redundant labels have been removed.
 \f1 \
 \
 \pard\pardeftab720\ql\qnatural
@@ -267,7 +249,7 @@ Mike: The model can be adjusted for different myosin isoforms that have differen
 \
 \pard\pardeftab720\ql\qnatural
 
-\f0 \cf3 DAVE: Should we address a freely rotating cross-bridge that is restrained to an angle between 0 and 90 degrees with the thick filament? It seems like it might work somewhat okay, although when the cross-bridge was dragged past 90 degrees its energy would go, step-wise, to infinity and it would either have to pop off or halt changes in the relative axial positions of the thick and thin filament nodes it was connecting. 
+\f0 \cf3 DAVE: Should we address a freely rotating cross-bridge that is restrained to an angle between 0 and 90 degrees with the thick filament? It seems like it might work somewhat okay, although when the cross-bridge was dragged past 90 degrees its energy would go, step-wise, to infinity and it would either have to pop off or halt changes in the relative axial positions of the thick and thin filament nodes it was connecting. This is probably a more through job than needs be done.
 \f1 \
 \
 
@@ -281,7 +263,8 @@ Mike: The model can be adjusted for different myosin isoforms that have differen
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 The reviewer raises a good point. These results are generally expected, although they have not been explicitly modeled before. This paper serves as a demonstration that given kinetics which are able to operate in the radial dimension, dependence on lattice spacing and the production of radial forces inevitably emerge. These properties are intrinsic to the multi-dimensional cross-bridge. The phenomena we observe are bolstered by experimental observations, they do not challenge them. 
+\f0\b0 \cf0 \
+The reviewer raises a good point. These results are generally expected, although they have not been explicitly modeled before. This paper serves as a demonstration that given kinetics which are able to operate in the radial dimension, dependence on lattice spacing and the production of radial forces inevitably emerge. These properties are intrinsic to the multi-dimensional cross-bridge. The phenomena we observe are bolstered by experimental observations, they do not challenge them. 
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -291,7 +274,8 @@ Mike: The model can be adjusted for different myosin isoforms that have differen
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
-\f0\b0 \cf0 We know of no radial force data at the filament or cross-bridge level to which we can compare the current work. In future work, we hope to produce force predictions at the sarcomereic scale by embedding this model in a lattice of filaments, as done in Tanner et al. (2007) and Campbell (2009). This work, beyond the scope of the current paper, will allow comparison to experimental data such as Bagni et al (1994) and Brenner and Yu (1991).
+\f0\b0 \cf0 \
+We know of no radial force data at the filament or cross-bridge level to which we can compare the current work. In future work, we hope to produce force predictions at the sarcomereic scale by embedding this model in a lattice of filaments, as done in Tanner et al. (2007) and Campbell (2009). This work, beyond the scope of the current paper, will allow comparison to experimental data such as Bagni et al (1994) and Brenner and Yu (1991).
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
@@ -455,7 +439,8 @@ Mike: The model can be adjusted for different myosin isoforms that have differen
 \f0 1. Binding rate calculation - In previous work (Tanner et al. 2007 and Daniel et al. 1998) crossbridge attachment rate (r12) was directly proportional to the value of the PDF describing tethered diffusion of the myosin head for a given crossbridge distortion. The present work uses the same PDF, but in a much different way. It therefore needs more careful description and justification than given at present. The description of perturbing the distortion of each spring element is very difficult to follow due to mixing of algorithmic an theoretical steps. This should be resolved in such a way that both aspects are clear. \
 \pard\pardeftab720\ql\qnatural
 
-\b0 \cf0 We thank the reviewer for pointing out this poor explanation. In previous work the r12 transition rate constant was calculated using a combined calculation of diffusion of the spring representing the cross-bridge and a binding probability based on the distance of the cross-bridge tip from the nearest binding site. We retain this process, but split it into two steps: a diffusion step followed by a binding probability calculation. This split is necessary for the multi-spring cross-bridges as their geometry dowse not permit a simple diffusion step which may be integrated into the calculation of binding probability.\
+\b0 \cf0 \
+We thank the reviewer for pointing out this poor explanation. In previous work the r12 transition rate constant was calculated using a combined calculation of diffusion of the spring representing the cross-bridge and a binding probability based on the distance of the cross-bridge tip from the nearest binding site. We retain this process, but split it into two steps: a diffusion step followed by a binding probability calculation. This split is necessary for the multi-spring cross-bridges as their geometry dowse not permit a simple diffusion step which may be integrated into the calculation of binding probability.\
 \
 We have revised the section, separating the description of the algorithm and the mathematical details, for increased clarity. We have given special attention to the link between prior binding rate constants and our own. 
 \b \
@@ -466,18 +451,17 @@ We have revised the section, separating the description of the algorithm and the
 \f0 Also, there is no clear justification provided for the 'second step' of thin filament binding that is new to this work, wherein probability of attachment is proportional to exp(-d), where d is the displacement of the head to the binding site. Because this is a departure from previous formulations, and because its accuracy will determine the predictive relevance of the model, it must be justified very explicitly. \
 \pard\pardeftab720\ql\qnatural
 
-\b0 \cf0 We appreciate this comment, the explanation was indeed unclear. As above, this technique is taken from previous work, but is simply spit into two steps to accommodate the more complex diffusion calculation needed by the multi-spring cross-bridges.\cf3 \
+\b0 \cf0 \
+We appreciate this comment, the explanation was indeed unclear. As above, this technique is taken from previous work, but is simply spit into two steps to accommodate the more complex diffusion calculation needed by the multi-spring cross-bridges.\cf3 \
 \pard\pardeftab720\ql\qnatural
 
-\f1 \cf3 \
-\pard\pardeftab720\ql\qnatural
-
-\b \cf0 \
+\f1\b \cf0 \
 
 \f0 Some additional details regarding simulation of the ensemble of crossbridges used to estimate r12 should be included. What was the 'given time step' used to evaluate binding events? Were the results sensitive to this number? \
 \pard\pardeftab720\ql\qnatural
 
-\b0 \cf0 We thank the reviewer for pointing out this omission. Our chosen time step was 1 ms. We have revised the text to reflect this. As in the work of Daniel et al (1998) and Tanner et al (2007) this time step is included as an implicit scaling factor in the kinetic rate constants, making the results independent of the chosen time step.\
+\b0 \cf0 \
+We thank the reviewer for pointing out this omission. Our chosen time step was 1 ms. We have revised the text to reflect this. As in the work of Daniel et al (1998) and Tanner et al (2007) this time step is included as an implicit scaling factor in the kinetic rate constants, making the results independent of the chosen time step.\
 \
 \pard\pardeftab720\ql\qnatural
 
@@ -486,7 +470,8 @@ We have revised the section, separating the description of the algorithm and the
 \f0 2. Detachment rate - It is not clear what displacements (lengths and angles) are being used in the calculation of the energy (U1) the bridge would have following detachment. In the attached state, the energy seems straightforwardly defined by the location of the binding site. What happens following detachment is not intuitively clear to this reviewer, but certainly some assumptions have been made by the authors. These must be more explicitly stated. The reverse attachment rate (r21) is affected by this same issue - there is some mention of re-treating an ensemble of crossbridges to make this calculation, but again it does not read clearly enough for someone else to reproduce the work. \
 \pard\pardeftab720\ql\qnatural
 
-\b0 \cf0 As shown in equations in the "Free energy in each state" subsection of the description of model kinetics, the free energy of the detached cross-bridge is set to a reference point of 0. As in prior work, the detached cross-bridge is assumed to relax to an unstressed state. As the reviewer points out, this process was unclear in the manuscript, and was not easy to find when looking reading the section on detachment rates. We have rewritten the relevant section on "Power stroke and detachment rates" and inserted appropriate references in the following sections. \
+\b0 \cf0 \
+As shown in equations in the "Free energy in each state" subsection of the description of model kinetics, the free energy of the detached cross-bridge is set to a reference point of 0. As in prior work, the detached cross-bridge is assumed to relax to an unstressed state. As the reviewer points out, this process was unclear in the manuscript, and was not easy to find when looking reading the section on detachment rates. We have rewritten the relevant section on "Power stroke and detachment rates" and inserted appropriate references in the following sections. \
 \pard\pardeftab720\ql\qnatural
 
 \f1\b \cf0 \
@@ -495,12 +480,14 @@ We have revised the section, separating the description of the algorithm and the
 \f0 3. The implications of crossbridge geometry on the balance of axial and radial forces is clearly an important part of this work. At several points (particularly in Figs 4 and 5 and throughout the text) when force is being discussed, it is not clear whether the force refers to the pre- or post-powerstroke state. This needs to be clarified. Along these same lines, it seems as though the effects of lattice spacing (particulary the transitions from compressive to expansive highlighted in the text) could be different, depending on what state the bridge is in. \
 \pard\pardeftab720\ql\qnatural
 
-\b0 \cf0 We thank the reviewer for drawing the ambiguity in our force description to our attention. All forces depicted are in the post-power stroke state, and figure captions have been updated to reflect this. The reviewer is correct that the effects of lattice spacing vary somewhat with what state the cross-bridge occupies. While we focus our discussion on the post-power stroke state for reasons of clarity, the trends described in the paper apply to both the pre- and post-power stroke states. 
+\b0 \cf0 \
+We thank the reviewer for drawing the ambiguity in our force description to our attention. All forces depicted are in the post-power stroke state, and figure captions have been updated to reflect this. The reviewer is correct that the effects of lattice spacing vary somewhat with what state the cross-bridge occupies. While we focus our discussion on the post-power stroke state for reasons of clarity, the trends described in the paper apply to both the pre- and post-power stroke states. 
 \f1\b \
 \
 \pard\pardeftab720\ql\qnatural
 
-\f0 \cf0 4. It seems like the implications of the work are not adequately discussed. Much of the results section merely recapitulates what was stated in the results section. The authors should build closer ties to experimental work by discussing not only which questions will be affected by the results, but also how. 
+\f0 \cf0 4. It seems like the implications of the work are not adequately discussed. Much of the results section merely recapitulates what was stated in the results section. The authors should build closer ties to experimental work by discussing not only which questions will be affected by the results, but also how. \
+
 \f1 \
 \pard\pardeftab720\ql\qnatural
 
