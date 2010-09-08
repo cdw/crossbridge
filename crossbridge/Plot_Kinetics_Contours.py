@@ -40,7 +40,8 @@ def main():
     prob_ticks = (0, 500, 1000)
     # Plotting shortcut
     def plot_contour(axis, prop, levels):
-        cont = axis.contourf(x_grid, y_grid, prop, levels, colors=colors)
+        cont = axis.contourf(x_grid, y_grid, prop, levels, colors=colors,
+                            origin='upper')
         return cont 
     
     # Basic Plots
@@ -54,25 +55,26 @@ def main():
     r31_contour = plot_contour(axe[7], r31[0], prob_lvls)
     # Colorbars
     def format_colorbar(colorbar, title, tic_labels, pos):
-        colorbar.set_label(title, size=10, ha='center')
+        colorbar.set_label(title, size=9, ha='center',
+                          linespacing=0.9, labelpad=13)
         colorbar.ax.set_yticklabels(tic_labels, size=8)
         colorbar.ax.set_position(pos) 
-    colorbar = plt.colorbar(energy_contour, ax=axe[1], ticks = ener_lvls[1:-1], 
-                            format='% 4.1f')
+    colorbar = plt.colorbar(energy_contour, ax=axe[1], 
+                            ticks = ener_lvls[1:-1], format='% 4.1f')
     format_colorbar(colorbar, "Energy", ener_ticks,
-                    [.89, .80, .07, .13]) 
+                    [.85, .805, .07, .13]) 
     colorbar = plt.colorbar(r12_contour, ax=axe[3], format='%d', 
                             ticks=prob_ticks, spacing='proportional')
-    format_colorbar(colorbar, "Binding \n Rate Constant (s$^-1$)",
-                 prob_ticks, [.89, .57, .07, .13]) 
+    format_colorbar(colorbar, "Binding \n Rate Constant (s$^{-1}$)",
+                 prob_ticks, [.85, .565, .07, .13]) 
     colorbar = plt.colorbar(r23_contour, ax=axe[5], format='%d', 
                             ticks=prob_ticks, spacing='proportional')
-    format_colorbar(colorbar, "Power stroke \n Rate Constant (s$^-1$)",
-                 prob_ticks, [.89, .33, .07, .13]) 
+    format_colorbar(colorbar, "Power stroke \n Rate Constant (s$^{-1}$)",
+                 prob_ticks, [.85, .325, .07, .13]) 
     colorbar = plt.colorbar(r31_contour, ax=axe[7], format='%d', 
                             ticks=prob_ticks, spacing='proportional')
-    format_colorbar(colorbar, "Detachment \n Rate Constant (s$^-1$)",
-                 prob_ticks, [.89, .07, .07, .13]) 
+    format_colorbar(colorbar, "Detachment \n Rate Constant (s$^{-1}$)",
+                 prob_ticks, [.85, .085, .07, .13]) 
     #colorbar.ax.set_position([.89, .80, .07, .13]) 
     #colorbar.ax.set_yticklabels(ener_ticks, size=8)
     #colorbar.set_label("Energy")
@@ -89,7 +91,7 @@ def main():
     # Annotate the axes
     annotate = lambda axis, title: axis.annotate(title, (0.5, 1.05),
                                  xycoords='axes fraction', ha='center',
-                                 size=11)
+                                 size=10)
     annotate(axe[0], "4sXB free energy")
     annotate(axe[1], "2sXB free energy")
     annotate(axe[2], "4sXB attachment \n rate constant")
@@ -99,9 +101,9 @@ def main():
     annotate(axe[6], "4sXB detachment \n rate constant")
     annotate(axe[7], "2sXB detachment \n rate constant")
     # Axis Labels
-    set_x = lambda a,t: a.set_xlabel(t, size=10)
+    set_x = lambda a,t: a.set_xlabel(t, size=11, linespacing=1.0)
     [set_x(axis, "Axial offset (nm)") for axis in axe[6:]]
-    set_y = lambda a,t: a.set_ylabel(t, labelpad=14, size=9.5, 
+    set_y = lambda a,t: a.set_ylabel(t, labelpad=9, size=9.5, 
                                      ha="center", linespacing=1)
     set_y(axe[0], "$d_{1,0}$ (nm)")
     set_y(axe[2], "$d_{1,0}$ (nm)")
@@ -111,10 +113,10 @@ def main():
     for axis in axe:
         limits = [y_range[0], y_range[1]]
         tics = [26, 30, 34, 38] 
-        axis.set_ybound(limits[0], limits[1])
         axis.set_yticks(tics)
         axis.set_yticklabels(tics, size=8)
         axis.yaxis.set_ticks_position('left')
+        axis.set_ylim(limits[1], limits[0])
     # X Axis Ticks
     for axis in axe:
         tics = range(0,21,5)
@@ -127,8 +129,8 @@ def main():
     for axis, letter in zip(axe, mr_alphabet):
         axis.set_title(letter, x=-0.20, y=1.04, size=12, weight="demi")
     # Display the results
-    fig.subplots_adjust(wspace=0.35, hspace=0.65,
-                        left=0.10, right=0.88,
+    fig.subplots_adjust(wspace=0.32, hspace=0.70,
+                        left=0.10, right=0.84,
                         top=0.94, bottom=0.08)
     plt.show()
     
