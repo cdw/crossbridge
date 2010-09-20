@@ -17,13 +17,21 @@
    sodipodi:version="0.32"
    inkscape:version="0.47 r22583"
    version="1.0"
-   sodipodi:docname="FigureS2.svg"
+   sodipodi:docname="fig_power_stroke_changes.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:export-filename="/Users/dave/code/singlexb/imgs/Figure1.tiff.png"
    inkscape:export-xdpi="600"
    inkscape:export-ydpi="600">
   <defs
-     id="defs4" />
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 106.29921 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="294.09448 : 106.29921 : 1"
+       inkscape:persp3d-origin="147.04724 : 70.86614 : 1"
+       id="perspective14617" />
+  </defs>
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
@@ -32,18 +40,18 @@
      gridtolerance="10000"
      guidetolerance="10"
      objecttolerance="10"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.6970563"
-     inkscape:cx="240.29866"
-     inkscape:cy="146.23858"
+     inkscape:zoom="3.2744579"
+     inkscape:cx="147.04724"
+     inkscape:cy="106.29921"
      inkscape:document-units="cm"
      inkscape:current-layer="layer1"
      showgrid="false"
      units="cm"
-     inkscape:window-width="1680"
+     inkscape:window-width="1050"
      inkscape:window-height="1028"
-     inkscape:window-x="325"
+     inkscape:window-x="6"
      inkscape:window-y="0"
      showguides="false"
      inkscape:guide-bbox="true"
@@ -65,7 +73,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -96,13 +104,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image5333"
-         x="87.962837"
+         style="display:inline"
          y="92.601791"
-         style="display:inline" />
+         x="87.962837"
+         id="image5333"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          id="path2780"
          d="M 49.217415,122.74976 19.172418,111.76947"
@@ -114,13 +122,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image3562"
-         x="170.18552"
+         style="display:inline"
          y="61.797951"
-         style="display:inline" />
+         x="170.18552"
+         id="image3562"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          inkscape:label="#path3564"
          id="2sXB_S2"
@@ -133,13 +141,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image3568"
-         x="252.40819"
+         style="display:inline"
          y="30.994123"
-         style="display:inline" />
+         x="252.40819"
+         id="image3568"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          inkscape:label="#path3570"
          id="4sXB_S2"
@@ -201,7 +209,7 @@
        sodipodi:cy="27.5"
        sodipodi:rx="0.5"
        sodipodi:ry="0.5"
-       d="m 11,27.5 a 0.5,0.5 0 1 1 -1,0 0.5,0.5 0 1 1 1,0 z"
+       d="M 11,27.5 C 11,27.776142 10.776142,28 10.5,28 10.223858,28 10,27.776142 10,27.5 10,27.223858 10.223858,27 10.5,27 c 0.276142,0 0.5,0.223858 0.5,0.5 z"
        transform="matrix(4.4304848,0,0,4.4304848,65.09397,152.50002)" />
     <path
        style="fill:none;stroke:#c83737;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -484,7 +492,7 @@
        style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
     <path
        transform="matrix(4.4304848,0,0,4.4304848,27.09397,260.50002)"
-       d="m 11,27.5 a 0.5,0.5 0 1 1 -1,0 0.5,0.5 0 1 1 1,0 z"
+       d="M 11,27.5 C 11,27.776142 10.776142,28 10.5,28 10.223858,28 10,27.776142 10,27.5 10,27.223858 10.223858,27 10.5,27 c 0.276142,0 0.5,0.223858 0.5,0.5 z"
        sodipodi:ry="0.5"
        sodipodi:rx="0.5"
        sodipodi:cy="27.5"

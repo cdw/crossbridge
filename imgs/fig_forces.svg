@@ -22,11 +22,17 @@
      id="metadata2445"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /></cc:Work></rdf:RDF></metadata><defs
-     id="defs2443" /><sodipodi:namedview
+     id="defs2443"><inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 99.212593 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="294.09448 : 99.212593 : 1"
+       inkscape:persp3d-origin="147.04724 : 66.141729 : 1"
+       id="perspective3992" /></defs><sodipodi:namedview
      inkscape:window-height="856"
-     inkscape:window-width="1436"
+     inkscape:window-width="1050"
      inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      guidetolerance="10.0"
      gridtolerance="10.0"
      objecttolerance="10.0"
@@ -500,6 +506,7 @@
 
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13357"
@@ -512,6 +519,7 @@
      x="9.4699631"
      id="tspan13359"
      sodipodi:role="line">34</tspan></text>
+
 
 
 
@@ -534,6 +542,7 @@
 
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13365"
@@ -546,6 +555,7 @@
      x="9.52141"
      id="tspan13367"
      sodipodi:role="line">26</tspan></text>
+
 
 
 
@@ -594,6 +604,7 @@
 
 
 
+
 <rect
    transform="scale(1,-1)"
    ry="0"
@@ -620,6 +631,7 @@
 
 
 
+
 <g
    transform="matrix(0.9798517,0,0,0.9798517,-3.6499312,-103.81224)"
    id="g9739"><text
@@ -634,6 +646,7 @@
      x="24.395319"
      id="tspan13289"
      sodipodi:role="line">0</tspan></text>
+
 
 
 
@@ -656,6 +669,7 @@
 
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13295"
@@ -668,6 +682,7 @@
      x="66.528664"
      id="tspan13297"
      sodipodi:role="line">10</tspan></text>
+
 
 
 
@@ -690,6 +705,7 @@
 
 
 
+
 <text
    sodipodi:linespacing="125%"
    id="text13303"
@@ -702,6 +718,7 @@
      x="108.62856"
      id="tspan13305"
      sodipodi:role="line">20</tspan></text>
+
 
 
 
@@ -733,6 +750,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -745,6 +763,7 @@
      id="tspan10546"
      x="62.634312"
      y="-708.85162">4sXB Force</tspan></text>
+
 
 
 
@@ -767,6 +786,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:9.60000038px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -779,6 +799,7 @@
      id="tspan10554"
      x="121.2"
      y="-707.42609">B</tspan></text>
+
 
 
 
@@ -801,6 +822,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:9.60000038px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue Bold"
@@ -813,6 +835,7 @@
      id="tspan10562"
      x="121.15283"
      y="-624.76886">D</tspan></text>
+
 
 
 
@@ -851,6 +874,7 @@
 
 
 
+
 <rect
    style="fill:none;stroke:#000000;stroke-width:0.60000002;stroke-linecap:square;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate"
    id="rect11004"
@@ -878,6 +902,7 @@
 
 
 
+
 <g
    transform="translate(-112,80)"
    id="g11241"><text
@@ -892,6 +917,7 @@
      id="tspan11018"
      x="32.779636"
      y="-490.93988">4</tspan></text>
+
 
 
 
@@ -914,6 +940,7 @@
 
 
 
+
 <text
    transform="scale(1,-1)"
    xml:space="preserve"
@@ -926,6 +953,7 @@
      id="tspan11026"
      x="87.891754"
      y="-490.93988">6</tspan></text>
+
 
 
 
@@ -960,6 +988,7 @@
 
 
 
+
 <text
    transform="scale(1,-1)"
    xml:space="preserve"
@@ -977,6 +1006,7 @@
 
 
 
+
 <text
    transform="scale(1,-1)"
    xml:space="preserve"
@@ -989,6 +1019,7 @@
      id="tspan10980"
      x="-102.15139"
      y="-620.06592">32</tspan></text>
+
 
 
 
@@ -1023,6 +1054,7 @@
 
 
 
+
 <path
    id="path11336"
    style="fill:none;stroke:#000000;stroke-width:0.5;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
@@ -1041,6 +1073,7 @@
 
 
 
+
 </g></g><text
    transform="scale(1,-1)"
    sodipodi:linespacing="125%"
@@ -1053,6 +1086,7 @@
      x="62.634312"
      id="tspan11675"
      sodipodi:role="line">Small Offset 4sXB Force</tspan></text>
+
 
 
 
@@ -1075,6 +1109,7 @@
 
 
 
+
 <text
    transform="scale(1,-1)"
    sodipodi:linespacing="125%"
@@ -1092,6 +1127,7 @@
 
 
 
+
 <text
    xml:space="preserve"
    style="font-size:6.4;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
@@ -1104,6 +1140,7 @@
      id="tspan11804"
      x="226.7937"
      y="-679.43622">10 pn</tspan></text>
+
 
 
 

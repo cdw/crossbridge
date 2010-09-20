@@ -16,9 +16,10 @@
    width="294.09448"
    height="95.669289"
    xml:space="preserve"
-   sodipodi:docname="FigureS1.svg"
+   sodipodi:docname="fig_step_size.svg"
    version="1.0"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape"><metadata
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   style="display:inline"><metadata
      id="metadata3470"><rdf:RDF><cc:Work
          rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
@@ -29,10 +30,10 @@
        inkscape:vp_z="744.09448 : 526.18109 : 1"
        inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
        id="perspective3472" /></defs><sodipodi:namedview
-     inkscape:window-height="856"
-     inkscape:window-width="1436"
+     inkscape:window-height="1636"
+     inkscape:window-width="1046"
      inkscape:pageshadow="2"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      guidetolerance="10.0"
      gridtolerance="10.0"
      objecttolerance="10.0"
@@ -44,29 +45,18 @@
      units="cm"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:zoom="2.4722548"
-     inkscape:cx="87.550355"
-     inkscape:cy="31.404234"
+     inkscape:zoom="3.2608568"
+     inkscape:cx="147.04724"
+     inkscape:cy="47.834644"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="g3474"
      inkscape:window-maximized="1" /><g
-     inkscape:groupmode="layer"
-     id="layer1"
-     inkscape:label="Background"
-     transform="translate(0,-1.0081787e-4)"
-     sodipodi:insensitive="true"><rect
-       style="fill:#ffffff;fill-opacity:1;stroke:none"
-       id="rect3082"
-       width="294.09448"
-       height="95.669289"
-       x="0"
-       y="0.00010081787"
-       rx="0" /></g><g
      id="g3474"
      inkscape:groupmode="layer"
      inkscape:label="FigureS1"
-     transform="matrix(1.25,0,0,-1.25,0,230.6692)"><path
+     transform="matrix(1.25,0,0,-1.25,0,230.6692)"
+     style="display:inline"><path
    style="fill:none;stroke:#ff466f;stroke-width:1.60000002;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
    d="m 20.707817,137.17251 c 3.300527,1.39979 6.892398,1.88807 10.211541,3.23237 2.490137,0.93701 4.912233,2.04623 7.377205,3.04628 3.137757,1.29579 6.225194,2.70984 9.21241,4.32504 3.359137,1.68199 6.522213,3.71455 9.763811,5.60401 3.261063,1.84285 6.76591,3.40483 10.524735,3.81948 3.096405,0.41941 6.299006,0.58466 9.33977,-0.27359 4.002393,-0.92119 7.850811,-2.4304 11.505243,-4.29332 5.362593,-2.50916 10.368928,-5.68628 15.443188,-8.7184 1.49935,-0.92522 3.04603,-1.77141 4.56583,-2.66229"
    id="path3488" />
@@ -114,6 +104,8 @@
      y="-177.3699"
      sodipodi:role="line"
      id="tspan3628">4sXB step size</tspan></text>
+
+
 
 
 
@@ -168,6 +160,8 @@
 
 
 
+
+
 <g
    id="g2937"
    transform="translate(0,0.31998616)"><path
@@ -185,6 +179,8 @@
      x="20.452394"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">26</tspan></text>
 
+
+
 <path
    id="path3498"
    style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
@@ -199,6 +195,8 @@
      y="-117.47038"
      x="33.490696"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">28</tspan></text>
+
+
 
 <path
    id="path3506"
@@ -215,6 +213,8 @@
      x="46.503548"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">30</tspan></text>
 
+
+
 <path
    id="path3514"
    style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
@@ -229,6 +229,8 @@
      y="-117.47038"
      x="59.596252"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">32</tspan></text>
+
+
 
 <path
    id="path3522"
@@ -245,6 +247,8 @@
      x="72.557755"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">34</tspan></text>
 
+
+
 <path
    id="path3530"
    style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
@@ -259,6 +263,8 @@
      y="-117.47038"
      x="85.573654"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">36</tspan></text>
+
+
 
 <path
    id="path3538"
@@ -275,6 +281,8 @@
      x="98.611961"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">38</tspan></text>
 
+
+
 <text
    style="font-size:7.19999981px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
    y="-109.5048"
@@ -286,6 +294,8 @@
      y="-109.5048"
      x="64.563812"
      style="font-size:7.19999981px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">Lattice spacing (nm)</tspan></text>
+
+
 
 <path
    id="path3558"
@@ -301,6 +311,8 @@
      x="15.476032"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">2</tspan></text>
 
+
+
 <path
    id="path3574"
    style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
@@ -314,6 +326,8 @@
      y="-149.0453"
      x="15.396032"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">4</tspan></text>
+
+
 
 <path
    id="path3590"
@@ -329,6 +343,8 @@
      x="15.351233"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">6</tspan></text>
 
+
+
 <path
    id="path3606"
    style="fill:none;stroke:#000000;stroke-width:1;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none"
@@ -343,6 +359,8 @@
      x="15.354433"
      style="font-size:6.4000001px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;writing-mode:lr-tb;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">8</tspan></text>
 
+
+
 <text
    style="font-size:7.19999981px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
    y="11.830067"
@@ -354,6 +372,8 @@
      y="11.830067"
      x="150.73096"
      style="font-size:7.19999981px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue">Step size (nm)</tspan></text>
+
+
 
 <path
    id="path3622"
@@ -375,6 +395,8 @@
      x="15.354433"
      y="-122.54383"
      id="tspan2935">0</tspan></text>
+
+
 
 </g><use
    x="0"

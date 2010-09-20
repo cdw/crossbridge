@@ -17,7 +17,7 @@
    sodipodi:version="0.32"
    inkscape:version="0.47 r22583"
    version="1.0"
-   sodipodi:docname="Figure1.svg"
+   sodipodi:docname="fig_xb_types.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    inkscape:export-filename="/Users/dave/code/singlexb/imgs/Figure1.tiff.png"
    inkscape:export-xdpi="600"
@@ -188,22 +188,22 @@
      gridtolerance="10000"
      guidetolerance="10"
      objecttolerance="10"
-     inkscape:pageopacity="0.0"
+     inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.2"
-     inkscape:cx="182.44846"
-     inkscape:cy="240.72978"
+     inkscape:zoom="3.2608568"
+     inkscape:cx="147.04724"
+     inkscape:cy="203.74016"
      inkscape:document-units="cm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      units="cm"
-     inkscape:window-width="1436"
-     inkscape:window-height="856"
+     inkscape:window-width="1046"
+     inkscape:window-height="1636"
      inkscape:window-x="0"
      inkscape:window-y="0"
      showguides="true"
      inkscape:guide-bbox="true"
-     inkscape:window-maximized="1">
+     inkscape:window-maximized="0">
     <inkscape:grid
        type="xygrid"
        id="grid2387"
@@ -252,13 +252,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image5333"
-         x="87.962837"
+         style="display:inline"
          y="92.601791"
-         style="display:inline" />
+         x="87.962837"
+         id="image5333"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          id="path2780"
          d="M 49.217415,122.74976 19.172418,111.76947"
@@ -270,13 +270,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image3562"
-         x="170.18552"
+         style="display:inline"
          y="61.797951"
-         style="display:inline" />
+         x="170.18552"
+         id="image3562"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          inkscape:label="#path3564"
          id="2sXB_S2"
@@ -289,13 +289,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
-         width="47.095367"
-         height="47.095367"
-         id="image3568"
-         x="252.40819"
+         style="display:inline"
          y="30.994123"
-         style="display:inline" />
+         x="252.40819"
+         id="image3568"
+         height="47.095367"
+         width="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
       <path
          inkscape:label="#path3570"
          id="4sXB_S2"
@@ -327,7 +327,7 @@
        sodipodi:cy="27.5"
        sodipodi:rx="0.5"
        sodipodi:ry="0.5"
-       d="m 11,27.5 a 0.5,0.5 0 1 1 -1,0 0.5,0.5 0 1 1 1,0 z"
+       d="M 11,27.5 C 11,27.776142 10.776142,28 10.5,28 10.223858,28 10,27.776142 10,27.5 10,27.223858 10.223858,27 10.5,27 c 0.276142,0 0.5,0.223858 0.5,0.5 z"
        transform="matrix(4.4304848,0,0,4.4304848,25.093969,-27.499977)" />
     <path
        style="fill:none;stroke:#c83737;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
@@ -599,21 +599,21 @@
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:110%;writing-mode:lr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
        x="43.599354"
        y="18.206467"
        id="text5665"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="110%"><tspan
          sodipodi:role="line"
          id="tspan5667"
          x="43.599354"
          y="18.206467"
-         style="font-size:9px">Cross-bridge</tspan><tspan
+         style="font-size:9px;-inkscape-font-specification:Helvetica Neue;font-family:Helvetica Neue;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:middle;text-align:center;writing-mode:lr;line-height:110%">Cross-bridge</tspan><tspan
          sodipodi:role="line"
          x="43.599354"
          y="29.456467"
          id="tspan5669"
-         style="font-size:9px">structure</tspan></text>
+         style="font-size:9px;-inkscape-font-specification:Helvetica Neue;font-family:Helvetica Neue;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;text-anchor:middle;text-align:center;writing-mode:lr;line-height:110%">structure</tspan></text>
     <text
        id="text3171"
        y="85.724297"
@@ -954,11 +954,11 @@
        height="405" />
     <text
        xml:space="preserve"
-       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:110%;writing-mode:lr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;display:inline;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
        x="138.52333"
        y="17.414467"
        id="text5671"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="110%"><tspan
          sodipodi:role="line"
          id="tspan5673"
          x="138.52333"
@@ -1040,11 +1040,11 @@
        transform="matrix(0.3893475,0,0,0.3893475,80.981034,9.76643)" />
     <text
        xml:space="preserve"
-       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       style="font-size:9px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:110%;writing-mode:lr;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
        x="247.63614"
        y="17.414467"
        id="text5677"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="110%"><tspan
          sodipodi:role="line"
          id="tspan5679"
          x="247.63614"

@@ -21,20 +21,20 @@
    style="display:inline">
   <sodipodi:namedview
      id="base"
-     pagecolor="#e1ffff"
+     pagecolor="#ffffff"
      bordercolor="#666666"
      borderopacity="1.0"
-     inkscape:pageopacity="0"
+     inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.9754903"
-     inkscape:cx="227.61692"
-     inkscape:cy="61.555883"
+     inkscape:zoom="3.2744579"
+     inkscape:cx="147.04724"
+     inkscape:cy="93.897636"
      inkscape:document-units="px"
      inkscape:current-layer="layer14"
      showgrid="true"
-     units="cm"
+     units="in"
      gridtolerance="10"
-     inkscape:window-width="1662"
+     inkscape:window-width="1050"
      inkscape:window-height="1014"
      inkscape:window-x="0"
      inkscape:window-y="16"
@@ -424,7 +424,7 @@
      inkscape:label="Right"
      id="layer5"
      inkscape:groupmode="layer"
-     transform="translate(0,-3052.2055)">
+     transform="translate(0,-3052.2049)">
     <g
        style="display:inline"
        inkscape:label="Forces"
@@ -962,7 +962,7 @@
                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue" />
             <path
                d="m 3481.186,2304.375 -7.6682,0"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:1.9069015;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:1.90690148;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
                id="path6642" />
             <text
                id="text6644"
@@ -978,7 +978,7 @@
             </text>
             <path
                d="m 3481.186,2275.125 -7.6682,0"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:1.9069015;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:1.90690148;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
                id="path6648" />
             <text
                id="text6650"
@@ -993,7 +993,7 @@
             </text>
             <path
                d="m 3481.6245,2245.875 -8.0363,0"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:1.9069015;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:1.90690148;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
                id="path7444" />
             <text
                id="text6656"
@@ -1009,7 +1009,7 @@
             </text>
             <path
                d="m 3481.186,2216.625 -7.6682,0"
-               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:1.9069015;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+               style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:none;stroke:#000000;stroke-width:1.90690148;stroke-linecap:butt;stroke-linejoin:round;stroke-miterlimit:10;stroke-opacity:1;stroke-dasharray:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
                id="path6660" />
             <text
                id="text6662"
