@@ -1,0 +1,158 @@
+# Paper outline
+
+## Commandments from on high
+
+ 1. Avoid jargon, except when necessary, then explain it
+ 2. No "changes" or "varies" without a direction
+ 3. Quantitative description, with numbers from graphs, is best
+ 4. Give examples of what would happen to a crossbridge in a given situation
+ 5. No passive voice
+ 6. Minimum of words needed for clarity, fewer than 240 characters per sentence
+ 7. Spill the beans, put the big idea upfront without much introduction
+ 8. What was done, how, and then why; don't motivate things too early
+ 9. Enumeration may be a cheat, but use it where it helps the logic flow
+ 10. Figure references live happily in parentheses
+ 11. Don't waffle. Avoid "somewhat"s and "possible"s.
+ 12. No German terms - avoid complex sentence objects.
+
+
+## Abstract
+ * 
+
+## Introduction
+ * Background information
+     * Observation of radial force
+     * Idea of lever arm
+     * Torsional springs are a way to include lever arms
+ * History of models
+ * We model two types of crossbridges
+     * The 4sXB
+     * The 2sXB
+     * No multi-crossbridge models in this paper
+ * Newly observable properties
+     * Radial forces
+         * Natural mechanism
+         * Evidence for radial force 
+             * Noting how that evidence was interpreted 
+             * Reference to continuing controversy
+         * Mechanism by which they occur in the model
+     * Lattice spacing dependence
+         * Previously little investigated at the single molecule level
+         * Potential predictions?
+ * Why these are useful things to look at (worried about this one)
+     * Frank Starling?
+
+
+## Materials and Methods
+
+### Overview
+ * Classes of crossbridges: 1, 4, and 2 springs
+
+### Geometry
+ * Spring configurations
+     * Single spring axially parallel
+     * Four spring correspondence to physical parts
+     * Sources of four spring values
+     * Acknowledge powerstroke distance
+     * Two spring fit to replicate four spring
+ * Force generated via displacement
+ * Calculation of spring lengths/angles
+### Kinetics
+ * Free energy in each state
+     * Liberation of energy by Pi hydrolysis
+ * Calculation of binding rate
+     * Perturbation of crossbridge head
+     * Probability of binding based on distance to binding site
+ * Powerstroke rate
+     * Distortion dependence
+ * Unbinding rate
+ * Calculation of reverse rates
+
+## Results
+
+### Intro Paragraph
+ * Model purpose: see effects of LS and radial forces
+ * 1s vs 4s: accomplishes goal by imitating protein mechanics
+ * 4s vs 2s: simplify while retaining benefits
+ * Summary of results:
+	 * Successfully replicated properties of the 1sXB
+	 * Axial offset and magnitude of XB properties change with LS
+	 * Axial force offset/radial force magnitude are dependent on LS
+ * Wrap up: let's look at these results
+
+### Replication of previous kinetics 
+ * Paragraph Title: At 34nm d10 the multi- and single-spring crossbridges have similar kinetics and energies
+ * Kinetics and energies intentionally replicate 1sXB with some caveats
+ * All transition rates are based on the crossbridge's free energy
+ * Single-spring crossbridge rates are based on those of Tanner 2007
+ * Diffusion based binding rates are spread out
+ * Detachment rates differ most as the single-spring detachment rates were least energy based
+
+### Axial offset of kinetics
+ * Paragraph Title: Axial offset of crossbridge properties decrease as lattice spacing increases
+ * Axial offset definition
+ * For all properties of the 4sXB and 2sXB the axial offset decreases as lattice spacing increases
+ * The exception is the rate of 4sXB detachment which is nearly symmetric about the radial axis
+ * For binding rates this means decreased forward biasing of binding at larger lattice spacings
+ * For powerstroke rates this means larger lattice spacings will have smaller powerstroke distances at powerstroke friendly axial offsets
+
+### Magnitude of kinetics  
+ * Paragraph Title: Probability of a crossbridge being in a bound state decreases with divergence from 34 nm d10
+ * Rest lattice spacing definition
+ * Parabolic profiles make transitions more or less likely at any axial offset at extreme lattice spacings
+ * E.g. absolute decrease in probability of binding at any offset as lattice spacing diverges
+ * E.g. absolute increase in probability of detachment at any offset as lattice spacing diverges
+ * Exception is powerstroke rate, where difference between state2 energy and state3 energy kills lattice spacing sensitivity
+
+### Forces increase with LS
+ * Paragraph Title: Forces at a given axial offset increase with lattice spacing
+ * Both axial and radial forces become more positive at a given axial offset as lattice spacing increases
+	 * For 4sXB: a 14nm offset @ 30 nm d10 gives the axial force of an 11nm axial offset @ 34 nm d10
+	 * For 2sXB: a 12nm offset @ 30 nm d10 gives the axial force of a 10nm axial offset @ 34 nm d10
+ * In addition to increasingly large forces, an offset can go from negative, to neutral, to positive as LS grows
+ * The line of zero radial force, intended to be at 34nm d10, is only located there at the rest axial offset
+	 * Thus no lattice spacing will be free of radial forces along all axial offsets
+
+### Radial Forces aren't tiny
+ * Paragraph Title: Radial forces are of the same order of magnitude as axial forces
+ * Underlines importance of inclusion in a multiple-filament model
+ * Radial force magnitude partially controllable via setting linear spring stiffness
+
+## Discussion
+
+* Paragraph description of the purpose of the study and most important results
+	* What study did (model single crossbridges)
+	* What study addressed (radial components of force generation, LS sensitivity of energy, kinetics, and forces)
+	* What study didn't try to address (non-plane movement of the head)
+
+### Lattice spacing dependence
+* Paragraph Title: Forces generated by multi-spring crossbridges depend on lattice spacing
+	* For a given crossbridge, if bound, forces are generally larger at larger lattice spacings
+	* Binding rate magnitudes decrease at extreme lattice spacings, powerstroke rates don't
+	
+* Paragraph Title: Step size varies with lattice spacing 
+	* Define step size
+
+### Radial forces
+* Paragraph Title: 
+* Radial forces are semi-balanced within the filament by ..., so axial force generated by a single crossbridge doesn't translate to total axial force as 
+* Possible: balancing radial forces with multiple filaments
+
+
+### The 2sXB and 4sXB are similar
+* Paragraph Title: The 2sXB approximates the 4sXB
+* Mention low computational requirements of 2s crossbridge
+* Energies and kinetics are very similar, by design
+* Forces, not by design, are still subject to the same general trends
+* Similarity gives hope we can use the 2sXB where we can't use the 4sXB
+
+* Lack of lattice spacing dependence of axial forces is in line with variance based on crossbridge populations
+* No longer depends on strained binding, moving towards non-ratchet
+	* 1s is rectification based as in refs 1,2 of Davis & Epstein 2009
+	* Both 2s & 4s allow a power stroke mechanism (recalc spring consts)
+* Axial forces compared to experimental data
+	* Comparison Schoenberg work (TNCG/xxCG versus xNxx/xNCx)
+	* Ask M+T what experimental work would be good to compare to
+	* Comparison to dextran LS compression and force levels? Probably not.
+* Radial forces and experimental observations of compression (Cecchi)
+	* Check magnitude of forces needed
