@@ -404,7 +404,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
         <dc:creator>
           <cc:Agent>
             <dc:title>C Dave Williams</dc:title>
@@ -1427,6 +1427,14 @@
          height="36.479008"
          x="141.28378"
          y="3178.1348" />
+      <rect
+         style="fill:none;"
+         id="rect3645"
+         width="294.29999"
+         height="188.10001"
+         x="0"
+         y="-0.022075759"
+         transform="translate(0,3052.2049)" />
     </g>
   </g>
 </svg>
