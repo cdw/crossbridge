@@ -178,7 +178,7 @@ The first model (referred to as the 4sXB model) simulates the cross-bridge as a 
 Our second model (referred to as the 2sXB model) consists of two linearly elastic springs and provides greater computational efficiency than the 4sXB model while replicating many of the more complex model's behaviors (Fig~\ref{fig_xb_types}B). 
 A prior two spring cross-bridge model was proposed by Schoenberg (1980), with the S2 arm represented as an extensional spring and the S2-S1 junction as a torsional spring \citep{Schoenberg1980a, Schoenberg1980b}. 
 Both the 4sXB model and the 2sXB model use a three-state model of cross-bridge cycling kinetics, consisting of an unbound state, a low-force pre-power stroke state, and a force-producing post-power stroke state. 
-The kinetics of transition from one state to another in our models are similar to those used previously but are generalized for use in two dimensions; our kinetics calculate transition probabilities using the free energy landscape of the cross-bridges instead of the offset of the cross-bridge head (Fig~\ref{fig_xb_types}D) \citep{Pate1989, Daniel1998, Takagi2004, Tanner2007}. 
+The kinetics of transition from one state to another in our models are similar to those used previously but are generalized for use in two dimensions; our kinetics calculate transition probabilities using the free energy landscape of the cross-bridges instead of the offset of the cross-bridge head (Figs~\ref{fig_xb_types}D and S1) \citep{Pate1989, Daniel1998, Takagi2004, Tanner2007}. 
 We compare the 4sXB and 2sXB models to a single spring model of the cross-bridge (referred to as the 1sXB model), similar to those used previously. 
 We quantify both the axial and the radial forces of our two cross-bridge models. 
 Additionally, we show how changes in lattice spacing and axial offset affect kinetics and forces in our multiple-spring models. 
@@ -211,13 +211,13 @@ The rate of detachment and the other cross-bridge kinetic rate constants remain 
 
 \paragraph{Axial offsets of most cross-bridge properties decrease as lattice spacing grows} % (fold)
 The axial offset of a cross-bridge property is the axial distance from the point where the cross-bridge attaches to the thick filament to the point where the cross-bridge property reaches an extreme value or inflection point. 
-These axial offsets are depicted in Figure~\ref{fig_kinetics_contours} where, for example, the axial offset of the 2sXB attachment rate constant at 34 nm $d_{10}$ is approximately 12 nm. 
+These axial offsets are depicted in Figures~\ref{fig_kinetics_contours} and S2 where, for example, the axial offset of the 2sXB attachment rate constant at 34 nm $d_{10}$ is approximately 12 nm. 
 As lattice spacing increases, the axial offsets of most multi-spring cross-bridge kinetic rates and free energies grows smaller.
-This relationship is shown in Figure~\ref{fig_kinetics_contours}A and B, where the axial offset of the 4sXB or 2sXB model's lowest energy point is more than 3 nm greater at a lattice spacing of 32 nm $d_{10}$ than at a lattice spacing of 38 nm $d_{10}$. 
-The positions where cross-bridges are most likely to bind shift to smaller axial offsets at larger lattice spacings, decreasing how extended a cross-bridge is likely to be upon binding (Fig~\ref{fig_kinetics_contours}C-D). 
+This relationship is shown in Figures~\ref{fig_kinetics_contours}A and B and S2 A and B, where the axial offset of the 4sXB or 2sXB model's lowest energy point is more than 3 nm greater at a lattice spacing of 32 nm $d_{10}$ than at a lattice spacing of 38 nm $d_{10}$. 
+The positions where cross-bridges are most likely to bind shift to smaller axial offsets at larger lattice spacings, decreasing how extended a cross-bridge is likely to be upon binding (Figs~\ref{fig_kinetics_contours}C-D and S2C-D). 
 % Since binding at a large axial offset is unlikely to occur at larger lattice spacings, forward biasing of binding is decreased as lattice spacing increases (Fig~\ref{fig_kinetics_contours}C-D).  %TODO: Clarify forward biasing.
-Similarly, as lattice spacing increases, decreases in the axial offset of the power stroke rate constant inflection point cause the size of the power stroke to change with lattice spacing (Fig~\ref{fig_kinetics_contours}E-F). %TODO: This would be nice to split, if possible.
-The 4sXB model's rate of detachment is the only cross-bridge property whose axial offset is predominately invariant with changes in lattice spacing (Fig~\ref{fig_kinetics_contours}G). 
+Similarly, as lattice spacing increases, decreases in the axial offset of the power stroke rate constant inflection point cause the size of the power stroke to change with lattice spacing (Figs~\ref{fig_kinetics_contours}E-F and S2E-F). %TODO: This would be nice to split, if possible.
+The 4sXB model's rate of detachment is the only cross-bridge property whose axial offset is predominately invariant with changes in lattice spacing (Figs~\ref{fig_kinetics_contours}G and S2G). 
 This exception is explained by the largely radially aligned post-power stroke orientation of $\gamma$, the 4sXB model's final spring. 
 Combined, these effects reduce the axial force a cross-bridge generates at larger lattice spacings with implications for the sarcomere length dependence of force production and relaxation. 
 These multi-spring cross-bridge models are the first to be capable of reproducing these lattice spacing dependent effects on force production and kinetics.
@@ -652,7 +652,7 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
     \caption{ \textbf{Changes in cross-bridge resting geometry with the power stroke.}
         (A)--(C) show, schematically, the change in the rest lengths and angles of the single and multi-spring cross-bridges. 
         The rest length and angle of the 2sXB's extensional and torsional springs are set, in both the pre- and post-power stroke states so as to match the tip position of the 2sXB in each condition to that of the 4sXB (in Table~\ref{parameter_table}).
-        The change in the unstressed radial distance from the thick filament to the tip of the multi-spring cross-bridges that occurs with the power stroke is particularly visible in (C) and (D) when compared to the single spring cross-bridge (A).
+        The change in the unstressed radial distance from the thick filament to the tip of the multi-spring cross-bridges that occurs with the power stroke is particularly visible in (B) and (C) when compared to the single spring cross-bridge (A).
         The effects of the universal joint attaching the springs of the 4sXB and the 2sXB to the globular domain, and the globular domain's own fixed angle to the thin filament, are shown by the continued radial orientation of the globular domain after the power stroke occurs.
         \label{fig_power_stroke_changes}
            }
