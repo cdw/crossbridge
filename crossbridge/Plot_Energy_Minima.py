@@ -28,36 +28,33 @@ def main():
     fig = plt.figure(1, figsize=(7.5,2.5)) 
     axe = (fig.add_subplot(1, 2, 1), fig.add_subplot(1, 2, 2))
     # Plot the results
-    axe[0].plot(ylocs, xb4mins[0], color='#FF466F', lw=4)
-    axe[0].plot(ylocs, xb4mins[1], color='#FF466F', lw=4)
-    axe[1].plot(ylocs, xb2mins[0], color='#76D753', lw=4)
-    axe[1].plot(ylocs, xb2mins[1], color='#76D753', lw=4)
+    axe[0].plot(ylocs, xb4mins[0], color='#FF5500', lw=4)
+    axe[0].plot(ylocs, xb4mins[1], color='#0077BB', lw=4)
+    axe[1].plot(ylocs, xb2mins[0], color='#FF5500', lw=4)
+    axe[1].plot(ylocs, xb2mins[1], color='#0077BB', lw=4)
     # Annotate the plots
+    l_size = 13
     axe[0].set_title("4sXB Energy Minima")
-    axe[0].set_xlabel("Lattice spacing (nm)") 
-    axe[0].set_ylabel("Minimum location (nm)")
-    axe[0].set_xlim((25.5, 39))
+    axe[0].set_xlabel("Lattice spacing (nm)", size=l_size) 
+    axe[0].set_ylabel("Minimum location (nm)", size=l_size)
     axe[1].set_title("2sXB Energy Minima")
-    axe[1].set_xlabel("Lattice spacing (nm)") 
-    axe[1].set_ylabel("Minimum location (nm)")
-    axe[1].set_xlim((25.5, 39))
-    # Y Axis Limists and Ticks
-    def set_y_axis(axis, tics):
+    axe[1].set_xlabel("Lattice spacing (nm)", size=l_size) 
+    axe[1].set_ylabel("Minimum location (nm)", size=l_size)
+    # Y Axis Configuration
+    for axis in axe:
+        tics = range(0, 21, 4)
         axis.set_ylim(tics[0], tics[-1])
         axis.set_yticks(tics)
-        axis.set_yticklabels(tics, size=8)
+        axis.set_yticklabels(tics, size=11)
         axis.yaxis.set_ticks_position('left')
-    set_y_axis(axe[0], range(1,9))
-    set_y_axis(axe[1], range(1,9))
-    # X Axis Ticks
-    # TODO: Left off here!
+    # X Axis Configuration
     for axis in axe:
-        tics = range(0,21,5)
-        axis.set_xlim(tics[0], tics[-1])
+        tics = range(26, 39, 2)
+        lims = (25.5, 39)
+        axis.set_xlim(lims[0], lims[-1])
         axis.set_xticks(tics)
-        axis.set_xticklabels(tics, size=8)
+        axis.set_xticklabels(tics, size=11)
         axis.xaxis.set_ticks_position('bottom')
-    set
     # Display the plots
     fig.subplots_adjust(wspace=0.25, hspace=0.48,
                         left=0.08, right=0.98,
