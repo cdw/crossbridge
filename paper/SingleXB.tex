@@ -40,18 +40,28 @@
 \renewcommand{\@biblabel}[1]{\quad#1.}
 \makeatother
 
+% Leave date blank
+\date{}
+
+% Configure headings
+\pagestyle{myheadings}
+\markright{Cross-bridge forces depend on lattice spacing} % Running title
+
+%% ** EDIT HERE **
+%% BEGIN MACROS SECTION
+\newcommand{\de}{$^\circ$} % Use `$' as \ensuremath kills latex2png
+\newcommand{\citep}[1]{\cite{#1}} % Natbib compatibility, 
+\newcommand{\citet}[1]{\cite{#1}} % as natbib is not PLoS simpatico
+%% END MACROS SECTION
+
 % End of PLoS Formatting
+% -------------------------------------------
+% Rest of preamble can be commented out without ill effect
 % -------------------------------------------
 
 
-% Necessary packages
-\usepackage{fancyhdr}
-\usepackage[utf8]{inputenc}
 
-% Bibliography formatting
-% Alternative to natbib, which is not PLoS simpatico
-\newcommand{\citep}[1]{\cite{#1}} %natbib compatibility
-\newcommand{\citet}[1]{\cite{#1}}
+% Bibliography formatting, comment out for PLoS
 %\usepackage[round,numbers,sort&compress]{natbib} 
 %\bibliographystyle{biophysj} % Requires biophysj.bst in doc dir
 %\renewcommand{\bibnumfmt}[1]{#1.} % Numbering as 1. not [1]
@@ -73,20 +83,17 @@
 %\usepackage{subfigure}
 %% Package for including code in the document
 %\usepackage{listings}
+%% Allow use of UTF input characters
+%\usepackage[utf8]{inputenc}
 %% Package for pdf output with embedded links 
 %\usepackage[colorlinks=false, bookmarks=true, pdftex]{hyperref}
 
-% Commands to make things easier and set lengths
-\newcommand{\de}{$^\circ$} % \ensuremath kills latex2png
+% Make lengths pretty
 \addtolength{\parskip}{\baselineskip}
 \setlength{\parindent}{0in}
 
 % PLoS likes the title in the main doc
-%\title{Lattice spacing and multi-dimensional forces in the cross-bridge} 
-
-% Set short title as running header
-\pagestyle{myheadings}
-\markright{Cross-bridge forces depend on lattice spacing}
+%\title{Axial and Radial Forces of Cross-bridges Depend on Lattice Spacing} 
 
 % PLoS likes author information in the main doc
 %\author{C.~David Williams\thanks{
@@ -102,13 +109,12 @@
 %        University of Washington, Seattle, Washington
 %        }
 
-\date{} % Leave date blank
 
 % header (end)
 
 \begin{document}
 
-% \maketitle{} % PLoS likes to do this manually
+% \maketitle{} % PLoS does this manually
 \begin{flushleft}
 {\Large
 \textbf{Axial and Radial Forces of Cross-bridges Depend on Lattice Spacing}
@@ -551,6 +557,7 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
 \begin{figure}[!ht]
     \begin{center}
     %\includegraphics[width=3.27in]{../imgs/fig_xb_types.pdf}
+    \end{center}
     \caption{ \textbf{Cross-bridge types and kinetic scheme.} 
         (A)--(C) The three cross-bridge models, plotted against a myosin crystal structure for comparison (structure image generated from Gourinath et al.~(2003) \protect\citep{Gourinath2003} with PyMol \protect\citep{pymol}).
         The energy landscape of each cross-bridge and the free energy at rest lattice spacing are shown adjacent to the cross-bridge schematic.
@@ -563,15 +570,15 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
         The three states represent (1) an unbound state, (2) a pre-power stroke state, and (3) a post-power stroke state. 
         The rate of transition between states $i$ and $j$ is represented as $r_{ij}$. 
         The forward and reverse transition rate constants are functions of energy stored in the cross-bridge. 
-        \label{fig_xb_types}
         }
-    \end{center}
+    \label{fig_xb_types}
 \end{figure}
 
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
     %\includegraphics[width=6.83in]{../imgs/fig_kinetics_cuts.pdf}
+    \end{center}
     \caption{ \textbf{Forces, energy, and kinetics of the 1sXB, 2sXB, and 4sXB models at resting lattice spacing.}
         (A)--(F) show the energy, transition rate constants, and forces of the 1sXB model (black), 2sXB model (green), and 4sXB model (red) at resting lattice spacing.  
         The 1sXB model values shown for comparison are derived from those of Daniel et al.~(1998) and Tanner et al.~(2007), \protect\citep{Daniel1998, Tanner2007}, shifted axially so the resting location of the cross-bridge head in each case is aligned with the resting locations of the 2sXB model and 4sXB model allowing easier comparison. 
@@ -580,15 +587,15 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
         The rate of power strokes (C) remains least changed between the single and the multi-spring cross-bridge models.  
         The energy-based kinetics of the multi-spring cross-bridges are unable to fully replicate the biased detachment rate of the 1sXB model in (D).
         (E) and (F) show the 1sXB's sharp discontinuities in axial force and lack of any radial force.
-        \label{fig_kinetics_cuts}
         }
-    \end{center}
+    \label{fig_kinetics_cuts}
 \end{figure}
 
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
     %\includegraphics[width=4.86in]{../imgs/fig_kinetics_contours.pdf}
+    \end{center}
     \caption{ \textbf{Energy and kinetics of the multi-spring cross-bridge models change with axial offset and lattice spacing.} 
         Axial offset is the distance between the current axial location of the cross-bridge tip and the location where the cross-bridge attaches to the thick filament.  
         Lattice spacing ($d_{10}$) is defined as in Millman (1998) \protect\citep{Millman1998}, with an offset to account for filament thicknesses so the cross-bridge spans the filaments at a rest lattice spacing of 34 nm. 
@@ -599,15 +606,15 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
         (E) and (F) show $r_{23}$, the probability of transition from a pre-power stroke state to a post-power stroke state, for the same cross-bridges, axes, and scales as (C) and (D) show $r_{12}$.
         (G) and (H) show $r_{31}$, the probability of unbinding from a post-power stroke state. 
         The reverse rate constants, $r_{21}$, $r_{32}$, and $r_{13}$ are back-calculated from the forward rate constants.
-        \label{fig_kinetics_contours}
         }
-    \end{center}
+    \label{fig_kinetics_contours}
 \end{figure}
 
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
     %\includegraphics[width=3.27in]{../imgs/fig_forces.pdf}
+    \end{center}
     \caption{ \textbf{Overview and detail of the forces exerted by the 2sXB and 4sXB\@ models in the post-power stroke state.}
         (A)--(D) show the post-power stroke forces exerted by the 4sXB and the 2sXB models as vector fields of reaction forces. 
         The reaction force is that necessary to retain the cross-bridge head in a given location, thus the vectors for a compressed cross-bridge orient upwards and those for an extended cross-bridge orient downwards.
@@ -615,84 +622,83 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
         (A) and (B) show overviews of the forces exerted, respectively, by the 4sXB model and the 2sXB model over lattice spacings and axial offsets that vary as in Figure 2. 
         The forces exerted by the two cross-bridges have radial components which frequently equal or exceed their axial components. 
         A more detailed view of the region surrounding the rest position of the cross-bridges is shown in (C) and (D), where the large radial components of the cross-bridge forces, particularly for the 2sXB model, is especially evident.  
-        \label{fig_forces}
         }
-    \end{center}
+    \label{fig_forces}
 \end{figure}
 
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
     %\includegraphics[width=3.27in]{../imgs/fig_force_contours.pdf}
+    \end{center}
     \caption{ \textbf{Axial and radial post-power stroke forces as separate components.}
         (A)--(D) show, separated, the axial and radial components of the forces produced by the 4sXB and the 2sXB models in the post-power stroke state.
-        \label{fig_force_contours}
-           }
-    \end{center}
+        }
+    \label{fig_force_contours}
 \end{figure}
 
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
     %\includegraphics[width=3.27in]{../imgs/fig_step_size.pdf}
+    \end{center}
     \caption{ \textbf{Changes in step size with lattice spacing.}
         Step size varies as lattice spacing diverges from its rest value.
         Step size is defined as the change in the rest axial offset between the pre- and post-power stroke states. 
         The step size of the 4sXB model and 2sXB model produce different absolute step sizes as lattice spacing change.
         However, both models exhibit a local maximum step size at a specific lattice spacing with a decreasing step size as lattice spacing diverges from that point.
-        \label{fig_step_size}
            }
-    \end{center}
+    \label{fig_step_size}
 \end{figure}
 
 %\clearpage
 \begin{figure}[!ht]
     \begin{center}
     %\includegraphics[width=3.27in]{../imgs/fig_power_stroke_changes.pdf}
+    \end{center}
     \caption{ \textbf{Changes in cross-bridge resting geometry with the power stroke.}
         (A)--(C) show, schematically, the change in the rest lengths and angles of the single and multi-spring cross-bridges. 
         The rest length and angle of the 2sXB's extensional and torsional springs are set, in both the pre- and post-power stroke states so as to match the tip position of the 2sXB in each condition to that of the 4sXB (in Table~\ref{parameter_table}).
         The change in the unstressed radial distance from the thick filament to the tip of the multi-spring cross-bridges that occurs with the power stroke is particularly visible in (B) and (C) when compared to the single spring cross-bridge (A).
         The effects of the universal joint attaching the springs of the 4sXB and the 2sXB to the globular domain, and the globular domain's own fixed angle to the thin filament, are shown by the continued radial orientation of the globular domain after the power stroke occurs.
-        \label{fig_power_stroke_changes}
-           }
-    \end{center}
+        }
+    \label{fig_power_stroke_changes}
 \end{figure}
 
 %\clearpage
 %\begin{figure}[!ht]
 %    \begin{center}
 %    \includegraphics[width=6.83in]{../imgs/fig_simulation_process.pdf}
+%    \end{center}
 %    \caption{ \textbf{SUPPLEMENTAL (COMMENT OUT BEFORE UPLOADING): Model simulation protocol}
 %        The model simulation process, as described throughout the paper, is displayed as a state diagram. 
 %        Entering the diagram at ``Start'', the states and actions which change those states are depicted for a single cross-bridge. 
-%        \label{fig_simulation_process}
-%           }
-%    \end{center}
+%        }
+%    \label{fig_simulation_process}
 %\end{figure}
 
 %\clearpage
 %\begin{figure}[!ht]
 %    \begin{center}
 %    \includegraphics[width=4.86in]{../imgs/fig_multiple_kinetics_cuts.pdf}
+%    \end{center}
 %    \caption{ \textbf{SUPPLEMENTAL (COMMENT OUT BEFORE UPLOADING): Cross-bridge free energy and kinetics at multiple lattice spacings}
 %        (A)--(B) show the free energies of the 4sXB and the 2sXB models at lattice spacings between 30 and 38 nm. 
 %        (C)--(H) show the kinetic rate constants of the 4sXB and the 2sXB models at lattice spacings between 30 and 38 nm.
 %        Each rate is a section taken from the corresponding display in Figure \ref{fig_kinetics_contours}.
-%        \label{fig_multiple_kinetics_cuts}
-%           }
-%    \end{center}
+%        }
+%    \label{fig_multiple_kinetics_cuts}
 %\end{figure}
 
 %\clearpage
 %\begin{figure}[!ht]
 %    \begin{center}
 %    \includegraphics[width=4.86in]{../imgs/CoverFigureLattice.png}
+%    \end{center}
 %    \caption{ \textbf{PROPOSED COVER FIGURE (COMMENT OUT BEFORE UPLOADING)}
 %        Myofilament lattice with multi-dimensional energy profile of a single myosin head.
-%        \label{fig_cover_figure}
-%           }
-%    \end{center}
+%        }
+%    \label{fig_cover_figure}
 %\end{figure}
 % section figure_legends (end)
 
@@ -700,6 +706,7 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
 \section*{Tables} % (fold)
 
 \begin{table}[ht]
+    \caption{\textbf{Model parameters and their sources}}
     \begin{center}
     \begin{tabular}[t]{|c|c|c|c|c|} \hline
     %\multicolumn{4}{|l|}{\textbf{4sXB}} \\ 
@@ -720,9 +727,8 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
     1sXB  & $k$       & 5 nm       & 5 pN/rad   & \citet{Tanner2007} \\ \hline
           & $k'$      & 0 nm       & 5 pN/rad   & \citet{Tanner2007} \\ \hline
     \end{tabular}
-    \caption{ 
-	    \label{parameter_table}
-	    \textbf{Model parameters and their sources} 
+    \end{center}
+    \begin{flushleft}
 	    Prime values, such as $\delta'$, represent post-power stroke state values. 
 	    From Liu et al.~(2006) \citep{Liu2006}, which used insect flight muscle, the most frequently occurring thick filament to S2 angle range is 51-60\de. 
 	    We assume that this range is being distorted by the compressive radial force being generated by the rigor cross-bridges in the swollen lattice spacings that Liu et al.~used. 
@@ -734,8 +740,8 @@ The remaining forward transition rate constants, $r_{23}$ and $r_{31}$, are calc
 	    The spring constant, $k$, for the angular spring responsible for each cross-bridge's power stroke is determined by the change in angle over the power stroke and the energy liberated by the hydrolysis of ATP \citep{Tanner2007}. 
 	    Additional spring constants are chosen to be consistent with previous work, and to provide sufficient flexibility to enable diffusion. 
         The parameters of the single spring cross-bridge, used for comparison, are taken from \citep{Tanner2007}.
-    }
-    \end{center}
+    \end{flushleft}
+	\label{parameter_table}
 \end{table}
 
 % section tables (end)
