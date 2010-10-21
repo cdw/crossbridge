@@ -15,7 +15,7 @@
    height="212.59842"
    id="svg2"
    sodipodi:version="0.32"
-   inkscape:version="0.47 r22583"
+   inkscape:version="0.48.0 r9654"
    version="1.0"
    sodipodi:docname="fig_power_stroke_changes.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
@@ -43,10 +43,10 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="3.2744579"
-     inkscape:cx="147.04724"
+     inkscape:cx="110.09456"
      inkscape:cy="106.29921"
      inkscape:document-units="cm"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer5"
      showgrid="false"
      units="cm"
      inkscape:window-width="1050"
@@ -83,7 +83,7 @@
      inkscape:label="Background"
      transform="translate(0,-192.40089)"
      sodipodi:insensitive="true"
-     style="display:none">
+     style="display:inline">
     <rect
        style="fill:#ffffff;fill-opacity:1;stroke:none"
        id="rect3384"
@@ -104,13 +104,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         style="display:inline"
-         y="92.601791"
-         x="87.962837"
-         id="image5333"
-         height="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
          width="47.095367"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
+         height="47.095367"
+         id="image5333"
+         x="87.962837"
+         y="92.601791"
+         style="display:inline" />
       <path
          id="path2780"
          d="M 49.217415,122.74976 19.172418,111.76947"
@@ -122,13 +122,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         style="display:inline"
-         y="61.797951"
-         x="170.18552"
-         id="image3562"
-         height="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
          width="47.095367"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
+         height="47.095367"
+         id="image3562"
+         x="170.18552"
+         y="61.797951"
+         style="display:inline" />
       <path
          inkscape:label="#path3564"
          id="2sXB_S2"
@@ -141,13 +141,13 @@
       <image
          sodipodi:absref="/Users/dave/code/singlexb/imgs/./1QVI.png"
          xlink:href="./1QVI.png"
-         style="display:inline"
-         y="30.994123"
-         x="252.40819"
-         id="image3568"
-         height="47.095367"
+         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)"
          width="47.095367"
-         transform="matrix(0.9364402,0.3508272,-0.3508272,0.9364402,0,0)" />
+         height="47.095367"
+         id="image3568"
+         x="252.40819"
+         y="30.994123"
+         style="display:inline" />
       <path
          inkscape:label="#path3570"
          id="4sXB_S2"
@@ -261,26 +261,27 @@
        sodipodi:nodetypes="cc" />
     <text
        xml:space="preserve"
-       style="font-size:7.9999752px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
-       x="152.41714"
-       y="187.07167"
+       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="151.76503"
+       y="187.95891"
        id="text4962"
        transform="matrix(0.93972564,0.34192941,-0.34192941,0.93972564,0,0)"><tspan
          sodipodi:role="line"
          id="tspan4964"
-         x="152.41714"
-         y="187.07167"
-         style="font-size:6px">S2</tspan></text>
+         x="151.76503"
+         y="187.95891"
+         style="font-size:8px">S2</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:7px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
-       x="85.142937"
-       y="219.7243"
+       x="82.699783"
+       y="219.41891"
        id="text4966"><tspan
          sodipodi:role="line"
          id="tspan4968"
-         x="85.142937"
-         y="219.7243">Thick Filament</tspan></text>
+         x="82.699783"
+         y="219.41891"
+         style="font-size:9px">Thick Filament</tspan></text>
     <g
        id="g13561"
        transform="translate(200,-108)">
@@ -344,18 +345,19 @@
     <text
        id="text3171"
        y="265.7243"
-       x="72.241837"
-       style="font-size:6px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
+       x="72.852623"
+       style="font-size:8px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;fill:#000000;fill-opacity:1;stroke:none;font-family:Helvetica Neue;-inkscape-font-specification:Helvetica Neue"
        xml:space="preserve"><tspan
          y="265.7243"
-         x="72.241837"
+         x="72.852623"
          id="tspan3173"
          sodipodi:role="line"
-         style="font-size:7px;text-align:center;text-anchor:middle">M-line</tspan></text>
+         style="font-size:8px;text-align:center;text-anchor:middle">M-line</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:1.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 82.89565,267.76343 -21.48082,0"
-       id="path105" />
+       d="m 84.963641,267.76343 -23.479043,0"
+       id="path105"
+       inkscape:connector-curvature="0" />
     <path
        sodipodi:type="star"
        style="fill:#000000;fill-opacity:1;stroke:none"
@@ -370,7 +372,7 @@
        inkscape:flatsided="false"
        inkscape:rounded="0"
        inkscape:randomized="0"
-       d="m 21.71239,176.6119 -2.193588,-1.26647 -2.193588,-1.26647 2.193588,-1.26646 2.193588,-1.26647 0,2.53293 0,2.53294 z"
+       d="m 21.71239,176.6119 -2.193588,-1.26647 -2.193588,-1.26647 2.193588,-1.26646 2.193588,-1.26647 0,2.53293 z"
        transform="matrix(0.95505334,0,0,0.94004033,40.64068,104.12218)" />
     <path
        sodipodi:nodetypes="cc"
